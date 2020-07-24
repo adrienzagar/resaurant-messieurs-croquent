@@ -14,12 +14,12 @@ const enhancers = composeEnhancers(
   ),
 );
 
-// == Store
+//! == Store
 const store = createStore(
   rootReducer,
-  // preloadedState,
+  //? preloadedState,
   enhancers,
 );
 
-// == Export
+//! == Export
 export default store;
