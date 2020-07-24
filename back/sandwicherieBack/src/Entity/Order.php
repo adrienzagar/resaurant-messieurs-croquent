@@ -45,6 +45,12 @@ class Order
      */
     private $createdAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $orderBy;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -127,6 +133,18 @@ class Order
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getOrderBy(): ?User
+    {
+        return $this->orderBy;
+    }
+
+    public function setOrderBy(?User $orderBy): self
+    {
+        $this->orderBy = $orderBy;
 
         return $this;
     }
