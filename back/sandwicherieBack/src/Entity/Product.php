@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +44,16 @@ class Product
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="products")
+     */
+    private $quantity;
+
+    public function __construct()
+    {
+        $this->quantity = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -104,6 +116,32 @@ class Product
     public function setCategory(?CategoryProduct $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getQuantity(): Collection
+    {
+        return $this->quantity;
+    }
+
+    public function addQuantity(Order $quantity): self
+    {
+        if (!$this->quantity->contains($quantity)) {
+            $this->quantity[] = $quantity;
+        }
+
+        return $this;
+    }
+
+    public function removeQuantity(Order $quantity): self
+    {
+        if ($this->quantity->contains($quantity)) {
+            $this->quantity->removeElement($quantity);
+        }
 
         return $this;
     }
