@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 //! == Import : local
 import App from './components/App';
-import store from 'src/store';
+import store from './store';
 import './styles/index.scss';
 
 ReactDOM.render(

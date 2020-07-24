@@ -1,5 +1,5 @@
 //! == Import : npm
-import axios from 'axios';
+// import axios from 'axios';
 
 //! == Import : local (actions)
 
@@ -12,4 +12,4 @@ const testMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default testsMiddleware;
+export default testMiddleware;
