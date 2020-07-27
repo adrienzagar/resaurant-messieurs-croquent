@@ -35,7 +35,7 @@ class User
     private $email;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="integer")
      */
     private $phoneNumber;
 
