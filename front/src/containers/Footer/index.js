@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Footer from '../../components/Footer';
 
 const mapStateToProps = (state) => ({
-  socialnetworks: state.footer.socialnetworks,
+  socialnetworksData: state.footer.socialnetworksData,
 });
 
 const mapDispatchToProps = () => ({
