@@ -1,6 +1,7 @@
 @use 'sass:color';
 
 $color-primary: #0E0E0E;
+$color-secondary: #FFF;
 $color-alt: color.scale($color-primary, $lightness: 80%);
 
 // MEDIA QUERIES
