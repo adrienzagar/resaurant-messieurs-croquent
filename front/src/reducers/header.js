@@ -1,29 +1,31 @@
 //! == Import : local (actions)
+import socialnetworksData from '../assets/data/socialnetworks';
 
 //! == Initial state
 export const initialState = {
     links: [
         {
            id: 1,
-           link: 'Accueil',
+           name: 'Accueil',
            path: '/'
         },
         {
             id: 2,
-            link: 'Menu',
+            name: 'Menu',
             path: '/menu'
          },
          {
             id: 3,
-            link: 'Commander',
+            name: 'Commander',
             path: '/commander'
          },
          {
             id: 4,
-            link: 'Nous trouver',
+            name: 'Nous trouver',
             path: '/nous-trouver'
          },
     ],
+    socialnetworks: socialnetworksData,
     isActive: false,
 };
 

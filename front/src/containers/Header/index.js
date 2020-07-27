@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 
 const mapStateToProps = (state) => ({
     links: state.header.links,
+    socialnetworks: state.header.socialnetworks,
     isActive: state.header.isActive,
 });
 

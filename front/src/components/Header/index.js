@@ -8,13 +8,15 @@ import Burger from '../Burger';
 import './styles.scss';
 
 //! == Composant ==
-const Header = ({ links, isActive }) => (
+const Header = ({ links, socialnetworks, isActive }) => (
     <header className="header">
         <Navbar 
             links={links}
+            socialnetworks={socialnetworks}
         />
         <Burger
             links={links}
+            socialnetworks={socialnetworks}
             isActive={isActive}
         />
     </header>
@@ -22,6 +24,7 @@ const Header = ({ links, isActive }) => (
 
 Header.propTypes = {
     links: PropTypes.array.isRequired,
+    socialnetworks: PropTypes.array.isRequired,
     isActive: PropTypes.bool.isRequired,
 };
 

@@ -1,0 +1,8 @@
+@use '../../styles/vars';
+@import '../../styles/vars';
+
+.burger {
+    @include m767() {
+    display: none;
+    }
+}

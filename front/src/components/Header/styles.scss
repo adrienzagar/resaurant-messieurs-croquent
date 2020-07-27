@@ -1,0 +1,7 @@
+@use '../../styles/vars';
+@import '../../styles/vars';
+
+.header {
+    height: 10vh;
+    background: vars.$color-primary;
+}
