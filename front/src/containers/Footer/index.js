@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import Footer from '../../components/Footer/index';
+import Footer from '../../components/Footer';
 
 const mapStateToProps = (state) => ({
-  socialntworks: state.footer.socialntworks,
+  socialnetworks: state.footer.socialnetworks,
 });
 
 const mapDispatchToProps = () => ({

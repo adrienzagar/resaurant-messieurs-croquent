@@ -21,15 +21,12 @@ return(
             </div>
             <div className="footer__socialnetwork">
             <ul>
-                <li>
-                    <a href="" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
+                {socialnetworks.map((link) => (
+                    
+                <li key={link.id}>
+                    <a href={link.path} target="_blank" rel="noopener noreferrer"><i className={link.icon}></i></a>
                 </li>
-                <li>
-                    <a href="https://www.instagram.com/messieurscroquent/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.tripadvisor.fr/Restaurant_Review-g187079-d12474378-Reviews-Messieurs_Croquent-Bordeaux_Gironde_Nouvelle_Aquitaine.html" target="_blank" rel="noopener noreferrer"><i className="fab fa-tripadvisor"></i></a>
-                </li>
+                ))}
              </ul>
             </div>
         </div>
@@ -38,6 +35,12 @@ return(
 }
 
 Footer.propTypes = {
-    socialnetworks: PropTypes.array.isRequired,
-};
+    socialnetworks: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            path: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired,
+        }).isRequired
+    ).isRequired
+}
 export default Footer;
