@@ -17,31 +17,31 @@ class Product
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"products_get" })
+     * @Groups({"products_get" ,"products_get_one" })
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Groups({"products_get"})
+     * @Groups({"products_get","products_get_one"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"products_get"})
+     * @Groups({"products_get" , "products_get_one"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"products_get"})
+     * @Groups({"products_get","products_get_one"})
      */
     private $picture;
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"products_get"})
+     * @Groups({"products_get" ,"products_get_one"})
      */
     private $price;
 
