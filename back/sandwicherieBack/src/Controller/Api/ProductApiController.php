@@ -45,7 +45,7 @@ class ProductApiController extends AbstractController
     /**
      * Add Product
      * 
-     * @Route("/api/products", methods={"POST"})
+     * @Route("/api/products", name="api_products_post", methods={"POST"})
      */
     public function add(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager)
     {
@@ -87,18 +87,12 @@ class ProductApiController extends AbstractController
      */
     public function put(Product $product = null, EntityManagerInterface $em, SerializerInterface $serializer, Request $request)
     {
-        // 1. On souhaite modifier le film dont l'id est transmis via l'URL
-
-        // 404 ?
+      
         if ($product === null) {
             // On retourne un message JSON + un statut 404
             return $this->json(['error' => 'Produit non trouvé.'], Response::HTTP_NOT_FOUND);
         }
 
-        // 2. On va devoir associer les données JSON reçues sur l'entité existante
-        // On désérialise les données reçues depuis le front ($request->getContent())... 
-        // ... dans l'objet Movie à modifier
-        // @see https://symfony.com/doc/current/components/serializer.html#deserializing-in-an-existing-object
         $updatedData = $serializer->deserialize($request->getContent(), Product::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $product]);
 
         $em->flush();
@@ -113,7 +107,7 @@ class ProductApiController extends AbstractController
      */
     public function delete(Product $product = null, EntityManagerInterface $em)
     {
-        // 404 ?
+     
         if ($product === null) {
             // On retourne un message JSON + un statut 404
             return $this->json(['error' => 'Produit non trouvé.'], Response::HTTP_NOT_FOUND);
