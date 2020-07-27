@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Header from '../../components/Header';
+import { toggleButton } from '../../actions';
 
 const mapStateToProps = (state) => ({
     links: state.header.links,
@@ -10,6 +11,11 @@ const mapStateToProps = (state) => ({
     isActive: state.header.isActive,
 });
 
-const mapDispatchToProps = (dispatch) => {};
+const mapDispatchToProps = (dispatch) => ({
+    toggleButton: () => {
+        const action = toggleButton();
+        dispatch(action);
+      },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,5 +1,6 @@
 //! == Import : local (actions)
 import socialnetworksData from '../assets/data/socialnetworks';
+import { TOGGLE_BUTTON } from '../actions';
 
 //! == Initial state
 export const initialState = {
@@ -31,7 +32,15 @@ export const initialState = {
 
 //! == Actions to modified state
 const header = (state = initialState, action = {}) => {
-    return state;
+   switch (action.type) {
+      case TOGGLE_BUTTON:
+         return {
+         ...state,
+         isActive: !state.isActive,
+         };
+      default:
+         return state;
+   }
 };
 
 export default header;

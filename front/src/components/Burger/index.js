@@ -1,20 +1,62 @@
 //! == Import : npm ==
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { HamburgerSpin } from 'react-animated-burgers';
 
 //! == Import : local ==
+import brand from '../../assets/images/logo-brand.png';
 import './styles.scss';
 
 //! == Composant ==
-const Burger = ({ links, isActive }) => {
+const Burger = ({ links, socialnetworks ,isActive, toggleButton }) => {
     console.log(links);
     console.log(isActive);
     return (
-        <nav className="burger">
-            <img src="" alt="" className="burger__brand"/>
-            <ul className="burger__links">
-            </ul>
-        </nav>
+        <>
+            <nav className="burger">
+                <NavLink
+                    to="/"
+                    exact
+                >
+                    <img className="burger__brand" src={brand} alt="brand"/>
+                </NavLink>
+                <HamburgerSpin
+                    isActive={isActive}
+                    toggleButton={toggleButton}
+                    buttonColor="transparent"
+                    barColor="white"
+                />
+            </nav>
+            <div className={ isActive === false ? 'burger__toggle--close' : 'burger__toggle--open'}>
+                <ul className="burger__links">
+                {links.map((link) => (
+                    <NavLink
+                        key={link.id}
+                        to={link.path}
+                        className="burger__link"
+                        activeClassName="burger__link--selected"
+                        exact
+                    >
+                        {link.name}
+                    </NavLink>
+                ))}
+                </ul>   
+                <ul className="burger__socialnetworks">
+                    {socialnetworks.map((socialnetwork) => (
+                        <li className="burger__socialnetwork" key={socialnetwork.id}>
+                            <a 
+                                href={socialnetwork.path} 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i className={socialnetwork.icon}></i>
+                            </a>
+                        </li>
+                    ))}
+                </ul>   
+            </div>
+        </>
     );
 };
 

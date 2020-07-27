@@ -8,7 +8,7 @@ import Burger from '../Burger';
 import './styles.scss';
 
 //! == Composant ==
-const Header = ({ links, socialnetworks, isActive }) => (
+const Header = ({ links, socialnetworks, isActive, toggleButton }) => (
     <header className="header">
         <Navbar 
             links={links}
@@ -18,6 +18,7 @@ const Header = ({ links, socialnetworks, isActive }) => (
             links={links}
             socialnetworks={socialnetworks}
             isActive={isActive}
+            toggleButton={toggleButton}
         />
     </header>
 );
