@@ -28,7 +28,6 @@
         }
     
         &__socialnetwork {
-
             & ul {
                 display: flex;
                 align-items: center;
@@ -43,7 +42,7 @@
                     height: 3.5rem;
                     width: 3.5rem;
                     border-radius: 50%;
-                    padding: 5rem;
+                    margin: 1rem 1rem;
                 &:hover {
                     color: $color-primary;
                     background-color: $color-secondary ;
