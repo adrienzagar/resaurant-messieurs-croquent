@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 //! == Import : local ==
-import Navbar from '../Navbar';
-import Burger from '../Burger';
+import Navbar from '../Header/Navbar';
+import Burger from '../Header/Burger';
 import './styles.scss';
 
 //! == Composant ==

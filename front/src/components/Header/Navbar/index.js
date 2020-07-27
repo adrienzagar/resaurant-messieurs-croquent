@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 //! == Import : local ==
-import brand from '../../assets/images/logo-brand.png';
+import brand from '../../../assets/images/logo-brand.png';
 import './styles.scss';
 
 //! == Composant ==

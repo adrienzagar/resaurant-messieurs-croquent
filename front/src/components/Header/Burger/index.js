@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { HamburgerSpin } from 'react-animated-burgers';
 
 //! == Import : local ==
-import brand from '../../assets/images/logo-brand.png';
+import brand from '../../../assets/images/logo-brand.png';
 import './styles.scss';
 
 //! == Composant ==
@@ -36,6 +36,7 @@ const Burger = ({ links, socialnetworks ,isActive, toggleButton }) => {
                         to={link.path}
                         className="burger__link"
                         activeClassName="burger__link--selected"
+                        onClick={toggleButton}
                         exact
                     >
                         {link.name}
