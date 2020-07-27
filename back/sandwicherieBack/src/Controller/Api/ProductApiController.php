@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductApiController extends AbstractController
@@ -56,7 +57,6 @@ class ProductApiController extends AbstractController
         // On déserialise notre JSON en entité Doctrine
         $product = $serializer->deserialize($content, Product::class, 'json');
 
-        dd($product);
 
         // Valider l'entité avec le service Validator
         $errors = $validator->validate($product);
@@ -77,6 +77,33 @@ class ProductApiController extends AbstractController
 
         // Rediriger vers l'URL de la ressource avec un statut 201
         return $this->redirectToRoute('api_products_get_one', ['id' => $product->getId()], Response::HTTP_CREATED);
+    }
+
+    /**
+     * Edit Product (PUT)
+     * 
+     * @Route("/api/products/{id<\d+>}", name="api_products_put", methods={"PUT"})
+     * @Route("/api/products/{id<\d+>}", name="api_products_patch", methods={"PATCH"})
+     */
+    public function put(Product $product = null, EntityManagerInterface $em, SerializerInterface $serializer, Request $request)
+    {
+        // 1. On souhaite modifier le film dont l'id est transmis via l'URL
+
+        // 404 ?
+        if ($product === null) {
+            // On retourne un message JSON + un statut 404
+            return $this->json(['error' => 'Film non trouvé.'], Response::HTTP_NOT_FOUND);
+        }
+
+        // 2. On va devoir associer les données JSON reçues sur l'entité existante
+        // On désérialise les données reçues depuis le front ($request->getContent())... 
+        // ... dans l'objet Movie à modifier
+        // @see https://symfony.com/doc/current/components/serializer.html#deserializing-in-an-existing-object
+        $updatedData = $serializer->deserialize($request->getContent(), Product::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $product]);
+
+        $em->flush();
+
+        return $this->json(['message' => 'Produit modifié.'], Response::HTTP_OK);
     }
 
     /** 

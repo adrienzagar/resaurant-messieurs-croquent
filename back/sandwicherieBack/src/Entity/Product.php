@@ -47,7 +47,7 @@ class Product
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products", cascade={"all"})
      * @ORM\JoinColumn(nullable=false)
      * @Groups({"products_get", "products_get_one" , "categories_get"})
      */

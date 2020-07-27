@@ -3,9 +3,14 @@
 namespace App\Controller\Api;
 
 use App\Entity\CategoryProduct;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\CategoryProductRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CategoryProductApiController extends AbstractController
@@ -36,4 +41,26 @@ class CategoryProductApiController extends AbstractController
 
         return  $this->json($categories, 200, [], ["groups" => "categories_get_one"]);
     }
+
+    
+
+    /** 
+     * Delete category
+     * 
+     * @Route("/api/categories/{id<\d+>}", name="api_categories_delete", methods={"DELETE"})
+     */
+    public function delete(CategoryProduct $category = null, EntityManagerInterface $em)
+    {
+        // 404 ?
+        if ($category === null) {
+            // On retourne un message JSON + un statut 404
+            return $this->json(['error' => 'Catégorie non trouvé.'], Response::HTTP_NOT_FOUND);
+        }
+
+        $em->remove($category);
+        $em->flush();
+
+        return $this->json(['message' => 'Catégorie supprimée.'], Response::HTTP_OK);
+    }
+
 }
