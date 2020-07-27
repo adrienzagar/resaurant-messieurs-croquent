@@ -20,9 +20,11 @@
     &__toggle--open {
         background: vars.$color-primary;
         height: 90vh;
+        width: 100vw;
         color: #FFF;
         display: flex;
         flex-direction: column;
+        position: absolute;
         @include m767 () {
             display: none;
         }
