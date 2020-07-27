@@ -4,8 +4,13 @@ namespace App\Controller\Api;
 
 use App\Entity\Product;
 use App\Repository\ProductRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductApiController extends AbstractController
 {
@@ -16,23 +21,81 @@ class ProductApiController extends AbstractController
     {
         $products = $productRepository->findAll();
 
-        
-        return  $this->json($products, 200 ,[] , ["groups"=>"products_get"]);
 
-        
+        return  $this->json($products, 200, [], ["groups" => "products_get"]);
     }
 
     /**
      * @Route("/api/products/{id}", name="api_products_get_one", methods={"GET"})
      */
-    public function getOne($id, ProductRepository $productRepository)
+    public function getOne(Product $product = null, $id, ProductRepository $productRepository)
     {
+        // 404 ?
+        if ($product === null) {
+            // On retourne un message JSON + un statut 404
+            return $this->json(['error' => 'Produit non trouvé.'], Response::HTTP_NOT_FOUND);
+        }
         $products = $productRepository->find($id);
 
-        
-        return  $this->json($products, 200 ,[] , ["groups"=>"products_get_one"]);
+
+        return  $this->json($products, 200, [], ["groups" => "products_get_one"]);
+    }
+
+    /**
+     * Add Product
+     * 
+     * @Route("/api/products", methods={"POST"})
+     */
+    public function add(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager)
+    {
+        // Le JSON est dans le contenu de la requête
+        $content = $request->getContent();
 
         
+
+        // On déserialise notre JSON en entité Doctrine
+        $product = $serializer->deserialize($content, Product::class, 'json');
+
+        dd($product);
+
+        // Valider l'entité avec le service Validator
+        $errors = $validator->validate($product);
+
+        if (count($errors) > 0) {
+            $errorsArray = [];
+            foreach ($errors as $error) {
+                $errorsArray[$error->getPropertyPath()][] = $error->getMessage();
+            }
+
+            return $this->json($errorsArray, Response::HTTP_UNPROCESSABLE_ENTITY);
+
+        }
+
+        // Flusher via le manager
+        $entityManager->persist($product);
+        $entityManager->flush();
+
+        // Rediriger vers l'URL de la ressource avec un statut 201
+        return $this->redirectToRoute('api_products_get_one', ['id' => $product->getId()], Response::HTTP_CREATED);
+    }
+
+    /** 
+     * Delete product
+     * 
+     * @Route("/api/products/{id<\d+>}", name="api_products_delete", methods={"DELETE"})
+     */
+    public function delete(Product $product = null, EntityManagerInterface $em)
+    {
+        // 404 ?
+        if ($product === null) {
+            // On retourne un message JSON + un statut 404
+            return $this->json(['error' => 'Produit non trouvé.'], Response::HTTP_NOT_FOUND);
+        }
+
+        $em->remove($product);
+        $em->flush();
+
+        return $this->json(['message' => 'Produit supprimé.'], Response::HTTP_OK);
     }
 
 }

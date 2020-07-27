@@ -45,10 +45,11 @@ class Product
      */
     private $price;
 
+
     /**
      * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"products_get"})
+     * @Groups({"products_get", "products_get_one" , "categories_get"})
      */
     private $category;
 
