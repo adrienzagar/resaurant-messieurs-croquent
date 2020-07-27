@@ -1,6 +1,9 @@
+//! == Import : npm
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+//! == Import : local
+import logo from '../../logo.svg';
+import './styles.scss';
 
 function App() {
   return (
