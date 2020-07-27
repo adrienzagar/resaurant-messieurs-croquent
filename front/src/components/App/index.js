@@ -4,16 +4,15 @@ import React from 'react';
 
 
 import './styles.scss';
-import FindUs from './Find-us';
-import SimpleMap from './Find-us';
 import Card from '../card/card';
+import MapCard from '../mapCard';
 
 
 
 function App() {
   return (
     <div>
-   <Card />
+   <MapCard />
     </div>
   );
 }
