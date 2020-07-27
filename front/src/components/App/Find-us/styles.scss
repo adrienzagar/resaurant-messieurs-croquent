@@ -1,0 +1,20 @@
+.body{
+    display: flex;
+    flex-direction: column;
+};
+
+.card{
+    width: 18rem;
+    height: 18rem;
+    width: 80%;
+    margin:auto;
+    text-align: center;
+    padding: 10px;
+}
+img{
+    width: 18rem;
+}
+p{
+    padding-top: 10 vh;
+    margin: 100px;
+}
