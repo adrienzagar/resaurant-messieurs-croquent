@@ -92,7 +92,7 @@ class ProductApiController extends AbstractController
         // 404 ?
         if ($product === null) {
             // On retourne un message JSON + un statut 404
-            return $this->json(['error' => 'Film non trouvé.'], Response::HTTP_NOT_FOUND);
+            return $this->json(['error' => 'Produit non trouvé.'], Response::HTTP_NOT_FOUND);
         }
 
         // 2. On va devoir associer les données JSON reçues sur l'entité existante

@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryProductApiController extends AbstractController
 {
     /**
-     * @Route("/api/categories/", name="api_categories_get", methods="GET")
+     * @Route("/api/categories", name="api_categories_get", methods="GET")
      */
     public function getAll(CategoryProductRepository $categoryProductRepository)
     {
@@ -42,7 +42,69 @@ class CategoryProductApiController extends AbstractController
         return  $this->json($categories, 200, [], ["groups" => "categories_get_one"]);
     }
 
-    
+    /**
+     * Add Category
+     * 
+     * @Route("/api/categories", methods={"POST"})
+     */
+    public function add(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager)
+    {
+        // Le JSON est dans le contenu de la requête
+        $content = $request->getContent();
+
+        
+
+        // On déserialise notre JSON en entité Doctrine
+        $category = $serializer->deserialize($content, CategoryProduct::class, 'json');
+
+
+        // Valider l'entité avec le service Validator
+        $errors = $validator->validate($category);
+
+        if (count($errors) > 0) {
+            $errorsArray = [];
+            foreach ($errors as $error) {
+                $errorsArray[$error->getPropertyPath()][] = $error->getMessage();
+            }
+
+            return $this->json($errorsArray, Response::HTTP_UNPROCESSABLE_ENTITY);
+
+        }
+
+        // Flusher via le manager
+        $entityManager->persist($category);
+        $entityManager->flush();
+
+        // Rediriger vers l'URL de la ressource avec un statut 201
+        return $this->redirectToRoute('api_products_get_one', ['id' => $category->getId()], Response::HTTP_CREATED);
+    }
+
+    /**
+     * Edit Product (PUT)
+     * 
+     * @Route("/api/categories/{id<\d+>}", name="api_categories_put", methods={"PUT"})
+     * @Route("/api/categories/{id<\d+>}", name="api_categories_patch", methods={"PATCH"})
+     */
+    public function put(CategoryProduct $category = null, EntityManagerInterface $em, SerializerInterface $serializer, Request $request)
+    {
+        // 1. On souhaite modifier le film dont l'id est transmis via l'URL
+
+        // 404 ?
+        if ($category === null) {
+            // On retourne un message JSON + un statut 404
+            return $this->json(['error' => 'Catégorie non trouvée.'], Response::HTTP_NOT_FOUND);
+        }
+
+        // 2. On va devoir associer les données JSON reçues sur l'entité existante
+        // On désérialise les données reçues depuis le front ($request->getContent())... 
+        // ... dans l'objet Movie à modifier
+        // @see https://symfony.com/doc/current/components/serializer.html#deserializing-in-an-existing-object
+        $updatedData = $serializer->deserialize($request->getContent(), CategoryProduct::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $category]);
+
+        $em->flush();
+
+        return $this->json(['message' => 'Catégorie modifiée.'], Response::HTTP_OK);
+    }
 
     /** 
      * Delete category
