@@ -28,20 +28,21 @@
         }
     
         &__socialnetwork {
-
             & ul {
                 display: flex;
-                width: 264px;
-                margin-top: 2rem;
-                justify-content: space-between;
-        
-                & li {
-                font-size: 2rem;
-                border-radius: 50%;
-                padding: .5rem .5rem;
-                transition: .3s;
-                cursor: pointer;
+                align-items: center;
+                height: 20%;
+                justify-content: space-around;
                 
+                & li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 3rem;
+                    height: 3.5rem;
+                    width: 3.5rem;
+                    border-radius: 50%;
+                    margin: 1rem 1rem;
                 &:hover {
                     color: $color-primary;
                     background-color: $color-secondary ;
