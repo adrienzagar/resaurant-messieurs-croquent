@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const Footer = ({ socialnetworks }) => {
-    console.log(socialnetworks);
+const Footer = ({ socialnetworksData }) => {
+    console.log(socialnetworksData);
 return(
   <footer className="footer">
         <div className="footer__container">
@@ -21,7 +21,7 @@ return(
             </div>
             <div className="footer__socialnetwork">
             <ul>
-                {socialnetworks.map((link) => (
+                {socialnetworksData.map((link) => (
                     
                 <li key={link.id}>
                     <a href={link.path} target="_blank" rel="noopener noreferrer"><i className={link.icon}></i></a>
