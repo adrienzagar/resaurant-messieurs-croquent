@@ -1,0 +1,8 @@
+@import 'src/styles/vars';
+
+.footer {
+    background: $color-primary;
+    &__container {
+        color: $color-secondary;
+    }
+}
