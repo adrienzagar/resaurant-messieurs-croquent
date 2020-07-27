@@ -6,6 +6,7 @@ use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -16,32 +17,39 @@ class Product
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"products_get" ,"products_get_one" })
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups({"products_get","products_get_one"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"products_get" , "products_get_one"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"products_get","products_get_one"})
      */
     private $picture;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"products_get" ,"products_get_one"})
      */
     private $price;
 
+
     /**
-     * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products")
+     * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products", cascade={"all"})
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"products_get", "products_get_one" , "categories_get"})
      */
     private $category;
 
