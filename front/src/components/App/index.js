@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 //! == Import : local
 import Header from '../../containers/Header';
 import Command from '../../containers/Command';
-import Footer from '../../containers/Footer'
+import Footer from '../../containers/Footer';
 import './styles.scss';
 
 function App() {
