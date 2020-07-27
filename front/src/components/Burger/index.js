@@ -67,6 +67,7 @@ Burger.propTypes = {
         }).isRequired,
     ).isRequired,
     isActive: PropTypes.bool.isRequired,
+    toggleButton: PropTypes.func.isRequired,
 };
 
 //! == Export ==

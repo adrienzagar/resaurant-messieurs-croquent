@@ -27,6 +27,7 @@ Header.propTypes = {
     links: PropTypes.array.isRequired,
     socialnetworks: PropTypes.array.isRequired,
     isActive: PropTypes.bool.isRequired,
+    toggleButton: PropTypes.func.isRequired,
 };
 
 //! == Export ==
