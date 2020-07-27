@@ -66,18 +66,18 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `category_id`) VALUES
-(1,	'MONSIEUR CROQUE',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P',	NULL,	7,	1),
-(2,	'LE TRANSFORMISTE',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier',	NULL,	8,	1),
-(3,	'MONSIEUR SEGUIN',	'Fromage frais, fromage de chèvre A.O.P, compotée d’oignons\r\nmaison, poire fraîche, noix, miel',	NULL,	8,	1),
-(4,	'COQ MONSIEUR',	'Poulet label rouge, béchamel maison, coulis de tomate maison,\r\nfromage Abondance A.O.P, compotée d’oignons maison',	NULL,	8,	1),
-(5,	'MONSIEUR CONFIT',	'Confit de canard du sud-ouest, compotée d’oignons maison,\r\npoire fraîche, fromage Ossau-Iraty A.O.P',	NULL,	8,	1),
-(6,	'CROQUE MYSTÈRE',	'Coque du moment, voir avec le chef',	NULL,	9,	1),
-(7,	'FRITES',	NULL,	NULL,	3,	2),
-(8,	'SALADE',	NULL,	NULL,	3,	2),
-(9,	'LEGUMES',	NULL,	NULL,	3,	2),
-(10,	'COLESLAW',	NULL,	NULL,	3,	2),
-(11,	'MADAME TARTE',	'Tarte du jour',	NULL,	4,	3),
-(12,	'FROMAGE BLANC',	'Coulis: fraise, poire, miel,\r\ncrème de marrons',	NULL,	4,	3),
+(1,	'Monsieur Croque',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P',	NULL,	7,	1),
+(2,	'Le Transformiste',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier',	NULL,	8,	1),
+(3,	'Monsieur Seguin',	'Fromage frais, fromage de chèvre A.O.P, compotée d’oignons\r\nmaison, poire fraîche, noix, miel',	NULL,	8,	1),
+(4,	'Coq Monsieur',	'Poulet label rouge, béchamel maison, coulis de tomate maison,\r\nfromage Abondance A.O.P, compotée d’oignons maison',	NULL,	8,	1),
+(5,	'Monsieur Confit',	'Confit de canard du sud-ouest, compotée d’oignons maison,\r\npoire fraîche, fromage Ossau-Iraty A.O.P',	NULL,	8,	1),
+(6,	'Croque Mystère',	'Coque du moment, voir avec le chef',	NULL,	9,	1),
+(7,	'Frites',	NULL,	NULL,	3,	2),
+(8,	'Salade',	NULL,	NULL,	3,	2),
+(9,	'Légumes',	NULL,	NULL,	3,	2),
+(10,	'Coleslaw',	NULL,	NULL,	3,	2),
+(11,	'Madame Tarte',	'Tarte du jour',	NULL,	4,	3),
+(12,	'Fromage Blanc',	'Coulis: fraise, poire, miel,\r\ncrème de marrons',	NULL,	4,	3),
 (13,	'Coca Cola',	'33 cl.',	NULL,	2,	4),
 (14,	'Coca Cola light',	'33 cl.',	NULL,	2,	4),
 (15,	'Fuzetea',	'33 cl.',	NULL,	2,	4),
@@ -87,7 +87,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `categor
 (19,	'Minute maid Fruits Rouges',	'33 cl.',	NULL,	2,	4),
 (20,	'Abatilles',	'50 cl.',	NULL,	1.9,	4),
 (21,	'Abatilles pétillante',	'50 cl.',	NULL,	1.9,	4),
-(22,	'Limonade MIRA',	'25 cl. \r\nBoisson Artisanale',	NULL,	3.5,	4),
+(22,	'Limonade Mira',	'25 cl. \r\nBoisson Artisanale',	NULL,	3.5,	4),
 (23,	'Ginger Beer',	'25 cl. \r\nBoisson Artisanale',	NULL,	3.5,	4),
 (24,	'Mira',	'Bière Bouteille 33 cl.',	NULL,	3.7,	4),
 (25,	'Pip',	'Bière Bouteille 33 cl.',	NULL,	3.7,	4),
@@ -122,5 +122,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2020-07-24 12:30:18
-
+-- 2020-07-27 08:24:58
