@@ -2,8 +2,9 @@
 import { combineReducers } from 'redux';
 
 //! == Import : local
-import test from './test';
+import footer from './footer';
+
 
 export default combineReducers({
-  test,
+  footer,
 });

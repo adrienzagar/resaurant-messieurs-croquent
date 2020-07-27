@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const Footer = () => (
+const Footer = ({ socialnetworks }) => {
+    console.log(socialnetworks);
+return(
   <footer className="footer">
         <div className="footer__container">
             <div className="footer__schedule">
@@ -16,11 +19,10 @@ const Footer = () => (
                 <p className="footer__infos">25 Cours Pasteur,</p>
                 <p className="footer__infos">33000 BORDEAUX</p>
             </div>
-
             <div className="footer__socialnetwork">
             <ul>
                 <li>
-                    <a href="https://fr-fr.facebook.com/Messieurscroquent/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
+                    <a href="" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
                 </li>
                 <li>
                     <a href="https://www.instagram.com/messieurscroquent/" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
@@ -33,4 +35,9 @@ const Footer = () => (
         </div>
   </footer>
 );
+}
+
+Footer.propTypes = {
+    socialnetworks: PropTypes.array.isRequired,
+};
 export default Footer;

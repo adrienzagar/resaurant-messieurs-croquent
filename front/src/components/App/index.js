@@ -2,7 +2,7 @@
 import React from 'react';
 
 //! == Import : local
-import Footer from '../Footer/index'
+import Footer from '../../containers/Footer'
 
 function App() {
   return (
