@@ -1,8 +1,59 @@
 @import 'src/styles/vars';
 
 .footer {
-    background: $color-primary;
-    &__container {
-        color: $color-secondary;
+    @include m767{
+        background: $color-primary;
+        padding: 2rem;
+        box-shadow: 0 0 30px 10px $color-primary;
+        &__container {
+            color: $color-secondary;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__schedule {
+            margin: 1rem;
+        }
+        &__phone {
+            margin: 1rem;
+        }
+        &__adresse {
+            margin: 1rem;
+        }
+        &__infos {
+            padding: .2rem 0;
+            text-align: center;
+        }
     }
 }
+
+    .footer {
+        background: $color-primary;
+        padding: 2rem;
+        box-shadow: 0 0 30px 10px $color-primary;
+        &__container {
+            color: $color-secondary;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__schedule {
+            margin: 1rem;
+        }
+        &__phone {
+            margin: 1rem;
+        }
+        &__adresse {
+            margin: 1rem;
+        }
+        &__infos {
+            padding: .2rem 0;
+            text-align: center;
+        }
+    }
+
+
