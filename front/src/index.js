@@ -11,13 +11,13 @@ import store from './store';
 import './styles/index.scss';
 
 ReactDOM.render(
-  <Router>
-    <Provider store={store}>
+  <Provider store={store}>
+    <Router>
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </Provider>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 

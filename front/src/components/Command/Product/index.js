@@ -10,7 +10,14 @@ const Product = ({ products }) => {
     console.log(products);
     return (
         <div className="product">
-
+            {products.map((product) => (
+                <ul key={product.id}>
+                    <li>{product.name}</li>
+                    <li>{product.description}</li>
+                    <li>{product.price}€</li>
+                    <li></li>
+                </ul>
+            ))}
         </div>
     );
 };
