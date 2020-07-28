@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -16,6 +17,7 @@ class User
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("order_get")
      */
     private $id;
 
@@ -45,7 +47,7 @@ class User
     private $role;
 
     /**
-     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="orderBy", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="orderBy", orphanRemoval=true, cascade={"all"})
      */
     private $orders;
 

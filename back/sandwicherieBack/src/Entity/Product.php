@@ -17,13 +17,13 @@ class Product
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"products_get" ,"products_get_one" })
+     * @Groups({"products_get" ,"products_get_one", "order_get" })
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Groups({"products_get","products_get_one"})
+     * @Groups({"products_get","products_get_one", "order_get"})
      */
     private $name;
 
@@ -41,7 +41,7 @@ class Product
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"products_get" ,"products_get_one"})
+     * @Groups({"products_get" ,"products_get_one", "order_get"})
      */
     private $price;
 
@@ -54,7 +54,7 @@ class Product
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="products")
+     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="products", cascade={"all"})
      */
     private $quantity;
 
