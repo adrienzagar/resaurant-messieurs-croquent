@@ -17,8 +17,11 @@ const Find_Us = () => {
     </div>
     <div className={'global'}>
    <HowToCome />
+   </div>
+   <div className={'global'}>
    <Reservation />
    </div>
+   
     </div>
   );
 }

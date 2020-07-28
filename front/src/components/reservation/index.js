@@ -5,10 +5,10 @@ import './styles.scss'
 
 const Reservation = () => {
     return ( <div className={Container ,'container'}>
-        <Card style={{maxWidth:'1200px', width: '90%', marginTop: 10+'px', minHeight:160 }}>
+        <Card >
     <Card.Body>
-        <Row className={'title_card'}>
-       <p>Un evenement  a organiser ?</p> 
+        <Row className={'title_card' }>
+       <h3>Un événement  a organiser ?</h3> 
        <p> Privatiser le restaurant ?</p>
        <p>Contactez nous.....</p>
         
