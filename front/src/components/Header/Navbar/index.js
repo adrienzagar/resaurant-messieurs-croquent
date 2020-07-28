@@ -9,7 +9,6 @@ import './styles.scss';
 
 //! == Composant ==
 const Navbar = ({ links, socialnetworks }) => {
-    console.log(socialnetworks);
     return (
         <nav className="navbar">
             <NavLink

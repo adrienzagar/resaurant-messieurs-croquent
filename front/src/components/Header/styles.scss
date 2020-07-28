@@ -4,4 +4,5 @@
 .header {
     height: 10vh;
     background: vars.$color-primary;
+    box-shadow: 0 0 10px 3px vars.$color-primary;
 }

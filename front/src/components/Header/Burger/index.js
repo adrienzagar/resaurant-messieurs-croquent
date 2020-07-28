@@ -10,8 +10,6 @@ import './styles.scss';
 
 //! == Composant ==
 const Burger = ({ links, socialnetworks ,isActive, toggleButton }) => {
-    console.log(links);
-    console.log(isActive);
     return (
         <>
             <nav className="burger">
