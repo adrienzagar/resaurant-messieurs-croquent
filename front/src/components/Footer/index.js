@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const Footer = ({ socialnetworksData }) => {
-    console.log(socialnetworksData);
+const Footer = ({ socialnetworks }) => {
 return(
   <footer className="footer">
         <div className="footer__container">
