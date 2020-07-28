@@ -6,9 +6,11 @@ import './styles.scss' ;
 
 const CardComponent = () => {
     return (
+        <div className={'container'}>
+        
         <Card style={{maxWidth:'570px', width: '90%', marginTop: 10+'px', minHeight:360 }}>
             <Card.Body>
-                <Row className={'title_card'}>MONSIEURS CROQUENT</Row>
+                <Row className={'title_card'}><h2>MONSIEURS CROQUENT</h2></Row>
                 <Row className={'margins'}>
                     <Col xs={'1'} sm={'1'} md={'1'}>
                         <MDBIcon className={'icon'} icon="map-marker-alt" />
@@ -42,6 +44,7 @@ const CardComponent = () => {
     </Row>
   </Card.Body>
 </Card>
+</div>
     )
 } 
 export default CardComponent ;

@@ -5,5 +5,7 @@
     width: 90%;
 }
 .global{
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
