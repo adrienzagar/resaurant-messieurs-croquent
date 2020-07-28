@@ -3,14 +3,16 @@ import { createStore, compose, applyMiddleware } from 'redux';
 
 //! == Import : local
 import rootReducer from '../reducers';
-import testMiddleware from '../middlewares/testMiddleware';
+// import testMiddleware from '../middlewares/testMiddleware';
+import products from '../middlewares/products';
 
 //! == Enhancers
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
   applyMiddleware(
-    testMiddleware,
+    // testMiddleware,
+    products
   ),
 );
 

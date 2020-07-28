@@ -1,15 +1,14 @@
 //! == Import : npm
-// import axios from 'axios';
+import axios from 'axios';
 
 //! == Import : local (actions)
 
-//! == Utils Axios for recupered JSON via API
+//! == Utils Axios to get JSON via API
 const testMiddleware = (store) => (next) => (action) => {
-  switch (action.type) {
-    default:
+  console.log(store.getState());
+  console.log('Je laisse passer cette action: ', action);
       next(action);
-      break;
+
   }
-};
 
 export default testMiddleware;

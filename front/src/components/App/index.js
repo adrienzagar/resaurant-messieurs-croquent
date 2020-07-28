@@ -1,5 +1,5 @@
 //! == Import : npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 
 //! == Import : local
@@ -8,7 +8,13 @@ import Command from '../../containers/Command';
 import Footer from '../../containers/Footer';
 import './styles.scss';
 
-function App() {
+const App = ({ getProducts }) => {
+  
+  useEffect(() => {
+    console.log(getProducts())
+    getProducts();
+  })
+
   return (
     <div className="app">
       <Header />
