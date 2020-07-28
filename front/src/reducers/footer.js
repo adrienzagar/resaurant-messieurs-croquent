@@ -8,7 +8,6 @@ export const initialState = {
 
 //! == Actions to modified state
 const footer = (state = initialState, action = {}) => {
-    console.log(state);
     return state;
 };
 
