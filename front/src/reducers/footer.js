@@ -1,6 +1,6 @@
 //! == Import : local (actions)
+import socialnetworks from '../assets/data/socialnetworks';
 
-import socialnetworksData from '../assets/data/socialnetworks';
 //! == Initial state
 export const initialState = {
     socialnetworks: socialnetworks,
