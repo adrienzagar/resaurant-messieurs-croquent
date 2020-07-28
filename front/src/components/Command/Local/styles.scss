@@ -1,8 +1,8 @@
-@use '../../../styles/vars';
+// @use '../../../styles/vars';
 @import '../../../styles/vars';
 
 .local {
-    background: vars.$color-primary;
+    background: $color-primary;
     height: 45vh;
     display: flex;
     flex-direction: column;
@@ -25,12 +25,12 @@
         border: 1px solid #FFF;
         &:hover {
             background: #FFF;
-            color: vars.$color-primary;
+            color: $color-primary;
             border: 1px solid transparent;
         }
     }
 }
 
 #bigTriangleShadow {
-    fill: vars.$color-primary;
+    fill: $color-primary;
 }

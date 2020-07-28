@@ -1,4 +1,4 @@
-@use '../../../styles/vars';
+// @use '../../../styles/vars';
 @import '../../../styles/vars';
 
 .navbar {
@@ -56,7 +56,7 @@
             width: 2rem;
             border-radius: 50%;
             &:hover {
-                color: vars.$color-primary;
+                color: $color-primary;
                 background: #FFF;
             }
         }

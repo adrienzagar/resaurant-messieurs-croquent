@@ -1,4 +1,4 @@
-@use '../../../styles/vars';
+// @use '../../../styles/vars';
 @import '../../../styles/vars';
 
 .burger {
@@ -18,7 +18,7 @@
         display: none;
     }
     &__toggle--open {
-        background: vars.$color-primary;
+        background: $color-primary;
         height: 90vh;
         width: 100vw;
         color: #FFF;
@@ -63,7 +63,7 @@
         width: 3.5rem;
         border-radius: 50%;
         &:hover {
-            color: vars.$color-primary;
+            color: $color-primary;
             background: #FFF;
         }
     }

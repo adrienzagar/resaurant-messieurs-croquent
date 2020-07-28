@@ -1,4 +1,4 @@
-@use '../../../styles/vars';
+// @use '../../../styles/vars';
 @import '../../../styles/vars';
 
 .delivery {
@@ -32,11 +32,11 @@
             padding: 2rem;
             margin-top: 0;
         }
-        border: 5px solid vars.$color-primary;
+        border: 5px solid $color-primary;
         padding: 1rem;
         width: 40%;
         display: flex;
-        border: 5px solid vars.$color-primary;
+        border: 5px solid $color-primary;
         border-radius: .5rem;
         margin: 1rem auto;
     }

@@ -1,8 +1,8 @@
-@use '../../styles/vars';
+// @use '../../styles/vars';
 @import '../../styles/vars';
 
 .header {
     height: 10vh;
-    background: vars.$color-primary;
-    box-shadow: 0 0 10px 3px vars.$color-primary;
+    background: $color-primary;
+    box-shadow: 0 0 10px 3px $color-primary;
 }
