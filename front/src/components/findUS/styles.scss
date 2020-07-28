@@ -1,0 +1,17 @@
+.Container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 2rem;
+}
+.global{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 3rem;padding-top: 5rem;
+}
+.evenement{
+    background-color: gray;
+    margin-bottom: 3rem;
+}
