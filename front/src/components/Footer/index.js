@@ -20,7 +20,7 @@ return(
             </div>
             <div className="footer__socialnetwork">
             <ul>
-                {socialnetworksData.map((link) => (
+                {socialnetworks.map((link) => (
                     
                 <li key={link.id}>
                     <a href={link.path} target="_blank" rel="noopener noreferrer"><i className={link.icon}></i></a>
