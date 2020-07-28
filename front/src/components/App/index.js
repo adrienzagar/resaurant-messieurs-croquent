@@ -4,7 +4,8 @@ import { Route } from 'react-router-dom';
 
 //! == Import : local
 import Header from '../../containers/Header';
-import Command from '../../containers/Command';
+import Footer from '../../containers/Footer'
+import Command from '../../containers/Command'
 import './styles.scss';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Command />
       </Route>
 
+      <Footer />
     </div>
   );
 }
