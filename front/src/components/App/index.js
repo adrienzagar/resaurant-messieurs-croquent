@@ -8,17 +8,14 @@ import Command from '../../containers/Command';
 import Footer from '../../containers/Footer';
 import './styles.scss';
 
-function App() {
-  return (
-    <div className="app">
-      <Header />
-        <Route exact path="/commander">
-          <Command />
-        </Route>
-      <Footer />
-
-    </div>
-  );
-}
+const App = () => (
+  <div className="app">
+    <Header />
+      <Route exact path="/commander">
+        <Command />
+      </Route>
+    <Footer />
+  </div>
+);
 
 export default App;

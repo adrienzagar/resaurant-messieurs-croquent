@@ -3696,6 +3696,9 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
     ms "2.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 681cf9837e2d452ca98c269c5e37806db19e7f3d
 debug@=3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
@@ -3703,8 +3706,11 @@ debug@=3.1.0:
   dependencies:
     ms "2.0.0"
 
+<<<<<<< HEAD
 debug@^3.0.0, debug@^3.1.1, debug@^3.2.5:
 =======
+=======
+>>>>>>> 681cf9837e2d452ca98c269c5e37806db19e7f3d
 debug@^3.1.1, debug@^3.2.5:
 >>>>>>> 85c867f1fbc348c0874038e144c7e72435cca538
   version "3.2.6"
