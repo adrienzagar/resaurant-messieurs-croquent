@@ -1,8 +1,8 @@
-import React from 'react'
-import {Card, Row, Col} from 'react-bootstrap'
+import React from 'react' ;
+import { Card, Row, Col } from 'react-bootstrap';
 import { MDBIcon } from 'mdbreact';
 
-import './styles.scss'
+import './styles.scss' ;
 
 const CardComponent = () => {
     return (
@@ -24,7 +24,7 @@ const CardComponent = () => {
                     </Col>
                     <Col>05 57 30 91 39</Col>
                 </Row>
-                <Row className={'spacing'}>
+                <Row className={'margins'}>
                 <Col xs={'1'} sm={'1'} md={'1'}>
                     <MDBIcon className={'icon'} icon="envelope" />
                 </Col>
@@ -44,4 +44,4 @@ const CardComponent = () => {
 </Card>
     )
 } 
-export default CardComponent
+export default CardComponent ;

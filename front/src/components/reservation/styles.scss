@@ -1,0 +1,25 @@
+@use '../../styles/vars';
+@use 'sass:color';
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Lato:wght@300;400;700;900&display=swap');
+
+
+
+.container{
+    display: flex;
+    justify-content: space-around;
+
+}
+.icon{
+    padding: 2%;
+}
+.title_card{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.margins{
+    margin: 1rem;
+}
+

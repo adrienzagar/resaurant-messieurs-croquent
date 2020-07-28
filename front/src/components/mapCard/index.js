@@ -1,5 +1,6 @@
-import React from 'react'
-import {Card} from 'react-bootstrap'
+import React from 'react';
+import {Card} from 'react-bootstrap';
+
 const MapCard = () => {
         return(
             <div style={{width:'100%', alignContent:'center',alignItems:'center'}}>
@@ -11,4 +12,4 @@ const MapCard = () => {
 }
 
 
-export default MapCard
+export default MapCard ;
