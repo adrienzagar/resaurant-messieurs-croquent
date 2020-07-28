@@ -51,12 +51,12 @@ class OrderApiController extends AbstractController
     {
         // Le JSON est dans le contenu de la requête
         $content = $request->getContent();
-
-        
+       
         // On déserialise notre JSON en entité Doctrine
-        $order = $serializer->deserialize($content, Order::class, "json" ,[AbstractNormalizer::OBJECT_TO_POPULATE => $content]);
         
-        dd($order);
+        $order = $serializer->deserialize($content, Order::class, 'json');
+        //$order = $serializer->deserialize($content, Order::class. '[]', 'json'); si recuperation d'un tableau
+        
 
         // Valider l'entité avec le service Validator
         $errors = $validator->validate($order);

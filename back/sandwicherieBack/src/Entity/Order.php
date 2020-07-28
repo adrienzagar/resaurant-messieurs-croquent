@@ -42,7 +42,7 @@ class Order
     private $price;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="quantity")
+     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="quantity", cascade={"all"})
      * @Groups({"order_get" , "order_get_one"})
      */
     private $products;
@@ -54,7 +54,7 @@ class Order
     private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders", cascade={"all"})
      * @ORM\JoinColumn(nullable=false)
      * @Groups({"order_get" , "order_get_one"})
      */
