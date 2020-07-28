@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 //! == Import : local
-import App from './containers/App';
+import App from './components/App';
 import store from './store';
 import './styles/index.scss';
 
