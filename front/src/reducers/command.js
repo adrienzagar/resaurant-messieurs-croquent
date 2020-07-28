@@ -1,4 +1,5 @@
 //! == Import : local (actions)
+import { SAVE_PRODUCT } from '../actions/product';
 
 //! == Initial state
 export const initialState = {
@@ -18,11 +19,20 @@ export const initialState = {
             fade: 'fade-left'
          },
     ],
+    listProduct: [],
 };
 
 //! == Actions to modified state
-const header = (state = initialState, action = {}) => {
-    return state;
+const command = (state = initialState, action = {}) => {
+    switch (action.type) {
+        case SAVE_PRODUCT:
+          return {
+            ...state,
+            listProduct: action.product,
+          };
+        default:
+            return state;
+    }
 };
 
-export default header;
+export default command;

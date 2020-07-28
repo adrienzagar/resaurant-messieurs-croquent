@@ -6,6 +6,7 @@ import Command from '../../components/Command';
 
 const mapStateToProps = (state) => ({
     links: state.command.links,
+    products: state.command.listProduct,
 });
 
 const mapDispatchToProps = (dispatch) => {};
