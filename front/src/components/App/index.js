@@ -11,6 +11,7 @@ import './styles.scss';
 const App = ({ getProducts }) => {
   
   useEffect(() => {
+    console.log(getProducts())
     getProducts();
   })
 

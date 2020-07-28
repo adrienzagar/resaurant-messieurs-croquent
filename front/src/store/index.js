@@ -3,7 +3,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 
 //! == Import : local
 import rootReducer from '../reducers';
-import testMiddleware from '../middlewares/testMiddleware';
+// import testMiddleware from '../middlewares/testMiddleware';
 import products from '../middlewares/products';
 
 //! == Enhancers
