@@ -6,6 +6,8 @@ use App\Repository\OrderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
@@ -17,37 +19,44 @@ class Order
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="smallint")
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $status;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $comment;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $price;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="quantity")
+     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="quantity", cascade={"all"})
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $products;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders", cascade={"all"})
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $orderBy;
 
