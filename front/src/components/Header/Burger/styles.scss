@@ -1,0 +1,70 @@
+@use '../../../styles/vars';
+@import '../../../styles/vars';
+
+.burger {
+    @include m767() {
+    display: none;
+    }
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+
+    &__brand {
+        height: 5rem;
+        margin-left: 1rem;
+    }
+    &__toggle--close {
+        display: none;
+    }
+    &__toggle--open {
+        background: vars.$color-primary;
+        height: 90vh;
+        width: 100vw;
+        color: #FFF;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 1000;
+        @include m767 () {
+            display: none;
+        }
+    }
+    &__links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 80%;
+        font-size: 1.3rem;
+    }
+    &__link {
+        padding-bottom: .5rem;
+        &--selected {
+            border-bottom: 2px solid #FFF;
+        }
+        &:hover {
+            border-bottom: 2px solid #FFF;
+        }
+    }
+
+    &__socialnetworks {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 20%;
+    }
+    &__socialnetwork .fab {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        height: 3.5rem;
+        width: 3.5rem;
+        border-radius: 50%;
+        &:hover {
+            color: vars.$color-primary;
+            background: #FFF;
+        }
+    }
+}
