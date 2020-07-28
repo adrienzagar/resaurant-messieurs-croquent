@@ -17,7 +17,7 @@ const Delivery = ({ links }) => {
             </p>
             <div className="delivery__links">
                 {links.map((link) => (
-                    <a href={link.path} className="delivery__link" data-aos={link.fade}>
+                    <a href={link.path} key={link.id} className="delivery__link" data-aos={link.fade}>
                         <img src={link.src} alt={link.name} className="delivery__image"/>
                     </a>
                 ))}
