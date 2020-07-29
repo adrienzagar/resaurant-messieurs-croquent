@@ -1,7 +1,6 @@
 //! == Import : npm ==
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-// import PropTypes from 'prop-types';
 
 //! == Import : local ==
 import carousel1 from '../../../assets/images/carousel/carousel1.jpg';
@@ -24,8 +23,6 @@ const HomeCarousel = () => (
         </div>
     </Carousel>
 );
-
-// HomeCarousel.propTypes = {};
 
 //! == Export ==
 export default HomeCarousel;
