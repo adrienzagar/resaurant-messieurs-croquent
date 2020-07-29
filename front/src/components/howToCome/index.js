@@ -4,8 +4,9 @@ import { MDBIcon } from 'mdbreact';
 
 import './styles.scss' ;
 
-const HowToCome = () => (
-    <div className={'container'}>
+const HowToCome = () => {
+    return (
+        <div className={'container'}>
         <Card style={{maxWidth:'1200px', width: '90%', marginTop: 10+'px', minHeight:160 }}>
             <Card.Body className={ 'reserve'}>
                 <Row className={'title_card'}><h3 className={'color'}>Venir en transport en commun</h3></Row>
@@ -14,12 +15,12 @@ const HowToCome = () => (
                         <MDBIcon className={'icon'} icon="bus-alt" />
                     </Col>
                     <Col className={'color'}>        
-                        Ligne B - Arret  Musée d'Aquitaine .
+                    Ligne B - Arret  Musée d'Aquitaine .
                     </Col>
                 </Row>
-            </Card.Body>
-        </Card>
-    </div>
-);
-
+  </Card.Body>
+</Card>
+</div>
+    )
+} 
 export default HowToCome ;
