@@ -9,7 +9,7 @@ import './styles.scss';
 //! == Composant ==
 const Product = ({ products, categories }) => {
     console.log(products);
-    // console.log(categories);
+    console.log(categories);
     return (
         <div className="product">
             <h1 className="product__category">Croque monsieur</h1>
@@ -21,7 +21,7 @@ const Product = ({ products, categories }) => {
                 <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
                 <p className="product__price">8€</p>
                 <button className="product__add">
-                <i class="fa fa-plus" aria-hidden="true"></i>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
             ))}

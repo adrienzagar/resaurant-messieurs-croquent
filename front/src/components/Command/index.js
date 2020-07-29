@@ -13,6 +13,7 @@ const Command = ({ getProduct, getCategories, links, products, categories }) => 
     useEffect(() => {
         // console.log(getProduct)
         getProduct();
+        getCategories();
     }, []);
     return(
         <main className="command">
