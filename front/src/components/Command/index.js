@@ -1,5 +1,5 @@
 //! == Import : npm ==
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 //! == Import : local ==
@@ -9,13 +9,18 @@ import Product from '../Command/Product';
 import './styles.scss';
 
 //! == Composant ==
-const Command = ({ links, products }) => (
-    <main className="command">
-        <Delivery links={links} />
-        <Local />
-        <Product products={products} />
-    </main>
-);
+const Command = ({ getProduct, links, products }) => {
+    useEffect(() => {
+        // console.log(getProduct)
+        getProduct();
+    }, [])
+    return(
+        <main className="command">
+            <Delivery links={links} />
+            <Local />
+            <Product products={products} />
+        </main>
+);}
 
 Command.propTypes = {
     links: PropTypes.array.isRequired,
