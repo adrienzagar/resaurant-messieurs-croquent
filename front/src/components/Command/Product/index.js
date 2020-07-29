@@ -17,7 +17,7 @@ const Product = ({ products }) => {
                 <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
                 <p className="product__price">8€</p>
                 <button className="product__add">
-                <i class="fa fa-plus" aria-hidden="true"></i>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
             <div className="product__container">
@@ -26,7 +26,7 @@ const Product = ({ products }) => {
                 <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
                 <p className="product__price">8€</p>
                 <button className="product__add">
-                <i class="fa fa-plus" aria-hidden="true"></i>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
             <div className="product__container">
@@ -35,7 +35,7 @@ const Product = ({ products }) => {
                 <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
                 <p className="product__price">8€</p>
                 <button className="product__add">
-                <i class="fa fa-plus" aria-hidden="true"></i>
+                    <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
 
