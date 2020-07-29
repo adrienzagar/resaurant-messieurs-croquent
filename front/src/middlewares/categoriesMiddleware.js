@@ -10,7 +10,7 @@ const categoriesMiddleware = (store) => (next) => (action) => {
     case GET_CATEGORIES:
       axios.get('http://localhost:8000/api/categories')
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           store.dispatch(saveCategories(response.data));
         })
         .catch((error) => {

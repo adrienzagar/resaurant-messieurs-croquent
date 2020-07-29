@@ -14,10 +14,10 @@ const Command = ({ getProduct, getCategories, links, products, categories }) => 
         // console.log(getProduct)
         getProduct();
     }, [])
-    useEffect(() => {
-        // console.log(getProduct)
-        getCategories();
-    }, [])
+    // useEffect(() => {
+    //     // console.log(getProduct)
+    //     getCategories();
+    // }, [])
 
     return(
         <main className="command">

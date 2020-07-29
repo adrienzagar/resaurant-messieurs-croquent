@@ -3,18 +3,19 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 //! == Import : local ==
+import Title from './'
 import './styles.scss';
 
 //! == Composant ==
 const Product = ({ products, categories }) => {
     console.log(products);
-    console.log(categories);
+    // console.log(categories);
     return (
         <div className="product">
             <h1 className="product__category">Croque monsieur</h1>
             {products.map((product) => (
             
-            <div className="product__container">
+            <div className="product__container" key={product.id}>
                 <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg"></img>
                 <p className="product__dish">{product.name}</p>
                 <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
