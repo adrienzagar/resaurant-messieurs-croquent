@@ -1,2 +1,15 @@
 @use '../../../styles/vars';
 @import '../../../styles/vars';
+
+.carousel {
+    @include m767 () {
+        height : 90vh;
+    }
+    height: 30vh;
+    &__container {
+        height: 100%;
+    }
+    &__image {
+        max-width: 100%;
+    }
+}
