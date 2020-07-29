@@ -3,7 +3,7 @@
 
 .presentation {
     @include m767 () {
-        margin: 3rem auto;
+        margin: 4rem auto;
     }
     max-width: 800px;
     margin-top: 7rem;
@@ -17,9 +17,11 @@
     }
     &__container {
         @include m767 () {
-            display: flex;
             justify-content: space-between;
+            flex-direction: row;
         }
+        display: flex;
+        flex-direction: column;
     }
     &__text {
         @include m767 () {
@@ -33,33 +35,10 @@
         @include m767 () {
             width: 30%;
         }
-        width: 100%;
-        max-width: 100%;
+        width: 70%;
+        margin: 0 auto;
         border-radius: .5rem;
         border: 5px solid vars.$color-primary;
         box-shadow: 0 0 5px 1px vars.$color-primary;
     }
 }
-
-// @media (max-width: 650px) {
-//     .home {
-//         &__presentation {
-//             margin: 2rem 0;
-//         }
-//         &__container {
-//             display: block;
-//         }
-//         &__title {
-//             padding-top: 4rem;
-//             margin-bottom: 0;
-//         }
-//         &__description {
-//             width: 100%;
-//         }
-//         &__image {
-//             margin-top: 2rem;
-//             width: 100%;
-//             max-width: 100%;
-//         }
-//     }
-// }
