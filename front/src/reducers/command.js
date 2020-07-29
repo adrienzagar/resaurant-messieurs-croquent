@@ -1,5 +1,6 @@
 //! == Import : local (actions)
 import { SAVE_PRODUCT } from '../actions/product';
+import { SAVE_CATEGORIES } from '../actions/categories';
 
 //! == Initial state
 export const initialState = {
@@ -30,9 +31,15 @@ const command = (state = initialState, action = {}) => {
             ...state,
             listProduct: action.product,
           };
+        case SAVE_CATEGORIES:
+          return {
+            ...state,
+            listCategories: action.categories,
+          };
         default:
             return state;
     }
+    
 };
 
 export default command;

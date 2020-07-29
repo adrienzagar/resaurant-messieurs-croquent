@@ -6,39 +6,24 @@ import React from 'react';
 import './styles.scss';
 
 //! == Composant ==
-const Product = ({ products }) => {
-    // console.log(products);
+const Product = ({ products, categories }) => {
+    console.log(products);
+    console.log(categories);
     return (
         <div className="product">
             <h1 className="product__category">Croque monsieur</h1>
+            {products.map((product) => (
+            
             <div className="product__container">
                 <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg"></img>
-                <p className="product__dish">Le transformiste</p>
+                <p className="product__dish">{product.name}</p>
                 <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
                 <p className="product__price">8€</p>
                 <button className="product__add">
                 <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
-            <div className="product__container">
-                <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg"></img>
-                <p className="product__dish">Le transformiste</p>
-                <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
-                <p className="product__price">8€</p>
-                <button className="product__add">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
-            </div>
-            <div className="product__container">
-                <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg"></img>
-                <p className="product__dish">Le transformiste</p>
-                <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
-                <p className="product__price">8€</p>
-                <button className="product__add">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
-            </div>
-
+            ))}
         </div>
     );
 };
