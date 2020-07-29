@@ -29,6 +29,12 @@
         border: solid 5px vars.$color-primary;
         border-radius: .5rem;
     }
+    &__description {
+        margin-bottom: 1.2rem;
+    }
+    &__price {
+        margin-bottom: 1.2rem;
+    }
     &__add {
         border: none;
         height: 2.5rem;
