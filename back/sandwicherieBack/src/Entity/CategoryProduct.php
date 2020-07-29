@@ -19,18 +19,18 @@ class CategoryProduct
      * @ORM\Column(type="integer")
      * @Groups({"products_get","products_get_one", "categories_get", "categories_get_one"})
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Groups({"products_get","products_get_one", "categories_get", "categories_get_one"})
      */
-    private $name;
+    protected $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category", orphanRemoval=true, cascade={"all"})
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category", orphanRemoval=true)
      */
-    private $products;
+    protected $products;
 
     public function __construct()
     {

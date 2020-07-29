@@ -19,53 +19,70 @@ class Product
      * @ORM\Column(type="integer")
      * @Groups({"products_get" ,"products_get_one" })
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Groups({"products_get","products_get_one"})
      */
-    private $name;
+    protected $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      * @Groups({"products_get" , "products_get_one"})
      */
-    private $description;
+    protected $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"products_get","products_get_one"})
      */
-    private $picture;
+    protected $picture;
 
     /**
      * @ORM\Column(type="float")
      * @Groups({"products_get" ,"products_get_one"})
      */
-    private $price;
+    protected $price;
 
 
     /**
-     * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products", cascade={"all"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", nullable=false)
      * @Groups({"products_get", "products_get_one" , "categories_get"})
      */
-    private $category;
+    protected $category;
+
 
     /**
-     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="products")
+     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="products"))
+     * @ORM\JoinTable(
+     *  name="product_order",
+     *  joinColumns={
+     *      @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     *  },
+     *  inverseJoinColumns={
+     *      @ORM\JoinColumn(name="order_id", referencedColumnName="id")
+     *  }
+     * )
      */
-    private $quantity;
+
+    protected $orders;
 
     public function __construct()
     {
-        $this->quantity = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+        return $this;
     }
 
     public function getName(): ?string
@@ -128,27 +145,34 @@ class Product
         return $this;
     }
 
+    public function removeCategory(): self
+    {
+        $this->category = null;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Order[]
      */
-    public function getQuantity(): Collection
+    public function getOrders(): Collection
     {
-        return $this->quantity;
+        return $this->orders;
     }
 
-    public function addQuantity(Order $quantity): self
+    public function addOrders(Order $orders): self
     {
-        if (!$this->quantity->contains($quantity)) {
-            $this->quantity[] = $quantity;
+        if (!$this->orders->contains($orders)) {
+            $this->orders[] = $orders;
         }
 
         return $this;
     }
 
-    public function removeQuantity(Order $quantity): self
+    public function removeQuantity(Order $orders): self
     {
-        if ($this->quantity->contains($quantity)) {
-            $this->quantity->removeElement($quantity);
+        if ($this->orders->contains($orders)) {
+            $this->orders->removeElement($orders);
         }
 
         return $this;

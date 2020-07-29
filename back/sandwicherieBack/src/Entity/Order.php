@@ -15,50 +15,56 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class Order
 {
+    //@TODO vérifier que le private fonctionne sur les attributs (la doc de doctrine dit d'utiliser les private)
+    //https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/working-with-objects.html#merging-entities
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Groups({"order_get" , "order_get_one"})
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="smallint")
      * @Groups({"order_get" , "order_get_one"})
      */
-    private $status;
+    protected $status;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      * @Groups({"order_get" , "order_get_one"})
      */
-    private $comment;
+    protected $comment;
 
     /**
      * @ORM\Column(type="float")
      * @Groups({"order_get" , "order_get_one"})
      */
-    private $price;
+    protected $price;
+
 
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="quantity", cascade={"all"})
+     * @var \Doctrine\Common\Collections\Collection|Product[]
+     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="orders")
      * @Groups({"order_get" , "order_get_one"})
      */
-    private $products;
+
+    protected $products;
 
     /**
      * @ORM\Column(type="datetime")
      * @Groups({"order_get" , "order_get_one"})
      */
-    private $createdAt;
+    protected $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders", cascade="all")
      * @ORM\JoinColumn(nullable=false)
      * @Groups({"order_get" , "order_get_one"})
      */
-    private $orderBy;
+    protected $orderBy;
 
     public function __construct()
     {
@@ -114,13 +120,23 @@ class Order
         return $this->products;
     }
 
+
+
+
+
     public function addProduct(Product $product): self
     {
         if (!$this->products->contains($product)) {
             $this->products[] = $product;
-            $product->addQuantity($this);
+            $product->addOrders($this);
         }
 
+        return $this;
+    }
+
+    public function flushProducts(): self
+    {
+        $this->products =  new ArrayCollection();
         return $this;
     }
 
@@ -154,6 +170,18 @@ class Order
     public function setOrderBy(?User $orderBy): self
     {
         $this->orderBy = $orderBy;
+
+        return $this;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

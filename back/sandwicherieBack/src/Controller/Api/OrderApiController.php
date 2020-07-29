@@ -3,6 +3,7 @@
 namespace App\Controller\Api;
 
 use App\Entity\Order;
+use App\Entity\Product;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,27 +54,43 @@ class OrderApiController extends AbstractController
         $content = $request->getContent();
        
         // On déserialise notre JSON en entité Doctrine
-        
+
         $order = $serializer->deserialize($content, Order::class, 'json');
         //$order = $serializer->deserialize($content, Order::class. '[]', 'json'); si recuperation d'un tableau
-        
-
         // Valider l'entité avec le service Validator
         $errors = $validator->validate($order);
+
 
         if (count($errors) > 0) {
             $errorsArray = [];
             foreach ($errors as $error) {
                 $errorsArray[$error->getPropertyPath()][] = $error->getMessage();
             }
-
             return $this->json($errorsArray, Response::HTTP_UNPROCESSABLE_ENTITY);
-
         }
+
+        $order->setCreatedAt(new \Datetime());
+
+        //récupération de tous les produits de la commande
+        $products = $order->getProducts();
+        //on vide tous les produits de la commande
+        $order->flushProducts();
+
+        
+        $productRepository = $entityManager->getRepository(Product::class);
+        //pour chacun des produits de la commande, on cheche dans la bdd le produit existant (grace à son id)
+        //puis on ajoute ce produit (issu de la bdd et non pas du "json") à la commande
+
+        foreach ($products as $index => $product) {
+            $attachedProduct = $productRepository->find($product->getId());
+            $order->addProduct($attachedProduct);
+        }
+
 
         // Flusher via le manager
         $entityManager->persist($order);
         $entityManager->flush();
+
 
         // Rediriger vers l'URL de la ressource avec un statut 201
         return $this->redirectToRoute('api_order_get_one', ['id' => $order->getId()], Response::HTTP_CREATED);

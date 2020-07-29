@@ -66,12 +66,12 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `category_id`) VALUES
-(1,	'Monsieur Croque',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P',	NULL,	7,	1),
-(2,	'Le Transformiste',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier',	NULL,	8,	1),
-(3,	'Monsieur Seguin',	'Fromage frais, fromage de chèvre A.O.P, compotée d’oignons\r\nmaison, poire fraîche, noix, miel',	NULL,	8,	1),
-(4,	'Coq Monsieur',	'Poulet label rouge, béchamel maison, coulis de tomate maison,\r\nfromage Abondance A.O.P, compotée d’oignons maison',	NULL,	8,	1),
-(5,	'Monsieur Confit',	'Confit de canard du sud-ouest, compotée d’oignons maison,\r\npoire fraîche, fromage Ossau-Iraty A.O.P',	NULL,	8,	1),
-(6,	'Croque Mystère',	'Coque du moment, voir avec le chef',	NULL,	9,	1),
+(1,	'Monsieur Croque',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P',	'https://ibb.co/qgyCfSS',	7,	1),
+(2,	'Le Transformiste',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier',	'https://ibb.co/gmCKh26',	8,	1),
+(3,	'Monsieur Seguin',	'Fromage frais, fromage de chèvre A.O.P, compotée d’oignons\r\nmaison, poire fraîche, noix, miel',	'https://ibb.co/MMbWjcB',	8,	1),
+(4,	'Coq Monsieur',	'Poulet label rouge, béchamel maison, coulis de tomate maison,\r\nfromage Abondance A.O.P, compotée d’oignons maison',	'https://ibb.co/CzFsffN',	8,	1),
+(5,	'Monsieur Confit',	'Confit de canard du sud-ouest, compotée d’oignons maison,\r\npoire fraîche, fromage Ossau-Iraty A.O.P',	'https://ibb.co/0DhPSQr',	8,	1),
+(6,	'Croque Mystère',	'Croque du moment, voir avec le chef',	NULL,	9,	1),
 (7,	'Frites',	NULL,	NULL,	3,	2),
 (8,	'Salade',	NULL,	NULL,	3,	2),
 (9,	'Légumes',	NULL,	NULL,	3,	2),
