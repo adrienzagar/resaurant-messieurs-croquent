@@ -13,12 +13,7 @@ const Command = ({ getProduct, getCategories, links, products, categories }) => 
     useEffect(() => {
         // console.log(getProduct)
         getProduct();
-    }, [])
-    // useEffect(() => {
-    //     // console.log(getProduct)
-    //     getCategories();
-    // }, [])
-
+    }, []);
     return(
         <main className="command">
             <Delivery links={links} />
@@ -31,6 +26,7 @@ const Command = ({ getProduct, getCategories, links, products, categories }) => 
 );}
 
 Command.propTypes = {
+    getProduct: PropTypes.func.isRequired,
     links: PropTypes.array.isRequired,
     products: PropTypes.array.isRequired,
 };
