@@ -1,0 +1,19 @@
+@use '../../../styles/vars';
+@use 'sass:color';
+
+
+.reservation{
+    display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     margin: 2rem;
+     align-items: center;
+     border: 1px solid black;
+     padding: 3rem;
+     & p{
+        margin: 1rem;
+     }
+     & h2{
+      font-weight: bold;
+   }
+}

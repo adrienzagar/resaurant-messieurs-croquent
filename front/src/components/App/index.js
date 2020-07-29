@@ -17,6 +17,9 @@ const App = () => (
       <Route exact path="/commander">
         <Command />
       </Route>
+      <Route exact path="/nous-trouver">
+        <FindUs />
+      </Route>
     <Footer />
   </div>
 );

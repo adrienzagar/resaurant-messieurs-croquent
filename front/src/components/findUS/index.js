@@ -1,27 +1,23 @@
 import React from 'react';
 import './styles.scss';
-import MapCard from '../mapCard';
-import CardComponent from '../card';
-import HowToCome from '../howToCome' ;
-import Reservation from '../reservation';
+import MapCard from './MapCard/';
+import CardComponent from './Card';
+import HowToCome from './HowToCome' ;
+import Reservation from './Reservation';
 
 
 
 const Find_Us = () => {
   return(
     <div>
-    <div className={'Container'}>
-    <div className={'Component'}><CardComponent /></div>
-    
-    <div className={'Component'}><MapCard /></div>
-    </div>
-    <div className={'global'}>
-   <HowToCome />
-   </div>
-   <div className={'global'}>
-   <Reservation />
-   </div>
-   
+        <div className='find__us'>
+            <CardComponent />
+            <MapCard />
+        </div>
+        <div className=''>
+        <HowToCome />
+        <Reservation />
+        </div>
     </div>
   );
 }
