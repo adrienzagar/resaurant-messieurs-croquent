@@ -7,7 +7,6 @@ import Header from '../../containers/Header';
 import Command from '../../containers/Command';
 import Footer from '../../containers/Footer';
 import './styles.scss';
-import FindUs from '../findUS';
 
 
 
