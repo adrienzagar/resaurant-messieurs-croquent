@@ -4,7 +4,7 @@ import React from 'react';
 //! == Import : local ==
 import MapCard from './MapCard';
 import CardComponent from './Card';
-import HowToCome from './HowToCome' ;
+import HowToCome from './HowToCome';
 import Reservation from './Reservation';
 import './styles.scss';
 

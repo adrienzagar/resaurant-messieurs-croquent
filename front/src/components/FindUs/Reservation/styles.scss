@@ -4,7 +4,7 @@
 .reservation{
    @include m767 () {
       max-width: 800px;
-      margin: 2rem auto;
+      margin: 4rem auto;
    }
    text-align: center;
    border: 1px dashed vars.$color-primary;

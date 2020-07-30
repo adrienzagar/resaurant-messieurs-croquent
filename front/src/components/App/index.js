@@ -11,8 +11,7 @@ import Footer from '../../containers/Footer';
 
 import './styles.scss';
 
-
-
+//! == Composant ==
 const App = () => (
   <div className="app">
     <Header />
