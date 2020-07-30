@@ -5,8 +5,8 @@ const Reservation = () => {
     return (
      <div className='reservation'>
         
-            <h2>Un événement  a organiser ?</h2> 
-            <p> Privatiser le restaurant ?</p>
+            <h2>UN EVENEMET A ORGANISER ?</h2> 
+            <p> PRIVATISER LE RESTAURANT ?</p>
             <p>Contactez nous.....</p>
        
     </div>

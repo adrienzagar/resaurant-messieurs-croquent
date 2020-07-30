@@ -5,11 +5,13 @@
 .reservation{
     display: flex;
      flex-direction: column;
-     justify-content: space-between;
-     margin: 2rem;
+     justify-content: center;
+     margin: auto;
+     margin-bottom: 2rem;
      align-items: center;
      border: 1px solid black;
-     padding: 3rem;
+     padding: 1rem;
+     width: 70%;
      & p{
         margin: 1rem;
      }
