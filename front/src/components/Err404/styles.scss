@@ -1,0 +1,58 @@
+@use '../../styles/vars';
+@import '../../styles/vars';
+
+.error {
+    max-width: 800px;
+    margin: 0 auto;
+    &__title {
+        @include m767 () {
+            padding: 6rem;
+        }
+        padding: 4rem;
+        height: 45vh;
+        display: flex;
+        flex-direction: column;
+    }
+    &__start {
+        @include m767 () {
+            font-size: 10rem;
+        }
+        font-family: 'Bungee Shade', cursive;
+        height: calc(100% / 3);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 6rem;
+    }
+    &__center {
+        @include m767 () {
+            font-size: 10rem;
+        }
+        font-family: 'Monoton', cursive;
+        height: calc(100% / 3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 6rem;
+    }
+    &__end {
+        @include m767 () {
+            font-size: 10rem;
+        }
+        font-family: 'Bungee Shade', cursive;
+        height: calc(100% / 3);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 6rem;
+    }
+    &__text {
+        height: 45vh;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        padding: 2rem;
+    }
+}
