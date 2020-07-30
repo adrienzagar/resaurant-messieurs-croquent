@@ -18,7 +18,7 @@ const CardComponent = () => {
             </div>
             <div className='cardComponent__info'>
                 
-                <p><i class="fa fa-clock-o" aria-hidden="true"></i>  OUVERT DU LUNDI AU SAMEDI </p>
+                <p><i className="fa fa-clock-o" aria-hidden="true"></i>  OUVERT DU LUNDI AU SAMEDI </p>
                 <p>12:00 - 14:00  /  19:00 - 22:30</p>
                 <p> FERME DIMANCHE ET LUNDI</p>
             </div>
