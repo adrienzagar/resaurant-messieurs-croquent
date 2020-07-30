@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const cart = () => (
+const Cart = () => {
+    const handleClickButton = (event) => {
+        event.preventDefault();
+        console.log(event.target)
+    }
+        
+    return(
   <div className="cart">
     <div className="cart__container">
         <div className="cart__dishes">
@@ -15,7 +21,10 @@ const cart = () => (
                 <i className="fa fa-minus" aria-hidden="true"></i>
             </button>
             <input className="cart__count" type="text"/>
-            <button className="cart__add">
+            <button 
+                className="cart__add"
+                onClick={handleClickButton}
+            >
                 <i className="fa fa-plus" aria-hidden="true"></i>
             </button>
         </div>
@@ -26,5 +35,5 @@ const cart = () => (
         <button className="cart__submit">CROQUER</button>
     </div>
   </div>
-);
-export default cart;
+)};
+export default Cart;

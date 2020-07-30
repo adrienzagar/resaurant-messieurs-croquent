@@ -15,6 +15,11 @@ const Product = ({ products, categories }) => {
                 {categories.map((category) => {
                     const result = products.filter(product => product.category.id === category.id);
                         console.log(result)
+                        
+                    const handleAddToCart = (event) => {
+                        event.preventDefault();
+                        console.log(event.target)
+                    }
                     return (
                         <div>
                             <h1 key={category.id} className="product__category">{category.name}</h1>
@@ -24,7 +29,10 @@ const Product = ({ products, categories }) => {
                                     <p className="product__dish">{productMap.name}</p>
                                     <p className="product__description">{productMap.description}</p>
                                     <p className="product__price">{productMap.price}€</p>
-                                    <button className="product__add">
+                                    <button 
+                                        className="product__add"
+                                        onClick={handleAddToCart}   
+                                    >
                                         <i className="fa fa-plus" aria-hidden="true"></i>
                                     </button>
                                 </div> 
