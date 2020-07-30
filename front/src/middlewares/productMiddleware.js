@@ -8,7 +8,7 @@ import { GET_PRODUCT, saveProduct } from '../actions/product';
 const productMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_PRODUCT:
-      axios.get('http://localhost:8000/api/products')
+      axios.get('http://localhost/Fantasy/apotheose/sandwicherie/back/sandwicherieBack/public/api/products')
         .then((response) => {
           // console.log(response.data);
           store.dispatch(saveProduct(response.data));

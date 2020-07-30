@@ -12,10 +12,10 @@ const Product = ({ products, categories }) => {
     console.log(categories);
     return (
         <div className="product">
-        {categories.map((category) => (
-            
-            <h1 key={category.id} className="product__category">{category.name}</h1>
-        ))}
+            {categories.map((category) => (
+                
+                <h1 key={category.id} className="product__category">{category.name}</h1>
+            ))}
             {products.map((product) => (
             
             <div className="product__container" key={product.id}>

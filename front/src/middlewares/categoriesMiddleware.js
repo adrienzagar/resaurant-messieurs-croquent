@@ -8,7 +8,7 @@ import { GET_CATEGORIES, saveCategories } from '../actions/categories';
 const categoriesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_CATEGORIES:
-      axios.get('http://localhost:8000/api/categories')
+      axios.get('http://localhost/Fantasy/apotheose/sandwicherie/back/sandwicherieBack/public/api/categories')
         .then((response) => {
           // console.log(response.data);
           store.dispatch(saveCategories(response.data));
