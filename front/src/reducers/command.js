@@ -21,6 +21,7 @@ export const initialState = {
          },
     ],
     listProduct: [],
+    listCategories: [],
 };
 
 //! == Actions to modified state

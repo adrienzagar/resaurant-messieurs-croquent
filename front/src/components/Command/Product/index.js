@@ -12,16 +12,19 @@ const Product = ({ products, categories }) => {
     console.log(categories);
     return (
         <div className="product">
-            <h1 className="product__category">Croque monsieur</h1>
+        {categories.map((category) => (
+            
+            <h1 key={category.id} className="product__category">{category.name}</h1>
+        ))}
             {products.map((product) => (
             
             <div className="product__container" key={product.id}>
                 <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg"></img>
                 <p className="product__dish">{product.name}</p>
-                <p className="product__description">Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier</p>
-                <p className="product__price">8€</p>
+                <p className="product__description">{product.description}</p>
+                <p className="product__price">{product.price}€</p>
                 <button className="product__add">
-                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <i className="fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>
             ))}
