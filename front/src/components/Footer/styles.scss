@@ -1,58 +1,48 @@
-@import 'src/styles/vars';
+@use '../../styles/vars';
+@import '../../styles/vars';
 
 .footer {
-    
-        background: $color-primary;
-        padding: 2rem;
-        box-shadow: 0 0 10px 3px $color-primary;
-        &__container {
-            color: $color-secondary;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+    background: vars.$color-primary;
+    padding: 2rem;
+    box-shadow: 0 0 10px 3px vars.$color-primary;
+    &__container {
+        color: vars.$color-secondary;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &__schedule {
+        margin-bottom: 1rem;
+    }
+    &__phone {
+        margin-bottom: 1rem;
+    }
+    &__adresse {
+        margin-bottom: 1rem;
+    }
+    &__infos {
+        padding: .2rem 0;
+        text-align: center;
+    }
+    &__socialnetworks {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 1rem;
+    }
+    &__socialnetwork {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        margin: 0 1rem;
+        &:hover {
+            color: vars.$color-primary;
+            background-color: vars.$color-secondary;
         }
-
-        &__schedule {
-            margin: 1rem;
-        }
-        &__phone {
-            margin: 1rem;
-        }
-        &__adresse {
-            margin: 1rem;
-        }
-        &__infos {
-            padding: .2rem 0;
-            text-align: center;
-        }
-    
-        &__socialnetwork {
-            & ul {
-                display: flex;
-                align-items: center;
-                height: 20%;
-                justify-content: space-around;
-                
-                & li {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 3rem;
-                    height: 3.5rem;
-                    width: 3.5rem;
-                    border-radius: 50%;
-                    margin: 1rem 1rem;
-                &:hover {
-                    color: $color-primary;
-                    background-color: $color-secondary ;
-                }
-            }
-         }
-     }
+    }
 }
-
-
-
-
-

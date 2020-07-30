@@ -1,0 +1,28 @@
+@use '../../../styles/vars';
+@import '../../../styles/vars';
+
+.cardComponent {
+     @include m767 () {
+          width: 50%;
+     }
+     padding: 2rem;
+     width: 100%;
+     &__title {
+          font-size: 1.3rem;
+          font-weight: bold;
+          text-align: center;
+          margin-bottom: 1rem;
+     }
+     &__infos {
+          display: flex;
+          align-items: center;
+          margin-bottom: 1rem;
+          .fas, .fa {
+               margin-right: 2rem;
+               font-size: 1.5rem;
+          }
+     }
+     &__text {
+          line-height: 1.3;
+     }
+}
