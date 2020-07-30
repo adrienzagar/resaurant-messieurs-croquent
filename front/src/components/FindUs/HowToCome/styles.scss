@@ -1,0 +1,27 @@
+@use '../../../styles/vars';
+@import '../../../styles/vars';
+
+.howToCome{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   padding: 2rem;
+   background: vars.$color-primary;
+   color: vars.$color-secondary;
+   &__title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+   }
+   &__container {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+      .fa {
+         margin-right: 2rem;
+         font-size: 1.5rem;
+      }
+   }
+
+}

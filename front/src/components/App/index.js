@@ -6,11 +6,12 @@ import { Route } from 'react-router-dom';
 import Header from '../../containers/Header';
 import Home from '../../containers/Home';
 import Command from '../../containers/Command';
+import FindUs from '../FindUs';
 import Footer from '../../containers/Footer';
+
 import './styles.scss';
 
-
-
+//! == Composant ==
 const App = () => (
   <div className="app">
     <Header />
@@ -19,6 +20,9 @@ const App = () => (
       </Route>
       <Route exact path="/commander">
         <Command />
+      </Route>
+      <Route exact path="/nous-trouver">
+        <FindUs />
       </Route>
     <Footer />
   </div>

@@ -1,0 +1,13 @@
+@use '../../styles/vars';
+@import '../../styles/vars';
+
+.findUs{
+    &__container {
+        @include m767 () {
+            max-width: 800px;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
