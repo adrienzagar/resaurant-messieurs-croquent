@@ -12,9 +12,9 @@ const TripadvisorMin = () => {
     AOS.init();
     return (
         <div className="tripadvisorMin" data-aos="fade-up">
-            <div id="TA_selfserveprop4" class="TA_selfserveprop">
-                <ul id="tqOftg6" class="TA_links GRCBTq">
-                    <li id="QNuGnLFaGj" class="qMhSoz">
+            <div id="TA_selfserveprop4" className="TA_selfserveprop">
+                <ul id="tqOftg6" className="TA_links GRCBTq">
+                    <li id="QNuGnLFaGj" className="qMhSoz">
                         <a target="_blank" rel="noopener noreferrer" href="https://www.tripadvisor.fr/Restaurant_Review-g187079-d12474378-Reviews-Messieurs_Croquent-Bordeaux_Gironde_Nouvelle_Aquitaine.html">
                             <img src="https://www.tripadvisor.fr/img/cdsi/img2/branding/v2/Tripadvisor_lockup_horizontal_secondary_registered-11900-2.svg" alt="TripAdvisor"/>
                         </a>
