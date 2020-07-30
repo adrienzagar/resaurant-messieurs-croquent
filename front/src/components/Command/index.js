@@ -7,6 +7,7 @@ import Delivery from '../Command/Delivery';
 import Local from '../Command/Local';
 import Product from '../Command/Product';
 import './styles.scss';
+import cart from './cart';
 
 //! == Composant ==
 const Command = ({ getProduct, getCategories, links, products, categories }) => {
@@ -23,6 +24,7 @@ const Command = ({ getProduct, getCategories, links, products, categories }) => 
                 products={products}
                 categories={categories}
              />
+             <cart />
         </main>
 );}
 
