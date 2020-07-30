@@ -9,16 +9,20 @@ import Product from '../Command/Product';
 import './styles.scss';
 
 //! == Composant ==
-const Command = ({ getProduct, links, products }) => {
+const Command = ({ getProduct, getCategories, links, products, categories }) => {
     useEffect(() => {
         // console.log(getProduct)
         getProduct();
+        getCategories();
     }, []);
     return(
         <main className="command">
             <Delivery links={links} />
             <Local />
-            <Product products={products} />
+            <Product 
+                products={products}
+                categories={categories}
+             />
         </main>
 );}
 
