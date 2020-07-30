@@ -1,0 +1,44 @@
+@use '../../../styles/vars';
+@import '../../../styles/vars';
+
+.presentation {
+    @include m767 () {
+        margin: 4rem auto;
+    }
+    max-width: 800px;
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+    padding: 0 2rem;
+    &__title {
+        font-family: 'Amatic SC', cursive;
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    &__container {
+        @include m767 () {
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        display: flex;
+        flex-direction: column;
+    }
+    &__text {
+        @include m767 () {
+            width: 60%;
+            margin: 0;
+        }
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+    &__image {
+        @include m767 () {
+            width: 30%;
+        }
+        width: 70%;
+        margin: 0 auto;
+        border-radius: .5rem;
+        border: 5px solid vars.$color-primary;
+        box-shadow: 0 0 5px 1px vars.$color-primary;
+    }
+}

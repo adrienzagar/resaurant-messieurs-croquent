@@ -1,0 +1,11 @@
+@use '../../../styles/vars';
+@import '../../../styles/vars';
+
+.homeTripadvisor {
+    padding: 0 2rem;
+    &__title {
+        font-family: 'Amatic SC', cursive;
+        font-size: 3rem;
+        text-align: center;
+    }
+}
