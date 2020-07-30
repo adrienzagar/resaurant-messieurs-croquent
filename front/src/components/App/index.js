@@ -6,8 +6,8 @@ import { Route } from 'react-router-dom';
 import Header from '../../containers/Header';
 import Home from '../../containers/Home';
 import Command from '../../containers/Command';
+import FindUs from '../FindUs';
 import Footer from '../../containers/Footer';
-import FindUs from '../findUS'
 
 import './styles.scss';
 

@@ -20,7 +20,7 @@ const Product = ({ products, categories }) => {
                             <h1 key={category.id} className="product__category">{category.name}</h1>
                             {result.map((productMap) => (
                                 <div className="product__container" key={productMap.id}>
-                                    <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg"></img>
+                                    <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg" alt="croque"></img>
                                     <p className="product__dish">{productMap.name}</p>
                                     <p className="product__description">{productMap.description}</p>
                                     <p className="product__price">{productMap.price}€</p>
