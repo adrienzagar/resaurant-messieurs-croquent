@@ -3,6 +3,9 @@
 namespace App\Controller\Api;
 
 use App\Entity\Order;
+use App\Entity\OrderLine;
+use App\Entity\Product;
+use App\Repository\OrderLineRepository;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,31 +52,44 @@ class OrderApiController extends AbstractController
      */
     public function add(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager)
     {
+
+        $orderRepository = $entityManager->getRepository(Order::class);
+
         // Le JSON est dans le contenu de la requête
         $content = $request->getContent();
        
         // On déserialise notre JSON en entité Doctrine
-        
+
         $order = $serializer->deserialize($content, Order::class, 'json');
         //$order = $serializer->deserialize($content, Order::class. '[]', 'json'); si recuperation d'un tableau
-        
-
         // Valider l'entité avec le service Validator
         $errors = $validator->validate($order);
+
 
         if (count($errors) > 0) {
             $errorsArray = [];
             foreach ($errors as $error) {
                 $errorsArray[$error->getPropertyPath()][] = $error->getMessage();
             }
-
             return $this->json($errorsArray, Response::HTTP_UNPROCESSABLE_ENTITY);
-
         }
 
+        $order->setCreatedAt(new \Datetime());
+
+        $attachedOrder = $orderRepository->attachOrder($order);
+
         // Flusher via le manager
-        $entityManager->persist($order);
+        $entityManager->persist($attachedOrder);
         $entityManager->flush();
+
+
+        /*
+
+        $entityManager->persist($order);
+        */
+
+
+
 
         // Rediriger vers l'URL de la ressource avec un statut 201
         return $this->redirectToRoute('api_order_get_one', ['id' => $order->getId()], Response::HTTP_CREATED);
@@ -119,3 +135,4 @@ class OrderApiController extends AbstractController
         return $this->json(['message' => 'Commande supprimée.'], Response::HTTP_OK);
     }
 }
+
