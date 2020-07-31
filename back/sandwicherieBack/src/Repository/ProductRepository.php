@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -18,18 +20,30 @@ class ProductRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Product::class);
     }
+    
 
+    public function attachProducts(Collection $products)
+    {
+        $attachedProducts = new ArrayCollection();
+
+        foreach($products as $product) {
+            $product = $this->find($product->getId());
+            $attachedProducts[] = $product;
+        }
+
+        return $attachedProducts;
+    }
 
     // /**
-    //  * @return Order[] Returns an array of Order objects
+    //  * @return Product[] Returns an array of Product objects
     //  */
     /*
     public function findByExampleField($value)
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
-            ->orderBy('o.id', 'ASC')
+            ->orderBy('p.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
@@ -38,10 +52,10 @@ class ProductRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Order
+    public function findOneBySomeField($value): ?Product
     {
-        return $this->createQueryBuilder('o')
-            ->andWhere('o.exampleField = :val')
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
             ->setParameter('val', $value)
             ->getQuery()
             ->getOneOrNullResult()

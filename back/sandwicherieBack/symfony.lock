@@ -18,7 +18,7 @@
         "version": "1.10.2"
     },
     "doctrine/collections": {
-        "version": "1.6.6"
+        "version": "1.6.7"
     },
     "doctrine/common": {
         "version": "2.13.3"
@@ -109,7 +109,7 @@
         ]
     },
     "nikic/php-parser": {
-        "version": "v4.6.0"
+        "version": "v4.7.0"
     },
     "ocramius/proxy-manager": {
         "version": "2.8.0"
@@ -264,7 +264,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "5.1",
-            "ref": "ffcb76bab779154c0a7d8cddb9f448c2c45a4e50"
+            "ref": "e1b2770f2404d8307450a49cabfc3b2ff3184792"
         },
         "files": [
             "config/packages/cache.yaml",
