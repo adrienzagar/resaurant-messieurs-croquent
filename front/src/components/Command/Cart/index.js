@@ -3,12 +3,8 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const Cart = () => {
-    const handleClickButton = (event) => {
-        event.preventDefault();
-        console.log(event.target)
-    }
-        
+const Cart = ({ cart }) => {
+    console.log(cart)
     return(
   <div className="cart">
     <div className="cart__container">
@@ -23,7 +19,6 @@ const Cart = () => {
             <input className="cart__count" type="text"/>
             <button 
                 className="cart__add"
-                onClick={handleClickButton}
             >
                 <i className="fa fa-plus" aria-hidden="true"></i>
             </button>

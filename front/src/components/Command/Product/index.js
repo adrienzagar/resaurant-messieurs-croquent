@@ -6,20 +6,17 @@ import React from 'react';
 import './styles.scss';
 
 //! == Composant ==
-const Product = ({ products, categories }) => {
+const ProductList = ({ products, categories, addProduct, cartNumber }) => {
     // console.log(products);
-    // console.log(categories);
+    // console.log(addProduct);
+    const addProduct = (event) => {
+        // console.log(event.currentTarget.parentNode);
 
+     };
     return (
         <div className="product">
                 {categories.map((category) => {
                     const result = products.filter(product => product.category.id === category.id);
-                        console.log(result)
-                        
-                    const handleAddToCart = (event) => {
-                        event.preventDefault();
-                        console.log(event.target)
-                    }
                     return (
                         <div>
                             <h1 key={category.id} className="product__category">{category.name}</h1>
@@ -31,10 +28,11 @@ const Product = ({ products, categories }) => {
                                     <p className="product__price">{productMap.price}€</p>
                                     <button 
                                         className="product__add"
-                                        onClick={handleAddToCart}   
+                                        onClick={addProduct}
                                     >
                                         <i className="fa fa-plus" aria-hidden="true"></i>
                                     </button>
+                                <div>{cartNumber}</div>
                                 </div> 
                             ))}
                         </div>
@@ -44,22 +42,6 @@ const Product = ({ products, categories }) => {
     );
 };
 
-// {categories.map((category) => (
-                
-//     <h1 key={category.id} className="product__category">{category.name}</h1>
-// ))}
-// {products.map((product) => (
-
-// <div className="product__container" key={product.id}>
-//     <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg"></img>
-//     <p className="product__dish">{product.name}</p>
-//     <p className="product__description">{product.description}</p>
-//     <p className="product__price">{product.price}€</p>
-//     <button className="product__add">
-//         <i className="fa fa-plus" aria-hidden="true"></i>
-//     </button>
-// </div>
-// ))}
 
 //! == Export ==
-export default Product;
+export default ProductList;

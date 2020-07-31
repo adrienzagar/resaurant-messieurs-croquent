@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 //! == Import : local ==
 import Delivery from '../Command/Delivery';
 import Local from '../Command/Local';
-import Product from '../Command/Product';
+import ProductList from '../Command/ProductList';
 import './styles.scss';
 import Cart from './Cart';
 
 //! == Composant ==
-const Command = ({ getProduct, getCategories, links, products, categories }) => {
+const Command = ({ getProduct, getCategories, links, products, categories, addProductToCart, quantity, cart }) => {
     useEffect(() => {
         // console.log(getProduct)
         getProduct();
@@ -20,11 +20,15 @@ const Command = ({ getProduct, getCategories, links, products, categories }) => 
         <main className="command">
             <Delivery links={links} />
             <Local />
-            <Product 
+            <ProductList 
                 products={products}
                 categories={categories}
+                addProductToCart={addProductToCart}
              />
-             <Cart />
+             <Cart 
+                cart={cart} 
+                quantity={quantity}    
+             />
         </main>
 );}
 
