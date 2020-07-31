@@ -10,7 +10,16 @@ import './styles.scss';
 import Cart from './Cart';
 
 //! == Composant ==
-const Command = ({ getProduct, getCategories, links, products, categories, addProductToCart, quantity, cart }) => {
+const Command = ({ 
+    getProduct, 
+    getCategories, 
+    links, 
+    products, 
+    categories, 
+    addProductToCart, 
+    quantity, 
+    cart,
+}) => {
     useEffect(() => {
         // console.log(getProduct)
         getProduct();

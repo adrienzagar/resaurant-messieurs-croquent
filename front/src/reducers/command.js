@@ -33,7 +33,7 @@ const command = (state = initialState, action = {}) => {
         case SAVE_PRODUCT:
           return {
             ...state,
-            listProduct: action.product,
+            listProduct: action.listProduct,
           };
         case SAVE_CATEGORIES:
           return {
@@ -41,11 +41,11 @@ const command = (state = initialState, action = {}) => {
             listCategories: action.categories,
           };
           case ADD_PRODUCT_TO_CART:
-            // state.cart.push(action.product)
+            state.cart.push(action.product)
             return {
               ...state,
               quantity: state.quantity + 1,
-              cart: action.product
+              cart: state.cart,
             };
         default:
             return state;

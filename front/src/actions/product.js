@@ -8,13 +8,14 @@ export const getProduct = () => ({
     type: GET_PRODUCT,
   });
 
-  export const saveProduct = (product) => ({
+  export const saveProduct = (listProduct) => ({
     type: SAVE_PRODUCT,
-    product,
+    listProduct
   });
 
   export const addProductToCart = (product) => ({
     type: ADD_PRODUCT_TO_CART,
     product,
     quantity: 1
-  });
+    }
+  );
