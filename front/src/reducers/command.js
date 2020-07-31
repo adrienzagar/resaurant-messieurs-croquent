@@ -22,6 +22,7 @@ export const initialState = {
     ],
     listProduct: [],
     listCategories: [],
+    listPrice: [],
     quantity: 0,
     quantities: 0,
     cart: []

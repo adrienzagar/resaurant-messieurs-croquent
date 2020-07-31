@@ -1,8 +1,11 @@
+//! == Import : npm ==
 import React from 'react';
 // import PropTypes from 'prop-types';
 
+//! == Import : local ==
 import './styles.scss';
 
+//! == Composant ==
 const Product = ({ product, addProductToCart }) => {
     const addProduct = (product) => {
         // event.preventDefault();
@@ -25,4 +28,6 @@ const Product = ({ product, addProductToCart }) => {
         </div> 
     );
 };
+
+//! == Export ==
 export default Product;

@@ -1,5 +1,11 @@
 export const returnTotalPrice = (listPrice) => {
-    const totalPrice = listPrice.map(price =>
-        totalPrice += price
-    )
+    let totalPrice = 0;
+    if (listPrice) {
+        listPrice.map(price => (
+            totalPrice += price
+        ))
+    }
+    return {
+        totalPrice
+    }
 };

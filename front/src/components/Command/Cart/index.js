@@ -1,10 +1,14 @@
+//! == Import : npm ==
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
+//! == Import : local ==
 import './styles.scss';
 import { addQuantityProduct } from '../../../actions/product';
+import { returnTotalPrice } from '../../../selectors';
 
-const Cart = ({ cart, quantity, quantities, addQuantityToProduct }) => {
+//! == Composant ==
+const Cart = ({ cart, quantity, quantities, addQuantityToProduct, listPrice }) => {
     console.log(cart, "Panier de produit");
     console.log(addQuantityProduct);
     const addQuantity = (quantities) => {
@@ -36,9 +40,11 @@ const Cart = ({ cart, quantity, quantities, addQuantityToProduct }) => {
         ))}
         <div className="cart__total">
             <h1>TOTAL</h1>
-            <p>22€</p>
+            <p>{returnTotalPrice(listPrice).totalPrice}&euro;</p>
             <button className="cart__submit">CROQUER</button>
         </div>
     </div>
 )};
+
+//! == Export ==
 export default Cart;

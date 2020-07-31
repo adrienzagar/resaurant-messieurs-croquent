@@ -16,6 +16,7 @@ const Command = ({
     links, 
     products, 
     categories, 
+    listPrice,
     addProductToCart, 
     quantity, 
     cart,
@@ -27,6 +28,7 @@ const Command = ({
         getProduct();
         getCategories();
     }, []);
+
     return(
         <main className="command">
             <Delivery links={links} />
@@ -39,6 +41,7 @@ const Command = ({
              <Cart 
                 cart={cart} 
                 quantity={quantity}
+                listPrice={listPrice}
                 quantities={quantities}
                 addQuantityToProduct={addQuantityToProduct}
              />

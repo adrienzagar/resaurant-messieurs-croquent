@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownprops) => ({
     links: state.command.links,
     products: state.command.listProduct,
     categories: state.command.listCategories,
+    listPrice: state.command.listPrice,
     quantity: state.command.quantity,
     quantities: state.command.quantities,
     cart: state.command.cart,
