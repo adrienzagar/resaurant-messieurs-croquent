@@ -36,7 +36,7 @@ const Command = ({
              />
              <Cart 
                 cart={cart} 
-                quantity={quantity}    
+                quantity={quantity}
              />
         </main>
 );}
