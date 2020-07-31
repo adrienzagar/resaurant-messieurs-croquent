@@ -17,72 +17,54 @@ class Product
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"products_get" ,"products_get_one" })
+     * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one"})
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     * @Groups({"products_get","products_get_one"})
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one" })
      */
-    protected $name;
+    private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"products_get" , "products_get_one"})
+     * @Groups({"products_get" ,"products_get_one" , "order_get" , "order_get_one"})
      */
-    protected $description;
+    private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"products_get","products_get_one"})
+     * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one" })
      */
-    protected $picture;
+    private $picture;
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"products_get" ,"products_get_one"})
+     * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one" })
      */
-    protected $price;
-
+    private $price;
 
     /**
      * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products")
-     * @ORM\JoinColumn(name="category_id", nullable=false)
-     * @Groups({"products_get", "products_get_one" , "categories_get"})
+     * @ORM\JoinColumn(nullable=false)
+     * @Groups({"products_get", "products_get_one" , "categories_get", "order_get" , "order_get_one"})
      */
-    protected $category;
-
+    private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="products"))
-     * @ORM\JoinTable(
-     *  name="product_order",
-     *  joinColumns={
-     *      @ORM\JoinColumn(name="product_id", referencedColumnName="id")
-     *  },
-     *  inverseJoinColumns={
-     *      @ORM\JoinColumn(name="order_id", referencedColumnName="id")
-     *  }
-     * )
+     * @ORM\OneToMany(targetEntity=OrderLine::class, mappedBy="product")
      */
-
-    protected $orders;
+    private $orderLines;
 
     public function __construct()
     {
-        $this->orders = new ArrayCollection();
+        $this->orderLines = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-        return $this;
     }
 
     public function getName(): ?string
@@ -102,7 +84,7 @@ class Product
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -145,35 +127,45 @@ class Product
         return $this;
     }
 
-    public function removeCategory(): self
+    /**
+     * @return Collection|OrderLine[]
+     */
+    public function getOrderLines(): Collection
     {
-        $this->category = null;
+        return $this->orderLines;
+    }
+
+    public function addOrderLine(OrderLine $orderLine): self
+    {
+        if (!$this->orderLines->contains($orderLine)) {
+            $this->orderLines[] = $orderLine;
+            $orderLine->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderLine(OrderLine $orderLine): self
+    {
+        if ($this->orderLines->contains($orderLine)) {
+            $this->orderLines->removeElement($orderLine);
+            // set the owning side to null (unless already changed)
+            if ($orderLine->getProduct() === $this) {
+                $orderLine->setProduct(null);
+            }
+        }
 
         return $this;
     }
 
     /**
-     * @return Collection|Order[]
-     */
-    public function getOrders(): Collection
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
     {
-        return $this->orders;
-    }
-
-    public function addOrders(Order $orders): self
-    {
-        if (!$this->orders->contains($orders)) {
-            $this->orders[] = $orders;
-        }
-
-        return $this;
-    }
-
-    public function removeQuantity(Order $orders): self
-    {
-        if ($this->orders->contains($orders)) {
-            $this->orders->removeElement($orders);
-        }
+        $this->id = $id;
 
         return $this;
     }

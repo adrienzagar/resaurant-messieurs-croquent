@@ -3,7 +3,9 @@
 namespace App\Controller\Api;
 
 use App\Entity\Order;
+use App\Entity\OrderLine;
 use App\Entity\Product;
+use App\Repository\OrderLineRepository;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,6 +52,9 @@ class OrderApiController extends AbstractController
      */
     public function add(Request $request, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager)
     {
+
+        $orderRepository = $entityManager->getRepository(Order::class);
+
         // Le JSON est dans le contenu de la requête
         $content = $request->getContent();
        
@@ -71,25 +76,19 @@ class OrderApiController extends AbstractController
 
         $order->setCreatedAt(new \Datetime());
 
-        //récupération de tous les produits de la commande
-        $products = $order->getProducts();
-        //on vide tous les produits de la commande
-        $order->flushProducts();
-
-        
-        $productRepository = $entityManager->getRepository(Product::class);
-        //pour chacun des produits de la commande, on cheche dans la bdd le produit existant (grace à son id)
-        //puis on ajoute ce produit (issu de la bdd et non pas du "json") à la commande
-
-        foreach ($products as $index => $product) {
-            $attachedProduct = $productRepository->find($product->getId());
-            $order->addProduct($attachedProduct);
-        }
-
+        $attachedOrder = $orderRepository->attachOrder($order);
 
         // Flusher via le manager
-        $entityManager->persist($order);
+        $entityManager->persist($attachedOrder);
         $entityManager->flush();
+
+
+        /*
+
+        $entityManager->persist($order);
+        */
+
+
 
 
         // Rediriger vers l'URL de la ressource avec un statut 201
@@ -136,3 +135,4 @@ class OrderApiController extends AbstractController
         return $this->json(['message' => 'Commande supprimée.'], Response::HTTP_OK);
     }
 }
+

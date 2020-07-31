@@ -3,7 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Order;
+use App\Entity\Product;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -14,9 +17,24 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class OrderRepository extends ServiceEntityRepository
 {
+    
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Order::class);
+    }
+
+
+    public function attachOrder(Order $order)
+    {
+        $productRepository = $this->getEntityManager()->getRepository(Product::class);
+        
+        //récupération de la liste des produits qu'il faut rattaccher à l'entity manager
+        $products = $order->getProducts();
+        $attachedProducts = $productRepository->attachProducts($products);
+        $order->reloadProducts($attachedProducts);
+
+        return $order;
     }
 
     // /**

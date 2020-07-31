@@ -17,20 +17,20 @@ class CategoryProduct
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"products_get","products_get_one", "categories_get", "categories_get_one"})
+     * @Groups({"products_get","products_get_one", "categories_get", "categories_get_one", "order_get" , "order_get_one"})
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     * @Groups({"products_get","products_get_one", "categories_get", "categories_get_one"})
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"products_get","products_get_one", "categories_get", "categories_get_one", "order_get" , "order_get_one"})
      */
-    protected $name;
+    private $name;
 
     /**
      * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category", orphanRemoval=true)
      */
-    protected $products;
+    private $products;
 
     public function __construct()
     {
@@ -81,6 +81,18 @@ class CategoryProduct
                 $product->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

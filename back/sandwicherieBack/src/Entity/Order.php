@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 use Symfony\Component\Serializer\Annotation\Groups;
-
 
 /**
  * @ORM\Entity(repositoryClass=OrderRepository::class)
@@ -15,61 +16,55 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class Order
 {
-    //@TODO vérifier que le private fonctionne sur les attributs (la doc de doctrine dit d'utiliser les private)
-    //https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/working-with-objects.html#merging-entities
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Groups({"order_get" , "order_get_one"})
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="integer")
      * @Groups({"order_get" , "order_get_one"})
      */
-    protected $status;
+    private $status;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups({"order_get" , "order_get_one"})
      */
-    protected $comment;
+    private $comment;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="integer")
      * @Groups({"order_get" , "order_get_one"})
      */
-    protected $price;
-
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection|Product[]
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="orders")
-     * @Groups({"order_get" , "order_get_one"})
-     */
-
-    protected $products;
+    private $price;
 
     /**
      * @ORM\Column(type="datetime")
      * @Groups({"order_get" , "order_get_one"})
      */
-    protected $createdAt;
+    private $createdAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=OrderLine::class, mappedBy="order", cascade="all")
+     * @Groups({"order_get" , "order_get_one"})
+     */
+    private $orderLines;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="orders", cascade="all")
-     * @ORM\JoinColumn(nullable=false)
      * @Groups({"order_get" , "order_get_one"})
      */
-    protected $orderBy;
+    private $user;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->orderLines = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -100,52 +95,14 @@ class Order
         return $this;
     }
 
-    public function getPrice(): ?float
+    public function getPrice(): ?int
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): self
+    public function setPrice(int $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Product[]
-     */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
-
-
-
-
-
-    public function addProduct(Product $product): self
-    {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->addOrders($this);
-        }
-
-        return $this;
-    }
-
-    public function flushProducts(): self
-    {
-        $this->products =  new ArrayCollection();
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        if ($this->products->contains($product)) {
-            $this->products->removeElement($product);
-            $product->removeQuantity($this);
-        }
 
         return $this;
     }
@@ -162,26 +119,88 @@ class Order
         return $this;
     }
 
-    public function getOrderBy(): ?User
+    /**
+     * @return Collection|OrderLine[]
+     */
+    public function getOrderLines(): Collection
     {
-        return $this->orderBy;
+        return $this->orderLines;
     }
 
-    public function setOrderBy(?User $orderBy): self
+    /**
+     * @return Collection|OrderLine[]
+    */
+    public function getProducts(): Collection
     {
-        $this->orderBy = $orderBy;
+        $lines = $this->getOrderLines();
+        $products = new ArrayCollection();
+        foreach($lines as $line) {
+            $products[] = $line->getProduct();
+        }
+
+        return $products;
+    }
+
+    public function reloadProducts(Collection $products)
+    {
+        foreach($products as $product) {
+            $this->reloadOrderLineProduct($product);
+        }
+    }
+
+
+    public function reloadOrderLineProduct(Product $product)
+    {
+        //pour chaque ligne de commande
+        foreach($this->getOrderLines() as $line) {
+            $lineProduct = $line->getProduct();
+            //si l'id du  produit associé à la ligne de commande est égal au produit que l'on veut affecter passé en paramètre ; alors nous sommes sur la bonne ligne de commande, peut réaffecter le produit
+            if($lineProduct->getId() === $product->getId()) {
+                $line->setProduct($product);
+                return $this;
+            }
+        }
+        throw new Exception('In ' . Order::class . ' instance ('.$this->getId().') : there is no ' . OrderLine::class . ' with a product_id = "' . $product->getId() .'"');
+    }
+
+
+    public function flushProducts(): self
+    {
+        $this->product = new ArrayCollection();
+        return $this;
+    }
+
+    public function addOrderLine(OrderLine $orderLine): self
+    {
+        if (!$this->orderLines->contains($orderLine)) {
+            $this->orderLines[] = $orderLine;
+            $orderLine->setOrder($this);
+        }
 
         return $this;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId($id)
+    public function removeOrderLine(OrderLine $orderLine): self
     {
-        $this->id = $id;
+        if ($this->orderLines->contains($orderLine)) {
+            $this->orderLines->removeElement($orderLine);
+            // set the owning side to null (unless already changed)
+            if ($orderLine->getOrder() === $this) {
+                $orderLine->setOrder(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
