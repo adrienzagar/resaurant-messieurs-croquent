@@ -19,6 +19,8 @@ const Command = ({
     addProductToCart, 
     quantity, 
     cart,
+    addQuantityToProduct,
+    quantities
 }) => {
     useEffect(() => {
         // console.log(getProduct)
@@ -37,6 +39,8 @@ const Command = ({
              <Cart 
                 cart={cart} 
                 quantity={quantity}
+                quantities={quantities}
+                addQuantityToProduct={addQuantityToProduct}
              />
         </main>
 );}
