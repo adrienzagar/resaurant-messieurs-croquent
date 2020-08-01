@@ -10,11 +10,10 @@ import './styles.scss';
 
 //! == Composant ==
 const Command = ({ getProduct, getCategories, links, products, categories }) => {
-    useEffect(() => {
+    useEffect(() => { getProduct(); }, []);
+    useEffect(() => { getCategories(); }, []);
+    useEffect(() => { document.title = "Messieurs Corquent - Commander"; }, []);
         // console.log(getProduct)
-        getProduct();
-        getCategories();
-    }, []);
     return(
         <main className="command">
             <Delivery links={links} />

@@ -1,14 +1,17 @@
 //! == Import : npm ==
-import React from 'react';
+import React, { useEffect }from 'react';
 import AOS from 'aos';
 
 //! == Import : local ==
 import 'aos/dist/aos.css';
 import './styles.scss';
 
+document.title = "Messieurs Corquent - 404 not found";
+
 //! == Composant ==
 const Err404 = () => {
     AOS.init();
+    useEffect(() => { document.title = "Messieurs Corquent - 404 not found"; }, []);
     return (
         <main className="error">
             <h1 className="error__title">

@@ -1,5 +1,5 @@
 //! == Import : npm ==
-import React from 'react';
+import React, { useEffect } from 'react';
 
 //! == Import : local ==
 import MapCard from './MapCard';
@@ -9,15 +9,17 @@ import Reservation from './Reservation';
 import './styles.scss';
 
 //! == Composant ==
-const FindUs = () => (
-  <div className="findUs">
-    <div className="findUs__container">
-      <CardComponent />
-      <MapCard />
+const FindUs = () => {
+  useEffect(() => { document.title = "Messieurs Corquent - Nous trouver"; }, []);
+  return (
+    <div className="findUs">
+      <div className="findUs__container">
+        <CardComponent />
+        <MapCard />
+      </div>
+        <HowToCome />
+        <Reservation />
     </div>
-      <HowToCome />
-      <Reservation />
-  </div>
-);
-
+  );
+};
 export default FindUs;
