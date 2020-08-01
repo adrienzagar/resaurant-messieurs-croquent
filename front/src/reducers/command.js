@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { SAVE_PRODUCT } from '../actions/product';
+import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
 
 //! == Initial state
@@ -22,6 +22,10 @@ export const initialState = {
     ],
     listProduct: [],
     listCategories: [],
+    listPrice: [],
+    quantity: 0,
+    quantities: 0,
+    cart: []
 };
 
 //! == Actions to modified state
@@ -30,13 +34,25 @@ const command = (state = initialState, action = {}) => {
         case SAVE_PRODUCT:
           return {
             ...state,
-            listProduct: action.product,
+            listProduct: action.listProduct,
           };
         case SAVE_CATEGORIES:
           return {
             ...state,
             listCategories: action.categories,
           };
+          case ADD_PRODUCT_TO_CART:
+            state.cart.push(action.product)
+            return {
+              ...state,
+              quantity: state.quantity + 1,
+              cart: state.cart,
+            };
+          case ADD_QUANTITY_PRODUCT:
+            return {
+              ...state,
+              quantities: state.quantities +1
+            }
         default:
             return state;
     }

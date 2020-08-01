@@ -2,7 +2,7 @@ export default [
     {
         id: 1,
         path: "https://fr-fr.facebook.com/Messieurscroquent/",
-        icon: "fab fa-facebook",
+        icon: "fab fa-facebook-f",
     },
     {
         id: 2,

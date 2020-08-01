@@ -5,23 +5,43 @@ import PropTypes from 'prop-types';
 //! == Import : local ==
 import Delivery from '../Command/Delivery';
 import Local from '../Command/Local';
-import Product from '../Command/Product';
+import ProductList from '../Command/ProductList';
 import './styles.scss';
+import Cart from './Cart';
 
 //! == Composant ==
-const Command = ({ getProduct, getCategories, links, products, categories }) => {
-    useEffect(() => {
+const Command = ({ 
+    getProduct, 
+    getCategories, 
+    links, 
+    products, 
+    categories, 
+    listPrice,
+    addProductToCart, 
+    quantity, 
+    cart,
+    addQuantityToProduct,
+    quantities
+}) => {
+    useEffect(() => { getProduct(); }, []);
+    useEffect(() => { getCategories(); }, []);
+    useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
         // console.log(getProduct)
-        getProduct();
-        getCategories();
-    }, []);
     return(
         <main className="command">
             <Delivery links={links} />
             <Local />
-            <Product 
+            <ProductList 
                 products={products}
                 categories={categories}
+                addProductToCart={addProductToCart}
+             />
+             <Cart 
+                cart={cart} 
+                quantity={quantity}
+                listPrice={listPrice}
+                quantities={quantities}
+                addQuantityToProduct={addQuantityToProduct}
              />
         </main>
 );}

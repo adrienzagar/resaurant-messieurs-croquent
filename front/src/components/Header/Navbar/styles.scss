@@ -22,27 +22,52 @@
                 margin: 0 2rem;
                 font-size: 1.3rem;
             }
-            color: #FFF;
-            font-size: 1;
+            color: vars.$color-secondary;
+            font-size: 1rem;
             margin: 0 1rem;
             padding-bottom: .5rem;
+            position: relative;
             &--selected {
-                border-bottom: 2px solid #FFF;
+                &:after {
+                    position: absolute;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: $color-secondary;
+                content: "";
+                transform: scale(1);
+                }
             }
-            &:hover {
-                border-bottom: 2px solid #FFF;
+            &--a {
+                &:after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background-color: $color-secondary;
+                    content: "";
+                    transform: scale(0);
+                    transition: transform .3s cubic-bezier(0.11, 0.7, 0, 1);
+                }
+                &:hover:after {
+                    transform: scale(1);
+                }
             }
         }
         &__socialnetworks {
             @include m767 () {
                 display: flex;
-                color: #FFF;
+                color: vars.$color-secondary;
                 margin: 0 1rem;
             }
         }
         &__socialnetwork .fab {
             @include m1000 () {
-                font-size: 2rem;
+                font-size: 1.5rem;
                 margin: 0 1rem;
                 height: 2.5rem;
                 width: 2.5rem;
@@ -50,14 +75,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 1rem;
             margin: 0 1rem;
             height: 2rem;
             width: 2rem;
             border-radius: 50%;
+            border: solid 1px vars.$color-secondary;
+            transition: .3s ease;
             &:hover {
                 color: vars.$color-primary;
-                background: #FFF;
+                background: vars.$color-secondary;
             }
         }
     display: none;
