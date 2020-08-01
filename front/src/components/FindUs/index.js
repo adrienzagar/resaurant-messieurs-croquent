@@ -10,7 +10,7 @@ import './styles.scss';
 
 //! == Composant ==
 const FindUs = () => {
-  useEffect(() => { document.title = "Messieurs Corquent - Nous trouver"; }, []);
+  useEffect(() => { document.title = "Messieurs Croquent - Nous trouver"; }, []);
   return (
     <div className="findUs">
       <div className="findUs__container">

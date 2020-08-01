@@ -11,7 +11,7 @@ document.title = "Messieurs Corquent - 404 not found";
 //! == Composant ==
 const Err404 = () => {
     AOS.init();
-    useEffect(() => { document.title = "Messieurs Corquent - 404 not found"; }, []);
+    useEffect(() => { document.title = "Messieurs Croquent - 404 not found"; }, []);
     return (
         <main className="error">
             <h1 className="error__title">
