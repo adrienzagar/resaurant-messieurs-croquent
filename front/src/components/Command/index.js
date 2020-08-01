@@ -23,12 +23,10 @@ const Command = ({
     addQuantityToProduct,
     quantities
 }) => {
-    useEffect(() => {
+    useEffect(() => { getProduct(); }, []);
+    useEffect(() => { getCategories(); }, []);
+    useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
         // console.log(getProduct)
-        getProduct();
-        getCategories();
-    }, []);
-
     return(
         <main className="command">
             <Delivery links={links} />

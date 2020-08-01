@@ -17,50 +17,49 @@ class Product
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"products_get" ,"products_get_one" })
+     * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one"})
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     * @Groups({"products_get","products_get_one"})
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one" })
      */
     private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"products_get" , "products_get_one"})
+     * @Groups({"products_get" ,"products_get_one" , "order_get" , "order_get_one"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"products_get","products_get_one"})
+     * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one" })
      */
     private $picture;
 
     /**
      * @ORM\Column(type="float")
-     * @Groups({"products_get" ,"products_get_one"})
+     * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one" })
      */
     private $price;
 
-
     /**
-     * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products", cascade={"all"})
+     * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"products_get", "products_get_one" , "categories_get"})
+     * @Groups({"products_get", "products_get_one" , "categories_get", "order_get" , "order_get_one"})
      */
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Order::class, inversedBy="products")
+     * @ORM\OneToMany(targetEntity=OrderLine::class, mappedBy="product")
      */
-    private $quantity;
+    private $orderLines;
 
     public function __construct()
     {
-        $this->quantity = new ArrayCollection();
+        $this->orderLines = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -85,7 +84,7 @@ class Product
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -129,27 +128,44 @@ class Product
     }
 
     /**
-     * @return Collection|Order[]
+     * @return Collection|OrderLine[]
      */
-    public function getQuantity(): Collection
+    public function getOrderLines(): Collection
     {
-        return $this->quantity;
+        return $this->orderLines;
     }
 
-    public function addQuantity(Order $quantity): self
+    public function addOrderLine(OrderLine $orderLine): self
     {
-        if (!$this->quantity->contains($quantity)) {
-            $this->quantity[] = $quantity;
+        if (!$this->orderLines->contains($orderLine)) {
+            $this->orderLines[] = $orderLine;
+            $orderLine->setProduct($this);
         }
 
         return $this;
     }
 
-    public function removeQuantity(Order $quantity): self
+    public function removeOrderLine(OrderLine $orderLine): self
     {
-        if ($this->quantity->contains($quantity)) {
-            $this->quantity->removeElement($quantity);
+        if ($this->orderLines->contains($orderLine)) {
+            $this->orderLines->removeElement($orderLine);
+            // set the owning side to null (unless already changed)
+            if ($orderLine->getProduct() === $this) {
+                $orderLine->setProduct(null);
+            }
         }
+
+        return $this;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

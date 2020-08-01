@@ -6,11 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity("email")
  */
 class User
 {
@@ -18,36 +17,42 @@ class User
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $phoneNumber;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"order_get" , "order_get_one"})
      */
     private $role;
 
     /**
-     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="orderBy", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="user")
      */
     private $orders;
 
@@ -114,7 +119,7 @@ class User
         return $this->role;
     }
 
-    public function setRole(string $role): self
+    public function setRole(?string $role): self
     {
         $this->role = $role;
 
@@ -133,7 +138,7 @@ class User
     {
         if (!$this->orders->contains($order)) {
             $this->orders[] = $order;
-            $order->setOrderBy($this);
+            $order->setUser($this);
         }
 
         return $this;
@@ -144,8 +149,8 @@ class User
         if ($this->orders->contains($order)) {
             $this->orders->removeElement($order);
             // set the owning side to null (unless already changed)
-            if ($order->getOrderBy() === $this) {
-                $order->setOrderBy(null);
+            if ($order->getUser() === $this) {
+                $order->setUser(null);
             }
         }
 

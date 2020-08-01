@@ -11,7 +11,7 @@ const Footer = ({ socialnetworks }) => (
                     <p className="footer__infos">10:30 à 14:30 - 18:30 à 22:00</p>
                 </div>
                 <div className="footer__phone">
-                    <p className="footer__infos">Téléphone : 05 57 30 91 39</p>
+                    <p className="footer__infos">Téléphone : <a href="tel:+33557309139">05 57 30 91 39</a></p>
                 </div>
                 <div className="footer__adress">
                     <p className="footer__infos">25 Cours Pasteur,</p>
