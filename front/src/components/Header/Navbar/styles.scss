@@ -23,15 +23,39 @@
                 font-size: 1.3rem;
             }
             color: vars.$color-secondary;
-            font-size: 1;
+            font-size: 1rem;
             margin: 0 1rem;
             padding-bottom: .5rem;
-            transition: .3s ease;
+            position: relative;
             &--selected {
-                border-bottom: 2px solid vars.$color-secondary;
+                &:after {
+                    position: absolute;
+                bottom: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: $color-secondary;
+                content: "";
+                transform: scale(1);
+                }
             }
-            &:hover {
-                border-bottom: 2px solid vars.$color-secondary;
+            &--a {
+                &:after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background-color: $color-secondary;
+                    content: "";
+                    transform: scale(0);
+                    transition: transform .3s cubic-bezier(0.11, 0.7, 0, 1);
+                }
+                &:hover:after {
+                    transform: scale(1);
+                }
             }
         }
         &__socialnetworks {
