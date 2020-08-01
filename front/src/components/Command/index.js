@@ -12,7 +12,7 @@ import './styles.scss';
 const Command = ({ getProduct, getCategories, links, products, categories }) => {
     useEffect(() => { getProduct(); }, []);
     useEffect(() => { getCategories(); }, []);
-    useEffect(() => { document.title = "Messieurs Corquent - Commander"; }, []);
+    useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
         // console.log(getProduct)
     return(
         <main className="command">

@@ -10,7 +10,7 @@ import './styles.scss';
 
 //! == Composant ==
 const Home = ({ presentation, imagePresentation }) => {
-    useEffect (() => { document.title = "Messieurs Corquent - Accueil"; }, []);
+    useEffect (() => { document.title = "Messieurs Croquent - Accueil"; }, []);
     return (
         <main className="home">
             <HomeCarousel />
