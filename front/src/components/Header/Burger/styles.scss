@@ -21,7 +21,7 @@
         background: vars.$color-primary;
         height: 90vh;
         width: 100vw;
-        color: #FFF;
+        color: vars.$color-secondary;
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -41,10 +41,10 @@
     &__link {
         padding-bottom: .5rem;
         &--selected {
-            border-bottom: 2px solid #FFF;
+            border-bottom: 2px solid vars.$color-secondary;
         }
         &:hover {
-            border-bottom: 2px solid #FFF;
+            border-bottom: 2px solid vars.$color-secondary;
         }
     }
 
@@ -58,13 +58,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 3rem;
-        height: 3.5rem;
-        width: 3.5rem;
+        font-size: 2rem;
+        height: 3rem;
+        width: 3rem;
         border-radius: 50%;
+        border: solid 1px vars.$color-secondary;
         &:hover {
             color: vars.$color-primary;
-            background: #FFF;
+            background: vars.$color-secondary;
         }
     }
 }
