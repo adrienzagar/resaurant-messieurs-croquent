@@ -3,6 +3,7 @@ export const GET_PRODUCT = 'GET_PRODUCT';
 export const SAVE_PRODUCT = 'SAVE_PRODUCT';
 export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const ADD_QUANTITY_PRODUCT = 'ADD_QUANTITY_PRODUCT';
+export const SAVE_PRICE = 'SAVE_PRICE';
 
 // ACTION CREATOR
 export const getProduct = () => ({
@@ -24,4 +25,9 @@ export const getProduct = () => ({
   export const addQuantityProduct = () => ({
     type: ADD_QUANTITY_PRODUCT,
     quantity: 1
+  })
+
+  export const savePrice = (price) => ({
+    type: SAVE_PRICE,
+    price,
   })

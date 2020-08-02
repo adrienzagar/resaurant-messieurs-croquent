@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import Delivery from '../Command/Delivery';
 import Local from '../Command/Local';
 import ProductList from '../Command/ProductList';
-import './styles.scss';
 import Cart from './Cart';
+import './styles.scss';
 
 //! == Composant ==
 const Command = ({ 
@@ -16,12 +16,13 @@ const Command = ({
     links, 
     products, 
     categories, 
-    listPrice,
     addProductToCart, 
     quantity, 
     cart,
     addQuantityToProduct,
-    quantities
+    quantities,
+    listPrice,
+    savePrice
 }) => {
     useEffect(() => { getProduct(); }, []);
     useEffect(() => { getCategories(); }, []);
@@ -32,9 +33,11 @@ const Command = ({
             <Delivery links={links} />
             <Local />
             <ProductList 
+                cart={cart} 
                 products={products}
                 categories={categories}
                 addProductToCart={addProductToCart}
+                savePrice={savePrice}
              />
              <Cart 
                 cart={cart} 

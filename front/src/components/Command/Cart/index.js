@@ -9,8 +9,8 @@ import { returnTotalPrice } from '../../../selectors';
 
 //! == Composant ==
 const Cart = ({ cart, quantity, quantities, addQuantityToProduct, listPrice }) => {
-    console.log(cart, "Panier de produit");
     console.log(addQuantityProduct);
+    console.log(listPrice, "priceList");
     const addQuantity = (quantities) => {
         addQuantityToProduct(quantities)
     }
