@@ -7,53 +7,94 @@
     margin: 2rem auto;
     padding: 1.2rem;
     &__container {
-        @include m767 () {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 1.3rem;
-            margin-bottom: 2rem;
-        }
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
         border-bottom: solid 1px vars.$color-primary;
-        text-align: center;
-        margin-bottom: 2rem;
+    }
+    &__tr {
+        width: 100%;
     }
     &__image {
         @include m767 () {
-            margin-bottom: 0;
+            max-width: 100%;
+            vertical-align: middle; 
+            border-radius: .5rem;
+            box-shadow: 0 0 5px 1px vars.$color-primary;
+            display: inline;
         }
-        margin-bottom: 1.5rem;
-        width: 5rem;
-        border: solid 5px vars.$color-primary;
-        border-radius: .5rem;
+        display: none;
+        &--td {
+            @include m767 () {
+            width: 15%;
+            display: inline;
+            }
+            width: 0%;
+            display: none;
+        }
+    }
+    &__dish {
+        @include m767 () {
+            margin-left: 1rem;
+            font-size: 1rem;
+        }
+        font-size: .9rem;
+        font-weight: bold;
+        overflow-wrap: break-word;
+        &--td {
+            @include m767 () {
+                width: 20%;
+            }
+            width: 42%;
+            overflow-wrap: break-word;
+        }
     }
     &__description {
         @include m767 () {
-            margin-bottom: 0;
+            font-size: .9rem;
         }
-        margin-bottom: 1.2rem;
+        margin-left: 1rem;
+        font-size: .8rem;
+        color: #666;
+        &--td {
+            @include m767 () {
+                width: 55%;
+            }
+            width: 48%;
+        }
     }
     &__price {
-
-        margin-bottom: 1.2rem;
-    }
-    &__add {
-        border: none;
-        height: 2.5rem;
-        width: 2.5rem;
-        font-size: 1.6rem;
-        border-radius: 50%;
-        color: vars.$color-secondary;
-        background-color: vars.$color-primary;
-        padding: .4rem;
-        margin-bottom: 1.2rem;
-        &:hover {
-            color: vars.$color-primary;
-            background-color: vars.$color-secondary;
-            border: solid 1px vars.$color-primary
+        @include m767 () {
+            font-size: 1rem;
+        }
+        font-size: .8rem;
+        &--td {
+            text-align: center;
+            width: 5%;
         }
     }
-    
+    &__add {
+        @include m767 () {
+            height: 1.6rem;
+            width: 1.6rem;
+            font-size: .8rem;
+        }
+        border: none;
+        height: 1.2rem;
+        width: 1.2rem;
+        font-size: .6rem;
+        border-radius: 50%;
+        color: vars.$color-secondary;
+        background: vars.$color-primary;
+        &:hover {
+            color: vars.$color-primary;
+            background: vars.$color-secondary;
+            border: solid 1px vars.$color-primary
+        }
+        &--td {
+            width: 5%;
+            text-align: center;
+        }
+    }
 }
 
 .accordion {
