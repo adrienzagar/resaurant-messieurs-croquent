@@ -7,14 +7,17 @@ import {
     AccordionItemHeading,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
+import AOS from 'aos';
 // import PropTypes from 'prop-types';
 
 //! == Import : local ==
 import 'react-accessible-accordion/dist/fancy-example.css';
+import 'aos/dist/aos.css';
 import './styles.scss';
 import Product from './product'
 //! == Composant ==
 const ProductList = ({ products, categories, addProductToCart }) => {
+    AOS.init();
     // console.log(categories, products, 'COUCOU');
     // console.log(addProduct);
     return (
@@ -25,7 +28,7 @@ const ProductList = ({ products, categories, addProductToCart }) => {
                         <Accordion allowZeroExpanded={true}>
                             <AccordionItem>
                                 <AccordionItemHeading>
-                                    <AccordionItemButton key={category.id}>
+                                    <AccordionItemButton key={category.id} data-aos="fade-right">
                                         {category.name}
                                     </AccordionItemButton>
                                 </AccordionItemHeading>
