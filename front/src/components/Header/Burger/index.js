@@ -37,7 +37,7 @@ const Burger = ({ links, socialnetworks ,isActive, toggleButton }) => {
                         onClick={toggleButton}
                         exact
                     >
-                        {link.name}
+                        <span className="navbar__link--a">{link.name}</span>
                     </NavLink>
                 ))}
                 </ul>   

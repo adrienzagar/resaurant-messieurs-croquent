@@ -1,0 +1,114 @@
+@use '../../../styles/vars';
+@import '../../../styles/vars';
+
+
+.product {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    &__container {
+        margin-bottom: 1rem;
+        border-bottom: solid 1px vars.$color-primary;
+    }
+    &__tr {
+        width: 100%;
+    }
+    &__image {
+        @include m767 () {
+            max-width: 100%;
+            vertical-align: middle; 
+            border-radius: .5rem;
+            box-shadow: 0 0 5px 1px vars.$color-primary;
+            display: inline;
+        }
+        display: none;
+        &--td {
+            @include m767 () {
+            width: 15%;
+            display: inline;
+            }
+            width: 0%;
+            display: none;
+        }
+    }
+    &__dish {
+        @include m767 () {
+            margin-left: 1rem;
+            font-size: 1rem;
+        }
+        font-size: .9rem;
+        font-weight: bold;
+        overflow-wrap: break-word;
+        &--td {
+            @include m767 () {
+                width: 20%;
+            }
+            width: 42%;
+            overflow-wrap: break-word;
+        }
+    }
+    &__description {
+        @include m767 () {
+            font-size: .9rem;
+        }
+        margin-left: 1rem;
+        font-size: .8rem;
+        color: #666;
+        &--td {
+            @include m767 () {
+                width: 55%;
+            }
+            width: 48%;
+        }
+    }
+    &__price {
+        @include m767 () {
+            font-size: 1rem;
+        }
+        font-size: .8rem;
+        &--td {
+            text-align: center;
+            width: 5%;
+        }
+    }
+    &__add {
+        @include m767 () {
+            height: 1.6rem;
+            width: 1.6rem;
+            font-size: .8rem;
+        }
+        border: none;
+        height: 1.2rem;
+        width: 1.2rem;
+        font-size: .6rem;
+        border-radius: 50%;
+        color: vars.$color-secondary;
+        background: vars.$color-primary;
+        &:hover {
+            color: vars.$color-primary;
+            background: vars.$color-secondary;
+            border: solid 1px vars.$color-primary
+        }
+        &--td {
+            width: 5%;
+            text-align: center;
+        }
+    }
+}
+
+.accordion {
+    &__button {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: vars.$color-secondary;
+        background: vars.$color-primary;
+        transition: .3s ease;
+        &:hover {
+            background: vars.$color-hover;
+        }
+    }
+    &__panel {
+        border: 1px dashed vars.$color-primary;
+    }
+}
