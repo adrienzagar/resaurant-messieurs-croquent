@@ -63,6 +63,7 @@
         font-size: 1.5rem;
         color: vars.$color-secondary;
         background: vars.$color-primary;
+        transition: .3s ease;
         &:hover {
             background: vars.$color-hover;
         }
