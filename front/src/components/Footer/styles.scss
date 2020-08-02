@@ -31,18 +31,20 @@
         justify-content: space-around;
         margin-top: 1rem;
     }
-    &__socialnetwork {
+    &__socialnetwork .fab {
         display: flex;
-        justify-content: center;
         align-items: center;
-        font-size: 2rem;
+        justify-content: center;
+        font-size: 1.5rem;
         height: 2.5rem;
         width: 2.5rem;
         border-radius: 50%;
         margin: 0 1rem;
+        border: 1px solid $color-secondary;
+        transition: .3s ease;
         &:hover {
             color: vars.$color-primary;
-            background-color: vars.$color-secondary;
+            background: vars.$color-secondary;
         }
     }
 }

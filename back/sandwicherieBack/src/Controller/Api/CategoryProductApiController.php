@@ -22,9 +22,10 @@ class CategoryProductApiController extends AbstractController
     {
         $categories = $categoryProductRepository->findAll();
 
-
         return  $this->json($categories, 200, [], ["groups" => "categories_get"]);
     }
+
+    
 
     /**
      * @Route("/api/categories/{id}", name="api_categories_get_one", methods={"GET"})

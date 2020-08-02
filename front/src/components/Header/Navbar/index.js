@@ -26,7 +26,7 @@ const Navbar = ({ links, socialnetworks }) => {
                     activeClassName="navbar__link--selected"
                     exact
                     >
-                        {link.name}
+                        <span className="navbar__link--a">{link.name}</span>
                     </NavLink>
                 ))}
             </ul>
