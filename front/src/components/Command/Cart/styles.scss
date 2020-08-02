@@ -2,9 +2,13 @@
 @import '../../../styles/vars';
 
 .cart {
+    @include m767 () {
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+    margin: 2rem 1rem;
+    padding: 1rem;
     border: solid 5px vars.$color-primary;
-    margin: 1.5rem;
-    padding: 1.2rem;
     &__container {
         @include m767 () {
             display: flex;
