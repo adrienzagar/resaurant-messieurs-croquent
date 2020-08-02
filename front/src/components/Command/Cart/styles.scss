@@ -7,42 +7,27 @@
         margin: 2rem auto;
     }
     margin: 2rem 1rem;
-    padding: 1rem;
+    padding: 2rem;
     border: solid 5px vars.$color-primary;
     &__container {
-        @include m767 () {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 1.3rem;
-            margin-bottom: 2rem;
-        }
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        padding: .5rem 0;
         border-bottom: solid 1px vars.$color-primary;
-        text-align: center;
-        margin-bottom: 2rem;
     }
     &__dishes {
-        @include m767 () {
-        display: flex;
-        align-items: center;
-        margin: 1.5rem;       
-        } 
+
     }
     &__dish {
-        margin: 1.5rem;
-    }
-    &__image {
         @include m767 () {
-            margin-bottom: 0;
-            display: block;
+            margin: 0;
         }
-        display:none;
-        margin-bottom: 1.5rem;
-        width: 5rem;
-        border: solid 5px vars.$color-primary;
-        border-radius: .5rem;
+        margin-right: 1rem;
+        font-weight: bold;
+    }
+    &__prices {
+
     }
     &__quantity {
         display:flex;
@@ -54,15 +39,13 @@
     }
     &__add {
         border: none;
-        margin: 1.5rem;
-        height: 2.5rem;
-        width: 2.5rem;
-        font-size: 1.6rem;
+        margin-left: .3rem;
+        height: 1.6rem;
+        width: 1.6rem;
         border-radius: 50%;
         color: vars.$color-secondary;
         background-color: vars.$color-primary;
         padding: .4rem;
-        margin-bottom: 1.2rem;
         &:hover {
             color: vars.$color-primary;
             background-color: vars.$color-secondary;
@@ -71,15 +54,13 @@
     }
     &__remove {
         border: none;
-        height: 2.5rem;
-        width: 2.5rem;
-        margin: 1.5rem;
-        font-size: 1.6rem;
+        margin-right: .3rem;
+        height: 1.6rem;
+        width: 1.6rem;
         border-radius: 50%;
         color: vars.$color-secondary;
         background-color: vars.$color-primary;
         padding: .4rem;
-        margin-bottom: 1.2rem;
         &:hover {
             color: vars.$color-primary;
             background-color: vars.$color-secondary;
@@ -90,7 +71,7 @@
         display:flex;
         justify-content: space-around;
         align-items: center;
-        margin: 1.5rem;
+        padding-top: 1rem;
     }
     &__submit {
         width: 8rem;

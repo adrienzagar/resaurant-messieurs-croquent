@@ -6,12 +6,12 @@ import React from 'react';
 import './styles.scss';
 
 //! == Composant ==
-const Product = ({ product, addProductToCart }) => {
+const Product = ({ cart, product, addProductToCart, savePrice }) => {
     const addProduct = (product) => {
-        // event.preventDefault();
         // console.log(product, "Produit ajouter au clic");
         console.log(product);
-        addProductToCart(product)
+        addProductToCart(product);
+        savePrice(product.price)
     };
      return (
         <table className="product__container" key={product.id}>
@@ -32,7 +32,9 @@ const Product = ({ product, addProductToCart }) => {
                     <td className="product__add--td">
                         <button 
                             className="product__add"
-                            onClick={()=>{addProduct(product)}}
+                            onClick={()=>{
+                                addProduct(product);
+                            }}
                         >
                             <i className="fa fa-plus" aria-hidden="true"></i>
                         </button>

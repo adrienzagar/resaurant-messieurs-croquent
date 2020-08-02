@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT } from '../actions/product';
+import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
 
 //! == Initial state
@@ -53,6 +53,12 @@ const command = (state = initialState, action = {}) => {
               ...state,
               quantities: state.quantities +1
             }
+            case SAVE_PRICE:
+            state.listPrice.push(action.price)
+            return {
+              ...state,
+              listPrice: state.listPrice,
+            };
         default:
             return state;
     }

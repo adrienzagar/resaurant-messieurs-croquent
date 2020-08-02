@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Command from '../../components/Command';
-import { getProduct, addProductToCart, addQuantityProduct } from '../../actions/product';
+import { getProduct, addProductToCart, addQuantityProduct, savePrice } from '../../actions/product';
 import { getCategories } from '../../actions/categories';
 
 
@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
     getProduct: () => dispatch(getProduct()),
     getCategories: () => dispatch(getCategories()),
     addProductToCart: (product) => dispatch(addProductToCart(product)),
-    addQuantityProduct: (quantities) => dispatch(addQuantityProduct(quantities)), 
+    addQuantityProduct: (quantities) => dispatch(addQuantityProduct(quantities)),
+    savePrice: (price) => dispatch(savePrice(price)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Command);

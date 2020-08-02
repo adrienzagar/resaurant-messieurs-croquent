@@ -14,7 +14,7 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import './styles.scss';
 import Product from './product'
 //! == Composant ==
-const ProductList = ({ products, categories, addProductToCart }) => {
+const ProductList = ({ cart, products, categories, addProductToCart, savePrice }) => {
     // console.log(categories, products, 'COUCOU');
     // console.log(addProduct);
     return (
@@ -33,8 +33,10 @@ const ProductList = ({ products, categories, addProductToCart }) => {
                                     {result.map((productMap) => (
                                         <Product
                                             key={productMap.id}
+                                            cart={cart}
                                             product={productMap}
                                             addProductToCart={addProductToCart}
+                                            savePrice={savePrice}
                                         />
                                     ))}
                                 </AccordionItemPanel>
