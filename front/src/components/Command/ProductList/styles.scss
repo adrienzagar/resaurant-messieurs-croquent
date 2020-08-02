@@ -3,11 +3,9 @@
 
 
 .product {
+    max-width: 800px;
+    margin: 2rem auto;
     padding: 1.2rem;
-    &__category {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
     &__container {
         @include m767 () {
             display: flex;
@@ -56,4 +54,20 @@
         }
     }
     
+}
+
+.accordion {
+    &__button {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: vars.$color-secondary;
+        background: vars.$color-primary;
+        &:hover {
+            background: vars.$color-hover;
+        }
+    }
+    &__panel {
+        border: 1px dashed vars.$color-primary;
+    }
 }
