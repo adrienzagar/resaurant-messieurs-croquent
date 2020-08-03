@@ -1,0 +1,107 @@
+@use '../../styles/vars';
+
+.product {
+    max-width: 1000px;
+    margin: 14vh auto 2rem auto;
+    min-height: 80vh;
+    background: vars.$color-lightness;
+    border-radius: .5rem;
+    padding: 2rem;
+    &__image {
+        max-width: 100%;
+        vertical-align: middle;
+        border-radius: .5rem;
+        &--td {
+            width: 10%;
+        }
+        &--th {
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+    &__dish {
+        margin-left: 1rem;
+        font-weight: bold;
+        &--td {
+            width: 20%;
+        }
+        &--th {
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+    &__description {
+        margin-left: 1rem;
+        font-size: .9rem;;
+        &--td {
+            width: 45%;
+        }
+        &--th {
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+    &__price {
+        text-align: center;
+        &--td {
+            width: 5%;
+        }
+        &--th {
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+    &__modify {
+        background: vars.$color-warning;
+        border: none;
+        border-radius: .5rem;
+        padding: .5rem .5rem;
+        font-size: 1.2rem;
+        &:hover {
+            background: vars.$color-warning-hover;
+        }
+        &--td {
+            width: 10%;
+            text-align: center;
+        }
+        &--th {
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+    &__delete {
+        background: vars.$color-danger;
+        color: vars.$color-light;
+        border: none;
+        border-radius: .5rem;
+        padding: .5rem .5rem;
+        font-size: 1.2rem;
+        &:hover {
+            background: vars.$color-danger-hover;
+        }
+        &--td {
+            width: 10%;
+            text-align: center;
+        }
+        &--th {
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+tbody {
+    border-bottom: 1px solid vars.$color-background;
+}

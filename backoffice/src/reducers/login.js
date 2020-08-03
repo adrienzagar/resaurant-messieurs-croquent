@@ -1,5 +1,6 @@
 //! == Import : local (actions)
-import { GET_CONNECT, GET_LOGOUT } from '../actions/login';
+import { GET_CONNECT } from '../actions/login';
+import { GET_LOGOUT } from '../actions/header';
 
 //! == Initial state
 export const initialState = {
@@ -11,8 +12,8 @@ const login = (state = initialState, action = {}) => {
     switch (action.type) {
         case GET_CONNECT:
            return {
-            ...state,
-            isLogged: true,
+                ...state,
+                isLogged: true,
            };
         case GET_LOGOUT:
             return {

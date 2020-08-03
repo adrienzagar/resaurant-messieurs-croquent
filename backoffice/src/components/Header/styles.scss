@@ -1,6 +1,9 @@
 @use '../../styles/vars';
 
 .header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
     height: 10vh;
     background: vars.$color-sidebar;
     border-bottom: 1px solid vars.$color-primary;
@@ -11,6 +14,38 @@
         color: vars.$color-light;
         margin-left: 2rem;
         font-size: 1.5rem;
+    }
+    &__open {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-right: 2rem;
+        padding: .6rem 1.5rem;
+        border: none;
+        border-radius: .5rem;
+        color: vars.$color-light;
+        background: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%);
+        &:hover {
+            background: vars.$color-danger-hover;
+        }
+        & .fa {
+            margin-right: .5rem;
+        }
+    }
+    &__close {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-right: 2rem;
+        padding: .6rem 1.5rem;
+        border: none;
+        border-radius: .5rem;
+        color: vars.$color-light;
+        background: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+        &:hover {
+            background: vars.$color-success-hover;
+        }
+        & .fa {
+            margin-right: .5rem;
+        }
     }
     &__logout {
         font-size: 1.1rem;

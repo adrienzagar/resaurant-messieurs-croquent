@@ -1,5 +1,9 @@
 @use '../../styles/vars';
 
+.sidebar {
+    margin-top: 10vh;
+}
+
 .bm {
     &-morph-shape {
         fill: vars.$color-sidebar;
@@ -9,9 +13,9 @@
     }
     &-burger {
         &-button {
-            position: relative;
+            position: fixed;
             left: 1rem;
-            top: 1rem;
+            top: 12vh;
             width: 2rem;
             height: 1.4rem;
         }

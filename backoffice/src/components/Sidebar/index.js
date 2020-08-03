@@ -8,19 +8,21 @@ import './styles.scss';
 
 //! == Composant ==
 const Sidebar = ({ links }) => (
-    <Menu>
-        {links.map((link) => (
-            <NavLink
-                key={link.id}
-                to={link.path}
-                activeClassName="bm-item-selected"
-                exact
+    <aside className="sidebar">
+        <Menu>
+            {links.map((link) => (
+                <NavLink
+                    key={link.id}
+                    to={link.path}
+                    activeClassName="bm-item-selected"
+                    exact
                 >
-                    <i className={link.icon}></i>
-                    <span className="bm-item-link">{link.name}</span>
-            </NavLink>
-        ))}
-    </Menu>
+                        <i className={link.icon}></i>
+                        <span className="bm-item-link">{link.name}</span>
+                </NavLink>
+            ))}
+        </Menu>
+    </aside>
 );
 
 //! == Export ==
