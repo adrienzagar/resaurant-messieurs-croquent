@@ -1,0 +1,37 @@
+@use '../../styles/vars';
+
+.bm {
+    &-morph-shape {
+        fill: vars.$color-sidebar;
+    }
+    &-cross {
+        background: vars.$color-light;
+    }
+    &-burger {
+        &-button {
+            position: relative;
+            left: 1rem;
+            top: 1rem;
+            width: 2rem;
+            height: 1.4rem;
+        }
+        &-bars {
+            background: vars.$color-light;
+        }
+    }
+    &-item {
+        color: vars.$color-light;
+        margin: 2rem;
+        padding-bottom: .5rem;
+        font-size: 1.3rem;
+        &-selected {
+            color: vars.$color-primary;
+        }
+        &-link {
+            transition: .3s ease;
+            &:hover {
+                color: vars.$color-primary-hover;
+            }
+        }
+    }
+}
