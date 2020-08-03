@@ -1,9 +1,32 @@
 import React from 'react'
-import { Button, Header, Modal } from 'semantic-ui-react'
+import { Button, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
-function ModalExampleModal() {
+function ModalExampleModal({ 
+    mailValue, 
+    phoneValue,
+    nameValue,
+    lastnameValue,
+    setMailValue,
+    setPhoneValue,
+    setNameValue,
+    setLastnameValue,
+}) {
   const [open, setOpen] = React.useState(false)
+  
+  const handleOnLastnameChange  = (event) => {
+      setLastnameValue(event.target.value)
+  }
+  const handleOnNameChange  = (event) => {
+      setNameValue(event.target.value)
+  }
+  const handleOnMailChange = (event) => {
+      setMailValue(event.target.value)
+  }
+  const handleOnPhoneChange  = (event) => {
+      setPhoneValue(event.target.value)
+  }
+
 
   return (
     <Modal
@@ -19,19 +42,19 @@ function ModalExampleModal() {
             <form className="form" action="">
                 <div className="form__container">
                   <label htmlFor="lastname">Nom</label>
-                  <input id="lastname" type="text" />
+                  <input id="lastname" type="text" value={lastnameValue} onChange={handleOnLastnameChange}/>
                 </div>
                 <div className="form__container">
                   <label htmlFor="name">Prénom</label>
-                  <input id="Name" type="text" />
+                  <input id="Name" type="text" value={nameValue} onChange={handleOnNameChange} />
                 </div>
                 <div className="form__container">
                   <label htmlFor="email">Email</label>
-                  <input id="email" type="email" />
+                  <input id="email" type="email" value={mailValue} onChange={handleOnMailChange} />
                 </div>
                 <div className="form__container">
                   <label htmlFor="phone">Téléphone</label>
-                  <input id="phone" type="tel" />
+                  <input id="phone" type="tel" value={phoneValue} onChange={handleOnPhoneChange} />
                 </div>
             </form>
         </Modal.Description>

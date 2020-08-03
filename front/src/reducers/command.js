@@ -1,6 +1,7 @@
 //! == Import : local (actions)
 import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
+import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE } from '../actions/form';
 
 //! == Initial state
 export const initialState = {
@@ -25,7 +26,11 @@ export const initialState = {
     listPrice: [],
     quantity: 0,
     quantities: 0,
-    cart: []
+    cart: [],
+    mailValue: '',
+    phoneValue: '',
+    nameValue: '',
+    lastnameValue: '',
 };
 
 //! == Actions to modified state
@@ -59,6 +64,26 @@ const command = (state = initialState, action = {}) => {
               ...state,
               listPrice: state.listPrice,
             };
+            case SET_MAIL_VALUE:
+              return {
+                ...state,
+                mailValue: action.mailValue,
+              };
+            case SET_PHONE_VALUE:
+              return {
+                ...state,
+                phoneValue: action.phoneValue,
+              };
+            case SET_NAME_VALUE:
+              return {
+                ...state,
+                nameValue: action.nameValue,
+              };
+            case SET_LASTNAME_VALUE:
+              return {
+                ...state,
+                lastnameValue: action.lastnameValue,
+              };
         default:
             return state;
     }
