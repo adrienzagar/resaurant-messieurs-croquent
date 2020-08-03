@@ -22,10 +22,10 @@ export const getProduct = () => ({
     }
   );
   
-  export const addQuantityProduct = () => ({
-    type: ADD_QUANTITY_PRODUCT,
-    quantity: 1
-  })
+  // export const addQuantityProduct = () => ({
+  //   type: ADD_QUANTITY_PRODUCT,
+  //   quantity: 1
+  // })
 
   export const savePrice = (price) => ({
     type: SAVE_PRICE,

@@ -25,12 +25,12 @@ export const initialState = {
     listCategories: [],
     listPrice: [],
     quantity: 0,
-    quantities: 0,
+    // quantities: 0,
     cart: [],
-    mailValue: '',
-    phoneValue: '',
-    nameValue: '',
-    lastnameValue: '',
+    email: '',
+    phone_number: '',
+    firstname: '',
+    lastname: '',
 };
 
 //! == Actions to modified state
@@ -53,11 +53,11 @@ const command = (state = initialState, action = {}) => {
               quantity: state.quantity + 1,
               cart: state.cart,
             };
-          case ADD_QUANTITY_PRODUCT:
-            return {
-              ...state,
-              quantities: state.quantities +1
-            }
+          // case ADD_QUANTITY_PRODUCT:
+          //   return {
+          //     ...state,
+          //     quantities: state.quantities +1
+          //   }
             case SAVE_PRICE:
             state.listPrice.push(action.price)
             return {
@@ -67,22 +67,22 @@ const command = (state = initialState, action = {}) => {
             case SET_MAIL_VALUE:
               return {
                 ...state,
-                mailValue: action.mailValue,
+                email: action.email,
               };
             case SET_PHONE_VALUE:
               return {
                 ...state,
-                phoneValue: action.phoneValue,
+                phone_number: action.phone_number,
               };
             case SET_NAME_VALUE:
               return {
                 ...state,
-                nameValue: action.nameValue,
+                firstname: action.firstname,
               };
             case SET_LASTNAME_VALUE:
               return {
                 ...state,
-                lastnameValue: action.lastnameValue,
+                lastname: action.lastname,
               };
         default:
             return state;

@@ -11,7 +11,7 @@ import ModalExampleModal from './modal';
 //! == Composant ==
 const Cart = ({ cart, 
     quantity, 
-    quantities, 
+    // quantities, 
     addQuantityToProduct, 
     listPrice, 
     mailValue, 
@@ -22,12 +22,12 @@ const Cart = ({ cart,
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    sendOrder
 }) => {
-    console.log(addQuantityProduct);
     console.log(listPrice, "priceList");
-    const addQuantity = (quantities) => {
-        addQuantityToProduct(quantities)
-    }
+    // const addQuantity = (quantities) => {
+    //     addQuantityToProduct(quantities)
+    // }
     return(
     <div className="cart">
         {cart.map((product) => (
@@ -42,10 +42,10 @@ const Cart = ({ cart,
                     <button className="cart__remove">
                         <i className="fa fa-minus" aria-hidden="true" ></i>
                     </button>
-                    <input className="cart__count" type="text" placeholder={quantities} />
+                    <input className="cart__count" type="text" />
                     <button 
                         className="cart__add"
-                        onClick={() => {addQuantity(quantities)}}
+                        // onClick={() => {addQuantity(quantities)}}
                     >
                         <i className="fa fa-plus" aria-hidden="true"></i>
                     </button>
@@ -57,8 +57,6 @@ const Cart = ({ cart,
             <p>{returnTotalPrice(listPrice).totalPrice}&euro;</p>
         <ModalExampleModal
             mailValue={mailValue}
-            setMailValue={setMailValue}
-            mailValue={mailValue}
             phoneValue={phoneValue}
             nameValue={nameValue}
             lastnameValue={lastnameValue}
@@ -66,6 +64,7 @@ const Cart = ({ cart,
             setPhoneValue={setPhoneValue}
             setNameValue={setNameValue}
             setLastnameValue={setLastnameValue}
+            sendOrder={sendOrder}
         />
         </div>
     </div>

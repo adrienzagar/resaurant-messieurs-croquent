@@ -11,6 +11,7 @@ function ModalExampleModal({
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    sendOrder
 }) {
   const [open, setOpen] = React.useState(false)
   
@@ -27,7 +28,12 @@ function ModalExampleModal({
       setPhoneValue(event.target.value)
   }
 
-
+  const handleSubmit = (event) => {
+      event.preventDefault();
+        console.log('Coucou requête', sendOrder())
+    sendOrder();
+    }
+    
   return (
     <Modal
       onClose={() => setOpen(false)}
@@ -39,7 +45,7 @@ function ModalExampleModal({
       <Modal.Content>
         <Modal.Description>
 
-            <form className="form" action="">
+            <form className="form" onSubmit={handleSubmit}>
                 <div className="form__container">
                   <label htmlFor="lastname">Nom</label>
                   <input id="lastname" type="text" value={lastnameValue} onChange={handleOnLastnameChange}/>
@@ -56,10 +62,11 @@ function ModalExampleModal({
                   <label htmlFor="phone">Téléphone</label>
                   <input id="phone" type="tel" value={phoneValue} onChange={handleOnPhoneChange} />
                 </div>
+                <button type="submit">CROQUER</button>
             </form>
         </Modal.Description>
       </Modal.Content>
-      <Modal.Actions>
+      {/* <Modal.Actions>
         <Button color='black' onClick={() => setOpen(false)}>
           Retour
         </Button>
@@ -70,7 +77,7 @@ function ModalExampleModal({
           onClick={() => setOpen(false)}
           color='black'
         />
-      </Modal.Actions>
+      </Modal.Actions> */}
     </Modal>
   )
 }

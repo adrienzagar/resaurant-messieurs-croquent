@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Command from '../../components/Command';
-import { getProduct, addProductToCart, addQuantityProduct, savePrice } from '../../actions/product';
+import { getProduct, addProductToCart, savePrice } from '../../actions/product';
 import { getCategories } from '../../actions/categories';
 import { setMailValue, setPhoneValue, setNameValue, setLastnameValue } from '../../actions/form';
+import { sendOrder } from '../../actions/order';
 
 
 const mapStateToProps = (state, ownprops) => ({
@@ -14,24 +15,25 @@ const mapStateToProps = (state, ownprops) => ({
     categories: state.command.listCategories,
     listPrice: state.command.listPrice,
     quantity: state.command.quantity,
-    quantities: state.command.quantities,
+    // quantities: state.command.quantities,
     cart: state.command.cart,
-    mailValue: state.mailValue,
-    phoneValue: state.phoneValue,
-    nameValue: state.nameValue,
-    lastnameValue: state.lastnameValue,
+    email: state.email,
+    phone_number: state.phone_number,
+    firstname: state.firstname,
+    lastname: state.lastname,
 });
 
 const mapDispatchToProps = (dispatch, ownprops) => ({
     getProduct: () => dispatch(getProduct()),
     getCategories: () => dispatch(getCategories()),
+    sendOrder: () => dispatch(sendOrder()),
     addProductToCart: (product) => dispatch(addProductToCart(product)),
-    addQuantityProduct: (quantities) => dispatch(addQuantityProduct(quantities)),
+    // addQuantityProduct: (quantities) => dispatch(addQuantityProduct(quantities)),
     savePrice: (price) => dispatch(savePrice(price)),
-    setMailValue: (mailValue) => dispatch(setMailValue(mailValue)),
-    setPhoneValue: (phoneValue) => dispatch(setPhoneValue(phoneValue)),
-    setNameValue: (nameValue) => dispatch(setNameValue(nameValue)),
-    setLastnameValue: (lastnameValue) => dispatch(setLastnameValue(lastnameValue)),
+    setMailValue: (email) => dispatch(setMailValue(email)),
+    setPhoneValue: (phone_number) => dispatch(setPhoneValue(phone_number)),
+    setNameValue: (firstname) => dispatch(setNameValue(firstname)),
+    setLastnameValue: (lastname) => dispatch(setLastnameValue(lastname)),
 
 });
 
