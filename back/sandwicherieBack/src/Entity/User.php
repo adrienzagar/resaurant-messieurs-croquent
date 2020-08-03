@@ -7,6 +7,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -24,6 +25,7 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"order_get" , "order_get_one"})
+     * @Assert\NotBlank
      */
     private $lastname;
 
@@ -36,12 +38,14 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"order_get" , "order_get_one"})
+     * @Assert\NotBlank
      */
     private $email;
 
     /**
      * @ORM\Column(type="integer")
      * @Groups({"order_get" , "order_get_one"})
+     * @Assert\NotBlank
      */
     private $phoneNumber;
 
