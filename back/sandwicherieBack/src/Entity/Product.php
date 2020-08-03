@@ -24,6 +24,7 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one" })
+     * @Assert\NotBlank(message="Le nom du produit est obligatoire")
      */
     private $name;
 
@@ -42,6 +43,7 @@ class Product
     /**
      * @ORM\Column(type="float")
      * @Groups({"products_get" ,"products_get_one", "order_get" , "order_get_one" })
+     * @Assert\NotBlank(message="Le prix du produit est obligatoire")
      */
     private $price;
 
@@ -49,6 +51,7 @@ class Product
      * @ORM\ManyToOne(targetEntity=CategoryProduct::class, inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      * @Groups({"products_get", "products_get_one" , "categories_get", "order_get" , "order_get_one"})
+     * @Assert\NotBlank(message="La catégorie du produit est obligatoire")
      */
     private $category;
 
