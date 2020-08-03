@@ -16,6 +16,7 @@ const Sidebar = ({ links }) => (
                 activeClassName="bm-item-selected"
                 exact
                 >
+                    <i className={link.icon}></i>
                     <span className="bm-item-link">{link.name}</span>
             </NavLink>
         ))}

@@ -6,17 +6,20 @@ export const initialState = {
         {
            id: 1,
            name: 'Accueil',
-           path: '/'
+           path: '/',
+           icon: 'fas fa-home',
         },
         {
             id: 2,
             name: 'Produits',
-            path: '/produits'
+            path: '/produits',
+            icon:'fas fa-box'
          },
          {
             id: 3,
-            name: 'Commander',
-            path: '/commander'
+            name: 'Commandes',
+            path: '/commandes',
+            icon:'fas fa-shopping-cart',
          },
     ],
 };

@@ -24,14 +24,18 @@
         margin: 2rem;
         padding-bottom: .5rem;
         font-size: 1.3rem;
+        &:hover {
+            color: vars.$color-primary-hover;
+        }
+        & .fas {
+            margin-right: 1rem;
+            transition: .3s ease;
+        }
         &-selected {
             color: vars.$color-primary;
         }
         &-link {
             transition: .3s ease;
-            &:hover {
-                color: vars.$color-primary-hover;
-            }
         }
     }
 }

@@ -3,15 +3,23 @@ import React from 'react';
 
 //! == Import : local ==
 import './styles.scss';
-import Header from '../Header';
+import Login from '../../containers/Login';
+import Header from '../../containers/Header';
 import Sidebar from '../../containers/Sidebar';
 
 //! == Composant ==
-const App = () => (
-    <div className="App">
-      <Header />
-      <Sidebar />
-    </div>
+const App = ({ isLogged }) => (
+  <div className="App">
+    {!isLogged && (
+      <Login />
+    )}
+    {isLogged && (
+      <>
+        <Header />
+        <Sidebar />
+      </>
+    )}
+  </div>
 );
 
 //! == Export ==
