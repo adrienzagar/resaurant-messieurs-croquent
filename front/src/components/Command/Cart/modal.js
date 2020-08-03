@@ -30,7 +30,6 @@ function ModalExampleModal({
 
   const handleSubmit = (event) => {
       event.preventDefault();
-        console.log('Coucou requête', sendOrder())
     sendOrder();
     }
     

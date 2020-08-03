@@ -5,15 +5,16 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case SEND_ORDER: {
             // console.log('ici je veux envoyer ma commande');
-            // console.log(store.getState())
+            console.log(store.getState())
+            const state = store.getState();
+            const { firstname, lastname, phone_number, email, cart } = state.command;
 
-            const { firstname, lastname, phone_number, email } = store.getState();
-
-            axios.post('http://localhost:8080/api/order', {
+            axios.post('http://localhost/Fantasy/apotheose/sandwicherie/back/sandwicherieBack/public/api/order', {
                 firstname, 
                 lastname, 
                 phone_number, 
-                email
+                email,
+                cart
             }).then((response) => {
                 console.log(response, 'ceci est la réponse')
             }).then((error) => console.log(error, 'ERREUR'));
