@@ -6,9 +6,23 @@ import React from 'react';
 import './styles.scss';
 import { addQuantityProduct } from '../../../actions/product';
 import { returnTotalPrice } from '../../../selectors';
+import ModalExampleModal from './modal';
 
 //! == Composant ==
-const Cart = ({ cart, quantity, quantities, addQuantityToProduct, listPrice }) => {
+const Cart = ({ cart, 
+    quantity, 
+    quantities, 
+    addQuantityToProduct, 
+    listPrice, 
+    mailValue, 
+    phoneValue,
+    nameValue,
+    lastnameValue,
+    setMailValue,
+    setPhoneValue,
+    setNameValue,
+    setLastnameValue,
+}) => {
     console.log(addQuantityProduct);
     console.log(listPrice, "priceList");
     const addQuantity = (quantities) => {
@@ -41,7 +55,18 @@ const Cart = ({ cart, quantity, quantities, addQuantityToProduct, listPrice }) =
         <div className="cart__total">
             <h1>TOTAL</h1>
             <p>{returnTotalPrice(listPrice).totalPrice}&euro;</p>
-            <button className="cart__submit">CROQUER</button>
+        <ModalExampleModal
+            mailValue={mailValue}
+            setMailValue={setMailValue}
+            mailValue={mailValue}
+            phoneValue={phoneValue}
+            nameValue={nameValue}
+            lastnameValue={lastnameValue}
+            setMailValue={setMailValue}
+            setPhoneValue={setPhoneValue}
+            setNameValue={setNameValue}
+            setLastnameValue={setLastnameValue}
+        />
         </div>
     </div>
 )};

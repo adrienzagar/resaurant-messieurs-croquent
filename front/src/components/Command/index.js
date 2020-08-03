@@ -22,7 +22,15 @@ const Command = ({
     addQuantityToProduct,
     quantities,
     listPrice,
-    savePrice
+    savePrice,
+    mailValue, 
+    phoneValue,
+    nameValue,
+    lastnameValue,
+    setMailValue,
+    setPhoneValue,
+    setNameValue,
+    setLastnameValue,
 }) => {
     useEffect(() => { getProduct(); }, []);
     useEffect(() => { getCategories(); }, []);
@@ -45,6 +53,14 @@ const Command = ({
                 listPrice={listPrice}
                 quantities={quantities}
                 addQuantityToProduct={addQuantityToProduct}
+                mailValue={mailValue}
+                phoneValue={phoneValue}
+                nameValue={nameValue}
+                lastnameValue={lastnameValue}
+                setMailValue={setMailValue}
+                setPhoneValue={setPhoneValue}
+                setNameValue={setNameValue}
+                setLastnameValue={setLastnameValue}
              />
         </main>
 );}

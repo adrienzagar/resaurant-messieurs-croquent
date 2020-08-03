@@ -88,3 +88,15 @@
     }
 
 }
+
+.form {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: solid 1px red;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+}
