@@ -24,6 +24,7 @@ class CategoryProduct
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"products_get","products_get_one", "categories_get", "categories_get_one", "order_get" , "order_get_one"})
+     * @Assert\NotBlank(message="Le nom de la catégorie est obligatoire")
      */
     private $name;
 
