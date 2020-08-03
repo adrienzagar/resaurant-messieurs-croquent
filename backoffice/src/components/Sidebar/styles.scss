@@ -1,10 +1,12 @@
 @use '../../styles/vars';
 
-.sidebar {
-    margin-top: 10vh;
-}
-
 .bm {
+    &-menu-wrap {
+        top: 10vh;
+    }
+    &-overlay {
+        top: 10vh;
+    }
     &-morph-shape {
         fill: vars.$color-sidebar;
     }
@@ -28,6 +30,9 @@
         margin: 2rem;
         padding-bottom: .5rem;
         font-size: 1.3rem;
+        &-list {
+            overflow-y: hidden;
+        }
         &:hover {
             color: vars.$color-primary-hover;
         }

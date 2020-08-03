@@ -2,11 +2,19 @@
 
 .product {
     max-width: 1000px;
-    margin: 14vh auto 2rem auto;
+    margin: 16vh auto 4rem auto;
     min-height: 80vh;
-    background: vars.$color-lightness;
-    border-radius: .5rem;
-    padding: 2rem;
+    &__title {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: vars.$color-light;
+    }
+    &__container {
+        background: vars.$color-lightness;
+        border-radius: .5rem;
+        padding: 2rem;
+    }
     &__image {
         max-width: 100%;
         vertical-align: middle;
