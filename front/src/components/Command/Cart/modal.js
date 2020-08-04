@@ -13,6 +13,7 @@ function ModalExampleModal({
     setLastnameValue,
     sendOrder,
     setUserObject,
+    setProductObject
 }) {
   const [open, setOpen] = React.useState(false)
   
@@ -31,6 +32,7 @@ function ModalExampleModal({
 
   const handleSubmit = (event) => {
       event.preventDefault();
+      // setProductObject(product, quantity)
       setUserObject(lastname, firstname, phone_number, email)
       sendOrder();
     }

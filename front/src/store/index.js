@@ -14,7 +14,7 @@ const enhancers = composeEnhancers(
   applyMiddleware(
     productMiddleware,
     categoriesMiddleware,
-    sendOrderMiddleware
+    sendOrderMiddleware 
   ),
 );
 

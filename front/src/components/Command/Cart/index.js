@@ -25,7 +25,8 @@ const Cart = ({ orderLines,
     setNameValue,
     setLastnameValue,
     sendOrder,
-    setUserObject
+    setUserObject,
+    setProductObject
 }) => {
     return(
     <div className="orderLines">
@@ -71,6 +72,7 @@ const Cart = ({ orderLines,
             setUserObject={setUserObject}
             sendOrder={sendOrder}
             setUserObject={setUserObject}
+            setProductObject={setProductObject}
         />
         </div>
     </div>
