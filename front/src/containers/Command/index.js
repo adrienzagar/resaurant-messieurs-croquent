@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Command from '../../components/Command';
-import { getProduct, addProductToCart, addQuantityProduct, savePrice } from '../../actions/product';
+import { getProduct, addProductToCart, addQuantityProduct, savePrice, removeQuantityProduct } from '../../actions/product';
 import { getCategories } from '../../actions/categories';
 import { setMailValue, setPhoneValue, setNameValue, setLastnameValue } from '../../actions/form';
 
@@ -32,7 +32,6 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
     setPhoneValue: (phoneValue) => dispatch(setPhoneValue(phoneValue)),
     setNameValue: (nameValue) => dispatch(setNameValue(nameValue)),
     setLastnameValue: (lastnameValue) => dispatch(setLastnameValue(lastnameValue)),
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Command);

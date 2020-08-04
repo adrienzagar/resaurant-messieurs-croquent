@@ -4,15 +4,17 @@ import React from 'react';
 
 //! == Import : local ==
 import './styles.scss';
-import { addQuantityProduct } from '../../../actions/product';
+import { addQuantityProduct , removeQuantityProduct } from '../../../actions/product'
 import { returnTotalPrice } from '../../../selectors';
 import ModalExampleModal from './modal';
+import { connect } from 'react-redux';
 
 //! == Composant ==
 const Cart = ({ cart, 
     quantity, 
-    quantities, 
-    addQuantityToProduct, 
+    quantities,
+    addQuantityProduct, 
+    removeQuantityProduct,
     listPrice, 
     mailValue, 
     phoneValue,
@@ -23,13 +25,9 @@ const Cart = ({ cart,
     setNameValue,
     setLastnameValue,
 }) => {
-    console.log(addQuantityProduct);
-    console.log(listPrice, "priceList");
-    const addQuantity = (quantities) => {
-        addQuantityToProduct(quantities)
-    }
     return(
     <div className="cart">
+    <h2>VOUS AVEZ CHOISI {quantity } PRODUIT(S)</h2>
         {cart.map((product) => (
             <div className="cart__container">
                 <div className="cart__dishes">
@@ -39,13 +37,16 @@ const Cart = ({ cart,
                     <p>{product.price}&euro;</p>
                 </div>
                 <div className="cart__quantity">
-                    <button className="cart__remove">
+                    <button
+                     className="cart__remove"
+                     onClick={() => {removeQuantityProduct(product)}}
+                     >
                         <i className="fa fa-minus" aria-hidden="true" ></i>
                     </button>
-                    <input className="cart__count" type="text" placeholder={quantities} />
+                    <input className="cart__count" type="text" value={product.quantity} readonly />
                     <button 
                         className="cart__add"
-                        onClick={() => {addQuantity(quantities)}}
+                        onClick={() => {addQuantityProduct(product)}}
                     >
                         <i className="fa fa-plus" aria-hidden="true"></i>
                     </button>
@@ -70,6 +71,12 @@ const Cart = ({ cart,
         </div>
     </div>
 )};
+function mapDispatchToProps(dispatch) {
+    return {
+        addQuantityProduct: (quantities) => dispatch(addQuantityProduct(quantities)),
+        removeQuantityProduct: (quantities) => dispatch(removeQuantityProduct(quantities)),
+    }
 
+}
 //! == Export ==
-export default Cart;
+export default connect(null, mapDispatchToProps)(Cart);
