@@ -16,20 +16,23 @@ export const getProduct = () => ({
     listProduct
   });
 
-  export const addProductToCart = (product) => ({
+  export const addProductToCart = (product,id) => ({
     type: ADD_PRODUCT_TO_CART,
     product,
-    quantity: 1
+    quantity: 1,
+    id
     }
   );
   
-  export const addQuantityProduct = (quantity) => ({
+  export const addQuantityProduct = (quantity,id) => ({
     type: ADD_QUANTITY_PRODUCT,
     quantity,
+    id
   })
-  export const removeQuantityProduct  = (quantity) => ({
+  export const removeQuantityProduct  = (quantity,id) => ({
     type: REMOVE_QUANTITY_PRODUCT,
     quantity,
+    id
   })
 
   export const savePrice = (price) => ({

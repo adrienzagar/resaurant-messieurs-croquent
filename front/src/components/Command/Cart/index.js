@@ -59,11 +59,9 @@ const Cart = ({ cart,
         <ModalExampleModal
             mailValue={mailValue}
             setMailValue={setMailValue}
-            mailValue={mailValue}
             phoneValue={phoneValue}
             nameValue={nameValue}
             lastnameValue={lastnameValue}
-            setMailValue={setMailValue}
             setPhoneValue={setPhoneValue}
             setNameValue={setNameValue}
             setLastnameValue={setLastnameValue}

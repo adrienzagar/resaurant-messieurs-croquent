@@ -1,9 +1,8 @@
 //! == Import : local (actions)
 import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
-import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE } from '../actions/form';
-import { waitForDomChange } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE ,product} from '../actions/form';
+  import { Form } from 'semantic-ui-react';
 
 //! == Initial state
 export const initialState = {
@@ -27,6 +26,8 @@ export const initialState = {
   listCategories: [],
   listPrice: [],
   quantity: 0,
+  product:{},
+  id: {},
   quantities: 0,
   cart: [],
   mailValue: '',
@@ -51,6 +52,10 @@ const command = (state = initialState, action = {}) => {
         listCategories: action.categories,
       };
     case ADD_PRODUCT_TO_CART:
+      console.log(state.cart)
+      console.log('action.id', action.product.id)
+
+     // console.log('state' ,state)
       state.cart.push(action.product)
       state.cart = state.cart.map(product => {
         if (product.id === action.product.id) {
@@ -61,15 +66,15 @@ const command = (state = initialState, action = {}) => {
         }
       })
       state.cart.map(prod => {
-        console.log(prod.id)
-        console.log(uniqueProds.includes(prod.id))
+      console.log(product.id)
+        //console.log(uniqueProds.includes(prod.id))
         if (!uniqueProds.includes(prod.id)) {
           uniqueProds.push(prod)
         }
         return uniqueProds
       }
       )
-      console.log("me", uniqueProds)
+     // console.log("me", uniqueProds)
       return {
         ...state,
         quantity: state.quantity + 1,
