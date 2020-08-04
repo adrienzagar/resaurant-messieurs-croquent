@@ -15,7 +15,7 @@ const mapStateToProps = (state, ownprops) => ({
     listPrice: state.command.listPrice,
     quantity: state.command.quantity,
     quantities: state.command.quantities,
-    cart: state.command.cart,
+    orderLines: state.command.orderLines,
     mailValue: state.mailValue,
     phoneValue: state.phoneValue,
     nameValue: state.nameValue,

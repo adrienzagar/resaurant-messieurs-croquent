@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
+import { ADD_PRODUCT_TO_ORDERLINES, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
 import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE } from '../actions/form';
 import { waitForDomChange } from '@testing-library/react';
@@ -28,7 +28,7 @@ export const initialState = {
   listPrice: [],
   quantity: 0,
   quantities: 0,
-  cart: [],
+  orderLines: [],
   mailValue: '',
   phoneValue: '',
   nameValue: '',
@@ -50,9 +50,9 @@ const command = (state = initialState, action = {}) => {
         ...state,
         listCategories: action.categories,
       };
-    case ADD_PRODUCT_TO_CART:
-      state.cart.push(action.product)
-      state.cart = state.cart.map(product => {
+    case ADD_PRODUCT_TO_ORDERLINES:
+      state.orderLines.push(action.product)
+      state.orderLines = state.orderLines.map(product => {
         if (product.id === action.product.id) {
           return { ...product, quantity: product.quantity == null ? 1 : product.quantity + 1 }
         }
@@ -60,7 +60,7 @@ const command = (state = initialState, action = {}) => {
           return product
         }
       })
-      state.cart.map(prod => {
+      state.orderLines.map(prod => {
         console.log(prod.id)
         console.log(uniqueProds.includes(prod.id))
         if (!uniqueProds.includes(prod.id)) {
@@ -73,11 +73,11 @@ const command = (state = initialState, action = {}) => {
       return {
         ...state,
         quantity: state.quantity + 1,
-        cart: state.cart
+        orderLines: state.orderLines
       };
     case ADD_QUANTITY_PRODUCT:
       console.log(action.quantity)
-      state.cart = state.cart.map(product => {
+      state.orderLines = state.orderLines.map(product => {
         if (product.id === action.quantity.id) {
           state.listPrice.push(action.quantity.price)
           return { ...product, quantity: product.quantity + 1 }
@@ -86,11 +86,11 @@ const command = (state = initialState, action = {}) => {
       })
       return {
         ...state,
-        cart: state.cart
+        orderLines: state.orderLines
       };
     case REMOVE_QUANTITY_PRODUCT:
       console.log(action.quantity)
-      state.cart = state.cart.map(product => {
+      state.orderLines = state.orderLines.map(product => {
         if (product.id === action.quantity.id) {
           state.listPrice.pop(action.quantity.price)
           if (product.quantity > 0){

@@ -18,7 +18,7 @@ const Command = ({
     categories, 
     addProductToCart, 
     quantity, 
-    cart,
+    orderLines,
     addQuantityToProduct,
     quantities,
     listPrice,
@@ -41,14 +41,14 @@ const Command = ({
             <Delivery links={links} />
             <Local />
             <ProductList 
-                cart={cart} 
+                orderLines={orderLines} 
                 products={products}
                 categories={categories}
                 addProductToCart={addProductToCart}
                 savePrice={savePrice}
              />
              <Cart 
-                cart={cart} 
+                orderLines={orderLines} 
                 quantity={quantity}
                 listPrice={listPrice}
                 quantities={quantities}

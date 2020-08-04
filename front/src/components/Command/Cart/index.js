@@ -10,7 +10,7 @@ import ModalExampleModal from './modal';
 import { connect } from 'react-redux';
 
 //! == Composant ==
-const Cart = ({ cart, 
+const Cart = ({ orderLines, 
     quantity, 
     quantities,
     addQuantityProduct, 
@@ -26,9 +26,9 @@ const Cart = ({ cart,
     setLastnameValue,
 }) => {
     return(
-    <div className="cart">
+    <div className="orderLines">
     <h2>VOUS AVEZ CHOISI {quantity } PRODUIT(S)</h2>
-        {cart.map((product) => (
+        {orderLines.map((product) => (
             <div className="cart__container">
                 <div className="cart__dishes">
                     <h1 className="cart__dish">{product.name}</h1>
