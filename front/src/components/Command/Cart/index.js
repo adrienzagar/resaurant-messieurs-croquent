@@ -10,25 +10,28 @@ import ModalExampleModal from './modal';
 import { connect } from 'react-redux';
 
 //! == Composant ==
-const Cart = ({ cart, 
+const Cart = ({ orderLines, 
     quantity, 
     quantities,
     addQuantityProduct, 
     removeQuantityProduct,
     listPrice, 
-    mailValue, 
-    phoneValue,
-    nameValue,
-    lastnameValue,
+    email, 
+    phone_number,
+    firstname,
+    lastname,
     setMailValue,
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    sendOrder,
+    setUserObject,
+    setProductObject
 }) => {
     return(
-    <div className="cart">
+    <div className="orderLines">
     <h2>VOUS AVEZ CHOISI {quantity } PRODUIT(S)</h2>
-        {cart.map((product) => (
+        {orderLines.map((product) => (
             <div className="cart__container">
                 <div className="cart__dishes">
                     <h1 className="cart__dish">{product.name}</h1>
@@ -57,16 +60,19 @@ const Cart = ({ cart,
             <h1>TOTAL</h1>
             <p>{returnTotalPrice(listPrice).totalPrice}&euro;</p>
         <ModalExampleModal
-            mailValue={mailValue}
-            setMailValue={setMailValue}
-            mailValue={mailValue}
-            phoneValue={phoneValue}
-            nameValue={nameValue}
-            lastnameValue={lastnameValue}
+            email={email}
+            phone_number={phone_number}
+            firstname={firstname}
+            lastname={lastname}
             setMailValue={setMailValue}
             setPhoneValue={setPhoneValue}
             setNameValue={setNameValue}
             setLastnameValue={setLastnameValue}
+            sendOrder={sendOrder}
+            setUserObject={setUserObject}
+            sendOrder={sendOrder}
+            setUserObject={setUserObject}
+            setProductObject={setProductObject}
         />
         </div>
     </div>

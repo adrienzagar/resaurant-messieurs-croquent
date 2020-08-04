@@ -3,14 +3,17 @@ import { Button, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
 function ModalExampleModal({ 
-    mailValue, 
-    phoneValue,
-    nameValue,
-    lastnameValue,
+    email, 
+    phone_number,
+    firstname,
+    lastname,
     setMailValue,
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    sendOrder,
+    setUserObject,
+    setProductObject
 }) {
   const [open, setOpen] = React.useState(false)
   
@@ -27,7 +30,13 @@ function ModalExampleModal({
       setPhoneValue(event.target.value)
   }
 
-
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      // setProductObject(product, quantity)
+      setUserObject(lastname, firstname, phone_number, email)
+      sendOrder();
+    }
+    
   return (
     <Modal
       onClose={() => setOpen(false)}
@@ -39,27 +48,28 @@ function ModalExampleModal({
       <Modal.Content>
         <Modal.Description>
 
-            <form className="form" action="">
+            <form className="form" onSubmit={handleSubmit}>
                 <div className="form__container">
                   <label htmlFor="lastname">Nom</label>
-                  <input id="lastname" type="text" value={lastnameValue} onChange={handleOnLastnameChange}/>
+                  <input id="lastname" type="text" value={lastname} onChange={handleOnLastnameChange}/>
                 </div>
                 <div className="form__container">
                   <label htmlFor="name">Prénom</label>
-                  <input id="Name" type="text" value={nameValue} onChange={handleOnNameChange} />
+                  <input id="Name" type="text" value={firstname} onChange={handleOnNameChange} />
                 </div>
                 <div className="form__container">
                   <label htmlFor="email">Email</label>
-                  <input id="email" type="email" value={mailValue} onChange={handleOnMailChange} />
+                  <input id="email" type="email" value={email} onChange={handleOnMailChange} />
                 </div>
                 <div className="form__container">
                   <label htmlFor="phone">Téléphone</label>
-                  <input id="phone" type="tel" value={phoneValue} onChange={handleOnPhoneChange} />
+                  <input id="phone" type="tel" value={phone_number} onChange={handleOnPhoneChange} />
                 </div>
+                <button type="submit">CROQUER</button>
             </form>
         </Modal.Description>
       </Modal.Content>
-      <Modal.Actions>
+      {/* <Modal.Actions>
         <Button color='black' onClick={() => setOpen(false)}>
           Retour
         </Button>
@@ -70,7 +80,7 @@ function ModalExampleModal({
           onClick={() => setOpen(false)}
           color='black'
         />
-      </Modal.Actions>
+      </Modal.Actions> */}
     </Modal>
   )
 }
