@@ -27,7 +27,7 @@ const Cart = ({ cart,
 }) => {
     return(
     <div className="cart">
-    <h2>VOUS AVEZ CHOISI {quantity } PRODUIT(S)</h2>
+    <h2>VOUS AVEZ CHOISI {quantity } {quantity > 1 ? 'PRODUITS': 'PRODUIT'}</h2>
         {cart.map((product) => (
             <div className="cart__container">
                 <div className="cart__dishes">

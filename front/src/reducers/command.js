@@ -1,8 +1,8 @@
 //! == Import : local (actions)
 import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
-import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE ,product} from '../actions/form';
-  import { Form } from 'semantic-ui-react';
+import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE } from '../actions/form';
+
 
 //! == Initial state
 export const initialState = {
@@ -52,39 +52,25 @@ const command = (state = initialState, action = {}) => {
         listCategories: action.categories,
       };
     case ADD_PRODUCT_TO_CART:
-      console.log(state.cart)
-      console.log('action.id', action.product.id)
-
-     // console.log('state' ,state)
-      state.cart.push(action.product)
+      state.cart.push(action.product) //push product to card
       state.cart = state.cart.map(product => {
         if (product.id === action.product.id) {
+          state.cart.pop(action.product) // if the product exists remove it and increment qty
           return { ...product, quantity: product.quantity == null ? 1 : product.quantity + 1 }
         }
         else {
           return product
         }
       })
-      state.cart.map(prod => {
-      console.log(product.id)
-        //console.log(uniqueProds.includes(prod.id))
-        if (!uniqueProds.includes(prod.id)) {
-          uniqueProds.push(prod)
-        }
-        return uniqueProds
-      }
-      )
-     // console.log("me", uniqueProds)
       return {
         ...state,
         quantity: state.quantity + 1,
         cart: state.cart
       };
     case ADD_QUANTITY_PRODUCT:
-      console.log(action.quantity)
       state.cart = state.cart.map(product => {
         if (product.id === action.quantity.id) {
-          state.listPrice.push(action.quantity.price)
+          state.listPrice.push(action.quantity.price) // if the product exists increment the quantity and multiply the price
           return { ...product, quantity: product.quantity + 1 }
         }
         return product
@@ -97,16 +83,15 @@ const command = (state = initialState, action = {}) => {
       console.log(action.quantity)
       state.cart = state.cart.map(product => {
         if (product.id === action.quantity.id) {
-          state.listPrice.pop(action.quantity.price)
+          state.listPrice.pop(action.quantity.price) // decrement quantity from product + price update
           if (product.quantity > 0){
-            return { ...product, quantity: product.quantity - 1 }
+            return { ...product, quantity: product.quantity - 1 } // the quantity must be >0
           }
         }
         return product
       })
       return {
         ...state,
-        quantities: state.quantities -= 1
       };
     case SAVE_PRICE:
       state.listPrice.push(action.price)
