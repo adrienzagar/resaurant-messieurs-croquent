@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Command from '../../components/Command';
 import { getProduct, addProductToCart, savePrice } from '../../actions/product';
 import { getCategories } from '../../actions/categories';
-import { setMailValue, setPhoneValue, setNameValue, setLastnameValue } from '../../actions/form';
+import { setMailValue, setPhoneValue, setNameValue, setLastnameValue, setUserObject } from '../../actions/form';
 import { sendOrder } from '../../actions/order';
 
 
@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownprops) => ({
     listPrice: state.command.listPrice,
     quantity: state.command.quantity,
     // quantities: state.command.quantities,
-    cart: state.command.cart,
+    orderLines: state.command.orderLines,
     email: state.email,
     phone_number: state.phone_number,
     firstname: state.firstname,
@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
     setPhoneValue: (phone_number) => dispatch(setPhoneValue(phone_number)),
     setNameValue: (firstname) => dispatch(setNameValue(firstname)),
     setLastnameValue: (lastname) => dispatch(setLastnameValue(lastname)),
-
+    setUserObject: (lastname, firstname, phone_number, email) => dispatch(setUserObject(lastname, firstname, phone_number, email)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Command);

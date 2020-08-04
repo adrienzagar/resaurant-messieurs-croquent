@@ -1,7 +1,7 @@
 //! == Import : local (actions)
-import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
+import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
-import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE } from '../actions/form';
+import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE, SET_USER_OBJECT } from '../actions/form';
 
 //! == Initial state
 export const initialState = {
@@ -26,11 +26,31 @@ export const initialState = {
     listPrice: [],
     quantity: 0,
     // quantities: 0,
-    cart: [],
+    orderLines: [
+      // {
+        
+      //   "quantity": 2,
+      //   "product": {
+      //     "id": 1,
+      //   }
+      // },
+			// {
+        
+      //   "quantity": 2,
+      //   "product": {
+      //     "id": 2,
+      //     }
+      //   }
+    ],
+    user: {},
     email: '',
     phone_number: '',
     firstname: '',
     lastname: '',
+    status: 1,
+    comment: "",
+    price: 10,
+    
 };
 
 //! == Actions to modified state
@@ -47,11 +67,11 @@ const command = (state = initialState, action = {}) => {
             listCategories: action.categories,
           };
           case ADD_PRODUCT_TO_CART:
-            state.cart.push(action.product)
+            state.orderLines.push(action.product.id)
             return {
               ...state,
               quantity: state.quantity + 1,
-              cart: state.cart,
+              orderLines: state.orderLines,
             };
           // case ADD_QUANTITY_PRODUCT:
           //   return {
@@ -65,6 +85,7 @@ const command = (state = initialState, action = {}) => {
               listPrice: state.listPrice,
             };
             case SET_MAIL_VALUE:
+              // state.user.push(action.email)
               return {
                 ...state,
                 email: action.email,
@@ -84,6 +105,20 @@ const command = (state = initialState, action = {}) => {
                 ...state,
                 lastname: action.lastname,
               };
+              case SET_USER_OBJECT:
+                return {
+                  ...state,
+                  user: {
+                    lastname: state.lastname,
+                    firstname: state.firstname,
+                    email: state.email,
+                    phone_number: state.phone_number,
+                  }
+                };
+              // case SET_ORDERLINES:
+              //   return {
+              //     ...state,
+              //   }
         default:
             return state;
     }

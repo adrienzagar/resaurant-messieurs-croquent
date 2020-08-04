@@ -6,7 +6,7 @@ import React from 'react';
 import './styles.scss';
 
 //! == Composant ==
-const Product = ({ cart, product, addProductToCart, savePrice }) => {
+const Product = ({ product, addProductToCart, savePrice }) => {
     const addProduct = (product) => {
         // console.log(product, "Produit ajouter au clic");
         console.log(product);
@@ -27,7 +27,7 @@ const Product = ({ cart, product, addProductToCart, savePrice }) => {
                         <p className="product__description">{product.description}</p>
                     </td>
                     <td className="product__price--td">
-                        <p className="product__price">{product.price}€</p>
+                        <p className="product__price">{product.price}€</p> 
                     </td>
                     <td className="product__add--td">
                         <button 

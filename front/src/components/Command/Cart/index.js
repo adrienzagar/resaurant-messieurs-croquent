@@ -4,25 +4,23 @@ import React from 'react';
 
 //! == Import : local ==
 import './styles.scss';
-import { addQuantityProduct } from '../../../actions/product';
 import { returnTotalPrice } from '../../../selectors';
 import ModalExampleModal from './modal';
 
 //! == Composant ==
-const Cart = ({ cart, 
+const Cart = ({ orderLines, 
     quantity, 
-    // quantities, 
-    addQuantityToProduct, 
     listPrice, 
-    mailValue, 
-    phoneValue,
-    nameValue,
-    lastnameValue,
+    email, 
+    phone_number,
+    firstname,
+    lastname,
     setMailValue,
     setPhoneValue,
     setNameValue,
     setLastnameValue,
-    sendOrder
+    sendOrder,
+    setUserObject
 }) => {
     console.log(listPrice, "priceList");
     // const addQuantity = (quantities) => {
@@ -30,7 +28,7 @@ const Cart = ({ cart,
     // }
     return(
     <div className="cart">
-        {cart.map((product) => (
+        {orderLines.map((product) => (
             <div className="cart__container">
                 <div className="cart__dishes">
                     <h1 className="cart__dish">{product.name}</h1>
@@ -56,15 +54,16 @@ const Cart = ({ cart,
             <h1>TOTAL</h1>
             <p>{returnTotalPrice(listPrice).totalPrice}&euro;</p>
         <ModalExampleModal
-            mailValue={mailValue}
-            phoneValue={phoneValue}
-            nameValue={nameValue}
-            lastnameValue={lastnameValue}
+            email={email}
+            phone_number={phone_number}
+            firstname={firstname}
+            lastname={lastname}
             setMailValue={setMailValue}
             setPhoneValue={setPhoneValue}
             setNameValue={setNameValue}
             setLastnameValue={setLastnameValue}
             sendOrder={sendOrder}
+            setUserObject={setUserObject}
         />
         </div>
     </div>
