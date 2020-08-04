@@ -39,7 +39,6 @@ const Command = ({
     useEffect(() => { getProduct(); }, []);
     useEffect(() => { getCategories(); }, []);
     useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
-        // console.log(getProduct)
     return(
         <main className="command">
             <Delivery links={links} />

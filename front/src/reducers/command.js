@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE, SET_PRODUCT_OBJECT, ADD_PRODUCT_TO_PRODUCT_OBJECT } from '../actions/product';
+import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SET_ORDER_LINES } from '../actions/order';
 import { SAVE_CATEGORIES } from '../actions/categories';
 import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE, SET_USER_OBJECT } from '../actions/form';
@@ -39,8 +39,6 @@ export const initialState = {
 
 //! == Actions to modified state
 const command = (state = initialState, action = {}) => {
-  var uniqueProds = [];
-
   switch (action.type) {
     case SAVE_PRODUCT:
       return {
@@ -101,7 +99,6 @@ const command = (state = initialState, action = {}) => {
         listPrice: state.listPrice,
       };
     case SET_MAIL_VALUE:
-      // state.user.push(action.email)
       return {
         ...state,
         email: action.email,

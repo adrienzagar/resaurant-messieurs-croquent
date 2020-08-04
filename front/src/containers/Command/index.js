@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Command from '../../components/Command';
-import { getProduct, addProductToCart, addQuantityProduct, savePrice, removeQuantityProduct, setProductObject, addProductToProductObject} from '../../actions/product';
+import { getProduct, addProductToCart, addQuantityProduct, savePrice, removeQuantityProduct, setProductObject } from '../../actions/product';
 import { getCategories } from '../../actions/categories';
 import { setMailValue, setPhoneValue, setNameValue, setLastnameValue, setUserObject } from '../../actions/form';
 import { sendOrder, setOrderLines } from '../../actions/order';

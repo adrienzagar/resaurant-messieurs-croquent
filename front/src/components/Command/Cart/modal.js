@@ -1,24 +1,22 @@
 import React from 'react'
-import { Button, Modal } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
-function ModalForm({ 
-    email, 
-    phone_number,
-    firstname,
-    lastname,
-    setMailValue,
-    setPhoneValue,
-    setNameValue,
-    setLastnameValue,
-    sendOrder,
-    setUserObject,
-    setProductObject,
-    setOrderLines,
-    cart
-}) {
-  const [open, setOpen] = React.useState(false)
-  
+const ModalForm = ({ 
+  email, 
+  phone_number,
+  firstname,
+  lastname,
+  setMailValue,
+  setPhoneValue,
+  setNameValue,
+  setLastnameValue,
+  sendOrder,
+  setUserObject,
+  setOrderLines,
+  cart
+}) => {
+  const [open, setOpen] = React.useState(false);
   const handleOnLastnameChange  = (event) => {
       setLastnameValue(event.target.value)
   }
@@ -31,12 +29,11 @@ function ModalForm({
   const handleOnPhoneChange  = (event) => {
       setPhoneValue(event.target.value)
   }
-
   const handleSubmit = (event) => {
       event.preventDefault();
       setUserObject(lastname, firstname, phone_number, email);
       cart.map((product) => {
-        setOrderLines(parseInt(product.id), parseInt(product.quantity));
+        setOrderLines(Number(product.id), Number(product.quantity));
       });
       sendOrder();
       console.log(cart, "COUCOU");
@@ -52,7 +49,6 @@ function ModalForm({
       <Modal.Header>Pour valider votre commande, veuillez remplir le formualaire</Modal.Header>
       <Modal.Content>
         <Modal.Description>
-
             <form className="form" onSubmit={handleSubmit}>
                 <div className="form__container">
                   <label htmlFor="lastname">Nom</label>
@@ -74,18 +70,6 @@ function ModalForm({
             </form>
         </Modal.Description>
       </Modal.Content>
-      {/* <Modal.Actions>
-        <Button color='black' onClick={() => setOpen(false)}>
-          Retour
-        </Button>
-        <Button
-          content="Valider la commande"
-          labelPosition='right'
-          icon='checkmark'
-          onClick={() => setOpen(false)}
-          color='black'
-        />
-      </Modal.Actions> */}
     </Modal>
   )
 }
