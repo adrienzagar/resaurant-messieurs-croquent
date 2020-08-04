@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use Webmozart\Assert\Assert;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\Collection;
