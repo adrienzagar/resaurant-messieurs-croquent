@@ -10,7 +10,8 @@ import ModalExampleModal from './modal';
 import { connect } from 'react-redux';
 
 //! == Composant ==
-const Cart = ({ cart, 
+const Cart = ({ 
+    cart, 
     quantity, 
     quantities,
     addQuantityProduct, 
@@ -58,7 +59,7 @@ const Cart = ({ cart,
         ))}
         <div className="cart__total">
             <h1>TOTAL</h1>
-            <p>{returnTotalPrice(listPrice).totalPrice}&euro;</p>
+            <p>{returnTotalPrice(listPrice).totalPrice.toFixed(2)}&euro;</p>
         <ModalExampleModal
             email={email}
             phone_number={phone_number}
