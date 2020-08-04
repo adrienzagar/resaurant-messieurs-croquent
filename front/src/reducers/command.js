@@ -1,7 +1,7 @@
 //! == Import : local (actions)
 import { ADD_PRODUCT_TO_ORDERLINES, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
-import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE } from '../actions/form';
+import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE, SET_USER_OBJECT } from '../actions/form';
 import { waitForDomChange } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
@@ -29,10 +29,14 @@ export const initialState = {
   quantity: 0,
   quantities: 0,
   orderLines: [],
-  mailValue: '',
-  phoneValue: '',
-  nameValue: '',
-  lastnameValue: '',
+  user: {},
+  email: '',
+  phone_number: '',
+  firstname: '',
+  lastname: '',
+  status: 1,
+  comment: "",
+  price: 10,
 };
 
 //! == Actions to modified state
@@ -110,25 +114,40 @@ const command = (state = initialState, action = {}) => {
         listPrice: state.listPrice,
       };
     case SET_MAIL_VALUE:
+      // state.user.push(action.email)
       return {
         ...state,
-        mailValue: action.mailValue,
+        email: action.email,
       };
     case SET_PHONE_VALUE:
       return {
         ...state,
-        phoneValue: action.phoneValue,
+        phone_number: action.phone_number,
       };
     case SET_NAME_VALUE:
       return {
         ...state,
-        nameValue: action.nameValue,
+        firstname: action.firstname,
       };
     case SET_LASTNAME_VALUE:
       return {
         ...state,
-        lastnameValue: action.lastnameValue,
+        lastname: action.lastname,
       };
+      case SET_USER_OBJECT:
+        return {
+          ...state,
+          user: {
+            lastname: state.lastname,
+            firstname: state.firstname,
+            email: state.email,
+            phone_number: state.phone_number,
+          }
+        };
+      // case SET_ORDERLINES:
+      //   return {
+      //     ...state,
+      //   }
     default:
       return state;
   }

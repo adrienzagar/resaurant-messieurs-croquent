@@ -31,6 +31,8 @@ const Command = ({
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    sendOrder,
+    setUserObject
 }) => {
     useEffect(() => { getProduct(); }, []);
     useEffect(() => { getCategories(); }, []);
@@ -61,6 +63,8 @@ const Command = ({
                 setPhoneValue={setPhoneValue}
                 setNameValue={setNameValue}
                 setLastnameValue={setLastnameValue}
+                sendOrder={sendOrder}
+                setUserObject={setUserObject}
              />
         </main>
 );}
