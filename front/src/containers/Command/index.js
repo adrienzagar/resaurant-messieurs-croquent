@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownprops) => ({
     listPrice: state.command.listPrice,
     quantity: state.command.quantity,
     quantities: state.command.quantities,
-    orderLines: state.command.orderLines,
+    cart: state.command.cart,
     email: state.email,
     phone_number: state.phone_number,
     firstname: state.firstname,
@@ -28,6 +28,8 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
     getCategories: () => dispatch(getCategories()),
     sendOrder: () => dispatch(sendOrder()),
     addProductToCart: (product) => dispatch(addProductToCart(product)),
+    addQuantityProduct: (quantity,id) => dispatch(addQuantityProduct(quantity,id)),
+    removeQuantityProduct: (quantity,id) => dispatch(removeQuantityProduct(quantity,id)),
     savePrice: (price) => dispatch(savePrice(price)),
     setMailValue: (email) => dispatch(setMailValue(email)),
     setPhoneValue: (phone_number) => dispatch(setPhoneValue(phone_number)),
@@ -35,7 +37,6 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
     setLastnameValue: (lastname) => dispatch(setLastnameValue(lastname)),
     setUserObject: (lastname, firstname, phone_number, email) => dispatch(setUserObject(lastname, firstname, phone_number, email)),
     setProductObject: (product, quantity) => dispatch(setProductObject(product, quantity)),
-    addProductToProductObject: (productId) => dispatch(addProductToProductObject(productId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Command);

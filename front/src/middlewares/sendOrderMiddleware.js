@@ -7,14 +7,14 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
             // console.log('ici je veux envoyer ma commande');
             console.log(store.getState())
             const state = store.getState();
-            const { status, price, comment, user, orderLines } = state.command;
+            const { status, price, comment, user, cart } = state.command;
 
             axios.post('http://localhost/Fantasy/apotheose/sandwicherie/back/sandwicherieBack/public/api/order', {
                 price,
                 status,
                 comment,
                 user,
-                orderLines,
+                cart,
             }).then((response) => {
                 console.log(response, 'ceci est la réponse')
             }).then((error) => console.log(error, 'ERREUR'));

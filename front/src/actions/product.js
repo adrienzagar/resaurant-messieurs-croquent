@@ -1,12 +1,11 @@
 // ACTION TYPE
 export const GET_PRODUCT = 'GET_PRODUCT';
 export const SAVE_PRODUCT = 'SAVE_PRODUCT';
-export const ADD_PRODUCT_TO_ORDERLINES = 'ADD_PRODUCT_TO_ORDERLINES';
+export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const ADD_QUANTITY_PRODUCT = 'ADD_QUANTITY_PRODUCT';
 export const REMOVE_QUANTITY_PRODUCT = 'REMOVE_QUANTITY_PRODUCT';
 export const SAVE_PRICE = 'SAVE_PRICE';
 export const SET_PRODUCT_OBJECT = 'SET_PRODUCT_OBJECT';
-export const ADD_PRODUCT_TO_PRODUCT_OBJECT = 'ADD_PRODUCT_TO_PRODUCT_OBJECT';
 
 // ACTION CREATOR
 export const getProduct = () => ({
@@ -18,20 +17,23 @@ export const getProduct = () => ({
     listProduct
   });
 
-  export const addProductToCart = (product) => ({
-    type: ADD_PRODUCT_TO_ORDERLINES,
+  export const addProductToCart = (product,id) => ({
+    type: ADD_PRODUCT_TO_CART,
     product,
-    quantity: 1
+    quantity: 1,
+    id
     }
   );
   
-  export const addQuantityProduct = (quantity) => ({
+  export const addQuantityProduct = (quantity,id) => ({
     type: ADD_QUANTITY_PRODUCT,
     quantity,
+    id
   })
-  export const removeQuantityProduct  = (quantity) => ({
+  export const removeQuantityProduct  = (quantity,id) => ({
     type: REMOVE_QUANTITY_PRODUCT,
     quantity,
+    id
   })
 
   export const savePrice = (price) => ({
@@ -43,9 +45,4 @@ export const getProduct = () => ({
     type: SET_PRODUCT_OBJECT,
     product,
     quantity,
-  })
-
-  export const  addProductToProductObject = (productId) => ({
-    type: ADD_PRODUCT_TO_PRODUCT_OBJECT,
-    productId,
   })

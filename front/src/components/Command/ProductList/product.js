@@ -6,12 +6,11 @@ import React from 'react';
 import './styles.scss';
 
 //! == Composant ==
-const Product = ({ orderLines, product, addProductToCart, savePrice, addProductToProductObject }) => {
+const Product = ({ cart, product, addProductToCart, savePrice, addProductToProductObject }) => {
     const addProduct = (product) => {
         // console.log(product, "Produit ajouter au clic");
         console.log(product);
         addProductToCart(product);
-        addProductToProductObject(product.id);
         savePrice(product.price)
     };
      return (
