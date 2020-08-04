@@ -6,7 +6,7 @@ import Command from '../../components/Command';
 import { getProduct, addProductToCart, addQuantityProduct, savePrice, removeQuantityProduct, setProductObject, addProductToProductObject} from '../../actions/product';
 import { getCategories } from '../../actions/categories';
 import { setMailValue, setPhoneValue, setNameValue, setLastnameValue, setUserObject } from '../../actions/form';
-import { sendOrder } from '../../actions/order';
+import { sendOrder, setOrderLines } from '../../actions/order';
 
 
 const mapStateToProps = (state, ownprops) => ({
@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownprops) => ({
     quantity: state.command.quantity,
     quantities: state.command.quantities,
     cart: state.command.cart,
-    email: state.email,
+    email: state.email, 
     phone_number: state.phone_number,
     firstname: state.firstname,
     lastname: state.lastname,
@@ -37,6 +37,7 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
     setLastnameValue: (lastname) => dispatch(setLastnameValue(lastname)),
     setUserObject: (lastname, firstname, phone_number, email) => dispatch(setUserObject(lastname, firstname, phone_number, email)),
     setProductObject: (product, quantity) => dispatch(setProductObject(product, quantity)),
+    setOrderLines: (productId, productQuantity) => dispatch(setOrderLines(productId, productQuantity)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Command);

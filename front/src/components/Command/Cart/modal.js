@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
-function ModalExampleModal({ 
+function ModalForm({ 
     email, 
     phone_number,
     firstname,
@@ -13,7 +13,9 @@ function ModalExampleModal({
     setLastnameValue,
     sendOrder,
     setUserObject,
-    setProductObject
+    setProductObject,
+    setOrderLines,
+    cart
 }) {
   const [open, setOpen] = React.useState(false)
   
@@ -32,9 +34,12 @@ function ModalExampleModal({
 
   const handleSubmit = (event) => {
       event.preventDefault();
-      // setProductObject(product, quantity)
-      setUserObject(lastname, firstname, phone_number, email)
+      setUserObject(lastname, firstname, phone_number, email);
+      cart.map((product) => {
+        setOrderLines(parseInt(product.id), parseInt(product.quantity));
+      });
       sendOrder();
+      console.log(cart, "COUCOU");
     }
     
   return (
@@ -85,4 +90,4 @@ function ModalExampleModal({
   )
 }
 
-export default ModalExampleModal
+export default ModalForm;

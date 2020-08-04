@@ -6,11 +6,12 @@ import React from 'react';
 import './styles.scss';
 import { addQuantityProduct , removeQuantityProduct } from '../../../actions/product'
 import { returnTotalPrice } from '../../../selectors';
-import ModalExampleModal from './modal';
+import Modal from './modal';
 import { connect } from 'react-redux';
 
 //! == Composant ==
-const Cart = ({ cart, 
+const Cart = ({ 
+    cart, 
     quantity, 
     quantities,
     addQuantityProduct, 
@@ -26,7 +27,8 @@ const Cart = ({ cart,
     setLastnameValue,
     sendOrder,
     setUserObject,
-    setProductObject
+    setProductObject,
+    setOrderLines,
 }) => {
     return(
     <div className="cart">
@@ -59,7 +61,7 @@ const Cart = ({ cart,
         <div className="cart__total">
             <h1>TOTAL</h1>
             <p>{returnTotalPrice(listPrice).totalPrice}&euro;</p>
-        <ModalExampleModal
+        <Modal
             email={email}
             phone_number={phone_number}
             firstname={firstname}
@@ -68,11 +70,12 @@ const Cart = ({ cart,
             setPhoneValue={setPhoneValue}
             setNameValue={setNameValue}
             setLastnameValue={setLastnameValue}
-            sendOrder={sendOrder}
             setUserObject={setUserObject}
             sendOrder={sendOrder}
             setUserObject={setUserObject}
             setProductObject={setProductObject}
+            setOrderLines={setOrderLines}
+            cart={cart}
         />
         </div>
     </div>

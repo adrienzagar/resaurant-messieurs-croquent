@@ -34,7 +34,7 @@ const Command = ({
     sendOrder,
     setUserObject,
     setProductObject,
-    addProductToProductObject
+    setOrderLines
 }) => {
     useEffect(() => { getProduct(); }, []);
     useEffect(() => { getCategories(); }, []);
@@ -50,7 +50,6 @@ const Command = ({
                 categories={categories}
                 addProductToCart={addProductToCart}
                 savePrice={savePrice}
-                addProductToProductObject={addProductToProductObject}
              />
              <Cart 
                 cart={cart} 
@@ -69,6 +68,7 @@ const Command = ({
                 sendOrder={sendOrder}
                 setUserObject={setUserObject}
                 setProductObject={setProductObject}
+                setOrderLines={setOrderLines}
              />
         </main>
 );}
