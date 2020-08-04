@@ -121,5 +121,18 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_880E0D76F85E0677` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `admin` (`id`, `username`, `roles`, `password`) VALUES
+(1,	'Admin',	'[\"ROLE_ADMIN\"]',	'$argon2id$v=19$m=65536,t=4,p=1$2j59iphBLzR3BkJbBnEiSw$tgE9thnloTsmWPK9LF9zfmnJla7xSj/klewIBaJ5QJ8');
+
 
 -- 2020-07-30 12:45:07
