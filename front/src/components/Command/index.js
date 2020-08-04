@@ -23,14 +23,18 @@ const Command = ({
     quantities,
     listPrice,
     savePrice,
-    mailValue, 
-    phoneValue,
-    nameValue,
-    lastnameValue,
+    email, 
+    phone_number,
+    firstname,
+    lastname,
     setMailValue,
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    sendOrder,
+    setUserObject,
+    setProductObject,
+    addProductToProductObject
 }) => {
     useEffect(() => { getProduct(); }, []);
     useEffect(() => { getCategories(); }, []);
@@ -46,6 +50,7 @@ const Command = ({
                 categories={categories}
                 addProductToCart={addProductToCart}
                 savePrice={savePrice}
+                addProductToProductObject={addProductToProductObject}
              />
              <Cart 
                 cart={cart} 
@@ -53,14 +58,17 @@ const Command = ({
                 listPrice={listPrice}
                 quantities={quantities}
                 addQuantityToProduct={addQuantityToProduct}
-                mailValue={mailValue}
-                phoneValue={phoneValue}
-                nameValue={nameValue}
-                lastnameValue={lastnameValue}
+                email={email}
+                phone_number={phone_number}
+                firstname={firstname}
+                lastname={lastname}
                 setMailValue={setMailValue}
                 setPhoneValue={setPhoneValue}
                 setNameValue={setNameValue}
                 setLastnameValue={setLastnameValue}
+                sendOrder={sendOrder}
+                setUserObject={setUserObject}
+                setProductObject={setProductObject}
              />
         </main>
 );}

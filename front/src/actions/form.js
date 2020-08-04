@@ -2,24 +2,33 @@ export const SET_MAIL_VALUE = 'SET_MAIL_VALUE';
 export const SET_PHONE_VALUE = 'SET_PHONE_VALUE';
 export const SET_NAME_VALUE = 'SET_NAME_VALUE';
 export const SET_LASTNAME_VALUE = 'SET_LASTNAME_VALUE';
+export const SET_USER_OBJECT= 'SET_USER_OBJECT'
 
 // ACTION CREATOR
-export const setMailValue = (mailValue) => ({
+export const setMailValue = (email) => ({
     type: SET_MAIL_VALUE,
-    mailValue
+    email
   });
 
-export const setPhoneValue = (phoneValue) => ({
+export const setPhoneValue = (phone_number) => ({
     type: SET_PHONE_VALUE,
-    phoneValue
+    phone_number
 });
 
-export const setNameValue = (nameValue) => ({
+export const setNameValue = (firstname) => ({
     type: SET_NAME_VALUE,
-    nameValue
+    firstname
 });
 
-export const setLastnameValue = (lastnameValue) => ({
+export const setLastnameValue = (lastname) => ({
     type: SET_LASTNAME_VALUE,
-    lastnameValue
+    lastname
 });
+
+export const setUserObject = (lastname, firstname, phone_number, email) => ({
+    type: SET_USER_OBJECT,
+    lastname,
+    firstname,
+    phone_number,
+    email
+})

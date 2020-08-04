@@ -16,14 +16,17 @@ const Cart = ({ cart,
     addQuantityProduct, 
     removeQuantityProduct,
     listPrice, 
-    mailValue, 
-    phoneValue,
-    nameValue,
-    lastnameValue,
+    email, 
+    phone_number,
+    firstname,
+    lastname,
     setMailValue,
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    sendOrder,
+    setUserObject,
+    setProductObject
 }) => {
     return(
     <div className="cart">
@@ -57,14 +60,19 @@ const Cart = ({ cart,
             <h1>TOTAL</h1>
             <p>{returnTotalPrice(listPrice).totalPrice}&euro;</p>
         <ModalExampleModal
-            mailValue={mailValue}
+            email={email}
+            phone_number={phone_number}
+            firstname={firstname}
+            lastname={lastname}
             setMailValue={setMailValue}
-            phoneValue={phoneValue}
-            nameValue={nameValue}
-            lastnameValue={lastnameValue}
             setPhoneValue={setPhoneValue}
             setNameValue={setNameValue}
             setLastnameValue={setLastnameValue}
+            sendOrder={sendOrder}
+            setUserObject={setUserObject}
+            sendOrder={sendOrder}
+            setUserObject={setUserObject}
+            setProductObject={setProductObject}
         />
         </div>
     </div>
