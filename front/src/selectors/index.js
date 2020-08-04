@@ -7,5 +7,5 @@ export const returnTotalPrice = (listPrice) => {
     }
     return {
         totalPrice
-    }
+    };
 };
