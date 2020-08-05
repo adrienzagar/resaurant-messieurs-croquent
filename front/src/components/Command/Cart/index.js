@@ -32,7 +32,8 @@ const Cart = ({
     return(
     <div className="cart">
     <h2>VOUS AVEZ CHOISI {quantity } {quantity > 1 ? 'PRODUITS': 'PRODUIT'}</h2>
-        {cart.map((product) => (
+        { // Displaying every product of the state cart
+            cart.map((product) => (
             <div className="cart__container">
                 <div className="cart__dishes">
                     <h1 className="cart__dish">{product.name}</h1>
@@ -43,14 +44,14 @@ const Cart = ({
                 <div className="cart__quantity">
                     <button
                      className="cart__remove"
-                     onClick={() => {removeQuantityProduct(product)}}
+                     onClick={() => {removeQuantityProduct(product)}} // Remove Quantity from the cart on clock -
                      >
                         <i className="fa fa-minus" aria-hidden="true" ></i>
                     </button>
                     <input className="cart__count" type="text" value={product.quantity} readonly />
                     <button 
                         className="cart__add"
-                        onClick={() => {addQuantityProduct(product)}}
+                        onClick={() => {addQuantityProduct(product)}} //Add Quantity to the cart on click
                     >
                         <i className="fa fa-plus" aria-hidden="true"></i>
                     </button>

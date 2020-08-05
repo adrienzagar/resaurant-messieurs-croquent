@@ -7,7 +7,7 @@ import { GET_PRODUCT, saveProduct } from '../actions/product';
 //! == Utils Axios for recupered JSON via API
 const productMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case GET_PRODUCT:
+    case GET_PRODUCT: // Save products coming from API to the state
       axios.get('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/products')
         .then((response) => {
           // console.log(response.data);

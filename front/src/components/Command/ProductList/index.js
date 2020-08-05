@@ -19,8 +19,9 @@ const ProductList = ({ cart, products, categories, addProductToCart, savePrice, 
     // console.log(addProduct);
     return (
         <div className="product">
-                {categories.map((category) => {
-                    const result = products.filter(product => product.category.id === category.id);
+                { // Displaying each Categories
+                    categories.map((category) => {
+                    const result = products.filter(product => product.category.id === category.id); // Filter products to display product by categories
                     return (
                         <Accordion allowZeroExpanded={true}>
                             <AccordionItem>

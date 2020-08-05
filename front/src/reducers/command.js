@@ -34,7 +34,6 @@ export const initialState = {
 
 //! == Actions to modified state
 const command = (state = initialState, action = {}) => {
-  var uniqueProds = [];
 
   switch (action.type) {
     case SAVE_PRODUCT:
@@ -95,28 +94,27 @@ const command = (state = initialState, action = {}) => {
         ...state,
         listPrice: state.listPrice,
       };
-    case SET_MAIL_VALUE:
-      // state.user.push(action.email)
+    case SET_MAIL_VALUE: // Controlled Mail Field
       return {
         ...state,
         email: action.email,
       };
-    case SET_PHONE_VALUE:
+    case SET_PHONE_VALUE: // Controlled Phone Number Field
       return {
         ...state,
         phone_number: action.phone_number,
       };
-    case SET_NAME_VALUE:
+    case SET_NAME_VALUE: // Controlled Name Field
       return {
         ...state,
         firstname: action.firstname,
       };
-    case SET_LASTNAME_VALUE:
+    case SET_LASTNAME_VALUE: // Controlled LastName Field
       return {
         ...state,
         lastname: action.lastname,
       };
-    case SET_USER_OBJECT:
+    case SET_USER_OBJECT: // Create Object User that contains field filled by the user
       return {
         ...state,
         user: {
