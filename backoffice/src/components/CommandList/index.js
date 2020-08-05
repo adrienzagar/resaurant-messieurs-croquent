@@ -7,10 +7,13 @@ import Archivate from './archivate';
 import './styles.scss';
 
 //! == Composant ==
-const CommandList = () => (
+const CommandList = ({ getCommand, commands}) => (
     <main className="commandList">
         <h1 className="commandList__command">Les commandes en cours</h1>
-        <Command/>
+        <Command
+            getCommand={getCommand}
+            commands={commands}
+        />
         <h1 className="commandList__archivate">Les commandes archivées</h1>
         <Archivate/>
     </main>
