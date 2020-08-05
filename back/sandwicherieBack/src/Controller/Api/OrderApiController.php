@@ -3,9 +3,6 @@
 namespace App\Controller\Api;
 
 use App\Entity\Order;
-use App\Entity\OrderLine;
-use App\Entity\Product;
-use App\Repository\OrderLineRepository;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,14 +78,6 @@ class OrderApiController extends AbstractController
         // Flusher via le manager
         $entityManager->persist($attachedOrder);
         $entityManager->flush();
-
-
-        /*
-
-        $entityManager->persist($order);
-        */
-
-
 
 
         // Rediriger vers l'URL de la ressource avec un statut 201

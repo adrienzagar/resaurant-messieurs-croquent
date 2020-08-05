@@ -39,6 +39,7 @@ class User
      * @ORM\Column(type="string", length=255)
      * @Groups({"order_get" , "order_get_one"})
      * @Assert\NotBlank
+     * @Assert\Email(message="Veuillez entrer un email valide")
      */
     private $email;
 
