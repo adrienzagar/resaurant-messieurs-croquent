@@ -61,7 +61,8 @@ const ModalCart = ({
                   <label htmlFor="phone">Téléphone</label>
                   <input id="phone" type="tel" value={phone_number} onChange={handleOnPhoneChange} />
                 </div>
-                <button type="submit">CROQUER</button>
+                  <button className="form__submit"  type="submit">Valider votre commande</button>
+                
             </form>
         </Modal.Description>
       </Modal.Content>

@@ -31,7 +31,6 @@ export const initialState = {
   user: {},
   status: 1,
   comment: "toto",
-  price : 14
 };
 
 //! == Actions to modified state
