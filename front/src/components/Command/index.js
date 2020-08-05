@@ -36,8 +36,8 @@ const Command = ({
     setProductObject,
     addProductToProductObject
 }) => {
-    useEffect(() => { getProduct(); }, []);
-    useEffect(() => { getCategories(); }, []);
+    useEffect(() => { getProduct(); }, []); //Getting product from API
+    useEffect(() => { getCategories(); }, []); //Getting Categories from API
     useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
         // console.log(getProduct)
     return(

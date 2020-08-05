@@ -24,19 +24,19 @@ const mapStateToProps = (state, ownprops) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownprops) => ({
-    getProduct: () => dispatch(getProduct()),
-    getCategories: () => dispatch(getCategories()),
-    sendOrder: () => dispatch(sendOrder()),
-    addProductToCart: (product) => dispatch(addProductToCart(product)),
-    addQuantityProduct: (quantity,id) => dispatch(addQuantityProduct(quantity,id)),
-    removeQuantityProduct: (quantity,id) => dispatch(removeQuantityProduct(quantity,id)),
-    savePrice: (price) => dispatch(savePrice(price)),
-    setMailValue: (email) => dispatch(setMailValue(email)),
-    setPhoneValue: (phone_number) => dispatch(setPhoneValue(phone_number)),
-    setNameValue: (firstname) => dispatch(setNameValue(firstname)),
-    setLastnameValue: (lastname) => dispatch(setLastnameValue(lastname)),
-    setUserObject: (lastname, firstname, phone_number, email) => dispatch(setUserObject(lastname, firstname, phone_number, email)),
-    setProductObject: (product, quantity) => dispatch(setProductObject(product, quantity)),
+    getProduct: () => dispatch(getProduct()), // Getting Products from API
+    getCategories: () => dispatch(getCategories()), // Getting Categories from API
+    sendOrder: () => dispatch(sendOrder()), // Send the order via an axios request in Middlewares to API
+    addProductToCart: (product) => dispatch(addProductToCart(product)), //Add a product to the cart 
+    addQuantityProduct: (quantity,id) => dispatch(addQuantityProduct(quantity,id)), //Add product quantity
+    removeQuantityProduct: (quantity,id) => dispatch(removeQuantityProduct(quantity,id)), //Remove quantity Product
+    savePrice: (price) => dispatch(savePrice(price)), //Calculate the total price of the cart
+    setMailValue: (email) => dispatch(setMailValue(email)), // Controlled Mail Field 
+    setPhoneValue: (phone_number) => dispatch(setPhoneValue(phone_number)), // Controlled Phone number Field 
+    setNameValue: (firstname) => dispatch(setNameValue(firstname)), // Controlled Fistname Field 
+    setLastnameValue: (lastname) => dispatch(setLastnameValue(lastname)), // Controlled Lastname Field 
+    setUserObject: (lastname, firstname, phone_number, email) => dispatch(setUserObject(lastname, firstname, phone_number, email)), //Creates an object User with datas from fields filled by the user 
+    setProductObject: (product, quantity) => dispatch(setProductObject(product, quantity)), //Trying to create an similar Object of what backend expect in the request 
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Command);
