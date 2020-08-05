@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Command from '../../components/Command';
-import { getProduct, addProductToCart, addQuantityProduct, savePrice, removeQuantityProduct, setProductObject, addProductToProductObject} from '../../actions/product';
+import { getProduct, addProductToCart, addQuantityProduct, savePrice, removeQuantityProduct } from '../../actions/product';
 import { getCategories } from '../../actions/categories';
 import { setMailValue, setPhoneValue, setNameValue, setLastnameValue, setUserObject } from '../../actions/form';
 import { sendOrder } from '../../actions/order';
@@ -36,7 +36,6 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
     setNameValue: (firstname) => dispatch(setNameValue(firstname)), // Controlled Fistname Field 
     setLastnameValue: (lastname) => dispatch(setLastnameValue(lastname)), // Controlled Lastname Field 
     setUserObject: (lastname, firstname, phone_number, email) => dispatch(setUserObject(lastname, firstname, phone_number, email)), //Creates an object User with datas from fields filled by the user 
-    setProductObject: (product, quantity) => dispatch(setProductObject(product, quantity)), //Trying to create an similar Object of what backend expect in the request 
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Command);

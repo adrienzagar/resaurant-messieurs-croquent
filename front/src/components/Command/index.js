@@ -33,8 +33,6 @@ const Command = ({
     setLastnameValue,
     sendOrder,
     setUserObject,
-    setProductObject,
-    addProductToProductObject
 }) => {
     useEffect(() => { getProduct(); }, []); //Getting product from API
     useEffect(() => { getCategories(); }, []); //Getting Categories from API
@@ -50,7 +48,6 @@ const Command = ({
                 categories={categories}
                 addProductToCart={addProductToCart}
                 savePrice={savePrice}
-                addProductToProductObject={addProductToProductObject}
              />
              <Cart 
                 cart={cart} 
@@ -68,7 +65,6 @@ const Command = ({
                 setLastnameValue={setLastnameValue}
                 sendOrder={sendOrder}
                 setUserObject={setUserObject}
-                setProductObject={setProductObject}
              />
         </main>
 );}

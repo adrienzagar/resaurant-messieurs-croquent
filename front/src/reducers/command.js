@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE, SET_PRODUCT_OBJECT, ADD_PRODUCT_TO_PRODUCT_OBJECT } from '../actions/product';
+import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
 import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE, SET_USER_OBJECT } from '../actions/form';
 
@@ -26,10 +26,12 @@ export const initialState = {
   listCategories: [],
   listPrice: [],
   quantity: 0,
-  id: {},
   quantities: 0,
   cart: [],
   user: {},
+  status: 1,
+  comment: "toto",
+  price : 14
 };
 
 //! == Actions to modified state
