@@ -27,38 +27,7 @@ export const initialState = {
   listCategories: [],
   listPrice: [],
   quantity: 0,
-  orderLines: [
-    {
-        
-      "quantity": 2,
-      "product": {
-        "id": 1,
-        "name": "Monsieur Croque",
-        "description": "Jambon blanc, béchamel maison, fromage Abondance A.O.P",
-        "picture": "https:\/\/ibb.co\/qgyCfSS",
-        "price": 7,
-        "category": {
-          "id": 1,
-          "name": "Croque-Monsieur"
-        }
-      }
-    },
-    {
-      
-      "quantity": 2,
-      "product": {
-        "id": 2,
-  "name": "Le Transformiste",
-  "description": "Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier",
-  "picture": "https:\/\/ibb.co\/gmCKh26",
-  "price": 8,
-  "category": {
-    "id": 1,
-    "name": "Croque-Monsieur"
-        }
-      }
-    }
-  ],
+  orderLines: [],
   product: {},
   user: {},
   email: '',
