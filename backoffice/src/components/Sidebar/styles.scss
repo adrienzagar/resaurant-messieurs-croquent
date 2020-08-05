@@ -1,0 +1,50 @@
+@use '../../styles/vars';
+
+.bm {
+    &-menu-wrap {
+        top: 10vh;
+    }
+    &-overlay {
+        top: 10vh;
+    }
+    &-morph-shape {
+        fill: vars.$color-sidebar;
+    }
+    &-cross {
+        background: vars.$color-light;
+    }
+    &-burger {
+        &-button {
+            position: fixed;
+            left: 1rem;
+            top: 12vh;
+            width: 2rem;
+            height: 1.4rem;
+        }
+        &-bars {
+            background: vars.$color-light;
+        }
+    }
+    &-item {
+        color: vars.$color-light;
+        margin: 2rem;
+        padding-bottom: .5rem;
+        font-size: 1.3rem;
+        &-list {
+            overflow-y: hidden;
+        }
+        &:hover {
+            color: vars.$color-primary-hover;
+        }
+        & .fas {
+            margin-right: 1rem;
+            transition: .3s ease;
+        }
+        &-selected {
+            color: vars.$color-primary;
+        }
+        &-link {
+            transition: .3s ease;
+        }
+    }
+}

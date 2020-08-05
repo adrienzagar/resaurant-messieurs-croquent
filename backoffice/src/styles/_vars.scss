@@ -1,0 +1,14 @@
+@use 'sass:color';
+
+$color-background: #282A36;
+$color-sidebar: #21222C;
+$color-primary: #BD93F9;
+$color-primary-hover: color.scale($color-primary, $lightness: -20%);
+$color-light: #FFF;
+$color-lightness: color.scale($color-primary, $lightness: 70%);
+$color-danger: #e52d27;
+$color-danger-hover: color.scale($color-danger, $lightness: -20%);
+$color-success: #0bab64;
+$color-success-hover: color.scale($color-success, $lightness: -20%);
+$color-warning: #EFF88A;
+$color-warning-hover: color.scale($color-warning, $lightness: -20%);
