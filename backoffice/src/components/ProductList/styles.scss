@@ -26,6 +26,10 @@
         max-width: 100%;
         vertical-align: middle;
         border-radius: .5rem;
+        &--none {
+            display: none;
+            width: 10%;
+        }
         &--td {
             width: 10%;
         }

@@ -11,7 +11,7 @@ const Product = ({ productCurrent }) => {
     return (
         <tr className="product__tr">
             <td className="product__image--td">
-                <img className="product__image" src="https://i.ibb.co/xDQ8NNP/Coq.jpg" alt="croque"></img>
+                <img className="product__image" src={productCurrent.picture} alt="croque"></img>
             </td>
             <td className="product__dish--td">
                 <p className="product__dish">{productCurrent.name}</p>
