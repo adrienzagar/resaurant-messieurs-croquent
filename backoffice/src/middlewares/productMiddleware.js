@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 //! == Import : local (actions)
-import { GET_PRODUCT, saveProduct } from '../actions/product';
+import { GET_PRODUCT, saveProduct, GET_CATEGORIES, saveCategories } from '../actions/product';
 
 //! == Utils Axios for recupered JSON via API
 const productMiddleware = (store) => (next) => (action) => {
@@ -10,8 +10,16 @@ const productMiddleware = (store) => (next) => (action) => {
     case GET_PRODUCT:
       axios.get('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/products')
         .then((response) => {
-          console.log(response, "response");
           store.dispatch(saveProduct(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case GET_CATEGORIES:
+      axios.get('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/categories')
+        .then((response) => {
+          store.dispatch(saveCategories(response.data));
         })
         .catch((error) => {
           console.log(error);

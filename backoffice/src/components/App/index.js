@@ -7,7 +7,8 @@ import './styles.scss';
 import Login from '../../containers/Login';
 import Header from '../../containers/Header';
 import Sidebar from '../../containers/Sidebar';
-import Product from '../../containers/Product';
+import ProductList from '../../containers/ProductList';
+import CommandList from '../../components/CommandList';
 
 //! == Composant ==
 const App = ({ isLogged }) => (
@@ -19,7 +20,8 @@ const App = ({ isLogged }) => (
       <>
         <Header />
         <Sidebar />
-        <Route exact path="/produits" component={Product} />
+        <Route exact path="/produits" component={ProductList} />
+        <Route exact path="/commandes" component={CommandList} />
       </>
     )}
   </div>

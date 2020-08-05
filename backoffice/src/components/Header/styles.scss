@@ -16,6 +16,9 @@
         font-size: 1.5rem;
     }
     &__open {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 1.1rem;
         font-weight: bold;
         margin-right: 2rem;
@@ -32,6 +35,9 @@
         }
     }
     &__close {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
         font-size: 1.1rem;
         font-weight: bold;
         margin-right: 2rem;

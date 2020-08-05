@@ -7,7 +7,6 @@ import './styles.scss';
 
 //! == Composant ==
 const Categories = ({ categories, products }) => {
-    console.log(products, "products");
     return (
         <div className="product__container">
             {categories.map((category) => {
@@ -41,14 +40,11 @@ const Categories = ({ categories, products }) => {
                                     </td>
                                 </tr>
                             </thead>
-                            {result.map((productCurrent) => {
-                                console.log(productCurrent, "productCurrent");
-                                return (
+                            {result.map((productCurrent) => (
                                 <tbody key={productCurrent.id}>
                                     <Product productCurrent={productCurrent} />
                                 </tbody>
-                                )
-                            })}
+                            ))}
                         </table> 
                     </div>
                 );

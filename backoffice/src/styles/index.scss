@@ -5,6 +5,5 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
-  background: vars.$color-background;
-  overflow-y: auto;
+  background: vars.$color-background !important;
 }
