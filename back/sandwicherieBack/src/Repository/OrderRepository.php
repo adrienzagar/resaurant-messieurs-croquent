@@ -37,6 +37,19 @@ class OrderRepository extends ServiceEntityRepository
         return $order;
     }
 
+    // public function attachOrderUser(Order $order)
+    // {
+    //     $userRepository = $this->getEntityManager()->getRepository(User::class);
+        
+    //     //récupération de la liste des user qu'il faut rattaccher à l'entity manager
+    //     $user = $order->getUser();
+    //     $attachedUser = $userRepository->attachUser($user);
+    //     $order->reloadUser($attachedUser);
+
+    //     return $order;
+    // }
+
+
     // /**
     //  * @return Order[] Returns an array of Order objects
     //  */
