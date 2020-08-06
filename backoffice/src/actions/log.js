@@ -1,6 +1,7 @@
 // ACTION TYPE
 export const GET_LOGIN = 'GET_LOGIN';
 export const CHECK_IS_LOGGED = 'CHECK_IS_LOGGED';
+export const ERROR_LOGGED = 'ERROR_LOGGED';
 export const GET_LOGOUT = 'GET_LOGOUT';
 export const SET_USERNAME_VALUE = 'SET_USERNAME_VALUE';
 export const SET_PASSWORD_VALUE = 'SET_PASSWORD_VALUE';
@@ -12,6 +13,10 @@ export const getLogin = () => ({
 
 export const checkIsLogged = () => ({
   type: CHECK_IS_LOGGED,
+});
+
+export const errorLogged = () => ({
+  type: ERROR_LOGGED,
 });
 
 export const getLogout = () => ({
