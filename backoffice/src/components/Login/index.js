@@ -7,13 +7,13 @@ import './styles.scss';
 import { setPasswordValue, setUsernameValue } from '../../actions/log';
 
 //! == Composant ==
-const Login = ({ getConnect, username, password, setPasswordValue, setUsernameValue }) => {
+const Login = ({ getLogin, username, password, setPasswordValue, setUsernameValue }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('cocuou')
+        getLogin()
     };
-    const handleConnect = () => {
-        getConnect();
-    }
+
     const hangleUsernameOnChange = (e) => {
         setUsernameValue(e.target.value)
     }
@@ -27,7 +27,7 @@ const Login = ({ getConnect, username, password, setPasswordValue, setUsernameVa
                 <input 
                     value={username}
                     onChange={hangleUsernameOnChange} 
-                    type="email" 
+                    type="text" 
                     className="login__email" 
                     placeholder="User"
                 />
@@ -39,7 +39,7 @@ const Login = ({ getConnect, username, password, setPasswordValue, setUsernameVa
                     placeholder="Password"
                 />
                 <p className="login__error">Votre nom d'utilisateur ou votre mot de passe est incorrecte</p>
-                <button type="submit" className="login__submit" onClick={handleConnect}>Se connecter</button>
+                <button type="submit" className="login__submit" >Se connecter</button>
             </form>
         </div>
     );
