@@ -5,7 +5,7 @@ export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const ADD_QUANTITY_PRODUCT = 'ADD_QUANTITY_PRODUCT';
 export const REMOVE_QUANTITY_PRODUCT = 'REMOVE_QUANTITY_PRODUCT';
 export const SAVE_PRICE = 'SAVE_PRICE';
-export const SET_PRODUCT_OBJECT = 'SET_PRODUCT_OBJECT';
+
 
 // ACTION CREATOR
 export const getProduct = () => ({
@@ -41,8 +41,3 @@ export const getProduct = () => ({
     price,
   })
 
-  export const setProductObject = (product, quantity) => ({
-    type: SET_PRODUCT_OBJECT,
-    product,
-    quantity,
-  })

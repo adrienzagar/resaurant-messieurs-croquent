@@ -99,4 +99,18 @@
         justify-content: space-between;
         margin-bottom: 1rem;
     }
+    &__submit {
+        width: 9rem;
+        height: 3rem;
+        background-color: vars.$color-primary;
+        color: vars.$color-secondary;
+        border: none;
+        font-size: 1.2rem;
+        &:hover {
+            color: vars.$color-primary;
+            background-color: vars.$color-secondary;
+            border: solid 3px vars.$color-primary
+        }
+    }
+
 }

@@ -4,10 +4,8 @@ import React from 'react';
 
 //! == Import : local ==
 import './styles.scss';
-import { addQuantityProduct , removeQuantityProduct } from '../../../actions/product'
 import { returnTotalPrice } from '../../../selectors';
-import ModalExampleModal from './modal';
-import { connect } from 'react-redux';
+import Modal from './modal';
 
 //! == Composant ==
 const Cart = ({ 
@@ -27,12 +25,12 @@ const Cart = ({
     setLastnameValue,
     sendOrder,
     setUserObject,
-    setProductObject
 }) => {
     return(
     <div className="cart">
     <h2>VOUS AVEZ CHOISI {quantity } {quantity > 1 ? 'PRODUITS': 'PRODUIT'}</h2>
-        {cart.map((product) => (
+        { // Displaying every product of the state cart
+            cart.map((product) => (
             <div className="cart__container">
                 <div className="cart__dishes">
                     <h1 className="cart__dish">{product.name}</h1>
@@ -43,14 +41,14 @@ const Cart = ({
                 <div className="cart__quantity">
                     <button
                      className="cart__remove"
-                     onClick={() => {removeQuantityProduct(product)}}
+                     onClick={() => {removeQuantityProduct(product)}} // Remove Quantity from the cart on clock -
                      >
                         <i className="fa fa-minus" aria-hidden="true" ></i>
                     </button>
                     <input className="cart__count" type="text" value={product.quantity} readonly />
                     <button 
                         className="cart__add"
-                        onClick={() => {addQuantityProduct(product)}}
+                        onClick={() => {addQuantityProduct(product)}} //Add Quantity to the cart on click
                     >
                         <i className="fa fa-plus" aria-hidden="true"></i>
                     </button>
@@ -59,8 +57,9 @@ const Cart = ({
         ))}
         <div className="cart__total">
             <h1>TOTAL</h1>
+             {/* Displaying the total price of the cart */}
             <p>{returnTotalPrice(listPrice).totalPrice.toFixed(2)}&euro;</p>
-        <ModalExampleModal
+        <Modal
             email={email}
             phone_number={phone_number}
             firstname={firstname}
@@ -73,17 +72,10 @@ const Cart = ({
             setUserObject={setUserObject}
             sendOrder={sendOrder}
             setUserObject={setUserObject}
-            setProductObject={setProductObject}
         />
         </div>
     </div>
 )};
-function mapDispatchToProps(dispatch) {
-    return {
-        addQuantityProduct: (quantities) => dispatch(addQuantityProduct(quantities)),
-        removeQuantityProduct: (quantities) => dispatch(removeQuantityProduct(quantities)),
-    }
 
-}
 //! == Export ==
-export default connect(null, mapDispatchToProps)(Cart);
+export default Cart;

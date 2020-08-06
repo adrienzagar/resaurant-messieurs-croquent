@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button, Modal } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
-function ModalExampleModal({ 
+const ModalCart = ({
     email, 
     phone_number,
     firstname,
@@ -13,8 +13,7 @@ function ModalExampleModal({
     setLastnameValue,
     sendOrder,
     setUserObject,
-    setProductObject
-}) {
+}) => {
   const [open, setOpen] = React.useState(false)
   
   const handleOnLastnameChange  = (event) => {
@@ -29,14 +28,11 @@ function ModalExampleModal({
   const handleOnPhoneChange  = (event) => {
       setPhoneValue(event.target.value)
   }
-
   const handleSubmit = (event) => {
       event.preventDefault();
-      // setProductObject(product, quantity)
       setUserObject(lastname, firstname, phone_number, email)
       sendOrder();
-    }
-    
+  }
   return (
     <Modal
       onClose={() => setOpen(false)}
@@ -65,24 +61,13 @@ function ModalExampleModal({
                   <label htmlFor="phone">Téléphone</label>
                   <input id="phone" type="tel" value={phone_number} onChange={handleOnPhoneChange} />
                 </div>
-                <button type="submit">CROQUER</button>
+                  <button className="form__submit"  type="submit">Valider votre commande</button>
+                
             </form>
         </Modal.Description>
       </Modal.Content>
-      {/* <Modal.Actions>
-        <Button color='black' onClick={() => setOpen(false)}>
-          Retour
-        </Button>
-        <Button
-          content="Valider la commande"
-          labelPosition='right'
-          icon='checkmark'
-          onClick={() => setOpen(false)}
-          color='black'
-        />
-      </Modal.Actions> */}
     </Modal>
   )
 }
 
-export default ModalExampleModal
+export default ModalCart;

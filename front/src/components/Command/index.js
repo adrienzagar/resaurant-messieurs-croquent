@@ -19,7 +19,8 @@ const Command = ({
     addProductToCart, 
     quantity, 
     cart,
-    addQuantityToProduct,
+    addQuantityProduct,
+    removeQuantityProduct,
     quantities,
     listPrice,
     savePrice,
@@ -33,11 +34,9 @@ const Command = ({
     setLastnameValue,
     sendOrder,
     setUserObject,
-    setProductObject,
-    addProductToProductObject
 }) => {
-    useEffect(() => { getProduct(); }, []);
-    useEffect(() => { getCategories(); }, []);
+    useEffect(() => { getProduct(); }, []); //Getting product from API
+    useEffect(() => { getCategories(); }, []); //Getting Categories from API
     useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
         // console.log(getProduct)
     return(
@@ -50,14 +49,12 @@ const Command = ({
                 categories={categories}
                 addProductToCart={addProductToCart}
                 savePrice={savePrice}
-                addProductToProductObject={addProductToProductObject}
              />
              <Cart 
                 cart={cart} 
                 quantity={quantity}
                 listPrice={listPrice}
                 quantities={quantities}
-                addQuantityToProduct={addQuantityToProduct}
                 email={email}
                 phone_number={phone_number}
                 firstname={firstname}
@@ -68,7 +65,8 @@ const Command = ({
                 setLastnameValue={setLastnameValue}
                 sendOrder={sendOrder}
                 setUserObject={setUserObject}
-                setProductObject={setProductObject}
+                addQuantityProduct={addQuantityProduct}
+                removeQuantityProduct={removeQuantityProduct}
              />
         </main>
 );}
