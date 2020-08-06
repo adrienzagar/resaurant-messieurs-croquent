@@ -61,9 +61,11 @@ class User
      */
     private $orders;
 
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->tokens = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -161,4 +163,6 @@ class User
 
         return $this;
     }
+
+   
 }

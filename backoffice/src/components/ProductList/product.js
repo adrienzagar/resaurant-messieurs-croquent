@@ -26,7 +26,7 @@ const Product = ({ productCurrent }) => {
                 <p className="product__price">{productCurrent.price}€</p>
             </td>
             <td className="product__satus--td">
-                <Checkbox toggle className="product__status"/>
+                <Checkbox onClick={() => (console.log('coucou'))} toggle className="product__status"/>
             </td>
             <td className="product__delete--td">
                 <button className="product__delete">

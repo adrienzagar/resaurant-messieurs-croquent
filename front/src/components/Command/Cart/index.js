@@ -19,10 +19,12 @@ const Cart = ({
     phone_number,
     firstname,
     lastname,
+    comment,
     setMailValue,
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    setCommentValue,
     sendOrder,
     setUserObject,
 }) => {
@@ -65,10 +67,12 @@ const Cart = ({
             phone_number={phone_number}
             firstname={firstname}
             lastname={lastname}
+            comment={comment}
             setMailValue={setMailValue}
             setPhoneValue={setPhoneValue}
             setNameValue={setNameValue}
             setLastnameValue={setLastnameValue}
+            setCommentValue={setCommentValue}
             sendOrder={sendOrder}
             setUserObject={setUserObject}
             sendOrder={sendOrder}
