@@ -16,9 +16,6 @@ const logMiddleware = (store) => (next) => (action) => {
                 console.log(error);
             })
             break;
-        default:
-            next(action)
-            break;
         case GET_LOGOUT:
         axios.post('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/logout')
         .then((reponse) => {
