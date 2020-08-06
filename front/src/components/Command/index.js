@@ -19,7 +19,8 @@ const Command = ({
     addProductToCart, 
     quantity, 
     cart,
-    addQuantityToProduct,
+    addQuantityProduct,
+    removeQuantityProduct,
     quantities,
     listPrice,
     savePrice,
@@ -54,7 +55,6 @@ const Command = ({
                 quantity={quantity}
                 listPrice={listPrice}
                 quantities={quantities}
-                addQuantityToProduct={addQuantityToProduct}
                 email={email}
                 phone_number={phone_number}
                 firstname={firstname}
@@ -65,6 +65,8 @@ const Command = ({
                 setLastnameValue={setLastnameValue}
                 sendOrder={sendOrder}
                 setUserObject={setUserObject}
+                addQuantityProduct={addQuantityProduct}
+                removeQuantityProduct={removeQuantityProduct}
              />
         </main>
 );}

@@ -4,10 +4,8 @@ import React from 'react';
 
 //! == Import : local ==
 import './styles.scss';
-import { addQuantityProduct , removeQuantityProduct } from '../../../actions/product'
 import { returnTotalPrice } from '../../../selectors';
 import Modal from './modal';
-import { connect } from 'react-redux';
 
 //! == Composant ==
 const Cart = ({ 
@@ -78,12 +76,6 @@ const Cart = ({
         </div>
     </div>
 )};
-function mapDispatchToProps(dispatch) {
-    return {
-        addQuantityProduct: (quantities) => dispatch(addQuantityProduct(quantities)),
-        removeQuantityProduct: (quantities) => dispatch(removeQuantityProduct(quantities)),
-    }
 
-}
 //! == Export ==
-export default connect(null, mapDispatchToProps)(Cart);
+export default Cart;
