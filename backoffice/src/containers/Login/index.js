@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Login from '../../components/Login';
-import { getConnect } from '../../actions/login';
+import { getConnect } from '../../actions/log';
 
 const mapStateToProps = (state) => {};
 

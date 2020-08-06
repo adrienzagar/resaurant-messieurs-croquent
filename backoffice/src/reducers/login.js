@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { GET_CONNECT } from '../actions/login';
+import { GET_CONNECT } from '../actions/log';
 import { GET_LOGOUT } from '../actions/header';
 
 //! == Initial state
