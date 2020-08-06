@@ -7,10 +7,12 @@ const ModalCart = ({
     phone_number,
     firstname,
     lastname,
+    comment,
     setMailValue,
     setPhoneValue,
     setNameValue,
     setLastnameValue,
+    setCommentValue,
     sendOrder,
     setUserObject,
 }) => {
@@ -27,6 +29,9 @@ const ModalCart = ({
   }
   const handleOnPhoneChange  = (event) => {
       setPhoneValue(event.target.value)
+  }
+  const handleOnCommentChange = (event) => {
+      setCommentValue(event.target.value)
   }
   const handleSubmit = (event) => {
       event.preventDefault();
@@ -60,6 +65,10 @@ const ModalCart = ({
                 <div className="form__container">
                   <label htmlFor="phone">Téléphone</label>
                   <input id="phone" type="tel" value={phone_number} onChange={handleOnPhoneChange} />
+                </div>
+                <div className="form__container">
+                  <label htmlFor="phone">Commentaire</label>
+                  <input id="comment" type="text" value={comment} onChange={handleOnCommentChange} />
                 </div>
                   <button className="form__submit"  type="submit">Valider votre commande</button>
                 

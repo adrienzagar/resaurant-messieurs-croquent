@@ -12,6 +12,7 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
 
             // Destructuring the state to get what is needed in the request
             const { status, comment, user, cart, listPrice } = state.command;
+            console.log(comment)
 
             // Use the map function on Cart to return a new const that contain the right structure expected from the back-end
             const orderLines = cart.map((productMap) => {
@@ -29,7 +30,8 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
             const price = parseInt(totalPrice);
 
             console.log(price, 'Prix Total')
-            axios.post('http://localhost/Fantasy/apotheose/sandwicherie/back/sandwicherieBack/public/api/order', {
+            axios.post('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/order', {
+                comment,
                 price,
                 orderLines,
                 status,
