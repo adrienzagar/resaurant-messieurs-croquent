@@ -47,6 +47,13 @@
             color: vars.$color-background;
         }
     }
+    &__error {
+        color: vars.$color-danger;
+        display: none; //! à supprimer plus tard
+        &--none {
+            display: none;
+        }
+    }
     &__submit {
         border: none;
         background: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);

@@ -38,6 +38,7 @@ const Login = ({ getConnect, username, password, setPasswordValue, setUsernameVa
                     className="login__password" 
                     placeholder="Password"
                 />
+                <p className="login__error">Votre nom d'utilisateur ou votre mot de passe est incorrecte</p>
                 <button type="submit" className="login__submit" onClick={handleConnect}>Se connecter</button>
             </form>
         </div>
