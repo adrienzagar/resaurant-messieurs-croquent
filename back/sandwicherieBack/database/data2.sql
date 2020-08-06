@@ -137,11 +137,11 @@ INSERT INTO `store` (`id`, `status`) VALUES
 DROP TABLE IF EXISTS `token`;
 CREATE TABLE `token` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `IDX_5F37A13BA76ED395` (`user_id`),
-  CONSTRAINT `FK_5F37A13BA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  KEY `IDX_5F37A13B642B8210` (`admin_id`),
+  CONSTRAINT `FK_5F37A13B642B8210` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
@@ -157,4 +157,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2020-08-06 14:20:25
+-- 2020-08-06 16:01:32
