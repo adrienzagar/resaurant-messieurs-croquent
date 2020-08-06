@@ -21,7 +21,7 @@ const logMiddleware = (store) => (next) => (action) => {
                 console.log(response, 'ceci est la réponse du LOGIN')
             })
             .catch((error) => {
-                store.dispacth(errorLogged())
+                store.dispatch(errorLogged())
                 console.log(error, 'je viens de recevoir une erreur');
             })
             break;

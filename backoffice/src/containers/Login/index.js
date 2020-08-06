@@ -8,6 +8,7 @@ import { getLogin, setUsernameValue, setPasswordValue } from '../../actions/log'
 const mapStateToProps = (state) => ({
     username: state.login.username,
     password: state.login.password,
+    errorLog: state.login.errorLog,
 });
 
 const mapDispatchToProps = (dispatch) => ({
