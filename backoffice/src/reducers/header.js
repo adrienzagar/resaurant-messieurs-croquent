@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { GET_OPENCLOSE, MODIFY_STATUS, SAVE_STATUS } from '../actions/header';
+import { MODIFY_STATUS, SAVE_STATUS } from '../actions/header';
 
 //! == Initial state
 export const initialState = {
@@ -10,16 +10,19 @@ export const initialState = {
 //! == Actions to modified state
 const header = (state = initialState, action = {}) => {
     switch (action.type) {
-        case GET_OPENCLOSE:
-           return {
-            ...state,
-            isOpen: !state.isOpen,
-           };
-        // case MODIFY_STATUS:
-        case SAVE_STATUS:
+        case MODIFY_STATUS:
             return {
+                ...state,
                 status: action.status,
-            };
+                isOpen: action.bool
+            }
+        case SAVE_STATUS:
+            console.log(action.status, "reducer")
+            return {
+                ...state,
+                status: action.status,
+                isOpen: state.isOpen,
+            }
         default:
            return state;
      }

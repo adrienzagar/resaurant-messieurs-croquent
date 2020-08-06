@@ -1,6 +1,5 @@
 // ACTION TYPE
 export const GET_LOGOUT = 'GET_LOGOUT';
-export const GET_OPENCLOSE = 'GET_OPENCLOSE';
 export const EDIT_STATUS = 'EDIT_STATUS';
 export const GET_STATUS = 'GET_STATUS';
 export const SAVE_STATUS = 'SAVE_STATUS';
@@ -11,10 +10,6 @@ export const getLogout = () => ({
   type: GET_LOGOUT,
 });
 
-export const getOpenClose = () => ({
-    type: GET_OPENCLOSE,
-  });
-
 export const editStatus = () => ({
     type: EDIT_STATUS,
   });
@@ -23,11 +18,15 @@ export const editStatus = () => ({
     type: GET_STATUS,
   });
 
-  export const saveStatus = (status) => ({
+  export const saveStatus = (status) => (
+    console.log(status, "action"),
+    {
     type: SAVE_STATUS,
     status,
   });
 
-  export const modifyStatus = () => ({
+  export const modifyStatus = (status, bool) => ({
     type: MODIFY_STATUS,
+    status,
+    bool,
   });

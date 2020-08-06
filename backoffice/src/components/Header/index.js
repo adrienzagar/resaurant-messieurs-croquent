@@ -1,22 +1,24 @@
 //! == Import : npm ==
-import React from 'react';
+import React, { useEffect } from 'react';
 
 //! == Import : local ==
 import './styles.scss';
 
 //! == Composant ==
-const Header = ({ getLogout, isOpen, getOpenClose, modifyStatus }) => {
+const Header = ({ getLogout, isOpen, getStatus, modifyStatus, status }) => {
+   useEffect(() => { getStatus(); }, []);
    const handleLogout = () => {
       getLogout();
    };
    const handleEditStatus = () => {
-      if (isOpen === true) {
-         modifyStatus('OUVERT');
-      } else if (isOpen === false) {
-         modifyStatus('FERMÉ');
+      if (status === 'FERMÉ') {
+         modifyStatus('OUVERT', true);
+      } else if (status === 'OUVERT') {
+         modifyStatus('FERMÉ', false);
       }
    }
-
+   console.log(status, "status");
+   console.log(isOpen, "isOpen");
    return (
       <header className="header">
          <h1 className="header__title">

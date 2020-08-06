@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Header from '../../components/Header';
-import { getLogout, getOpenClose, modifyStatus } from '../../actions/header';
+import { getLogout, getStatus, modifyStatus } from '../../actions/header';
 
 const mapStateToProps = (state) => ({
     isOpen: state.header.isOpen,
@@ -12,8 +12,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     getLogout: () => dispatch(getLogout()),
-    getOpenClose: () => dispatch(getOpenClose()),
-    modifyStatus: (store) => dispatch(modifyStatus(store)),
+    getStatus: () => dispatch(getStatus()),
+    modifyStatus: (status) => dispatch(modifyStatus(status)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

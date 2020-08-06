@@ -13,17 +13,17 @@ import CommandList from '../../containers/CommandList';
 //! == Composant ==
 const App = ({ isLogged }) => (
   <div className="App">
-    {!isLogged && (
+    {/* {!isLogged && (
       <Login />
     )}
-    {isLogged && (
+    {isLogged && ( */}
       <>
         <Header />
         <Sidebar />
         <Route exact path="/produits" component={ProductList} />
         <Route exact path="/commandes" component={CommandList} />
       </>
-    )}
+    {/* )} */}
   </div>
 );
 

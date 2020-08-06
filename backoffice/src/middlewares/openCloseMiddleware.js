@@ -8,9 +8,8 @@ import { EDIT_STATUS, GET_STATUS, saveStatus } from '../actions/header';
 const openCloseMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case EDIT_STATUS: {
-            const state = store.getState()
-            const { status } = state.openClose
-            console.log(status)
+            const state = store.getState();
+            const { status } = state.header;
 
             axios.put('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/store/1', {
                 status
@@ -26,8 +25,8 @@ const openCloseMiddleware = (store) => (next) => (action) => {
         case GET_STATUS: {
             axios.get('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/store/1')
             .then((response) => {
-                console.log(response)
-                saveStatus(response.data)
+                console.log(response.data, "middleware")
+                store.dispatch(saveStatus(response.data));
             })
             .catch((error) => {
                 console.log(error);
