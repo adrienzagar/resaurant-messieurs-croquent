@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import Login from '../../components/Login';
-import { getConnect, setUsernameValue, setPasswordValue } from '../../actions/log';
+import { getLogin, setUsernameValue, setPasswordValue } from '../../actions/log';
 
 const mapStateToProps = (state) => ({
     username: state.login.username,
@@ -11,9 +11,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    getConnect: () => dispatch(getConnect()),
+    getLogin: () => dispatch(getLogin()),
     setUsernameValue: (username) => dispatch (setUsernameValue(username)),
-    setPasswordValue: (password) => dispatch (setPasswordValue(password))
+    setPasswordValue: (password) => dispatch (setPasswordValue(password)),
     
 });
 
