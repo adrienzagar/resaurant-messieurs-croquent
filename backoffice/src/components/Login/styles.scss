@@ -49,7 +49,6 @@
     }
     &__error {
         color: vars.$color-danger;
-        display: none; //! à supprimer plus tard
         &--none {
             display: none;
         }

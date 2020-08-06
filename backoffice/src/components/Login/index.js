@@ -4,21 +4,20 @@ import React from 'react';
 //! == Import : local ==
 import brand from '../../assets/images/logo-brand.png';
 import './styles.scss';
-import { setPasswordValue, setUsernameValue } from '../../actions/log';
 
 //! == Composant ==
-const Login = ({ getLogin, username, password, setPasswordValue, setUsernameValue }) => {
+const Login = ({ getLogin, errorLog, username, password, setPasswordValue, setUsernameValue }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('cocuou')
-        getLogin()
+        console.log('cocuou');
+        getLogin();
     };
 
     const hangleUsernameOnChange = (e) => {
-        setUsernameValue(e.target.value)
+        setUsernameValue(e.target.value);
     }
     const handlePasswordOnChange = (e) => {
-        setPasswordValue(e.target.value)
+        setPasswordValue(e.target.value);
     }
     return (
         <div className="login">
@@ -38,7 +37,7 @@ const Login = ({ getLogin, username, password, setPasswordValue, setUsernameValu
                     className="login__password" 
                     placeholder="Password"
                 />
-                <p className="login__error">Votre nom d'utilisateur ou votre mot de passe est incorrecte</p>
+                <p className={errorLog ? "login__error" : "login__error--none"}>Votre nom d'utilisateur ou votre mot de passe est incorrecte</p>
                 <button type="submit" className="login__submit" >Se connecter</button>
             </form>
         </div>

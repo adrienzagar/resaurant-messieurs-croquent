@@ -6,7 +6,7 @@ import Categories from './categories';
 import './styles.scss';
 
 //! == Composant ==
-const ProductList = ({ products, getProduct, categories, getCategories}) => {
+const ProductList = ({ products, getProduct, categories, getCategories }) => {
     useEffect(() => { 
         getProduct();
         getCategories();
