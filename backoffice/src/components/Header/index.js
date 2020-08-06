@@ -5,16 +5,24 @@ import React from 'react';
 import './styles.scss';
 
 //! == Composant ==
-const Header = ({ getLogout, isOpen, getToggle }) => {
+const Header = ({ getLogout, isOpen, getOpenClose, modifyStatus }) => {
    const handleLogout = () => {
       getLogout();
    };
+   const handleEditStatus = () => {
+      if (isOpen === true) {
+         modifyStatus('OUVERT');
+      } else if (isOpen === false) {
+         modifyStatus('FERMÉ');
+      }
+   }
+
    return (
       <header className="header">
          <h1 className="header__title">
             MESSIEURS CROQUENT - BackOffice
          </h1>
-         <button className={isOpen ? "header__open" : "header__close"} onClick={getToggle}>
+         <button className={isOpen ? "header__open" : "header__close"} onClick={handleEditStatus}>
             <i className="fa fa-clock"></i>
             {isOpen ? "FERMER" : "OUVRIR"}
          </button>
