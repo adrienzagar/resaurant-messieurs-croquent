@@ -52,6 +52,7 @@ const Cart = ({
                     >
                         <i className="fa fa-plus" aria-hidden="true"></i>
                     </button>
+                    
                 </div>
             </div>
         ))}

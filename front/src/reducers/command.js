@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { ADD_PRODUCT_TO_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
+import { ADD_PRODUCT_FROM_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
 import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE, SET_USER_OBJECT } from '../actions/form';
 
@@ -47,7 +47,7 @@ const command = (state = initialState, action = {}) => {
         ...state,
         listCategories: action.categories,
       };
-    case ADD_PRODUCT_TO_CART:
+    case ADD_PRODUCT_FROM_CART:
       state.cart.push(action.product) //push product to card
       state.cart = state.cart.map(product => {
         if (product.id === action.product.id) {
@@ -63,6 +63,9 @@ const command = (state = initialState, action = {}) => {
         quantity: state.quantity + 1,
         cart: state.cart
       };
+
+
+
     case ADD_QUANTITY_PRODUCT:
       state.cart = state.cart.map(product => {
         if (product.id === action.quantity.id) {
@@ -76,18 +79,23 @@ const command = (state = initialState, action = {}) => {
         cart: state.cart
       };
     case REMOVE_QUANTITY_PRODUCT:
+      let newState = []
       console.log(action.quantity)
       state.cart = state.cart.map(product => {
         if (product.id === action.quantity.id) {
-          state.listPrice.pop(action.quantity.price) // decrement quantity from product + price update
-          if (product.quantity > 0){
+          let pos = state.listPrice.indexOf(product.price)
+          state.listPrice.splice(pos,1)
+          if (product.quantity > 0) {
             return { ...product, quantity: product.quantity - 1 } // the quantity must be >0
           }
         }
         return product
       })
+      newState = state.cart.filter(function (product) {
+        return product.quantity > 0;
+      })
       return {
-        ...state,
+        ...state, cart: newState, quantity: newState.length
       };
     case SAVE_PRICE:
       state.listPrice.push(action.price)
