@@ -23,10 +23,11 @@ class Token
     private $token;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="tokens")
+     * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="tokens")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private $admin;
+
 
     public function getId(): ?int
     {
@@ -45,15 +46,16 @@ class Token
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getAdmin(): ?Admin
     {
-        return $this->user;
+        return $this->admin;
     }
 
-    public function setUser(?User $user): self
+    public function setAdmin(?Admin $admin): self
     {
-        $this->user = $user;
+        $this->admin = $admin;
 
         return $this;
     }
+
 }
