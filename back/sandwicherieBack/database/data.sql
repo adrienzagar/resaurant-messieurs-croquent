@@ -134,5 +134,10 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `username`, `roles`, `password`) VALUES
 (1,	'Admin',	'[\"ROLE_ADMIN\"]',	'$argon2id$v=19$m=65536,t=4,p=1$2j59iphBLzR3BkJbBnEiSw$tgE9thnloTsmWPK9LF9zfmnJla7xSj/klewIBaJ5QJ8');
 
+SET NAMES utf8mb4;
+
+INSERT INTO `store` (`id`, `status`) VALUES
+(1,	'ouvert'),
+(2,	'fermer');
 
 -- 2020-07-30 12:45:07
