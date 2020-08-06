@@ -22,7 +22,38 @@
     border-radius: .5rem;
     padding: 2rem;
     box-shadow: inset 0 0 15px 5px vars.$color-primary;
-    min-height: 50vh;
+    &__container {
+        border: 1px dashed vars.$color-background;
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    &__number {
+        font-weight: bold;
+        font-size: 1.3rem;
+        text-decoration: underline;
+    }
+    &__infosUser {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    &__user {
+        display: flex;
+    }
+    &__infos {
+        margin-right: 3rem;
+    }
+    &__infosCommand {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    &__infosComment {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    &__infosPrice {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
 }
 
 .archivate {

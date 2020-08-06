@@ -8,7 +8,7 @@ import Login from '../../containers/Login';
 import Header from '../../containers/Header';
 import Sidebar from '../../containers/Sidebar';
 import ProductList from '../../containers/ProductList';
-import CommandList from '../../components/CommandList';
+import CommandList from '../../containers/CommandList';
 
 //! == Composant ==
 const App = ({ isLogged }) => (
