@@ -19,6 +19,7 @@ const Login = ({ getConnect }) => {
                 <img src={brand} alt="brand" className="login__brand"/>
                 <input type="email" className="login__email" placeholder="User"/>
                 <input type="password" className="login__password" placeholder="Password"/>
+                <p className="login__error">Votre nom d'utilisateur ou votre mot de passe est incorrecte</p>
                 <button type="submit" className="login__submit" onClick={handleConnect}>Se connecter</button>
             </form>
         </div>
