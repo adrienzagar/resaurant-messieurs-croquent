@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
+import FormToSubmit from './form'
 
 const ModalCart = ({
     email, 
@@ -18,26 +19,6 @@ const ModalCart = ({
 }) => {
   const [open, setOpen] = React.useState(false)
   
-  const handleOnLastnameChange  = (event) => {
-      setLastnameValue(event.target.value)
-  }
-  const handleOnNameChange  = (event) => {
-      setNameValue(event.target.value)
-  }
-  const handleOnMailChange = (event) => {
-      setMailValue(event.target.value)
-  }
-  const handleOnPhoneChange  = (event) => {
-      setPhoneValue(event.target.value)
-  }
-  const handleOnCommentChange = (event) => {
-      setCommentValue(event.target.value)
-  }
-  const handleSubmit = (event) => {
-      event.preventDefault();
-      setUserObject(lastname, firstname, phone_number, email)
-      sendOrder();
-  }
   return (
     <Modal
       onClose={() => setOpen(false)}
@@ -48,31 +29,20 @@ const ModalCart = ({
       <Modal.Header>Pour valider votre commande, veuillez remplir le formualaire</Modal.Header>
       <Modal.Content>
         <Modal.Description>
-
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="form__container">
-                  <label htmlFor="lastname">Nom</label>
-                  <input id="lastname" type="text" value={lastname} onChange={handleOnLastnameChange}/>
-                </div>
-                <div className="form__container">
-                  <label htmlFor="name">Prénom</label>
-                  <input id="Name" type="text" value={firstname} onChange={handleOnNameChange} />
-                </div>
-                <div className="form__container">
-                  <label htmlFor="email">Email</label>
-                  <input id="email" type="email" value={email} onChange={handleOnMailChange} />
-                </div>
-                <div className="form__container">
-                  <label htmlFor="phone">Téléphone</label>
-                  <input id="phone" type="tel" value={phone_number} onChange={handleOnPhoneChange} />
-                </div>
-                <div className="form__container">
-                  <label htmlFor="phone">Commentaire</label>
-                  <input id="comment" type="text" value={comment} onChange={handleOnCommentChange} />
-                </div>
-                  <button className="form__submit"  type="submit">Valider votre commande</button>
-                
-            </form>
+            <FormToSubmit
+                email={email}
+                phone_number={phone_number}
+                firstname={firstname}
+                lastname={lastname}
+                comment={comment}
+                setMailValue={setMailValue}
+                setPhoneValue={setPhoneValue}
+                setNameValue={setNameValue}
+                setLastnameValue={setLastnameValue}
+                setCommentValue={setCommentValue}
+                sendOrder={sendOrder}
+                setUserObject={setUserObject}
+            />
         </Modal.Description>
       </Modal.Content>
     </Modal>
