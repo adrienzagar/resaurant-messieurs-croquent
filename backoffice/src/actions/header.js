@@ -18,11 +18,12 @@ export const editStatus = () => ({
     type: GET_STATUS,
   });
 
-  export const saveStatus = (status) => (
-    console.log(status, "action"),
+  export const saveStatus = (status, bool) => (
+    console.log(status, "status action", bool, "isOpen action"),
     {
     type: SAVE_STATUS,
     status,
+    bool,
   });
 
   export const modifyStatus = (status, bool) => ({

@@ -17,11 +17,12 @@ const header = (state = initialState, action = {}) => {
                 isOpen: action.bool
             }
         case SAVE_STATUS:
-            console.log(action.status, "reducer")
+            console.log(action.status, "status reducer");
+            console.log(action.bool, "isOpen reducer");
             return {
                 ...state,
                 status: action.status,
-                isOpen: state.isOpen,
+                isOpen: action.bool,
             }
         default:
            return state;

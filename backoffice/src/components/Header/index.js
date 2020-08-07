@@ -3,9 +3,10 @@ import React, { useEffect } from 'react';
 
 //! == Import : local ==
 import './styles.scss';
+import { editStatus } from '../../actions/header';
 
 //! == Composant ==
-const Header = ({ getLogout, isOpen, getStatus, modifyStatus, status }) => {
+const Header = ({ getLogout, getStatus, modifyStatus, editStatus, status, isOpen }) => {
    useEffect(() => { getStatus(); }, []);
    const handleLogout = () => {
       getLogout();
@@ -16,9 +17,9 @@ const Header = ({ getLogout, isOpen, getStatus, modifyStatus, status }) => {
       } else if (status === 'OUVERT') {
          modifyStatus('FERMÉ', false);
       }
+      editStatus();
+      getStatus();
    }
-   console.log(status, "status");
-   console.log(isOpen, "isOpen");
    return (
       <header className="header">
          <h1 className="header__title">

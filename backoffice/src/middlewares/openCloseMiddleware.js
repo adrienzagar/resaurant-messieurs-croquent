@@ -10,12 +10,11 @@ const openCloseMiddleware = (store) => (next) => (action) => {
         case EDIT_STATUS: {
             const state = store.getState();
             const { status } = state.header;
-
             axios.put('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/store/1', {
                 status
             })
             .then((response) => {
-                console.log(response)
+                console.log(response);
             })
             .catch((error) => {
                 console.log(error);
@@ -25,8 +24,11 @@ const openCloseMiddleware = (store) => (next) => (action) => {
         case GET_STATUS: {
             axios.get('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/store/1')
             .then((response) => {
-                console.log(response.data, "middleware")
-                store.dispatch(saveStatus(response.data));
+                if (response.data.status === 'OUVERT') {
+                    store.dispatch(saveStatus(response.data.status, true));
+                } else if (response.data.status === 'FERMÉ') {
+                    store.dispatch(saveStatus(response.data.status, false));
+                };
             })
             .catch((error) => {
                 console.log(error);
