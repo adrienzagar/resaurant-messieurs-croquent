@@ -33,8 +33,8 @@ const mapDispatchToProps = (dispatch, ownprops) => ({
     removeQuantityProduct: (quantity,id) => dispatch(removeQuantityProduct(quantity,id)), //Remove quantity Product
     savePrice: (price) => dispatch(savePrice(price)), //Calculate the total price of the cart
     setUserObject: (lastname, firstname, phone_number, email) => dispatch(setUserObject(lastname, firstname, phone_number, email)), //Creates an object User with datas from fields filled by the user 
-    changeField: (value, key) => {
-        dispatch(changeField(value, key));
+    changeField: (value, name) => {
+        dispatch(changeField(value, name));
       },
 });
 

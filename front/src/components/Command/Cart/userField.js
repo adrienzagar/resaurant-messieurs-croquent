@@ -11,7 +11,7 @@ const UserField = ({
     onChange,
   }) => {
     const handleChange = (evt) => {
-        console.log('test')
+        console.log(evt.target.value)
         onChange(evt.target.value, name);
     };
 
