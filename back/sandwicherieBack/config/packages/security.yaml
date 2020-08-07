@@ -15,6 +15,16 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        admin:
+            pattern: ^/(admin|login$|logout$)
+            provider: app_user_provider
+            form_login:
+                login_path: login
+                check_path: login
+            logout:
+                path: /logout
+                target: /login
+            anonymous: ~    
         main:
             pattern: ^/
             anonymous: true
@@ -25,6 +35,8 @@ security:
                     - App\Security\TokenAuthenticator
             json_login:
                 check_path: /api/login
+                username_path: username
+                password_path: password
             logout: 
                 path: api_logout
                 #target: false

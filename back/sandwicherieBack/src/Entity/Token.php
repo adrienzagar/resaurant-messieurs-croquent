@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\TokenRepository;
+use App\Entity\Admin;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TokenRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=TokenRepository::class)
@@ -19,14 +21,22 @@ class Token
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $token;
 
     /**
      * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="tokens")
      * @ORM\JoinColumn(nullable=false)
+     * 
      */
     private $admin;
+
+    public function __construct(Admin $admin)
+    {
+        $this->token = bin2hex(random_bytes(60));
+        $this->admin = $admin;
+    }
 
 
     public function getId(): ?int

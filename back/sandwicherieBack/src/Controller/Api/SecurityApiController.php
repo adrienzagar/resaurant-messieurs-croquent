@@ -2,24 +2,23 @@
 
 namespace App\Controller\Api;
 
-
 use App\Entity\Token;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SecurityApiController extends AbstractController
 {
+    
     /**
      * @Route("/api/login", name="api_login", methods={"POST"})
      */
-    public function login(Request $request, EntityManagerInterface $em)
+    public function login(Request $request,EntityManagerInterface $em)
     {
         $user = $this->getUser();
-
-       // dd($user);
-
+    
         // https://github.com/O-clock-Fantasy/Symfo-API-Token-Based-Auth
 
         $token = new Token($user);
