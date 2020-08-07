@@ -158,5 +158,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `admin` (`username`, `roles`, `password`)
+VALUES ('Maxime', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$7vQbCHlrPC3knc2wrk6Bkw$1VO+oJXKvk3K0bkAqIm2eBsEifdVpdovgDgq49LvLGc');
 
 -- 2020-08-07 10:23:57
