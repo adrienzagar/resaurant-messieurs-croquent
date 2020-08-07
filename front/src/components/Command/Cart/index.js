@@ -25,6 +25,7 @@ const Cart = ({
     setNameValue,
     setLastnameValue,
     setCommentValue,
+    changeField,
     sendOrder,
     setUserObject,
 }) => {
@@ -68,15 +69,9 @@ const Cart = ({
             firstname={firstname}
             lastname={lastname}
             comment={comment}
-            setMailValue={setMailValue}
-            setPhoneValue={setPhoneValue}
-            setNameValue={setNameValue}
-            setLastnameValue={setLastnameValue}
-            setCommentValue={setCommentValue}
             sendOrder={sendOrder}
             setUserObject={setUserObject}
-            sendOrder={sendOrder}
-            setUserObject={setUserObject}
+            changeField={changeField}
         />
         </div>
     </div>
