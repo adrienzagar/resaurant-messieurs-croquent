@@ -117,6 +117,7 @@ class Admin implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+        $this->getTokens()->clear();
     }
 
     /**
@@ -149,4 +150,6 @@ class Admin implements UserInterface
 
         return $this;
     }
+
+  
 }

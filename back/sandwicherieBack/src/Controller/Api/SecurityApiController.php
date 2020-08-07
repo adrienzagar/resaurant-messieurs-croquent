@@ -35,10 +35,24 @@ class SecurityApiController extends AbstractController
     }
 
     /**
-     * @Route("/api/logout", name="api_logout")
+     * @Route("/api/logout", name="api_logout", methods={"GET"})
      */
     public function logout()
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+
+    /**
+   * @Route("/api/logged", name="api_logged", methods={"POST"})
+   */
+  public function logged()
+  {
+	  $user = $this->getUser();
+	  
+	  if(!$user) {
+		  return $this->json(['logged' => false, 'info' => ['username' => null]]);
+	  }
+
+	  return $this->json(['logged' => true, 'info' => ['username' => $user->getUsername()]]);
+  }
 }
