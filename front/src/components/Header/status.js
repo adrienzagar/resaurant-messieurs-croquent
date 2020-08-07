@@ -1,0 +1,16 @@
+//! == Import : npm ==
+import React from 'react';
+
+//! == Import : local ==
+import './styles.scss';
+
+//! == Composant ==
+const Status = () => (
+    <div className="status">
+        <p className="status__store">OUVERT</p>
+        <a href="tel:+33557309139" className="status__infos">05 57 30 91 39</a>
+    </div>
+);
+
+//! == Export ==
+export default Status;

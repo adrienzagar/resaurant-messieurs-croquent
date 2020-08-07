@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 //! == Import : local ==
+import Status from './status';
 import Navbar from '../Header/Navbar';
 import Burger from '../Header/Burger';
 import './styles.scss';
@@ -10,6 +11,7 @@ import './styles.scss';
 //! == Composant ==
 const Header = ({ links, socialnetworks, isActive, toggleButton }) => (
     <header className="header">
+        <Status />
         <Navbar 
             links={links}
             socialnetworks={socialnetworks}
