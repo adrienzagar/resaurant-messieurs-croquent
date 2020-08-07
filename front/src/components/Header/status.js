@@ -5,9 +5,9 @@ import React from 'react';
 import './styles.scss';
 
 //! == Composant ==
-const Status = () => (
+const Status = ({ status }) => (
     <div className="status">
-        <p className="status__store">OUVERT</p>
+        <p className="status__store">{status}</p>
         <a href="tel:+33557309139" className="status__infos">05 57 30 91 39</a>
     </div>
 );
