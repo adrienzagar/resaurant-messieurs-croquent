@@ -8,7 +8,7 @@ import './styles.scss';
 const Status = ({ status }) => (
     <div className="status">
         <p className="status__store">{status}</p>
-        <a href="tel:+33557309139" className="status__infos">05 57 30 91 39</a>
+        <a href="tel:+33557309139" className="status__infos"><i className="fas fa-phone-alt"></i>05 57 30 91 39</a>
     </div>
 );
 

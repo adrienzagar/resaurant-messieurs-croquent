@@ -33,6 +33,10 @@
         margin-right: .5rem;
         &:hover {
             color: inherit;
+            text-decoration: underline;
         }
+    }
+    & .fas {
+        margin-right: .5rem;
     }
 }
