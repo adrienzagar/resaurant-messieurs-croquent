@@ -17,6 +17,7 @@ const logMiddleware = (store) => (next) => (action) => {
             })
             .then((response) => {
                 store.dispatch(checkIsLogged());
+                store.dispatch(getLogged());
                 console.log(response.data, "middleware login");
             })
             .catch((error) => {

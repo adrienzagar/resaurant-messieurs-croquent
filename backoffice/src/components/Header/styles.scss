@@ -26,9 +26,9 @@
         border: none;
         border-radius: .5rem;
         color: vars.$color-light;
-        background: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%);
+        background: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
         &:hover {
-            background: vars.$color-danger-hover;
+            background: vars.$color-success-hover;
         }
         & .fa {
             margin-right: .5rem;
@@ -45,9 +45,9 @@
         border: none;
         border-radius: .5rem;
         color: vars.$color-light;
-        background: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
+        background: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%);
         &:hover {
-            background: vars.$color-success-hover;
+            background: vars.$color-danger-hover;
         }
         & .fa {
             margin-right: .5rem;
