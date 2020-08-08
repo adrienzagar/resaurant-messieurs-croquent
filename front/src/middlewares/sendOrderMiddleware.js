@@ -35,8 +35,6 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
                 price,
                 orderLines,
                 status,
-                comment,
-                price,
                 user,
             }).then((response) => {
                 console.log(response, 'ceci est la réponse')

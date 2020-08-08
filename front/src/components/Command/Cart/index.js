@@ -30,7 +30,7 @@ const Cart = ({
 }) => {
     return(
     <div className="cart">
-    <h2>VOUS AVEZ CHOISI {quantity } {quantity > 1 ? 'PRODUITS': 'PRODUIT'}</h2>
+    <h2>Vous avez choisi {quantity } {quantity > 1 ? 'produits': 'produit'}</h2>
         { // Displaying every product of the state cart
             cart.map((product) => (
             <div className="cart__container">
@@ -73,8 +73,6 @@ const Cart = ({
             setNameValue={setNameValue}
             setLastnameValue={setLastnameValue}
             setCommentValue={setCommentValue}
-            sendOrder={sendOrder}
-            setUserObject={setUserObject}
             sendOrder={sendOrder}
             setUserObject={setUserObject}
         />

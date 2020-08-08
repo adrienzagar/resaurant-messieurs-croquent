@@ -68,14 +68,16 @@
         justify-content: space-around;
         align-items: center;
         padding-top: 1rem;
+        font-size: 1.2rem;
     }
     &__submit {
-        width: 8rem;
-        height: 2.5rem;
+        padding: .7rem 2.5rem;
         background-color: vars.$color-primary;
         color: vars.$color-secondary;
-        border: none;
+        border: solid 3px transparent;
+        border-radius: .3rem;
         font-size: 1.2rem;
+        transition: .3s ease;
         &:hover {
             color: vars.$color-primary;
             background-color: vars.$color-secondary;
@@ -85,27 +87,58 @@
 
 }
 
-.form {
+.modal {
     max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
+    &__title {
+        width: 100%;
+        text-align: center;
+        border: none !important;
     }
-    &__submit {
-        width: 9rem;
-        height: 3rem;
-        background-color: vars.$color-primary;
-        color: vars.$color-secondary;
-        border: none;
-        font-size: 1.2rem;
-        &:hover {
-            color: vars.$color-primary;
-            background-color: vars.$color-secondary;
-            border: solid 3px vars.$color-primary
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__container {
+        margin: 1rem 0;
+        width: 70%;
+        & .fas, .fa {
+            font-size: 1.2rem;
         }
     }
-
+    &__required {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    &__input {
+        width: 80%;
+        vertical-align: middle;
+        border: none;
+        border-bottom: solid 1px vars.$color-primary;
+        margin-left: 2rem;
+        font-size: 1.2rem;
+    }
+    &__text {
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-style: italic;
+    }
+    &__submit {
+        margin-top: 2rem;
+        padding: .7rem 2.5rem;
+        background: vars.$color-primary;
+        color: vars.$color-secondary;
+        border: solid 3px transparent;
+        border-radius: .5rem;
+        font-size: 1.2rem;
+        transition: .3s ease;
+        &:hover {
+            color: vars.$color-primary;
+            background: vars.$color-secondary;
+            border: solid 3px vars.$color-primary;
+        }
+    }
 }
