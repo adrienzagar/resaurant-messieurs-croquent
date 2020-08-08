@@ -44,34 +44,33 @@ const ModalCart = ({
       onOpen={() => setOpen(true)}
       open={open}
       trigger={<button className="cart__submit">CROQUER</button>}
+      classeName="modal"
     >
-      <Modal.Header>Pour valider votre commande, veuillez remplir le formualaire</Modal.Header>
+      <Modal.Header className="modal__title">Veuillez remplir le formulaire ci-dessous pour valider votre commande</Modal.Header>
       <Modal.Content>
         <Modal.Description>
-
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="form__container">
-                  <label htmlFor="lastname">Nom</label>
-                  <input id="lastname" type="text" value={lastname} onChange={handleOnLastnameChange}/>
-                </div>
-                <div className="form__container">
-                  <label htmlFor="name">Prénom</label>
-                  <input id="Name" type="text" value={firstname} onChange={handleOnNameChange} />
-                </div>
-                <div className="form__container">
-                  <label htmlFor="email">Email</label>
-                  <input id="email" type="email" value={email} onChange={handleOnMailChange} />
-                </div>
-                <div className="form__container">
-                  <label htmlFor="phone">Téléphone</label>
-                  <input id="phone" type="tel" value={phone_number} onChange={handleOnPhoneChange} />
-                </div>
-                <div className="form__container">
-                  <label htmlFor="phone">Commentaire</label>
-                  <input id="comment" type="text" value={comment} onChange={handleOnCommentChange} />
-                </div>
-                  <button className="form__submit"  type="submit">Valider votre commande</button>
-                
+            <form className="modal__form" onSubmit={handleSubmit}>
+              <div className="modal__container">
+                <i class="fas fa-user"></i>
+                <input className="modal__input" id="lastname" type="text" placeholder="Nom" value={lastname} onChange={handleOnLastnameChange}/>
+              </div>
+              <div className="modal__container">
+                <i class="fas fa-user"></i>
+                <input className="modal__input" id="name" type="text" placeholder="Prénom" value={firstname} onChange={handleOnNameChange} />
+              </div>
+              <div className="modal__container">
+                <i className="fa fa-envelope" aria-hidden="true"></i>
+                <input className="modal__input" id="email" type="email" placeholder="Email" value={email} onChange={handleOnMailChange} />
+              </div>
+              <div className="modal__container">
+                <i className="fas fa-phone-alt"></i>
+                <input className="modal__input" id="phone" type="tel" placeholder="Téléphone" value={phone_number} onChange={handleOnPhoneChange} />
+              </div>
+              <div className="modal__container">
+                <i class="fas fa-comment"></i>
+                <textarea className="modal__input" id="comment" type="text" placeholder="Commentaire" value={comment} onChange={handleOnCommentChange} />
+              </div>
+              <button className="modal__submit"  type="submit">Valider</button>
             </form>
         </Modal.Description>
       </Modal.Content>

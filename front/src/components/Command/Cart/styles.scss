@@ -85,27 +85,50 @@
 
 }
 
-.form {
+.modal {
     max-width: 800px;
     margin: 2rem auto;
     padding: 2rem;
-    &__container {
+    &__title {
+        width: 100%;
+        text-align: center;
+        border: none !important;
+    }
+    &__form {
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__container {
+        margin-bottom: 2rem;
+        width: 70%;
+        & .fas, .fa {
+            font-size: 1.2rem;
+            margin: 0 1rem;
+        }
+    }
+    &__input {
+        width: 80%;
+        vertical-align: middle;
+        border: none;
+        border-bottom: solid 1px vars.$color-primary;
+        font-size: 1.2rem;
     }
     &__submit {
+        margin-top: 1rem;
         width: 9rem;
         height: 3rem;
         background-color: vars.$color-primary;
         color: vars.$color-secondary;
         border: none;
+        border-radius: .5rem;
         font-size: 1.2rem;
+        transition: .3s ease;
         &:hover {
             color: vars.$color-primary;
             background-color: vars.$color-secondary;
-            border: solid 3px vars.$color-primary
+            border: solid 3px vars.$color-primary;
         }
     }
-
 }
