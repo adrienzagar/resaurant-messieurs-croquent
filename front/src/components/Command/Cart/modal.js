@@ -52,24 +52,29 @@ const ModalCart = ({
             <form className="modal__form" onSubmit={handleSubmit}>
               <div className="modal__container">
                 <i class="fas fa-user"></i>
+                <span className="modal__required">*</span>
                 <input className="modal__input" id="lastname" type="text" placeholder="Nom" value={lastname} onChange={handleOnLastnameChange}/>
               </div>
               <div className="modal__container">
                 <i class="fas fa-user"></i>
+                <span className="modal__required">*</span>
                 <input className="modal__input" id="name" type="text" placeholder="Prénom" value={firstname} onChange={handleOnNameChange} />
               </div>
               <div className="modal__container">
                 <i className="fa fa-envelope" aria-hidden="true"></i>
+                <span className="modal__required">*</span>
                 <input className="modal__input" id="email" type="email" placeholder="Email" value={email} onChange={handleOnMailChange} />
               </div>
               <div className="modal__container">
                 <i className="fas fa-phone-alt"></i>
+                <span className="modal__required">*</span>
                 <input className="modal__input" id="phone" type="tel" placeholder="Téléphone" value={phone_number} onChange={handleOnPhoneChange} />
               </div>
               <div className="modal__container">
                 <i class="fas fa-comment"></i>
                 <textarea className="modal__input" id="comment" type="text" placeholder="Commentaire" value={comment} onChange={handleOnCommentChange} />
               </div>
+              <p className="modal__text">* Les champs sont obligatoires</p>
               <button className="modal__submit"  type="submit">Valider</button>
             </form>
         </Modal.Description>
