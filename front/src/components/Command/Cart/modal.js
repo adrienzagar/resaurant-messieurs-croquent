@@ -36,7 +36,9 @@ const ModalCart = ({
   const handleSubmit = (event) => {
       event.preventDefault();
       setUserObject(lastname, firstname, phone_number, email)
-      sendOrder();
+      sendOrder(); // Send command at BDD
+      setOpen(false); // Close modal after send
+      //! Ajouter le lancement du toast ici
   }
   return (
     <Modal
