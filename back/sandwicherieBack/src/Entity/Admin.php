@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\AdminRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AdminRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -17,27 +18,32 @@ class Admin implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * 
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     *
      */
     private $username;
 
     /**
      * @ORM\Column(type="json")
+     * 
      */
     private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * 
      */
     private $password;
 
     /**
      * @ORM\OneToMany(targetEntity=Token::class, mappedBy="admin", orphanRemoval=true)
+     * 
      */
     private $tokens;
 
@@ -117,6 +123,7 @@ class Admin implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+        $this->getTokens()->clear();
     }
 
     /**
@@ -149,4 +156,6 @@ class Admin implements UserInterface
 
         return $this;
     }
+
+  
 }

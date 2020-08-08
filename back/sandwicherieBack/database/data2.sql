@@ -91,11 +91,11 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `category_id`) VALUES
-(1,	'Monsieur Croque',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P',	'https://ibb.co/qgyCfSS',	7,	1),
-(2,	'Le Transformiste',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier',	'https://ibb.co/gmCKh26',	8,	1),
-(3,	'Monsieur Seguin',	'Fromage frais, fromage de chèvre A.O.P, compotée d’oignons\r\nmaison, poire fraîche, noix, miel',	'https://ibb.co/MMbWjcB',	8,	1),
-(4,	'Coq Monsieur',	'Poulet label rouge, béchamel maison, coulis de tomate maison,\r\nfromage Abondance A.O.P, compotée d’oignons maison',	'https://ibb.co/CzFsffN',	8,	1),
-(5,	'Monsieur Confit',	'Confit de canard du sud-ouest, compotée d’oignons maison,\r\npoire fraîche, fromage Ossau-Iraty A.O.P',	'https://ibb.co/0DhPSQr',	8,	1),
+(1,	'Monsieur Croque',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P',	'https://i.ibb.co/vdwhGFF/Monsieur-Croque.jpg',	7,	1),
+(2,	'Le Transformiste',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier',	'https://i.ibb.co/Dzn2TJL/Transformiste.jpg',	8,	1),
+(3,	'Monsieur Seguin',	'Fromage frais, fromage de chèvre A.O.P, compotée d’oignons\r\nmaison, poire fraîche, noix, miel',	'https://i.ibb.co/m6m1Y9N/Seguin.jpg',	8,	1),
+(4,	'Coq Monsieur',	'Poulet label rouge, béchamel maison, coulis de tomate maison,\r\nfromage Abondance A.O.P, compotée d’oignons maison',	'https://i.ibb.co/xDQ8NNP/Coq.jpg',	8,	1),
+(5,	'Monsieur Confit',	'Confit de canard du sud-ouest, compotée d’oignons maison,\r\npoire fraîche, fromage Ossau-Iraty A.O.P',	'https://i.ibb.co/6ng6xNF/Confit.jpg',	8,	1),
 (6,	'Croque Mystère',	'Croque du moment, voir avec le chef',	NULL,	9,	1),
 (7,	'Frites',	NULL,	NULL,	3,	2),
 (8,	'Salade',	NULL,	NULL,	3,	2),
@@ -144,6 +144,8 @@ CREATE TABLE `token` (
   CONSTRAINT `FK_5F37A13B642B8210` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `token` (`id`, `admin_id`, `token`) VALUES
+(5,	1,	'53c0bb7dae98839fc0910981a09d3519adc1244d71e43f1068453e6b969613f9cb315258f394691d10047da7a5a2eda347bf46a9c44ece74a5ef95e1');
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -156,5 +158,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `admin` (`username`, `roles`, `password`)
+VALUES ('Maxime', '[\"ROLE_ADMIN\"]', '$argon2id$v=19$m=65536,t=4,p=1$7vQbCHlrPC3knc2wrk6Bkw$1VO+oJXKvk3K0bkAqIm2eBsEifdVpdovgDgq49LvLGc');
 
--- 2020-08-06 16:01:32
+-- 2020-08-07 10:23:57

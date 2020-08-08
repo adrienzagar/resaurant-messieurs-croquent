@@ -23,6 +23,7 @@
         margin-right: 1rem;
         font-weight: bold;
     }
+
     &__quantity {
         display:flex;
         align-items: center;
@@ -61,6 +62,7 @@
             border: solid 1px vars.$color-primary
         }
     }
+   
     &__total {
         display:flex;
         justify-content: space-around;
