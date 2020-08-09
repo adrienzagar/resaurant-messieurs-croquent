@@ -11,9 +11,13 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
             const state = store.getState();
 
             // Destructuring the state to get what is needed in the request
-            const { status, comment, user, cart, listPrice} = state.command;
-            const {values} = state.form.TestForm
-            console.log(values)
+            const { status, cart, listPrice} = state.command;
+
+            const {values} = state.form.ValidationForm
+
+            const comment = values.comment
+
+            const user = values
 
             // Use the map function on Cart to return a new const that contain the right structure expected from the back-end
             const orderLines = cart.map((productMap) => {
@@ -36,8 +40,7 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
                 price,
                 orderLines,
                 status,
-                // user,
-                values
+                user,
             }).then((response) => {
                 console.log(response, 'ceci est la réponse')
             }).then((error) => console.log(error, 'ERREUR'));
