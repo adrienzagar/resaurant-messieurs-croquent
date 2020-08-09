@@ -24,18 +24,7 @@ const Command = ({
     quantities,
     listPrice,
     savePrice,
-    email, 
-    phone_number,
-    firstname,
-    lastname,
-    comment,
-    setMailValue,
-    setPhoneValue,
-    setNameValue,
-    setLastnameValue,
-    setCommentValue,
     sendOrder,
-    setUserObject,
 }) => {
     useEffect(() => { getProduct(); }, []); //Getting product from API
     useEffect(() => { getCategories(); }, []); //Getting Categories from API
@@ -57,18 +46,7 @@ const Command = ({
                 quantity={quantity}
                 listPrice={listPrice}
                 quantities={quantities}
-                email={email}
-                phone_number={phone_number}
-                firstname={firstname}
-                lastname={lastname}
-                comment={comment}
-                setMailValue={setMailValue}
-                setPhoneValue={setPhoneValue}
-                setNameValue={setNameValue}
-                setLastnameValue={setLastnameValue}
-                setCommentValue={setCommentValue}
                 sendOrder={sendOrder}
-                setUserObject={setUserObject}
                 addQuantityProduct={addQuantityProduct}
                 removeQuantityProduct={removeQuantityProduct}
              />

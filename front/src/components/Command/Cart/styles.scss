@@ -132,6 +132,14 @@
         margin-left: 2rem;
         font-size: 1.2rem;
     }
+    &__error {
+        color: red;
+        width: 80%;
+        vertical-align: middle;
+        border: none;
+        margin-left: 3.5rem;
+        font-size: 1.2rem;
+    }
     &__text {
         font-size: 1.1rem;
         font-weight: bold;

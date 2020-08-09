@@ -1,8 +1,6 @@
 //! == Import : local (actions)
 import { ADD_PRODUCT_FROM_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
-import { SET_MAIL_VALUE, SET_PHONE_VALUE, SET_NAME_VALUE, SET_LASTNAME_VALUE, SET_COMMENT_VALUE, SET_USER_OBJECT } from '../actions/form';
-
 
 //! == Initial state
 export const initialState = {
@@ -62,9 +60,6 @@ const command = (state = initialState, action = {}) => {
         quantity: state.quantity + 1,
         cart: state.cart
       };
-
-
-
     case ADD_QUANTITY_PRODUCT:
       state.cart = state.cart.map(product => {
         if (product.id === action.quantity.id) {
@@ -101,41 +96,6 @@ const command = (state = initialState, action = {}) => {
       return {
         ...state,
         listPrice: state.listPrice,
-      };
-    case SET_MAIL_VALUE: // Controlled Mail Field
-      return {
-        ...state,
-        email: action.email,
-      };
-    case SET_PHONE_VALUE: // Controlled Phone Number Field
-      return {
-        ...state,
-        phone_number: action.phone_number,
-      };
-    case SET_NAME_VALUE: // Controlled Name Field
-      return {
-        ...state,
-        firstname: action.firstname,
-      };
-    case SET_LASTNAME_VALUE: // Controlled LastName Field
-      return {
-        ...state,
-        lastname: action.lastname,
-      };
-    case SET_COMMENT_VALUE: // Controlled LastName Field
-    return {
-      ...state,
-      comment: action.comment,
-    };
-    case SET_USER_OBJECT: // Create Object User that contains field filled by the user
-      return {
-        ...state,
-        user: {
-          lastname: state.lastname,
-          firstname: state.firstname,
-          email: state.email,
-          phone_number: state.phone_number,
-        }
       };
     default:
       return state;

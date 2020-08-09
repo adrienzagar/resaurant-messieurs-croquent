@@ -11,22 +11,10 @@ import Modal from './modal';
 const Cart = ({ 
     cart, 
     quantity, 
-    quantities,
     addQuantityProduct, 
     removeQuantityProduct,
     listPrice, 
-    email, 
-    phone_number,
-    firstname,
-    lastname,
-    comment,
-    setMailValue,
-    setPhoneValue,
-    setNameValue,
-    setLastnameValue,
-    setCommentValue,
     sendOrder,
-    setUserObject,
 }) => {
     return(
     <div className="cart">
@@ -61,21 +49,10 @@ const Cart = ({
         <div className="cart__total">
             <p className="cart__total--title">TOTAL</p>
              {/* Displaying the total price of the cart */}
-            <p className="cart__total--price">{returnTotalPrice(listPrice).totalPrice.toFixed(2)}&euro;</p>
-            <Modal
-                email={email}
-                phone_number={phone_number}
-                firstname={firstname}
-                lastname={lastname}
-                comment={comment}
-                setMailValue={setMailValue}
-                setPhoneValue={setPhoneValue}
-                setNameValue={setNameValue}
-                setLastnameValue={setLastnameValue}
-                setCommentValue={setCommentValue}
-                sendOrder={sendOrder}
-                setUserObject={setUserObject}
-            />
+            <p>{returnTotalPrice(listPrice).totalPrice.toFixed(2)}&euro;</p>
+        <Modal
+            sendOrder={sendOrder}
+        />
         </div>
     </div>
 )};
