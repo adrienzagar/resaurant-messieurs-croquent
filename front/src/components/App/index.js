@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 //! == Import : local
 import Header from '../../containers/Header';
 import Home from '../../containers/Home';
+import Menu from '../../containers/Menu';
 import Command from '../../containers/Command';
 import FindUs from '../FindUs';
 import Err404 from '../Err404';
@@ -17,7 +18,8 @@ const App = () => (
   <div className="app">
     <Header />
       <Switch>
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/menu" component={Menu} />
         <Route exact path="/commander" component={Command} />
         <Route exact path="/nous-trouver" component={FindUs} />
         <Route path="" component={Err404} />
