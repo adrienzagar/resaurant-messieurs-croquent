@@ -5,7 +5,7 @@ import Input from './input'
 
 import './styles.scss';
 
-const renderInput = ({ input, meta }) => (
+const renderInput = ({ input, meta }) => ( //Display <Input /> component that have props
     <Input {...input} type="text" errorMessage={meta.touched && meta.error} />
 )
 
@@ -14,7 +14,7 @@ const onSubmit = values => {
 }
 
 const requiredFirstName = value => {
-    if (!value || value ==='') {
+    if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
     if (!value || value.length < 2 ) { // firstname should have at least two characters
@@ -24,7 +24,7 @@ const requiredFirstName = value => {
 }
 
 const requiredLastname = value => {
-    if (!value || value ==='') {
+    if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
     if (!value || value.length < 2 ) { // lastname should have at least two characters
@@ -34,8 +34,8 @@ const requiredLastname = value => {
 }
 
 const requiredPhoneNumber = value => {
-    const phoneNumberRegex = /^[0-9]{10}$/ // Regex thath accept only ten number format 
-    if (!value || value === '') {
+    const phoneNumberRegex = /^[0][0-9]{9}$/ // Regex thath accept only ten number format and first character must be equal to 0
+    if (!value || value === '') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
 
@@ -47,7 +47,7 @@ const requiredPhoneNumber = value => {
 
 const requiredEmail = value => {
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ // Regex that accept only format equal to "exemple@exemple.exemple"
-    if (!value || value ==='') {
+    if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
     if (!value || !emailRegex.test(value) ) { // If regex doest match with value return message error
