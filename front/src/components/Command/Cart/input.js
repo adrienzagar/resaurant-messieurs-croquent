@@ -1,13 +1,16 @@
+//! == Import : npm ==
 import React from 'react';
-import PropTypes from 'prop-types';
 
+//! == Import : local ==
 import './styles.scss';
 
-const Input = ({ errorMessage, ...props}) => {
-    return(
+//! == Composant ==
+const Input = ({ errorMessage, ...props}) => (
     <>
-    <input className='modal__input' {...props} />
-    {errorMessage && <span className="modal__error">{errorMessage}</span>}
+        <input className='form__input' {...props} />
+        {errorMessage && <span className="form__error">{errorMessage}</span>}
     </>
-)};
+);
+
+//! == Export ==
 export default Input;

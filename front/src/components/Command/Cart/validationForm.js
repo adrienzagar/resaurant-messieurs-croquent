@@ -1,18 +1,18 @@
+//! == Import : npm ==
 import React from 'react';
-import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form'
 import Input from './input'
 
+//! == Import : local ==
 import './styles.scss';
+
 
 const renderInput = ({ input, meta }) => ( //Display <Input /> component that have props
     <Input {...input} type="text" errorMessage={meta.touched && meta.error} />
 )
-
 const onSubmit = values => { 
     alert(JSON.stringify(values))
 }
-
 const requiredFirstName = value => {
     if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
@@ -22,7 +22,6 @@ const requiredFirstName = value => {
     }
     return undefined;
 }
-
 const requiredLastname = value => {
     if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
@@ -32,7 +31,6 @@ const requiredLastname = value => {
     }
     return undefined;
 }
-
 const requiredPhoneNumber = value => {
     const phoneNumberRegex = /^[0][0-9]{9}$/ // Regex thath accept only ten number format and first character must be equal to 0
     if (!value || value === '') { //Field should not be empty, otherwise send message error
@@ -44,7 +42,6 @@ const requiredPhoneNumber = value => {
     }
     return undefined;
 }
-
 const requiredEmail = value => {
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ // Regex that accept only format equal to "exemple@exemple.exemple"
     if (!value || value ==='') { //Field should not be empty, otherwise send message error
@@ -56,65 +53,72 @@ const requiredEmail = value => {
     return undefined;
 }
 
+//! == Composant ==
 const ValidationForm = ({ handleSumbit, valid }) => (
-  <div>
-    <form className="modal__form" onSubmit={handleSumbit} action="">
-        <div className="modal__container">
+    <form className="form" onSubmit={handleSumbit} action="">
+        <div className="form__container">
             <i class="fas fa-user"></i>
-            <span className="modal__required">*</span>
-            <Field
-            name="lastname"
-            component={renderInput}
-            validate={requiredLastname}
-            placeholder="Nom"
-            />
-        </div>
-        <div className="modal__container">
-            <i class="fas fa-user"></i>
-            <span className="modal__required">*</span>
-            <Field
-            placeholder="Prénom"
-            name="firstname"
-            component={renderInput}
-            validate={requiredFirstName}
-            />
-        </div>
-        <div className="modal__container">
-            <i className="fa fa-envelope" aria-hidden="true"></i>
-            <span className="modal__required">*</span>
-            <Field
-            placeholder="Adresse email"
-            name="email"
-            component={renderInput}
-            validate={requiredEmail}
-            />
-        </div>
-        <div className="modal__container">
-            <i className="fas fa-phone-alt"></i>
-            <span className="modal__required">*</span>
-            <Field
-            placeholder="Téléphone"
-            name="phone_number"
-            component={renderInput}
-            validate={requiredPhoneNumber}
-            />
-        </div>
-        <div className="modal__container">
-            <i class="fas fa-comment"></i>
+            <span className="form__required">*</span>
+            <div className="form__column">
                 <Field
-                placeholder="Commentaire"
-                name="comment"
+                name="lastname"
                 component={renderInput}
+                validate={requiredLastname}
+                placeholder="Nom"
                 />
+            </div>
         </div>
-        <p className="modal__text">* Les champs sont obligatoires</p>
-        <button disabled={!valid} className="modal__submit"  type="submit">Valider votre commande</button>
+        <div className="form__container">
+            <i class="fas fa-user"></i>
+            <span className="form__required">*</span>
+            <div className="form__column">
+                <Field
+                    placeholder="Prénom"
+                    name="firstname"
+                    component={renderInput}
+                    validate={requiredFirstName}
+                />
+            </div>
+        </div>
+        <div className="form__container">
+            <i className="fa fa-envelope" aria-hidden="true"></i>
+            <span className="form__required">*</span>
+            <div className="form__column">
+                <Field
+                    placeholder="Adresse email"
+                    name="email"
+                    component={renderInput}
+                    validate={requiredEmail}
+                />
+            </div>
+        </div>
+        <div className="form__container">
+            <i className="fas fa-phone-alt"></i>
+            <span className="form__required">*</span>
+            <div className="form__column">
+                <Field
+                    placeholder="Téléphone"
+                    name="phone_number"
+                    component={renderInput}
+                    validate={requiredPhoneNumber}
+                />
+            </div>
+        </div>
+        <div className="form__container">
+            <i class="fas fa-comment"></i>
+            <div className="form__column">
+                <Field
+                    placeholder="Commentaire"
+                    name="comment"
+                    component={renderInput}
+                />
+            </div>
+        </div>
+        <p className="form__text">* Les champs sont obligatoires</p>
+        <button disabled={!valid} className="form__submit"  type="submit">Valider votre commande</button>
     </form>
-  </div>
 );
 
-export default reduxForm({
-    form: 'ValidationForm',
-    onSubmit
-}) (ValidationForm);
+//! == Export ==
+export default reduxForm({ form: 'ValidationForm', onSubmit })(ValidationForm);
 

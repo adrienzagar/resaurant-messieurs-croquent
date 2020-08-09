@@ -1,17 +1,18 @@
-import React from 'react'
-import { Modal } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css'
-import ValidationForm from './validationForm'
+//! == Import : npm ==
+import React from 'react';
+import { Modal } from 'semantic-ui-react';
 
-const ModalCart = ({
-    sendOrder,
-}) => {
+//! == Import : local ==
+import ValidationForm from './validationForm';
+import 'semantic-ui-css/semantic.min.css';
+
+//! == Composant ==
+const ModalCart = ({ sendOrder }) => {
   const [open, setOpen] = React.useState(false)
-  
   const handleSubmit = (event) => {
       event.preventDefault();
       sendOrder();
-  }
+  };
   return (
     <Modal
       onClose={() => setOpen(false)}
@@ -29,7 +30,8 @@ const ModalCart = ({
         </Modal.Description>
       </Modal.Content>
     </Modal>
-  )
-}
+  );
+};
 
+//! == Export ==
 export default ModalCart;
