@@ -15,8 +15,6 @@ import './styles.scss';
 import Product from './product'
 //! == Composant ==
 const ProductList = ({ cart, products, categories, addProductToCart, savePrice, addProductToProductObject }) => {
-    // console.log(categories, products, 'COUCOU');
-    // console.log(addProduct);
     return (
         <div className="product">
                 { // Displaying each Categories

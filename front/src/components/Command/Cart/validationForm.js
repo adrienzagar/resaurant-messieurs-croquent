@@ -61,10 +61,10 @@ const ValidationForm = ({ handleSumbit, valid }) => (
             <span className="form__required">*</span>
             <div className="form__column">
                 <Field
+                placeholder="Nom"
                 name="lastname"
                 component={renderInput}
                 validate={requiredLastname}
-                placeholder="Nom"
                 />
             </div>
         </div>
