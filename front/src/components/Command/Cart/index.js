@@ -75,8 +75,6 @@ const Cart = ({
             setCommentValue={setCommentValue}
             sendOrder={sendOrder}
             setUserObject={setUserObject}
-            sendOrder={sendOrder}
-            setUserObject={setUserObject}
         />
         </div>
     </div>

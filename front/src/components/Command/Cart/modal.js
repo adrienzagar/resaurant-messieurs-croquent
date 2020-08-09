@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
+import TestForm from './testform'
 
 const ModalCart = ({
     email, 
@@ -40,17 +41,21 @@ const ModalCart = ({
   }
   return (
     <Modal
-      onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
-      open={open}
-      trigger={<button className="cart__submit">CROQUER</button>}
+    onClose={() => setOpen(false)}
+    onOpen={() => setOpen(true)}
+    open={open}
+    trigger={<button className="cart__submit">CROQUER</button>}
     >
+
       <Modal.Header>Pour valider votre commande, veuillez remplir le formualaire</Modal.Header>
       <Modal.Content>
         <Modal.Description>
 
             <form className="form" onSubmit={handleSubmit}>
-                <div className="form__container">
+            <TestForm
+            sendOrder={sendOrder}
+            />
+                {/* <div className="form__container">
                   <label htmlFor="lastname">Nom</label>
                   <input id="lastname" type="text" value={lastname} onChange={handleOnLastnameChange}/>
                 </div>
@@ -69,7 +74,7 @@ const ModalCart = ({
                 <div className="form__container">
                   <label htmlFor="phone">Commentaire</label>
                   <input id="comment" type="text" value={comment} onChange={handleOnCommentChange} />
-                </div>
+                </div> */}
                   <button className="form__submit"  type="submit">Valider votre commande</button>
                 
             </form>

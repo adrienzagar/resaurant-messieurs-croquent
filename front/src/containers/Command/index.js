@@ -21,7 +21,8 @@ const mapStateToProps = (state, ownprops) => ({
     phone_number: state.phone_number,
     firstname: state.firstname,
     lastname: state.lastname,
-    comment: state.comment
+    comment: state.comment,
+    values: state.command.values
 });
 
 const mapDispatchToProps = (dispatch, ownprops) => ({
