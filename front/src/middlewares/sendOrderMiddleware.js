@@ -13,7 +13,7 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
             // Destructuring the state to get what is needed in the request
             const { status, cart, listPrice} = state.command;
 
-            const {values} = state.form.ValidationForm
+            const  { values } = state.form.ValidationForm
 
             const comment = values.comment
 
