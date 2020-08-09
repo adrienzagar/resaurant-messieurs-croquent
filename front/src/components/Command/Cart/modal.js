@@ -36,7 +36,6 @@ const ModalCart = ({
   }
   const handleSubmit = (event) => {
       event.preventDefault();
-      setUserObject(lastname, firstname, phone_number, email)
       sendOrder();
   }
   return (
@@ -53,7 +52,6 @@ const ModalCart = ({
 
             <form className="form" onSubmit={handleSubmit}>
               <ValidationForm />
-              <button className="modal__submit"  type="submit">Valider votre commande</button>
             </form>
         </Modal.Description>
       </Modal.Content>
