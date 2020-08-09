@@ -18,7 +18,7 @@ const Cart = ({
 }) => {
     return(
     <div className="cart">
-    <h2>VOUS AVEZ CHOISI {quantity } {quantity > 1 ? 'PRODUITS': 'PRODUIT'}</h2>
+    <h2>Vous avez choisi {quantity } {quantity > 1 ? 'produits': 'produit'}</h2>
         { // Displaying every product of the state cart
             cart.map((product) => (
             <div className="cart__container">
@@ -47,7 +47,7 @@ const Cart = ({
             </div>
         ))}
         <div className="cart__total">
-            <h1>TOTAL</h1>
+            <p className="cart__total--title">TOTAL</p>
              {/* Displaying the total price of the cart */}
             <p>{returnTotalPrice(listPrice).totalPrice.toFixed(2)}&euro;</p>
         <Modal

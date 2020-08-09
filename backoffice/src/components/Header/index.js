@@ -3,11 +3,10 @@ import React, { useEffect } from 'react';
 
 //! == Import : local ==
 import './styles.scss';
-import { editStatus } from '../../actions/header';
 
 //! == Composant ==
 const Header = ({ getLogout, getStatus, modifyStatus, editStatus, status, isOpen }) => {
-   useEffect(() => { getStatus(); }, []);
+   useEffect(() => { getStatus(); });
    const handleLogout = () => {
       getLogout();
    };
@@ -18,7 +17,6 @@ const Header = ({ getLogout, getStatus, modifyStatus, editStatus, status, isOpen
          modifyStatus('FERMÉ', false);
       }
       editStatus();
-      getStatus();
    }
    return (
       <header className="header">
@@ -27,7 +25,7 @@ const Header = ({ getLogout, getStatus, modifyStatus, editStatus, status, isOpen
          </h1>
          <button className={isOpen ? "header__open" : "header__close"} onClick={handleEditStatus}>
             <i className="fa fa-clock"></i>
-            {isOpen ? "FERMER" : "OUVRIR"}
+            {isOpen ? "OUVERT" : "FERMÉ"}
          </button>
          <button className="header__logout" onClick={handleLogout}>
                <i className="fas fa-power-off"></i>

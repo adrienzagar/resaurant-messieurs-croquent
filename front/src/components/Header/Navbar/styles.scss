@@ -10,16 +10,13 @@
         } 
         &__brand {
             @include m767 () {
-                height: 7rem;
+                height: 90%;
                 margin: 0 2rem;
                 position: absolute;
                 left: 2rem;
                 top: 50%;
                 transform: translateY(-50%);
             }
-        }
-        &__links {
-
         }
         &__link {
             @include m1000 () {

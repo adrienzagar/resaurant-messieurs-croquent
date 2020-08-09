@@ -9,7 +9,6 @@ import './styles.scss';
 const Login = ({ getLogin, errorLog, username, password, setPasswordValue, setUsernameValue }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('cocuou');
         getLogin();
     };
 
