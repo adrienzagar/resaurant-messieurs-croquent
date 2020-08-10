@@ -13,8 +13,8 @@ export const initialState = {
         },
         {
             id: 2,
-            name: 'Menu',
-            path: '/menu'
+            name: 'Notre carte',
+            path: '/carte'
          },
          {
             id: 3,

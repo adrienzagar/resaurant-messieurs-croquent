@@ -15,7 +15,7 @@ const Menu = ({ getProduct, getCategories, products, categories }) => {
     useEffect (() => { document.title = "Messieurs Croquent - Menu" }, []);
     return (
         <main className="menu">
-            <h1 className="menu__title">À la carte</h1>
+            <h2 className="menu__title" data-aos="fade-right">À la carte</h2>
             {categories.map((category) => {
                 const result = products.filter(product => product.category.id === category.id);
                 return (
@@ -42,6 +42,8 @@ const Menu = ({ getProduct, getCategories, products, categories }) => {
                     </div>
                 );
             })}
+            <h2 className="menu__title" data-aos="fade-left">Nos formules</h2>
+            
         </main>
     );
 };
