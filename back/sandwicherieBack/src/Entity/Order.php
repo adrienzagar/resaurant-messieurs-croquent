@@ -24,11 +24,7 @@ class Order
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @Groups({"order_get" , "order_get_one"})
-     */
-    private $status;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -60,6 +56,12 @@ class Order
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=StatusOrder::class, inversedBy="statusOrder")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $status;
+
     public function __construct()
     {
         $this->orderLines = new ArrayCollection();
@@ -71,17 +73,6 @@ class Order
         return $this->id;
     }
 
-    public function getStatus(): ?int
-    {
-        return $this->status;
-    }
-
-    public function setStatus(int $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
 
     public function getComment(): ?string
     {
@@ -201,6 +192,18 @@ class Order
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getStatus(): ?StatusOrder
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?StatusOrder $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }
