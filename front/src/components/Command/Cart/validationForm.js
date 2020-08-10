@@ -7,8 +7,8 @@ import Input from './input'
 import './styles.scss';
 
 
-const renderInput = ({ input, meta }) => ( //Display <Input /> component that have props
-    <Input {...input} type="text" errorMessage={meta.touched && meta.error} />
+const renderInput = ({ input, meta, placeholder }) => ( //Display <Input /> component that have props7c
+    <Input {...input}  placeholder={placeholder} type="text" errorMessage={meta.touched && meta.error} />
 )
 const onSubmit = values => { 
     alert(JSON.stringify(values))
@@ -61,8 +61,8 @@ const ValidationForm = ({ handleSumbit, valid }) => (
             <span className="form__required">*</span>
             <div className="form__column">
                 <Field
-                placeholder="Nom"
                 name="lastname"
+                placeholder="Nom"
                 component={renderInput}
                 validate={requiredLastname}
                 />

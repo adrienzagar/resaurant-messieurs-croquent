@@ -13,7 +13,11 @@ const ValidationPage = () => {
     }
     return(
         <div className="validation__container">
-            Commande Validé !!
+            <div className="validation__info">
+                <h1 >Commande validée</h1>
+                <p>Un message de validation vous a été envoyé sur votre adresse mail</p>
+                <p>Votre commande est maintenant en cours de préparation, ne tardez pas à venir la récupérer</p>
+            </div>
             <button className="validation__button" onClick={handleClick}> Retour à l'accueil</button>
         </div>
 )};
