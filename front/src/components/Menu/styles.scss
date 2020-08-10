@@ -1,0 +1,75 @@
+@use '../../styles/vars';
+@import '../../styles/vars';
+
+.menu {
+    @include m767 () {
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+    padding: 2rem;
+    &__title {
+        font-family: 'Amatic SC', cursive;
+        font-size: 5rem;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+}
+
+.croque {
+    margin-bottom: 2rem;
+    &__header {
+        @include m767 () {
+            text-align: center;
+            padding-left: 0;
+        }
+        background: vars.$color-primary;
+        color: vars.$color-secondary;
+        font-family: 'Amatic SC', cursive;
+        font-size: 2rem;
+        padding: .5rem 0;
+        position: relative;
+        padding-left: 2rem;
+    }
+    &__main {
+        @include m767 () {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        border: 1px dashed vars.$color-primary;
+        padding: 2rem;
+        
+    }
+    &__products {
+        @include m767 () {
+            width: 45%;
+        }
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    &__product {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__name, &__price {
+        font-weight: bold;
+    }
+    &__description {
+        font-size: .8rem;
+    }
+}
+
+.st0 {
+    fill: vars.$color-primary;
+}
+
+.st1 {
+    fill: vars.$color-secondary;
+}
+
+#croc {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
