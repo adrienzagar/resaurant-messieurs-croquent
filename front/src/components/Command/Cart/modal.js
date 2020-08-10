@@ -1,6 +1,7 @@
 //! == Import : npm ==
 import React from 'react';
 import { Modal } from 'semantic-ui-react';
+import { useHistory } from "react-router-dom";
 
 //! == Import : local ==
 import ValidationForm from './validationForm';
@@ -8,9 +9,13 @@ import 'semantic-ui-css/semantic.min.css';
 
 //! == Composant ==
 const ModalCart = ({ sendOrder }) => {
+  const history = useHistory();
+
   const [open, setOpen] = React.useState(false)
+
   const handleSubmit = (event) => {
       event.preventDefault();
+      history.push("/validation")
       sendOrder();
   };
   return (
