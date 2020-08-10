@@ -1,12 +1,15 @@
 //! == Import : npm ==
 import React, { useEffect } from 'react';
+import AOS from 'aos';
 
 //! == Import : local ==
 import Croque from './croque';
+import 'aos/dist/aos.css';
 import './styles.scss';
 
 //! == Composant ==
 const Menu = ({ getProduct, getCategories, products, categories }) => {
+    AOS.init();
     useEffect(() => { getProduct(); }, []); //Getting product from API
     useEffect(() => { getCategories(); }, []); //Getting Categories from API
     useEffect (() => { document.title = "Messieurs Croquent - Menu" }, []);
@@ -16,7 +19,7 @@ const Menu = ({ getProduct, getCategories, products, categories }) => {
             {categories.map((category) => {
                 const result = products.filter(product => product.category.id === category.id);
                 return (
-                    <div className="croque">
+                    <div className="croque" data-aos="fade-up">
                         <div className="croque__header">
                             {category.name}
                             <svg version="1.1" id="croc" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 204 117.5">

@@ -1,12 +1,14 @@
 //! == Import : npm ==
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import AOS from 'aos';
 
 //! == Import : local ==
 import Delivery from '../Command/Delivery';
 import Local from '../Command/Local';
 import ProductList from '../Command/ProductList';
 import Cart from './Cart';
+import 'aos/dist/aos.css';
 import './styles.scss';
 
 //! == Composant ==
@@ -27,7 +29,7 @@ const Command = ({
     sendOrder,
     status
 }) => {
-    console.log(status, "status");
+    AOS.init();
     useEffect(() => { getProduct(); }, []); //Getting product from API
     useEffect(() => { getCategories(); }, []); //Getting Categories from API
     useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
@@ -36,7 +38,7 @@ const Command = ({
             <Delivery links={links} />
             <Local />
             {status === 'FERMÉ' && (
-                <div className="command__close">
+                <div className="command__close" data-aos="fade-up">
                     <p className="command__close--title">Le restaurant est fermé</p>
                     <p className="command__close--text">Nous ne prenons pas de commandes pour le moment, revenez ultérieurement</p>
                     <p className="command__close--text">Merci de votre compréhension</p>
