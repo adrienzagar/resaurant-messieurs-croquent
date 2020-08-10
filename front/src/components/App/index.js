@@ -10,7 +10,7 @@ import Command from '../../containers/Command';
 import FindUs from '../FindUs';
 import Err404 from '../Err404';
 import Footer from '../../containers/Footer';
-import ValidationPage from '../../components/ValidationPage';
+import ValidationPage from '../../containers/ValidationPage';
 
 import './styles.scss';
 
