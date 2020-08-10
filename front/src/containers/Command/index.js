@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownprops) => ({
     quantity: state.command.quantity,
     quantities: state.command.quantities,
     cart: state.command.cart,
-    values: state.command.values
+    values: state.command.values,
+    status: state.header.status,
 });
 
 const mapDispatchToProps = (dispatch, ownprops) => ({
