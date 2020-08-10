@@ -9,6 +9,7 @@ const ValidationPage = () => {
     const handleClick = (e) => {
         e.preventDefault()
         history.push('/')
+        window.location.reload()
         
     }
     return(
