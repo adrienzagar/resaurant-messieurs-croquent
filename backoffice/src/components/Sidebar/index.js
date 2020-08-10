@@ -12,7 +12,7 @@ const Sidebar = ({ links }) => (
         {links.map((link) => (
             <NavLink
                 key={link.id}
-                to={`${process.env.PUBLIC_URL}/${link.path}`}
+                to={`${process.env.PUBLIC_URL}${link.path}`}
                 activeClassName="bm-item-selected"
                 exact
             >
