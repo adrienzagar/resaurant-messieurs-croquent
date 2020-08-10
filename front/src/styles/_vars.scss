@@ -4,6 +4,8 @@ $color-primary: #0E0E0E;
 $color-secondary: #FFF;
 $color-alt: color.scale($color-primary, $lightness: 80%);
 $color-hover: color.scale($color-primary, $lightness: 20%);
+$color-success: #0bab64;
+$color-danger: #e52d27;
 
 // MEDIA QUERIES
   

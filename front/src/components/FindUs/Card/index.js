@@ -25,7 +25,7 @@ const CardComponent = () => {
             </div>
             <div className="cardComponent__infos">
                 <i className="fa fa-envelope" aria-hidden="true"></i>
-                <p className="cardComponent__text">contact@messieurscroquent.fr</p>
+                <a href="mailto:messieurscroquent@gmail.com" className="cardComponent__text">messieurscroquent@gmail.com</a>
             </div>
             <div className="cardComponent__infos">
                 <i className="fa fa-clock" aria-hidden="true"></i> 
