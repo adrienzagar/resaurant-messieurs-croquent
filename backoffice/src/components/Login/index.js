@@ -36,7 +36,7 @@ const Login = ({ getLogin, errorLog, username, password, setPasswordValue, setUs
                     className="login__password" 
                     placeholder="Password"
                 />
-                <p className={errorLog ? "login__error" : "login__error--none"}>Votre nom d'utilisateur ou votre mot de passe est incorrecte</p>
+                <p className={errorLog ? "login__error" : "login__error--none"}>Votre nom d'utilisateur ou votre mot de passe est incorrect</p>
                 <button type="submit" className="login__submit" >Se connecter</button>
             </form>
         </div>
