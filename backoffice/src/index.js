@@ -14,7 +14,7 @@ import store from './store';
 //! == Composant ==
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router basename={'/backoffice'}>
       <React.StrictMode>
         <App />
       </React.StrictMode>

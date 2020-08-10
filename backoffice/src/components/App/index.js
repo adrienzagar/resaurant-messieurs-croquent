@@ -20,8 +20,8 @@ const App = ({ isLogged }) => (
       <>
         <Header />
         <Sidebar />
-        <Route exact path="/produits" component={ProductList} />
-        <Route exact path="/commandes" component={CommandList} />
+        <Route exact path={`${process.env.PUBLIC_URL}/produits`} component={ProductList} />
+        <Route exact path={`${process.env.PUBLIC_URL}/commandes`} component={CommandList} />
       </>
     )}
   </div>
