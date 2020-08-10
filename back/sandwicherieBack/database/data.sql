@@ -7,6 +7,20 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_880E0D76F85E0677` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `admin` (`id`, `username`, `roles`, `password`) VALUES
+(1,	'Admin',	'[\"ROLE_ADMIN\"]',	'$argon2id$v=19$m=65536,t=4,p=1$2j59iphBLzR3BkJbBnEiSw$tgE9thnloTsmWPK9LF9zfmnJla7xSj/klewIBaJ5QJ8'),
+(2,	'Maxime',	'[\"ROLE_ADMIN\"]',	'$argon2id$v=19$m=65536,t=4,p=1$7vQbCHlrPC3knc2wrk6Bkw$1VO+oJXKvk3K0bkAqIm2eBsEifdVpdovgDgq49LvLGc');
+
 DROP TABLE IF EXISTS `category_product`;
 CREATE TABLE `category_product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -78,11 +92,11 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `category_id`) VALUES
-(1,	'Monsieur Croque',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P',	'https://ibb.co/qgyCfSS',	7,	1),
-(2,	'Le Transformiste',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier',	'https://ibb.co/gmCKh26',	8,	1),
-(3,	'Monsieur Seguin',	'Fromage frais, fromage de chèvre A.O.P, compotée d’oignons\r\nmaison, poire fraîche, noix, miel',	'https://ibb.co/MMbWjcB',	8,	1),
-(4,	'Coq Monsieur',	'Poulet label rouge, béchamel maison, coulis de tomate maison,\r\nfromage Abondance A.O.P, compotée d’oignons maison',	'https://ibb.co/CzFsffN',	8,	1),
-(5,	'Monsieur Confit',	'Confit de canard du sud-ouest, compotée d’oignons maison,\r\npoire fraîche, fromage Ossau-Iraty A.O.P',	'https://ibb.co/0DhPSQr',	8,	1),
+(1,	'Monsieur Croque',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P',	'https://i.ibb.co/vdwhGFF/Monsieur-Croque.jpg',	7,	1),
+(2,	'Le Transformiste',	'Jambon blanc, béchamel maison, fromage Abondance A.O.P,\r\noeuf fermier',	'https://i.ibb.co/Dzn2TJL/Transformiste.jpg',	8,	1),
+(3,	'Monsieur Seguin',	'Fromage frais, fromage de chèvre A.O.P, compotée d’oignons\r\nmaison, poire fraîche, noix, miel',	'https://i.ibb.co/m6m1Y9N/Seguin.jpg',	8,	1),
+(4,	'Coq Monsieur',	'Poulet label rouge, béchamel maison, coulis de tomate maison,\r\nfromage Abondance A.O.P, compotée d’oignons maison',	'https://i.ibb.co/xDQ8NNP/Coq.jpg',	8,	1),
+(5,	'Monsieur Confit',	'Confit de canard du sud-ouest, compotée d’oignons maison,\r\npoire fraîche, fromage Ossau-Iraty A.O.P',	'https://i.ibb.co/6ng6xNF/Confit.jpg',	8,	1),
 (6,	'Croque Mystère',	'Croque du moment, voir avec le chef',	NULL,	9,	1),
 (7,	'Frites',	NULL,	NULL,	3,	2),
 (8,	'Salade',	NULL,	NULL,	3,	2),
@@ -110,6 +124,43 @@ INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `categor
 (30,	'Latte Macchiato',	NULL,	NULL,	3.2,	5),
 (31,	'Thé',	NULL,	NULL,	3.2,	5);
 
+DROP TABLE IF EXISTS `status_order`;
+CREATE TABLE `status_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `status_order` (`id`, `status`) VALUES
+(1,	'en cours de validation'),
+(2,	'commande validée et en cours de préparation'),
+(3,	'commande annulée '),
+(4,	'commande archivée');
+
+DROP TABLE IF EXISTS `store`;
+CREATE TABLE `store` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `store` (`id`, `status`) VALUES
+(1,	'ouvert'),
+(2,	'fermer');
+
+DROP TABLE IF EXISTS `token`;
+CREATE TABLE `token` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `admin_id` int(11) NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_5F37A13B642B8210` (`admin_id`),
+  CONSTRAINT `FK_5F37A13B642B8210` FOREIGN KEY (`admin_id`) REFERENCES `admin` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `token` (`id`, `admin_id`, `token`) VALUES
+(5,	1,	'53c0bb7dae98839fc0910981a09d3519adc1244d71e43f1068453e6b969613f9cb315258f394691d10047da7a5a2eda347bf46a9c44ece74a5ef95e1');
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -121,23 +172,5 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UNIQ_880E0D76F85E0677` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `admin` (`id`, `username`, `roles`, `password`) VALUES
-(1,	'Admin',	'[\"ROLE_ADMIN\"]',	'$argon2id$v=19$m=65536,t=4,p=1$2j59iphBLzR3BkJbBnEiSw$tgE9thnloTsmWPK9LF9zfmnJla7xSj/klewIBaJ5QJ8');
-
-SET NAMES utf8mb4;
-
-INSERT INTO `store` (`id`, `status`) VALUES
-(1,	'ouvert'),
-(2,	'fermer');
-
--- 2020-07-30 12:45:07
+-- 2020-08-10 13:15:03

@@ -60,6 +60,12 @@ class Order
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=StatusOrder::class, inversedBy="orders")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $statusId;
+
     public function __construct()
     {
         $this->orderLines = new ArrayCollection();
@@ -201,6 +207,18 @@ class Order
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getStatusId(): ?StatusOrder
+    {
+        return $this->statusId;
+    }
+
+    public function setStatusId(?StatusOrder $statusId): self
+    {
+        $this->statusId = $statusId;
 
         return $this;
     }
