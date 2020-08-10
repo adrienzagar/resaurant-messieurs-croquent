@@ -1,2 +1,21 @@
 @use '../../styles/vars';
 @import '../../styles/vars';
+
+.command {
+    &__close {
+        @include m767 () {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        margin: 3rem 2rem;
+        text-align: center;
+        font-size: 1.2rem;
+        line-height: 1.3;
+        padding: 3rem;
+        border: 1px dashed vars.$color-primary;
+        &--title {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+    }
+}

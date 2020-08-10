@@ -25,31 +25,43 @@ const Command = ({
     listPrice,
     savePrice,
     sendOrder,
+    status
 }) => {
+    console.log(status, "status");
     useEffect(() => { getProduct(); }, []); //Getting product from API
     useEffect(() => { getCategories(); }, []); //Getting Categories from API
     useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
-        // console.log(getProduct
-    return(
+    return (
         <main className="command">
             <Delivery links={links} />
             <Local />
-            <ProductList 
-                cart={cart} 
-                products={products}
-                categories={categories}
-                addProductToCart={addProductToCart}
-                savePrice={savePrice}
-             />
-             <Cart 
-                cart={cart} 
-                quantity={quantity}
-                listPrice={listPrice}
-                quantities={quantities}
-                sendOrder={sendOrder}
-                addQuantityProduct={addQuantityProduct}
-                removeQuantityProduct={removeQuantityProduct}
-             />
+            {status === 'FERMÉ' && (
+                <div className="command__close">
+                    <p className="command__close--title">Le restaurant est fermé</p>
+                    <p className="command__close--text">Nous ne prenons pas de commandes pour le moment, revenez ultérieurement</p>
+                    <p className="command__close--text">Merci de votre compréhension</p>
+                </div>
+            )}
+            {status === 'OUVERT' && (
+                <>
+                    <ProductList 
+                        cart={cart} 
+                        products={products}
+                        categories={categories}
+                        addProductToCart={addProductToCart}
+                        savePrice={savePrice}
+                    />
+                    <Cart 
+                        cart={cart} 
+                        quantity={quantity}
+                        listPrice={listPrice}
+                        quantities={quantities}
+                        sendOrder={sendOrder}
+                        addQuantityProduct={addQuantityProduct}
+                        removeQuantityProduct={removeQuantityProduct}
+                    />
+                </>
+             )}
         </main>
 );}
 
