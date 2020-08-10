@@ -16,9 +16,11 @@ const Presentation = ({ text, image}) => {
                     MESSIEURS CROQUENT
                 </h1>
             <div className="presentation__container">
-                <p className="presentation__text" data-aos="fade-right">
-                    {text}
-                </p>
+                <div className="presentation__presentation" data-aos="fade-right">
+                    {text.map((presentation) => (
+                        <p className="presentation__text" key={presentation}>{presentation}</p>
+                    ))}
+                </div>
                 {image.map((img) => (
                     <img className="presentation__image" key={img.id} src={img.src} alt={img.alt} data-aos="fade-left" />
                 ))}
