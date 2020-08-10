@@ -10,6 +10,7 @@ import Command from '../../containers/Command';
 import FindUs from '../FindUs';
 import Err404 from '../Err404';
 import Footer from '../../containers/Footer';
+import ValidationPage from '../../components/ValidationPage';
 
 import './styles.scss';
 
@@ -22,6 +23,7 @@ const App = () => (
         <Route exact path="/carte" component={Menu} />
         <Route exact path="/commander" component={Command} />
         <Route exact path="/nous-trouver" component={FindUs} />
+        <Route exact path="/validation" component={ValidationPage} />
         <Route path="" component={Err404} />
       </Switch>
     <Footer />
