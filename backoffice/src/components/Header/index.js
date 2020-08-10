@@ -9,6 +9,7 @@ const Header = ({ getLogout, getStatus, modifyStatus, editStatus, status, isOpen
    useEffect(() => { getStatus(); });
    const handleLogout = () => {
       getLogout();
+      window.sessionStorage.clear();
    };
    const handleEditStatus = () => {
       if (status === 'FERMÉ') {
