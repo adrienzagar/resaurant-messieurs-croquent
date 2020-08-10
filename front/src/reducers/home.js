@@ -2,7 +2,11 @@
 
 //! == Initial state
 export const initialState = {
-    presentation: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea fugit quam, adipisci alias sit doloribus tempore distinctio ratione illo nemo atque, ipsam, dolores cupiditate placeat eius repellendus harum sint iure. Sit, officia. Repudiandae deserunt architecto consequatur nulla veritatis voluptatem at tempore eius sint delectus quisquam rem atque blanditiis ullam fuga magni quis sunt earum est nam, tenetur nostrum explicabo alias minima. Placeat, explicabo soluta obcaecati id adipisci, recusandae eveniet reprehenderit molestias ut illum maiores atque odio facilis ex facere alias inventore. Fuga optio placeat similique magnam ut sunt quibusdam repellendus vitae, voluptatem ea doloribus ratione blanditiis aperiam animi odit neque itaque quam nesciunt dolorum aspernatur deleniti! Inventore saepe incidunt corrupti est.',
+    presentation: [
+        'En face du musée d’Aquitaine, Messieurs croquent a ouvert au printemps 2017. Ici, ce sont des produits locaux et de qualité qui se retrouvent dans ces sandwichs définitivement symbole de la Street Food à la française.',
+        'Chez Messieurs Croquent, les produits industriels sont bannis au profit du fait maison.',
+        'Alors n’attendez plus, venez croquer, savourer et partager.'
+    ],
     imagePresentation: [
         {
             id: 1,
