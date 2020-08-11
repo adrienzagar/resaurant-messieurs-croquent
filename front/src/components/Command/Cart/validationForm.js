@@ -7,8 +7,8 @@ import Input from './input'
 import './styles.scss';
 
 
-const renderInput = ({ input, meta, placeholder }) => ( //Display <Input /> component that have props7c
-    <Input {...input}  placeholder={placeholder} type="text" errorMessage={meta.touched && meta.error} />
+const renderInput = ({ input, meta, placeholder, type }) => ( //Display <Input /> component that have props7c
+    <Input {...input}  placeholder={placeholder} type={type} errorMessage={meta.touched && meta.error} />
 )
 const onSubmit = values => { 
     alert(JSON.stringify(values))
@@ -63,6 +63,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                 name="lastname"
                 placeholder="Nom"
+                type="text"
                 component={renderInput}
                 validate={requiredLastname}
                 />
@@ -75,6 +76,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                     placeholder="Prénom"
                     name="firstname"
+                    type="text"
                     component={renderInput}
                     validate={requiredFirstName}
                 />
@@ -87,6 +89,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                     placeholder="Adresse email"
                     name="email"
+                    type="email"
                     component={renderInput}
                     validate={requiredEmail}
                 />
@@ -99,6 +102,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                     placeholder="Téléphone"
                     name="phone_number"
+                    type="tel"
                     component={renderInput}
                     validate={requiredPhoneNumber}
                 />
@@ -110,6 +114,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                     placeholder="Commentaire"
                     name="comment"
+                    type="text"
                     component={renderInput}
                 />
             </div>
