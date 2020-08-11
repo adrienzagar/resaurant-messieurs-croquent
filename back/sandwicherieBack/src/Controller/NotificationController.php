@@ -21,7 +21,6 @@ class NotificationController extends AbstractController
     public function sendEmail(MailerInterface $mailer)
     {
         
-
         //On récupére l'order grâce au ParamConverter (https://symfony.com/doc/current/doctrine.html#automatically-fetching-objects-paramconverter)
         // On récupére le user dans order
         // On récupére l'émail du User
