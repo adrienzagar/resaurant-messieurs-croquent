@@ -17,7 +17,7 @@ import './styles.scss';
 //! == Composant ==
 const App = () => (
   <div className="app">
-    <Header />
+    {window.location.pathname !== '/validation' ? <Header /> : null}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/carte" component={Menu} />
@@ -26,7 +26,7 @@ const App = () => (
         <Route exact path="/validation" component={ValidationPage} />
         <Route path="" component={Err404} />
       </Switch>
-    <Footer />
+      {window.location.pathname !== '/validation' ? <Footer /> : null}
   </div>
 );
 
