@@ -1,3 +1,4 @@
+//! == Import : npm
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -9,9 +10,9 @@ import Command from '../../containers/Command';
 import FindUs from '../FindUs';
 import Err404 from '../Err404';
 import Footer from '../../containers/Footer';
-
 import './styles.scss';
 
+//! == Composant ==
 const WitheHeader = () => (
   <div>
       <Header />
@@ -25,4 +26,6 @@ const WitheHeader = () => (
       <Footer />
   </div>
 );
+
+//! == Export ==
 export default WitheHeader;
