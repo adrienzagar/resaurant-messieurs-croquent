@@ -11,24 +11,21 @@ import ProductList from '../../containers/ProductList';
 import CommandList from '../../containers/CommandList';
 
 //! == Composant ==
-const App = ({ isLogged, checkIsLogged }) => {
-  useEffect(() => { checkIsLogged() }, []);
-  return (
-    <div className="App">
-      {!isLogged && (
-        <Login />
-      )}
-      {isLogged && (
-        <>
-          <Header />
-          <Sidebar />
-          <Route exact path="/produits" component={ProductList} />
-          <Route exact path="/commandes" component={CommandList} />
-        </>
-      )}
-    </div>
-  );
-};
+const App = ({ isLogged }) => (
+  <div className="App">
+    {!isLogged && (
+      <Login />
+    )}
+    {isLogged && (
+      <>
+        <Header />
+        <Sidebar />
+        <Route exact path={`${process.env.PUBLIC_URL}/produits`} component={ProductList} />
+        <Route exact path={`${process.env.PUBLIC_URL}/commandes`} component={CommandList} />
+      </>
+    )}
+  </div>
+);
 
 //! == Export ==
 export default App;

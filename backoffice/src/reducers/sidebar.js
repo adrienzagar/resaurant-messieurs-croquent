@@ -6,19 +6,19 @@ export const initialState = {
         {
            id: 1,
            name: 'Accueil',
-           path: '/',
+           path: `${process.env.PUBLIC_URL}/`,
            icon: 'fas fa-home',
         },
         {
             id: 2,
             name: 'Produits',
-            path: '/produits',
+            path: `${process.env.PUBLIC_URL}/produits`,
             icon:'fas fa-box'
          },
          {
             id: 3,
             name: 'Commandes',
-            path: '/commandes',
+            path: `${process.env.PUBLIC_URL}/commandes`,
             icon:'fas fa-shopping-cart',
          },
     ],
