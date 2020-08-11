@@ -1,9 +1,11 @@
+//! == Import : npm
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+//! == Import : local
 import ValidationPage from '../../containers/ValidationPage';
-
 import './styles.scss';
 
+//! == Composant ==
 const WithoutHeader = () => (
   <div>
         <Switch>
@@ -11,4 +13,6 @@ const WithoutHeader = () => (
         </Switch>
   </div>
 );
+
+//! == Export ==
 export default WithoutHeader;
