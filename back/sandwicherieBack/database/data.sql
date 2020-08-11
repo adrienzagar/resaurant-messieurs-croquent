@@ -135,8 +135,7 @@ CREATE TABLE `store` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `store` (`id`, `status`) VALUES
-(1,	'ouvert'),
-(2,	'fermer');
+(1,	'OUVERT');
 
 DROP TABLE IF EXISTS `token`;
 CREATE TABLE `token` (
