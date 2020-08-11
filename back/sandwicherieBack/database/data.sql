@@ -127,6 +127,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `categor
 (30,	'Latte Macchiato',	NULL,	NULL,	3.2,	5),
 (31,	'Thé',	NULL,	NULL,	3.2,	5);
 
+
 DROP TABLE IF EXISTS `store`;
 CREATE TABLE `store` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -163,4 +164,3 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2020-08-11 09:11:43

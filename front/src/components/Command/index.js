@@ -1,12 +1,14 @@
 //! == Import : npm ==
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import AOS from 'aos';
 
 //! == Import : local ==
 import Delivery from '../Command/Delivery';
 import Local from '../Command/Local';
 import ProductList from '../Command/ProductList';
 import Cart from './Cart';
+import 'aos/dist/aos.css';
 import './styles.scss';
 
 //! == Composant ==
@@ -24,54 +26,44 @@ const Command = ({
     quantities,
     listPrice,
     savePrice,
-    email, 
-    phone_number,
-    firstname,
-    lastname,
-    comment,
-    setMailValue,
-    setPhoneValue,
-    setNameValue,
-    setLastnameValue,
-    setCommentValue,
     sendOrder,
-    setUserObject,
+    status
 }) => {
+    AOS.init();
     useEffect(() => { getProduct(); }, []); //Getting product from API
     useEffect(() => { getCategories(); }, []); //Getting Categories from API
     useEffect(() => { document.title = "Messieurs Croquent - Commander"; }, []);
-        // console.log(getProduct)
-    return(
+    return (
         <main className="command">
             <Delivery links={links} />
             <Local />
-            <ProductList 
-                cart={cart} 
-                products={products}
-                categories={categories}
-                addProductToCart={addProductToCart}
-                savePrice={savePrice}
-             />
-             <Cart 
-                cart={cart} 
-                quantity={quantity}
-                listPrice={listPrice}
-                quantities={quantities}
-                email={email}
-                phone_number={phone_number}
-                firstname={firstname}
-                lastname={lastname}
-                comment={comment}
-                setMailValue={setMailValue}
-                setPhoneValue={setPhoneValue}
-                setNameValue={setNameValue}
-                setLastnameValue={setLastnameValue}
-                setCommentValue={setCommentValue}
-                sendOrder={sendOrder}
-                setUserObject={setUserObject}
-                addQuantityProduct={addQuantityProduct}
-                removeQuantityProduct={removeQuantityProduct}
-             />
+            {status === 'FERMÉ' && (
+                <div className="command__close" data-aos="fade-up">
+                    <p className="command__close--title">Le restaurant est fermé</p>
+                    <p className="command__close--text">Nous ne prenons pas de commandes pour le moment, revenez ultérieurement</p>
+                    <p className="command__close--text">Merci de votre compréhension</p>
+                </div>
+            )}
+            {status === 'OUVERT' && (
+                <>
+                    <ProductList 
+                        cart={cart} 
+                        products={products}
+                        categories={categories}
+                        addProductToCart={addProductToCart}
+                        savePrice={savePrice}
+                    />
+                    <Cart 
+                        cart={cart} 
+                        quantity={quantity}
+                        listPrice={listPrice}
+                        quantities={quantities}
+                        sendOrder={sendOrder}
+                        addQuantityProduct={addQuantityProduct}
+                        removeQuantityProduct={removeQuantityProduct}
+                    />
+                </>
+             )}
         </main>
 );}
 

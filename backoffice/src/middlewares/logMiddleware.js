@@ -8,21 +8,23 @@ import { GET_LOGIN, GET_LOGOUT, checkIsLogged, errorLogged } from '../actions/lo
 const logMiddleware = (store) => (next) => (action) => {
     switch (action.type) {
         case GET_LOGIN: {
-            const state = store.getState()
-            const { username, password } = state.login
-            console.log(username, password)
+            const state = store.getState();
+            const { username, password } = state.login;
 
             axios.post('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/login', {
                 username,
                 password
             })
             .then((response) => {
-                store.dispatch(checkIsLogged())
-                console.log(response, 'ceci est la réponse du LOGIN')
+                console.log(response.data.token);
+                const { token } = response.data;
+                window.sessionStorage.setItem('token', token)
+                store.dispatch(checkIsLogged());
+                // console.log(response.data, "middleware login");
             })
             .catch((error) => {
-                store.dispatch(errorLogged())
-                console.log(error, 'je viens de recevoir une erreur');
+                store.dispatch(errorLogged());
+                console.log(error);
             })
             break;
         }

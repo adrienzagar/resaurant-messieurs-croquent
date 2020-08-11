@@ -3,7 +3,7 @@
 
 .local {
     background: vars.$color-primary;
-    height: 45vh;
+    height: 42.5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -19,10 +19,11 @@
     &__button {
         background: transparent;
         font-size: 1.3rem;
-        padding: .5rem 1rem;
+        padding: .7rem 2rem;
         color: #FFF;
         border-radius: .3rem;
         border: 1px solid #FFF;
+        transition: .3s ease;
         &:hover {
             background: #FFF;
             color: vars.$color-primary;

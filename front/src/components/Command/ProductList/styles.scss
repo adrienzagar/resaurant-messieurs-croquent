@@ -21,7 +21,7 @@
         @include m767 () {
             max-width: 100%;
             vertical-align: middle; 
-            border-radius: .5rem;
+            border-radius: .8rem;
             box-shadow: 0 0 5px 1px vars.$color-primary;
             display: inline;
         }
@@ -88,6 +88,13 @@
         border-radius: 50%;
         color: vars.$color-secondary;
         background: vars.$color-primary;
+        position: relative;
+        & .fa {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
         &:hover {
             color: vars.$color-primary;
             background: vars.$color-secondary;

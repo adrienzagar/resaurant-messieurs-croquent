@@ -3,20 +3,21 @@
 namespace App\Controller;
 
 use App\Entity\Order;
-use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManager;
+use App\Repository\OrderRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class NotificationController extends AbstractController
 {
 
     /**
      * @Route("notification/validate", name="notification_validate")
-     */
+    */
     public function sendEmail(MailerInterface $mailer)
     {
         

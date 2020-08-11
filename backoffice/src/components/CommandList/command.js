@@ -21,12 +21,12 @@ const Command = ({ getCommand, commands }) => {
                     </div>
                     <p className="command__infosCommand">Détail de la commande :</p>
                     {command.orderLines.map((order) => (
-                        <p className="command__detail">{order.product.name}</p>
+                        <p className="command__detail">{order.quantity} -{order.product.name}</p>
                     ))}
                     <p className="command__infosComment">Commentaire :</p>
                     <p className="command__comment">{command.comment}</p>
                     <p className="command__infosPrice">Prix total de la commande :</p>
-                    <p className="command__price">{command.price}</p>
+                    <p className="command__price">{command.price} &euro;</p>
                 </div>
             ))}
         </div>

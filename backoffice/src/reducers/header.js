@@ -1,19 +1,27 @@
 //! == Import : local (actions)
-import { GET_TOGGLE } from '../actions/header';
+import { MODIFY_STATUS, SAVE_STATUS } from '../actions/header';
 
 //! == Initial state
 export const initialState = {
-    isOpen: false,
+    isOpen: '',
+    status: '',
 };
 
 //! == Actions to modified state
 const header = (state = initialState, action = {}) => {
     switch (action.type) {
-        case GET_TOGGLE:
-           return {
-            ...state,
-            isOpen: !state.isOpen,
-           };
+        case MODIFY_STATUS:
+            return {
+                ...state,
+                status: action.status,
+                isOpen: action.bool
+            }
+        case SAVE_STATUS:
+            return {
+                ...state,
+                status: action.status,
+                isOpen: action.bool,
+            }
         default:
            return state;
      }

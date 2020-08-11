@@ -1,5 +1,5 @@
 //! == Import : local (actions)
-import { GET_LOGIN, CHECK_IS_LOGGED, ERROR_LOGGED, SET_USERNAME_VALUE, SET_PASSWORD_VALUE} from '../actions/log';
+import { GET_LOGIN, CHECK_IS_LOGGED, ERROR_LOGGED, SET_USERNAME_VALUE, SET_PASSWORD_VALUE } from '../actions/log';
 import { GET_LOGOUT } from '../actions/header';
 
 //! == Initial state
@@ -18,11 +18,14 @@ const login = (state = initialState, action = {}) => {
                 ...state,
             };
         case CHECK_IS_LOGGED:
-            return {
-                ...state,
-                isLogged: true,
-                errorLog: false,
-            }
+            if (window.sessionStorage.token !== undefined) {
+                return {
+                    ...state,
+                    isLogged: true,
+                };
+            } return {
+                    ...state
+            };
         case ERROR_LOGGED:
             return {
                 ...state,

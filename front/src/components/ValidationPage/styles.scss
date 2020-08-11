@@ -1,0 +1,35 @@
+@use '../../styles/vars';
+@import '../../styles/vars';
+
+.validation__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.validation__info {
+    & h1 {
+        color: green;
+        font-size: 2.5rem;
+        padding: 2rem;
+    }
+    & p {
+        font-size: 2.5rem;
+        padding: 1.8rem;
+    }
+}
+.validation__button {
+    margin-top: 2rem;
+    padding: .7rem 2.5rem;
+    background: vars.$color-primary;
+    color: vars.$color-secondary;
+    border: solid 3px transparent;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    transition: .3s ease;
+    &:hover {
+        color: vars.$color-primary;
+        background: vars.$color-secondary;
+        border: solid 3px vars.$color-primary;
+    }
+
+}
