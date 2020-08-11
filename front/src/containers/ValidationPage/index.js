@@ -4,6 +4,7 @@ import ValidationPage from '../../components/ValidationPage';
 
 const mapStateToProps = (state, ownprops) => ({
     cart: state.command.cart,
+    user: state.command.user,
     listPrice: state.command.listPrice,
 })
 
