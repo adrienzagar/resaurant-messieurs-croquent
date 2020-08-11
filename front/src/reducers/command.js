@@ -1,6 +1,7 @@
 //! == Import : local (actions)
 import { ADD_PRODUCT_FROM_CART, SAVE_PRODUCT, ADD_QUANTITY_PRODUCT, REMOVE_QUANTITY_PRODUCT, SAVE_PRICE } from '../actions/product';
 import { SAVE_CATEGORIES } from '../actions/categories';
+import { SAVE_USER } from '../actions/order';
 
 //! == Initial state
 export const initialState = {
@@ -70,11 +71,10 @@ const command = (state = initialState, action = {}) => {
       })
       return {
         ...state,
-        cart: state.cart
+        cart: state.cart,
       };
     case REMOVE_QUANTITY_PRODUCT:
-      let newState = []
-      console.log(action.quantity)
+      let newState = [];
       state.cart = state.cart.map(product => {
         if (product.id === action.quantity.id) {
           let pos = state.listPrice.indexOf(product.price)
@@ -89,7 +89,9 @@ const command = (state = initialState, action = {}) => {
         return product.quantity > 0;
       })
       return {
-        ...state, cart: newState, quantity: newState.length
+        ...state, 
+        cart: newState, 
+        quantity: newState.length,
       };
     case SAVE_PRICE:
       state.listPrice.push(action.price)
@@ -97,10 +99,14 @@ const command = (state = initialState, action = {}) => {
         ...state,
         listPrice: state.listPrice,
       };
+    case SAVE_USER:
+      return {
+        ...state,
+        user: action.values,
+      };
     default:
       return state;
   }
-
 };
 
 export default command;

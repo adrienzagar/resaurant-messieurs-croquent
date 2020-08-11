@@ -10,7 +10,6 @@ const productMiddleware = (store) => (next) => (action) => {
     case GET_PRODUCT: // Save products coming from API to the state
       axios.get('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/products')
         .then((response) => {
-          // console.log(response.data);
           store.dispatch(saveProduct(response.data));
         })
         .catch((error) => {
