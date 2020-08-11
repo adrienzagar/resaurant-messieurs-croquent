@@ -22,11 +22,14 @@ const login = (state = initialState, action = {}) => {
                 ...state,
             };
         case CHECK_IS_LOGGED:
-            return {
-                ...state,
-                isLogged: true,
-                errorLog: false,
-            }
+            if (window.sessionStorage.token !== undefined) {
+                return {
+                    ...state,
+                    isLogged: true,
+                };
+            } return {
+                ...state
+            };
         case ERROR_LOGGED:
             return {
                 ...state,
