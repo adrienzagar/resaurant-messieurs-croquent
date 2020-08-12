@@ -3,7 +3,7 @@ import React from 'react';
 
 //! == Import : local ==
 import Command from './command';
-import Archivate from './archivate';
+// import Archivate from './archivate';
 import './styles.scss';
 
 //! == Composant ==
