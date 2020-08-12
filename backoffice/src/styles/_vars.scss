@@ -14,7 +14,7 @@ $color-warning: #EFF88A;
 $color-warning-hover: color.scale($color-warning, $lightness: -20%);
 
 
-@mixin m767($size: 767px) {
+@mixin m767($size: 769px) {
     @media (min-width: $size) {
       @content;
     }
