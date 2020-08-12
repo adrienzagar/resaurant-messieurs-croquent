@@ -24,7 +24,7 @@ const App = ({ isLogged, checkIsLogged }) => {
           <Header />
           <Sidebar />
           <Switch />
-             <Route exact path="/" component={Home} />
+             <Route exact path="/backoffice" component={Home} />
              <Route exact path="/commandes" component={CommandList} />
              <Route exact path="/produits" component={ProductList} />
           <Switch />

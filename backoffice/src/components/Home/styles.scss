@@ -1,4 +1,5 @@
 @use '../../styles/vars';
+@import '../../styles/vars';
 
 .home {
     background: vars.$color-lightness;
@@ -24,11 +25,24 @@
         text-align: center;
     }
     &__button {
-
+        @include m767 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: .6rem 1.5rem;
+            border: none;
+            border-radius: .5rem;
+            color: vars.$color-light;
+            background: vars.$color-background;
+            & .fas {
+                margin-right: .5rem;
+            }
+            &:hover {
+                background: vars.$color-success-hover        }
+        }
         font-size: 1.1rem;
         font-weight: bold;
-        margin-right: 2rem;
-        padding: .6rem 1.5rem;
+        margin: 1.5rem;
+        padding: 1.2rem;
         border: none;
         border-radius: .5rem;
         color: vars.$color-light;

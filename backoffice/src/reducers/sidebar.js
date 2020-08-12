@@ -6,7 +6,7 @@ export const initialState = {
         {
            id: 1,
            name: 'Accueil',
-           path: '/',
+           path: '/backoffice',
            icon: 'fas fa-home',
         },
         {
