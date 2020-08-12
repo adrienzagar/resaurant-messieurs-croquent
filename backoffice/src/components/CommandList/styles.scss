@@ -1,4 +1,5 @@
 @use '../../styles/vars';
+@import '../../styles/vars';
 
 .commandList {
     max-width: 1200px;
@@ -37,7 +38,10 @@
         font-size: 1.3rem;
     }
     &__user {
-        display: flex;
+        @include m767 {
+            display: flex;
+        }
+        margin-bottom: 1.2rem;;
     }
     &__infos {
         margin-right: 3rem;
