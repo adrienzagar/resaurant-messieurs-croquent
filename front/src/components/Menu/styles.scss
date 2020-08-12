@@ -59,6 +59,135 @@
     }
 }
 
+.formule {
+    &__header {
+        @include m767 () {
+            text-align: center;
+            padding-left: 0;
+        }
+        background: vars.$color-primary;
+        color: vars.$color-secondary;
+        font-family: 'Amatic SC', cursive;
+        font-size: 2rem;
+        padding: .5rem 0;
+        padding-left: 5rem;
+        position: relative;
+        &--small {
+            @include m767 () {
+                font-size: 1.5rem;
+            }
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.croqueFormule {
+    @include m767 () {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    padding: 2rem;
+    &__container {
+        @include m767 () {
+            width: 45%;
+        }
+        display: flex;
+        width: 100%;
+        margin-bottom: 1rem;
+        align-items: center;
+    }
+    &__product {
+        margin-left: 1rem;
+        width: 100%;
+    }
+    &__detail {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__picture {
+        max-width: 100%;
+    }
+    &__name, &__price {
+        font-weight: bold;
+        margin-bottom: .2rem;
+    }
+    &__description {
+        font-size: .8rem;
+    }
+}
+
+.trimming {
+    @include m767 () {
+        align-items: center;
+        justify-content: space-around;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    &__text {
+        @include m767 () {
+            width: 20%;
+            margin-bottom: 0;
+        }
+        width: 100%;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    &__container {
+        @include m767 () {
+            width: 20%;
+            margin-bottom: 0;
+        }
+        width: 50%;
+        margin-bottom: 1rem;
+    }
+    &__picture {
+        max-width: 100%;
+    }
+    &__detail {
+        font-size: 1.7rem;
+    }
+
+}
+
+.extra {
+    font-family: 'Amatic SC', cursive;
+    margin-top: 4rem;
+    border: 1px dashed vars.$color-primary;
+    display: flex;
+    height:10vh;
+    position: relative;
+    &__title {
+        position: absolute;
+        background: vars.$color-primary;
+        width: 25%;
+        padding: .5rem;
+        color: vars.$color-secondary;
+        text-align: center;
+        font-size: 1.7rem;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -70%);
+    }
+    &__container {
+        width: calc(100%/3);
+        border-right: 1px dashed vars.$color-primary;
+        margin: 1rem 0;
+        &--other {
+            width: calc(100%/3);
+            margin: 1rem 0;
+        }
+    }
+}
+
+
+
+
+
+
+
 .st0 {
     fill: vars.$color-primary;
 }
@@ -72,4 +201,15 @@
     position: absolute;
     right: 0;
     top: 0;
+}
+
+#croc-reverse-left-min {
+    @include m767 () {
+        height: 100%;
+    }
+    height: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: rotate(180deg) translateX(4%);
 }

@@ -4,6 +4,7 @@ import AOS from 'aos';
 
 //! == Import : local ==
 import Croque from './croque';
+import Formule from './formule';
 import 'aos/dist/aos.css';
 import './styles.scss';
 
@@ -43,7 +44,7 @@ const Menu = ({ getProduct, getCategories, products, categories }) => {
                 );
             })}
             <h2 className="menu__title" data-aos="fade-left">Nos formules</h2>
-            
+            <Formule /> 
         </main>
     );
 };
