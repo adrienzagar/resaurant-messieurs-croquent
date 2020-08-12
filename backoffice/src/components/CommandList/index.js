@@ -14,8 +14,8 @@ const CommandList = ({ getCommand, commands}) => (
             getCommand={getCommand}
             commands={commands}
         />
-        <h1 className="commandList__archivate">Les commandes archivées</h1>
-        <Archivate/>
+        {/* <h1 className="commandList__archivate">Les commandes archivées</h1> */}
+        {/* <Archivate/> */}
     </main>
 );
 
