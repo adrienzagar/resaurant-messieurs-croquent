@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c11671ea.chunk.css",
+    "main.js": "/static/js/main.713567f8.chunk.js",
+    "main.js.map": "/static/js/main.713567f8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5fe610d3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5fe610d3.js.map",
+    "static/css/2.00f16649.chunk.css": "/static/css/2.00f16649.chunk.css",
+    "static/js/2.5d59a6df.chunk.js": "/static/js/2.5d59a6df.chunk.js",
+    "static/js/2.5d59a6df.chunk.js.map": "/static/js/2.5d59a6df.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.d2a69ac4389cc1ac835d04b771d7d5bc.js": "/precache-manifest.d2a69ac4389cc1ac835d04b771d7d5bc.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.00f16649.chunk.css.map": "/static/css/2.00f16649.chunk.css.map",
+    "static/css/main.c11671ea.chunk.css.map": "/static/css/main.c11671ea.chunk.css.map",
+    "static/js/2.5d59a6df.chunk.js.LICENSE.txt": "/static/js/2.5d59a6df.chunk.js.LICENSE.txt",
+    "static/media/styles.scss": "/static/media/background-validate.44d00078.jpg",
+    "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/carousel1.jpg": "/static/media/carousel1.6a8338eb.jpg",
+    "static/media/carousel2.jpg": "/static/media/carousel2.c1a8d011.jpg",
+    "static/media/carousel3.jpg": "/static/media/carousel3.0509c7c5.jpg",
+    "static/media/chips.jpg": "/static/media/chips.4a8c495b.jpg",
+    "static/media/coleslaw.jpg": "/static/media/coleslaw.f9d433d7.jpg",
+    "static/media/confit.jpg": "/static/media/confit.3645444f.jpg",
+    "static/media/coq.jpg": "/static/media/coq.ea7e1465.jpg",
+    "static/media/logo-brand.png": "/static/media/logo-brand.f8d6ce72.png",
+    "static/media/mrcroque.jpg": "/static/media/mrcroque.19ce9a77.jpg",
+    "static/media/mystere.jpg": "/static/media/mystere.70c73011.jpg",
+    "static/media/salad.jpg": "/static/media/salad.ce6e78ad.jpg",
+    "static/media/seguin.jpg": "/static/media/seguin.c99cb05c.jpg",
+    "static/media/transformiste.jpg": "/static/media/transformiste.01c873c1.jpg",
+    "static/media/vegetable.jpg": "/static/media/vegetable.f2bc3918.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5fe610d3.js",
+    "static/css/2.00f16649.chunk.css",
+    "static/js/2.5d59a6df.chunk.js",
+    "static/css/main.c11671ea.chunk.css",
+    "static/js/main.713567f8.chunk.js"
+  ]
+}
