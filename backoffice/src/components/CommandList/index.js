@@ -3,7 +3,7 @@ import React from 'react';
 
 //! == Import : local ==
 import Command from './command';
-import Archivate from './archivate';
+// import Archivate from './archivate';
 import './styles.scss';
 
 //! == Composant ==
@@ -14,8 +14,8 @@ const CommandList = ({ getCommand, commands}) => (
             getCommand={getCommand}
             commands={commands}
         />
-        <h1 className="commandList__archivate">Les commandes archivées</h1>
-        <Archivate/>
+        {/* <h1 className="commandList__archivate">Les commandes archivées</h1> */}
+        {/* <Archivate/> */}
     </main>
 );
 
