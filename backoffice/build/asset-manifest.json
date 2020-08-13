@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/backoffice/static/css/main.a021b100.chunk.css",
+    "main.js": "/backoffice/static/js/main.6a37f9d1.chunk.js",
+    "main.js.map": "/backoffice/static/js/main.6a37f9d1.chunk.js.map",
+    "runtime-main.js": "/backoffice/static/js/runtime-main.b12a0089.js",
+    "runtime-main.js.map": "/backoffice/static/js/runtime-main.b12a0089.js.map",
+    "static/css/2.4cdb6381.chunk.css": "/backoffice/static/css/2.4cdb6381.chunk.css",
+    "static/js/2.15cdb683.chunk.js": "/backoffice/static/js/2.15cdb683.chunk.js",
+    "static/js/2.15cdb683.chunk.js.map": "/backoffice/static/js/2.15cdb683.chunk.js.map",
+    "index.html": "/backoffice/index.html",
+    "precache-manifest.e15d25eed1f0e91474c7f98972c749d7.js": "/backoffice/precache-manifest.e15d25eed1f0e91474c7f98972c749d7.js",
+    "service-worker.js": "/backoffice/service-worker.js",
+    "static/css/2.4cdb6381.chunk.css.map": "/backoffice/static/css/2.4cdb6381.chunk.css.map",
+    "static/css/main.a021b100.chunk.css.map": "/backoffice/static/css/main.a021b100.chunk.css.map",
+    "static/js/2.15cdb683.chunk.js.LICENSE.txt": "/backoffice/static/js/2.15cdb683.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/backoffice/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/logo-brand.png": "/backoffice/static/media/logo-brand.f8d6ce72.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b12a0089.js",
+    "static/css/2.4cdb6381.chunk.css",
+    "static/js/2.15cdb683.chunk.js",
+    "static/css/main.a021b100.chunk.css",
+    "static/js/main.6a37f9d1.chunk.js"
+  ]
+}
