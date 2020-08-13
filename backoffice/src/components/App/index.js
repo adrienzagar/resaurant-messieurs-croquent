@@ -25,8 +25,8 @@ const App = ({ isLogged, checkIsLogged }) => {
           <Sidebar />
           <Switch />
              <Route exact path="/backoffice" component={Home} />
-             <Route exact path={`${process.env.PUBLIC_URL}/produits`} component={CommandList} />
-             <Route exact path={`${process.env.PUBLIC_URL}/commandes`} component={ProductList} />
+             <Route exact path={`${process.env.PUBLIC_URL}/produits`} component={ProductList} />
+             <Route exact path={`${process.env.PUBLIC_URL}/commandes`} component={CommandList} />
           <Switch />
           {/* <Route exact path="/commandes" component={CommandList} /> */}
         </>
