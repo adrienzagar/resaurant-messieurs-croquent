@@ -122,12 +122,20 @@
         }
     }
     &__status {
-        margin-left: 2.2rem;
+        @include m767 {
+            margin-left: 2.2rem;
+            padding: 0;
+        }
+        margin-left: 0;
+        padding: 0 1rem;
         &--td {
             width: 10%;
         }
         &--th {
-            padding: 1rem 0;
+            @include m767 {
+            
+            }
+            padding: 1rem 1rem;
             text-align: center;
             font-weight: bold;
             font-size: 1.2rem;

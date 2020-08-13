@@ -17,7 +17,7 @@ const Command = ({ getCommand, commands }) => {
                         <p className="command__infos">Prénom: {command.user.firstname}</p>
                         <p className="command__infos">Nom: {command.user.lastname}</p>
                         <p className="command__infos">Email: {command.user.email}</p>
-                        <p className="command__infos">Téléphone: {command.user.phoneNumber}</p>
+                        <p className="command__infos">Téléphone: 0{command.user.phoneNumber}</p>
                     </div>
                     <p className="command__infosCommand">Détail de la commande :</p>
                     {command.orderLines.map((order) => (
