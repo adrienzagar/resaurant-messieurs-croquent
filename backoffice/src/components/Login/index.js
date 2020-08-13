@@ -1,5 +1,5 @@
 //! == Import : npm ==
-import React from 'react';
+import React, { useEffect } from 'react';
 
 //! == Import : local ==
 import brand from '../../assets/images/logo-brand.png';
@@ -7,6 +7,7 @@ import './styles.scss';
 
 //! == Composant ==
 const Login = ({ getLogin, errorLog, username, password, setPasswordValue, setUsernameValue }) => {
+    useEffect (() => { document.title = "Messieurs Croquent || Back Office - Connexion" }, []);
     const handleSubmit = (e) => {
         e.preventDefault();
         getLogin();
@@ -27,14 +28,14 @@ const Login = ({ getLogin, errorLog, username, password, setPasswordValue, setUs
                     onChange={hangleUsernameOnChange} 
                     type="text" 
                     className="login__email" 
-                    placeholder="User"
+                    placeholder="Utilisateur"
                 />
                 <input 
                     value={password}
                     onChange={handlePasswordOnChange} 
                     type="password" 
                     className="login__password" 
-                    placeholder="Password"
+                    placeholder="Mot de passe"
                 />
                 <p className={errorLog ? "login__error" : "login__error--none"}>Votre nom d'utilisateur ou votre mot de passe est incorrect</p>
                 <button type="submit" className="login__submit" >Se connecter</button>

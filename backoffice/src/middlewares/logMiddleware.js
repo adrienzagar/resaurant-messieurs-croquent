@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 //! == Import : local (actions)
-import { GET_LOGIN, GET_LOGOUT, checkIsLogged, errorLogged } from '../actions/log';
+import { GET_LOGIN, checkIsLogged, errorLogged } from '../actions/log';
 //! == Utils Axios for recupered JSON via API
 
 const logMiddleware = (store) => (next) => (action) => {
@@ -20,7 +20,6 @@ const logMiddleware = (store) => (next) => (action) => {
                 const { token } = response.data;
                 window.sessionStorage.setItem('token', token)
                 store.dispatch(checkIsLogged());
-                // console.log(response.data, "middleware login");
             })
             .catch((error) => {
                 store.dispatch(errorLogged());
@@ -28,15 +27,6 @@ const logMiddleware = (store) => (next) => (action) => {
             })
             break;
         }
-        // case GET_LOGOUT:
-        // axios.post('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/logout')
-        // .then((reponse) => {
-        //     console.log(reponse, 'ceci est la réponse du LOGOUT')
-        // })
-        // .catch((error) => {
-        //     console.log(error);
-        // })
-        // break;
     default:
         next(action)
         break;

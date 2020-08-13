@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const Home = ({ links }) => { console.log(links[2].path) 
+const Home = ({ links }) => { 
+    useEffect (() => { document.title = "Messieurs Croquent || Back Office - Accueil" }, []);
     return(
   <div className='home'>
     <div className='home__container'>

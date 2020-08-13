@@ -24,7 +24,7 @@ const login = (state = initialState, action = {}) => {
                     isLogged: true,
                 };
             } return {
-                    ...state
+                ...state
             };
         case ERROR_LOGGED:
             return {

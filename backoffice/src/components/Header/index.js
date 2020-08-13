@@ -30,7 +30,7 @@ const Header = ({ getLogout, getStatus, modifyStatus, editStatus, status, isOpen
          </button>
          <button className="header__logout" onClick={handleLogout}>
                <i className="fas fa-power-off"></i>
-               Logout
+               Déconnexion
          </button>
       </header>
    );
