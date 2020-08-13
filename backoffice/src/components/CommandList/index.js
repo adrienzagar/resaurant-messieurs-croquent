@@ -7,6 +7,7 @@ import Command from './command';
 import './styles.scss';
 
 //! == Composant ==
+setTimeout(() => {window.location.reload()}, 60000); // reload page all 60s
 const CommandList = ({ getCommand, commands}) => {
     useEffect (() => { document.title = "Messieurs Croquent || Back Office - Commandes" }, []);
     return (
