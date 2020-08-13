@@ -1,6 +1,6 @@
 //! == Import : npm ==
 import React, { useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 //! == Import : local ==
 import './styles.scss';
@@ -9,6 +9,7 @@ import Header from '../../containers/Header';
 import Sidebar from '../../containers/Sidebar';
 import ProductList from '../../containers/ProductList';
 import CommandList from '../../containers/CommandList';
+import Home from '../../containers/Home'
 
 //! == Composant ==
 const App = ({ isLogged, checkIsLogged }) => {
@@ -22,8 +23,12 @@ const App = ({ isLogged, checkIsLogged }) => {
         <>
           <Header />
           <Sidebar />
-          <Route exact path="/produits" component={ProductList} />
-          <Route exact path="/commandes" component={CommandList} />
+          <Switch />
+             <Route exact path="/backoffice" component={Home} />
+             <Route exact path="/commandes" component={CommandList} />
+             <Route exact path="/produits" component={ProductList} />
+          <Switch />
+          {/* <Route exact path="/commandes" component={CommandList} /> */}
         </>
       )}
     </div>

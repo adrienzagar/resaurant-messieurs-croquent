@@ -1,0 +1,66 @@
+@use '../../styles/vars';
+@import '../../styles/vars';
+
+.validation {
+    @include m767 () {
+        padding: 0;
+    }
+    padding: 2rem;
+    height: 100vh;
+    width: 100vw;
+    background: url('../../assets/images/background-validate.jpg') no-repeat center;
+    background-size: cover;
+    position: relative;
+    &__container {
+        @include m767 () {
+            max-width: 500px;
+            height: 600px;
+            padding: 4rem;
+        }
+        width: 90%;
+        height: 80%;
+        padding: 3rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: .5rem;
+        backdrop-filter: blur(7px);
+        background: rgba(255, 255, 255, .3);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    &__success {
+        color: vars.$color-success;
+        font-size: 2rem;
+        text-align: center;
+    }
+    &__text, &__underline {
+        font-size: 1.1rem;
+    }
+    &__bold, &__product {
+        font-weight: bold;
+    }
+    &__underline {
+        text-decoration: underline;
+    }
+    &__product {
+        margin-left: 2rem;
+    }
+    &__button {
+        margin-top: 2rem;
+        padding: .7rem 2.5rem;
+        background: vars.$color-primary;
+        color: vars.$color-secondary;
+        border: solid 3px transparent;
+        border-radius: .5rem;
+        font-size: 1.2rem;
+        transition: .3s ease;
+        &:hover {
+            color: vars.$color-primary;
+            background: transparent;
+            border: solid 3px vars.$color-primary;
+        }
+    }
+}

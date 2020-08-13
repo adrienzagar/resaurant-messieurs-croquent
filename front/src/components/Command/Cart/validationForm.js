@@ -7,8 +7,8 @@ import Input from './input'
 import './styles.scss';
 
 
-const renderInput = ({ input, meta }) => ( //Display <Input /> component that have props
-    <Input {...input} type="text" errorMessage={meta.touched && meta.error} />
+const renderInput = ({ input, meta, placeholder, type }) => ( //Display <Input /> component that have props7c
+    <Input {...input}  placeholder={placeholder} type={type} errorMessage={meta.touched && meta.error} />
 )
 const onSubmit = values => { 
     alert(JSON.stringify(values))
@@ -43,7 +43,7 @@ const requiredPhoneNumber = value => {
     return undefined;
 }
 const requiredEmail = value => {
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ // Regex that accept only format equal to "exemple@exemple.exemple"
+    const emailRegex = /^[\w-\:.]+@([\w-]+\.)+[\w-]{2,4}$/ // Regex that accept only format equal to "exemple@exemple.exemple"
     if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
@@ -61,8 +61,9 @@ const ValidationForm = ({ handleSumbit, valid }) => (
             <span className="form__required">*</span>
             <div className="form__column">
                 <Field
-                placeholder="Nom"
                 name="lastname"
+                placeholder="Nom"
+                type="text"
                 component={renderInput}
                 validate={requiredLastname}
                 />
@@ -75,6 +76,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                     placeholder="Prénom"
                     name="firstname"
+                    type="text"
                     component={renderInput}
                     validate={requiredFirstName}
                 />
@@ -87,6 +89,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                     placeholder="Adresse email"
                     name="email"
+                    type="email"
                     component={renderInput}
                     validate={requiredEmail}
                 />
@@ -99,6 +102,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                     placeholder="Téléphone"
                     name="phone_number"
+                    type="tel"
                     component={renderInput}
                     validate={requiredPhoneNumber}
                 />
@@ -110,6 +114,7 @@ const ValidationForm = ({ handleSumbit, valid }) => (
                 <Field
                     placeholder="Commentaire"
                     name="comment"
+                    type="text"
                     component={renderInput}
                 />
             </div>

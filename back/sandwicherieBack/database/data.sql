@@ -44,11 +44,14 @@ CREATE TABLE `doctrine_migration_versions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20200730114958',	'2020-07-30 13:50:07',	53),
-('DoctrineMigrations\\Version20200730115425',	'2020-07-30 13:54:29',	91),
-('DoctrineMigrations\\Version20200730122620',	'2020-07-30 14:26:44',	84),
-('DoctrineMigrations\\Version20200730123635',	'2020-07-30 14:36:42',	87),
-('DoctrineMigrations\\Version20200730123934',	'2020-07-30 14:39:42',	55);
+('DoctrineMigrations\\Version20200730114958',	'2020-08-11 12:22:33',	52),
+('DoctrineMigrations\\Version20200730115425',	'2020-08-11 12:22:33',	61),
+('DoctrineMigrations\\Version20200730122620',	'2020-08-11 12:22:33',	55),
+('DoctrineMigrations\\Version20200730123635',	'2020-08-11 12:22:33',	36),
+('DoctrineMigrations\\Version20200730123934',	'2020-08-11 12:22:33',	31),
+('DoctrineMigrations\\Version20200803083733',	'2020-08-11 12:22:33',	8),
+('DoctrineMigrations\\Version20200806082900',	'2020-08-11 12:22:33',	7),
+('DoctrineMigrations\\Version20200806155434',	'2020-08-11 12:22:33',	53);
 
 DROP TABLE IF EXISTS `order`;
 CREATE TABLE `order` (
@@ -124,19 +127,6 @@ INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `categor
 (30,	'Latte Macchiato',	NULL,	NULL,	3.2,	5),
 (31,	'Thé',	NULL,	NULL,	3.2,	5);
 
-DROP TABLE IF EXISTS `status_order`;
-CREATE TABLE `status_order` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `status` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `status_order` (`id`, `status`) VALUES
-(1,	'en cours de validation'),
-(2,	'commande validée et en cours de préparation'),
-(3,	'commande annulée '),
-(4,	'commande archivée');
-
 DROP TABLE IF EXISTS `store`;
 CREATE TABLE `store` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -145,8 +135,7 @@ CREATE TABLE `store` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `store` (`id`, `status`) VALUES
-(1,	'ouvert'),
-(2,	'fermer');
+(1,	'OUVERT');
 
 DROP TABLE IF EXISTS `token`;
 CREATE TABLE `token` (
@@ -173,4 +162,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- 2020-08-10 13:15:03
+-- 2020-08-11 10:23:02

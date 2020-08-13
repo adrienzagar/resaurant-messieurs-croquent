@@ -1,8 +1,21 @@
 @use '../../styles/vars';
+@import '../../styles/vars';
 
 .product {
     max-width: 1200px;
     margin: 16vh auto 4rem auto;
+    &__description--td {
+        @include m767 {
+            display: block;
+        }
+        display: none;
+    }
+    &__category--th {
+        @include m767 {
+            display: block;
+        }
+        display: none;
+    }
     &__title {
         font-size: 2rem;
         text-align: center;
@@ -54,7 +67,21 @@
         }
     }
     &__category {
+        @include m767 {
+            margin-left: 1rem;
+            display:block;
+            &--td {
+                width: 15%;
+            }
+            &--th {
+                padding: 1rem 0;
+                text-align: center;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+        }
         margin-left: 1rem;
+        display: none;
         &--td {
             width: 15%;
         }
@@ -66,17 +93,21 @@
         }
     }
     &__description {
-        margin-left: 1rem;
-        font-size: .9rem;
-        &--td {
-            width: 35%;
+        @include m767 {
+            display: block;
+            margin-left: 1rem;
+            font-size: .9rem;
+            &--td {
+                width: 100%;
+            }
+            &--th {
+                padding: 1rem 0;
+                text-align: center;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
         }
-        &--th {
-            padding: 1rem 0;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
+        display: none;
     }
     &__price {
         text-align: center;
@@ -127,4 +158,8 @@
 
 tbody {
     border-bottom: 1px solid vars.$color-background;
+}
+
+.ui.checkbox {
+    z-index: 0;
 }
