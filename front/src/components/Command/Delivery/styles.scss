@@ -23,27 +23,26 @@
     &__links {
         @include m767 () {
             display: flex;
-            justify-content: space-around;
-            padding: 3rem;
         }
     }
     &__link {
         @include m767 () {
             padding: 2rem;
-            margin-top: 0;
+            margin: 0 1rem;
         }
         border: 5px solid vars.$color-primary;
         padding: 1rem;
-        width: 40%;
+        margin: 1rem auto;
+        width: 80%;
         display: flex;
         border: 5px solid vars.$color-primary;
         border-radius: .5rem;
-        margin: 1rem auto;
     }
     &__image {
         @include m767 () {
             filter: grayscale(100%);
         }
+        height: 4rem;
         max-width: 100%;
         transition: .3s ease;
         &:hover {
