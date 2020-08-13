@@ -11,6 +11,9 @@ import './styles.scss';
 //! == Composant ==
 const HomeTripadvisor = () => {
     AOS.init();
+
+    const find = Object.keys(window)
+    console.log(find)
     return (
         <div className="homeTripadvisor">
             <h2 className="homeTripadvisor__title" data-aos="fade-up">
