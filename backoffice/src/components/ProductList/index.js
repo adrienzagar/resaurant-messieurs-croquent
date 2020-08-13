@@ -10,6 +10,7 @@ const ProductList = ({ products, getProduct, categories, getCategories }) => {
     useEffect(() => { 
         getProduct();
         getCategories();
+        document.title = "Messieurs Croquent || Back Office - Produits";
      }, []);
     return (
         <main className="product">
