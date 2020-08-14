@@ -24,6 +24,9 @@ const Footer = ({ socialnetworks }) => (
                         </li>
                     ))}
                 </ul>
+                <div className="footer__copyright">
+                    <p className="footer__infos">© Tous droits réservés - Messieurs Croquent</p>
+                </div>
             </div>
     </footer>
 );
