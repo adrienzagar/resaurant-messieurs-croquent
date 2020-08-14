@@ -1,9 +1,10 @@
 //! == Import : local (actions)
-import { SAVE_COMMAND } from '../actions/command';
+import { SAVE_COMMAND, CHANGE_STATUS, SAVE_ID } from '../actions/command';
 
 //! == Initial state
 export const initialState = {
     listCommand: [],
+    idCommand: null,
 }
 
 //! == Actions to modified state
@@ -14,6 +15,11 @@ const product = (state = initialState, action = {}) => {
             ...state,
             listCommand: action.command,
         };
+        case SAVE_ID:
+            return {
+                ...state,
+                idCommand: action.id,
+            }
         default:
             return state;
     }

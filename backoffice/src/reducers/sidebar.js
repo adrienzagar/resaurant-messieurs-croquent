@@ -21,6 +21,12 @@ export const initialState = {
             path: `${process.env.PUBLIC_URL}/commandes`,
             icon:'fas fa-shopping-cart',
          },
+         {
+            id: 4,
+            name: 'Archives',
+            path: `${process.env.PUBLIC_URL}/archives`,
+            icon: 'fas fa-archive',
+         },
     ],
 };
 
