@@ -40,8 +40,6 @@ const Command = ({ getCommand, commands, changeStatus, saveId }) => {
                                 className="command__archivate"
                                 onClick={(event) => {(handleArchivate(command)); handleChangeClass(event);}}
                             >
-
-{/* <link href="#" onClick={(event) => { func1(event); func2();}}>Trigger here</link> */}
                                 <i className="fas fa-archive"></i>
                                 Archiver
                             </button>
