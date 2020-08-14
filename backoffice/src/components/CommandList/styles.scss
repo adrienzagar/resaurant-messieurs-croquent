@@ -22,6 +22,7 @@
         border: 1px dashed vars.$color-background;
         padding: 2rem;
         margin-bottom: 2rem;
+        position: relative;
         &--none {
             display: none;
         }
@@ -56,7 +57,30 @@
         font-weight: bold;
         font-size: 1.3rem;
     }
+    &__price {
+        margin-bottom: 3rem;
+    }
     &__archivate {
-
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translateX(-50%);
+        padding: .7rem 2rem;
+        font-size: 1.3rem;
+        font-weight: bold;
+        background: vars.$color-background;
+        color: vars.$color-light;
+        border: none;
+        border: solid 1px transparent;
+        border-radius: .5rem;
+        transition: .3s ease;
+        & .fas {
+            margin-right: 1rem;
+        }
+        &:hover {
+            background: transparent;
+            color: vars.$color-background;
+            border: solid 1px vars.$color-background;
+        }
     }
 }
