@@ -21,6 +21,7 @@ class Order
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      * @Groups({"order_get" , "order_get_one"})
+     * @OrderBy({"id" = "DESC"})
      */
     private $id;
 
