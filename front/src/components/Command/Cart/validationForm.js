@@ -14,20 +14,22 @@ const onSubmit = values => {
     alert(JSON.stringify(values))
 }
 const requiredFirstName = value => {
+    // const nameRegex = /[^0-9]/
     if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
-    if (!value || value.length < 2 ) { // firstname should have at least two characters
-        return 'Votre prénom doit comporter au moins 2 lettres'
+    if (!value || !isNaN(value)) {
+        return 'Prénom incorrect'
     }
     return undefined;
 }
 const requiredLastname = value => {
+    // const nameRegex = /[^0-9]/
     if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
-    if (!value || value.length < 2 ) { // lastname should have at least two characters
-        return 'Votre nom doit comporter au moins 2 lettres'
+    if (!value || !isNaN(value)) {
+        return 'Prénom incorrect'
     }
     return undefined;
 }
