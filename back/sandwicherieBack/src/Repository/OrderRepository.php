@@ -23,8 +23,14 @@ class OrderRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Order::class);
     }
-
-
+    public function findOrderSortedById($order = 'DESC')
+    {
+        return $this->createQueryBuilder('o')
+            ->orderBy('o.id', $order)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     public function attachOrder(Order $order)
     {
         $productRepository = $this->getEntityManager()->getRepository(Product::class);

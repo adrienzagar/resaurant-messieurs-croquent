@@ -20,7 +20,7 @@ class OrderApiController extends AbstractController
      */
     public function getAll(OrderRepository $orderRepository)
     {
-        $order = $orderRepository->findAll();
+        $order = $orderRepository->findOrderSortedById();
 
 
         return  $this->json($order, 200, [], ["groups" => "order_get"]);
