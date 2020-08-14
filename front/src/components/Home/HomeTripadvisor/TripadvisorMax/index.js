@@ -22,11 +22,7 @@ const TripadvisorMax = () => {
                 </ul>
             </div>
             <Helmet>
-                <script 
-                    async 
-                    src="https://www.tripadvisor.fr/wejs?wtype=selfserveprop&amp;uniq=941&amp;locationId=12474378&amp;lang=fr&amp;rating=true&amp;nreviews=3&amp;writereviewlink=true&amp;popIdx=false&amp;iswide=true&amp;border=true&amp;display_version=2"
-                    data-loadtrk
-                    onLoad="https://www.tripadvisor.fr/wejs?wtype=selfserveprop&amp;uniq=941&amp;locationId=12474378&amp;lang=fr&amp;rating=true&amp;nreviews=3&amp;writereviewlink=true&amp;popIdx=false&amp;iswide=true&amp;border=true&amp;display_version=2"
+                <script async src="https://www.tripadvisor.fr/wejs?wtype=selfserveprop&amp;uniq=941&amp;locationId=12474378&amp;lang=fr&amp;rating=true&amp;nreviews=3&amp;writereviewlink=true&amp;popIdx=false&amp;iswide=true&amp;border=true&amp;display_version=2" data-loadtrk onLoad="https://www.tripadvisor.fr/wejs?wtype=selfserveprop&amp;uniq=941&amp;locationId=12474378&amp;lang=fr&amp;rating=true&amp;nreviews=3&amp;writereviewlink=true&amp;popIdx=false&amp;iswide=true&amp;border=true&amp;display_version=2"
                 >
                 </script>
             </Helmet>

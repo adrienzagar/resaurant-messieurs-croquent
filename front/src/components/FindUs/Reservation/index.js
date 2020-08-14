@@ -12,8 +12,7 @@ const Reservation = () => {
     return (
         <div className="reservation" data-aos="fade-up">
             <h2 className="reservation__title">UN ÉVÊNEMENT À ORGANISER ?</h2> 
-            <h2 className="reservation__title">PRIVATISER LE RESTAURANT ?</h2>
-            <p className="reservation__text">Contactez nous via mail à l'adresse notée ci-dessus et racontez-nous votre projet</p>
+            <p className="reservation__text">Contactez nous par email à l'adresse notée ci-dessus et parlez nous de votre projet</p>
         </div>
     );
 };
