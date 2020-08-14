@@ -11,6 +11,9 @@ const Command = ({ getCommand, commands, changeStatus, saveId }) => {
         saveId(command.id);
         changeStatus();
     }
+    const handleChangeClass = (evt) => {
+        evt.currentTarget.parentNode.classList.add('command__container--none');
+    }
     return (
         <div className="command">
             {commands.map((command) => {
@@ -35,9 +38,11 @@ const Command = ({ getCommand, commands, changeStatus, saveId }) => {
                             <p className="command__price">{command.price} &euro;</p>
                             <button 
                                 className="command__archivate"
-                                onClick={() => (handleArchivate(command))}
+                                onClick={(event) => {(handleArchivate(command)); handleChangeClass(event);}}
                             >
-                                <i class="fas fa-archive"></i>
+
+{/* <link href="#" onClick={(event) => { func1(event); func2();}}>Trigger here</link> */}
+                                <i className="fas fa-archive"></i>
                                 Archiver
                             </button>
                         </div>
