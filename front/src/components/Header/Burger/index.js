@@ -1,6 +1,7 @@
 //! == Import : npm ==
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { HamburgerSpin } from 'react-animated-burgers';
 
@@ -10,11 +11,13 @@ import './styles.scss';
 
 //! == Composant ==
 const Burger = ({ links, socialnetworks ,isActive, toggleButton }) => {
+    const history = useHistory();
     return (
         <>
             <nav className="burger">
                 <NavLink
                     to="/"
+                    onClick={() => {history.push('/'); window.location.reload();}}
                     exact
                 >
                     <img className="burger__brand" src={brand} alt="brand"/>
@@ -34,7 +37,7 @@ const Burger = ({ links, socialnetworks ,isActive, toggleButton }) => {
                         to={link.path}
                         className="burger__link"
                         activeClassName="burger__link--selected"
-                        onClick={toggleButton}
+                        onClick={link.path === '/' ? () => {toggleButton(); history.push('/'); window.location.reload();} : toggleButton}
                         exact
                     >
                         <span className="navbar__link--a">{link.name}</span>

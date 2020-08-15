@@ -6,7 +6,7 @@ import Input from './input'
 //! == Import : local ==
 import './styles.scss';
 
-
+//! == Condition Required Form ==
 const renderInput = ({ input, meta, placeholder, type }) => ( //Display <Input /> component that have props7c
     <Input {...input}  placeholder={placeholder} type={type} errorMessage={meta.touched && meta.error} />
 )
@@ -19,7 +19,7 @@ const requiredFirstName = value => {
         return 'Ce champ est requis';
     }
     if (!value || !isNaN(value)) {
-        return 'Prénom incorrect'
+        return 'Le prénom est incorrect'
     }
     return undefined;
 }
@@ -29,7 +29,7 @@ const requiredLastname = value => {
         return 'Ce champ est requis';
     }
     if (!value || !isNaN(value)) {
-        return 'Prénom incorrect'
+        return 'Le nom est incorrect'
     }
     return undefined;
 }
