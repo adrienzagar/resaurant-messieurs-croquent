@@ -1,6 +1,7 @@
 //! == Import : npm ==
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 //! == Import : local ==
@@ -9,10 +10,12 @@ import './styles.scss';
 
 //! == Composant ==
 const Navbar = ({ links, socialnetworks }) => {
+    const history = useHistory();
     return (
         <nav className="navbar">
             <NavLink
                 to="/"
+                onClick={() => {history.push('/'); window.location.reload();}}
                 exact
             >
                 <img className="navbar__brand" src={brand} alt="brand"/>
@@ -24,6 +27,7 @@ const Navbar = ({ links, socialnetworks }) => {
                     to={link.path}
                     className="navbar__link"
                     activeClassName="navbar__link--selected"
+                    onClick={link.path === '/' ? () => {history.push('/'); window.location.reload();} : null}
                     exact
                     >
                         <span className="navbar__link--a">{link.name}</span>
