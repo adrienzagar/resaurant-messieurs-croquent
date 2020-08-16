@@ -12,7 +12,7 @@ const Legal = () => (
         <p>Responsable éditorial : Johan Durou</p>
         <p>25 Cour Pasteur 33 000 Bordeaux</p>
         <p>Téléphone : 05 57 30 91 39</p>
-        <p>Email : contact@anthedesign.fr</p>
+        <p>Email : messieurscroquent@gmail.com</p>
         <p>Site Web : <a href="#">www.messieurscroquent.fr</a></p>
       <h1 className="legal__title">Hébergement : </h1>
       <p>Hébergeur : SARL MESSIEURSCROQUENT </p>
