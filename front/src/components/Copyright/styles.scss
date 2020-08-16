@@ -1,0 +1,23 @@
+.container {
+    margin: 1.5rem;
+    border: #0E0E0E 2px solid;
+    background: #0E0E0E;
+    display: flex;
+    width: 50%;
+    margin-left: 25%;
+    &__image {
+        border-radius: 50%;
+        width: 18%;
+    }
+    &__content {
+        color: #fff;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+// img {
+//     border-radius: 50%;
+// }

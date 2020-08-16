@@ -1,9 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-const Footer = ({ socialnetworks }) => (
+const Footer = ({ socialnetworks, links }) => (
     <footer className="footer">
             <div className="footer__container">
                 <div className="footer__schedule">
@@ -25,7 +26,16 @@ const Footer = ({ socialnetworks }) => (
                     ))}
                 </ul>
                 <div className="footer__copyright">
-                    <p className="footer__infos">© Tous droits réservés - Messieurs Croquent</p>
+                    {links.map((link) => 
+                    <NavLink
+                        key={link.id}
+                        to={link.path}
+                        exact
+                    >
+                        <p className="footer__infos">{link.name}</p>
+                    </NavLink>
+                    )}
+
                 </div>
             </div>
     </footer>
