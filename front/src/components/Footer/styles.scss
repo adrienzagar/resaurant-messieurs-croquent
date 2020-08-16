@@ -26,7 +26,11 @@
         text-align: center;
     }
     &__copyright {
-        margin-top: 1.8rem;
+        margin-top: 1rem;
+        & p {
+            text-align: center;
+            margin: 1rem;
+        }
     }
     &__socialnetworks {
         display: flex;
