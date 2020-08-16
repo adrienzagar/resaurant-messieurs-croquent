@@ -34,7 +34,7 @@ const Footer = ({ socialnetworks, links }) => (
                         to={link.path}
                         exact
                     >
-                        <p className="footer__infos">{link.name}</p>
+                        <p className="footer__infos"> {link.name}</p>
                     </NavLink>
                     )}
 

@@ -2,11 +2,12 @@
 import socialnetworks from '../assets/data/socialnetworks';
 
 //! == Initial state
+let y = new Date();
 export const initialState = {
     links: [
         {
            id: 1,
-           name: 'Copyright 2020 © - Messieurs Croquent',
+           name: ` © ${y.getFullYear()} - Messieurs Croquent - Tous droits réservés`,
            path: '/copyright'
         },
         {
