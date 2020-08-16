@@ -1,7 +1,9 @@
+//! == Import : npm ==
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+//! == Import : local ==
 import './styles.scss';
 
 const Footer = ({ socialnetworks, links }) => (
@@ -32,7 +34,7 @@ const Footer = ({ socialnetworks, links }) => (
                         to={link.path}
                         exact
                     >
-                        <p className="footer__infos">{link.name}</p>
+                        <p className="footer__infos"> {link.name}</p>
                     </NavLink>
                     )}
 
@@ -50,4 +52,6 @@ Footer.propTypes = {
         }).isRequired
     ).isRequired
 }
+
+//! == Export ==
 export default Footer;

@@ -1,7 +1,7 @@
 //! == Import : npm ==
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom'
-import { returnTotalPrice } from '../../selectors/index'
+import { useHistory } from 'react-router-dom';
+import { returnTotalPrice } from '../../selectors/index';
 
 //! == Import : local ==
 import './styles.scss';

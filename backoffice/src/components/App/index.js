@@ -7,9 +7,10 @@ import './styles.scss';
 import Login from '../../containers/Login';
 import Header from '../../containers/Header';
 import Sidebar from '../../containers/Sidebar';
+import Home from '../../containers/Home'
 import ProductList from '../../containers/ProductList';
 import CommandList from '../../containers/CommandList';
-import Home from '../../containers/Home'
+import ArchiveList from '../../containers/ArchiveList';
 
 //! == Composant ==
 const App = ({ isLogged, checkIsLogged }) => {
@@ -25,10 +26,10 @@ const App = ({ isLogged, checkIsLogged }) => {
           <Sidebar />
           <Switch />
              <Route exact path="/backoffice" component={Home} />
-             <Route exact path={`${process.env.PUBLIC_URL}/commandes`} component={CommandList} />
              <Route exact path={`${process.env.PUBLIC_URL}/produits`} component={ProductList} />
+             <Route exact path={`${process.env.PUBLIC_URL}/commandes`} component={CommandList} />
+             <Route exact path={`${process.env.PUBLIC_URL}/archives`} component={ArchiveList} />
           <Switch />
-          {/* <Route exact path="/commandes" component={CommandList} /> */}
         </>
       )}
     </div>
