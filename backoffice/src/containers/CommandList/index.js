@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //! == Import : local (actions)
 import CommandList from '../../components/CommandList';
-import { getCommand } from '../../actions/command';
+import { getCommand, changeStatus, saveId } from '../../actions/command';
 
 
 const mapStateToProps = (state, ownprops) => ({
@@ -12,6 +12,8 @@ const mapStateToProps = (state, ownprops) => ({
 
 const mapDispatchToProps = (dispatch, ownprops) => ({
     getCommand: () => dispatch(getCommand()),
+    changeStatus: () => dispatch(changeStatus()),
+    saveId: (id) => dispatch(saveId(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommandList);

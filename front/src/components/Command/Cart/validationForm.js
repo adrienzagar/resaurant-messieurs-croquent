@@ -6,7 +6,7 @@ import Input from './input'
 //! == Import : local ==
 import './styles.scss';
 
-
+//! == Condition Required Form ==
 const renderInput = ({ input, meta, placeholder, type }) => ( //Display <Input /> component that have props7c
     <Input {...input}  placeholder={placeholder} type={type} errorMessage={meta.touched && meta.error} />
 )
@@ -14,20 +14,22 @@ const onSubmit = values => {
     alert(JSON.stringify(values))
 }
 const requiredFirstName = value => {
+    // const nameRegex = /[^0-9]/
     if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
-    if (!value || value.length < 2 ) { // firstname should have at least two characters
-        return 'Votre prénom doit comporter au moins 2 lettres'
+    if (!value || !isNaN(value)) {
+        return 'Le prénom est incorrect'
     }
     return undefined;
 }
 const requiredLastname = value => {
+    // const nameRegex = /[^0-9]/
     if (!value || value ==='') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
-    if (!value || value.length < 2 ) { // lastname should have at least two characters
-        return 'Votre nom doit comporter au moins 2 lettres'
+    if (!value || !isNaN(value)) {
+        return 'Le nom est incorrect'
     }
     return undefined;
 }

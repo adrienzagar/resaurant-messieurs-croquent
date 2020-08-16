@@ -3,10 +3,10 @@
 
 .presentation {
     @include m767 () {
-        margin: 4rem auto;
+        margin: 7rem auto 3rem auto;
     }
     max-width: 800px;
-    margin-top: 3rem;
+    margin-top: 6rem;
     margin-bottom: 3rem;
     padding: 0 2rem;
     &__title {

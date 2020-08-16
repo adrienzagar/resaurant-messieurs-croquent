@@ -15,6 +15,7 @@
     justify-content: center ;
     &__title {
         text-align: center;
+        font-size: 2.5rem;
     }
     &__text {
         text-align: center;
@@ -24,32 +25,20 @@
         text-align: center;
     }
     &__button {
-        @include m767 {
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: .6rem 1.5rem;
-            border: none;
-            border-radius: .5rem;
-            color: vars.$color-light;
-            background: vars.$color-background;
-            & .fas {
-                margin-right: .5rem;
-            }
-            &:hover {
-                background: vars.$color-success-hover        }
-        }
-        font-size: 1.1rem;
         font-weight: bold;
         margin: 1.5rem;
-        padding: 1.2rem;
+        padding: .7rem 2rem;
+        font-size: 1.3rem;
         border: none;
         border-radius: .5rem;
         color: vars.$color-light;
         background: vars.$color-background;
+        transition: .3s ease;
         & .fas {
-            margin-right: .5rem;
+            margin-right: 1rem;
         }
         &:hover {
-            background: vars.$color-success-hover        }
+            background: vars.$color-primary-hover;
+        }
     }
 }
