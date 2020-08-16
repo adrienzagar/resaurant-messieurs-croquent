@@ -2,7 +2,20 @@
 import socialnetworks from '../assets/data/socialnetworks';
 
 //! == Initial state
+let y = new Date();
 export const initialState = {
+    links: [
+        {
+           id: 1,
+           name: ` © ${y.getFullYear()} - Messieurs Croquent - Tous droits réservés`,
+           path: '/copyright'
+        },
+        {
+            id: 2,
+            name: 'Mentions légales',
+            path: '/mentions-legales'
+         },
+    ],
     socialnetworks: socialnetworks,
     };
 
