@@ -26,7 +26,7 @@ const Copyright = () => (
             <p className="container__content">Lead Developer Front-End et Intégrateur </p>
         </div>
         <div className="container">
-            <img src="https://ca.slack-edge.com/TTY8DUCTZ-UUFGF1V63-448f14023c26-512" alt="" className="container__image"/>
+            <img src="https://ca.slack-edge.com/TBGQ2SW6T-UUK236ZJA-4bae652bc792-192" alt="" className="container__image"/>
             <h1 className="container__content">Adrien</h1>
             <p className="container__content">Developer Front-End et Scrum Master</p>
         </div>
