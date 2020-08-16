@@ -1,24 +1,54 @@
-.container {
-    margin: 1.5rem;
-    border: #0E0E0E 2px solid;
-    background: #0E0E0E;
-    display: flex;
-    width: 50%;
-    margin-left: 25%;
-    box-shadow: 0 0 10px 3px #0E0E0E;
-    &__image {
-        border-radius: 50%;
-        width: 18%;
+@use '../../styles/vars';
+@import '../../styles/vars';
+
+.card {
+    @include m767 () {
+        padding : 3rem 6rem;
+        justify-content: space-between;
+        flex-direction: row;
     }
-    &__content {
-        color: #fff;
-        width: 100%;
-        align-items: center;
-        display: flex;
-        justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 60vh;
+    text-align: center;
+    padding : 3rem 2rem;
+    &__picture {
+        max-width: 100%;
+        border-radius: 50%;
+    }
+    &__name {
+        font-size: 2rem;
+        text-align: center;
+        color: vars.$color-secondary;
+        margin-top: 1rem;
+    }
+    &__post {
+        font-size: 2rem;
+        text-align: center;
+        color: vars.$color-secondary;
     }
 }
 
-// img {
-//     border-radius: 50%;
-// }
+.flippy {
+    &-container {
+        @include m767 () {
+            margin-bottom: 0;
+        }
+        width: 200px;
+        height: 300px;
+        margin-bottom: 2rem;
+    }
+    &-front {
+        background: vars.$color-primary !important;
+        border-radius: .5rem;
+        box-shadow: 0 4px 10px 2px vars.$color-primary !important;
+    }
+    &-back {
+        background: vars.$color-primary !important;
+        border-radius: .5rem;
+        box-shadow: 0 4px 10px 2px vars.$color-primary !important;
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,35 +1,20 @@
+//! == Import : npm ==
 import React from 'react';
-import PropTypes from 'prop-types';
 
+//! == Import : local ==
 import './styles.scss';
+import Card from './card.js';
 
+//! == Composant ==
 const Copyright = () => (
-    <div>
-        <div className="container">
-            <img src="https://ca.slack-edge.com/TTY8DUCTZ-UUVS83BM3-4dc5e39d9bc5-512" alt="" className="container__image"/>
-            <h1 className="container__content">Johan</h1>
-            <p className="container__content">Developer Back-End et Product Owner </p>
-        </div>
-        <div className="container">
-            <img src="https://ca.slack-edge.com/TTY8DUCTZ-U0151S58ZS9-7dce0850c70b-512" alt="" className="container__image"/>
-            <h1 className="container__content">Mohamed</h1>
-            <p className="container__content">Lead Developer Back-End </p>
-        </div>
-        <div className="container">
-            <img src="https://ca.slack-edge.com/TTY8DUCTZ-UUFG6K9RV-e5f6a25b4c5d-512" alt="" className="container__image"/>
-            <h1 className="container__content">Imed</h1>
-            <p className="container__content">Developer Front-End et Git Master</p>
-        </div>
-        <div className="container">
-            <img src="https://ca.slack-edge.com/TTY8DUCTZ-UUBMYJBL1-6cc5911edd1e-512" alt="" className="container__image"/>
-            <h1 className="container__content">Thomas</h1>
-            <p className="container__content">Lead Developer Front-End et Intégrateur </p>
-        </div>
-        <div className="container">
-            <img src="https://ca.slack-edge.com/TTY8DUCTZ-UUFGF1V63-448f14023c26-512" alt="" className="container__image"/>
-            <h1 className="container__content">Adrien</h1>
-            <p className="container__content">Developer Front-End et Scrum Master</p>
-        </div>
+    <div className="card">
+        <Card picture="https://ca.slack-edge.com/TTY8DUCTZ-UUVS83BM3-4dc5e39d9bc5-512" name="Johan" post="Product Owner & Developer Back-End" />
+        <Card picture="https://ca.slack-edge.com/TTY8DUCTZ-U0151S58ZS9-7dce0850c70b-512" name="Mohamed" post="Lead Developer Back-End" />
+        <Card picture="https://ca.slack-edge.com/TTY8DUCTZ-UUFG6K9RV-e5f6a25b4c5d-512" name="Imed" post="Git Master & Developer Front-End" />
+        <Card picture="https://ca.slack-edge.com/TTY8DUCTZ-UUBMYJBL1-6cc5911edd1e-512" name="Thomas" post="Lead Developer Front-End & Integrator" />
+        <Card picture="https://ca.slack-edge.com/TTY8DUCTZ-UUFGF1V63-448f14023c26-512" name="Adrien" post="Scrum Master & Developer Front-End" />
     </div>
 );
+
+//! == Export ==
 export default Copyright;
