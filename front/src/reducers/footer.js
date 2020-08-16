@@ -6,15 +6,15 @@ let y = new Date();
 export const initialState = {
     links: [
         {
-           id: 1,
-           name: ` © ${y.getFullYear()} - Messieurs Croquent - Tous droits réservés`,
-           path: '/copyright'
-        },
-        {
-            id: 2,
+            id: 1,
             name: 'Mentions légales',
             path: '/mentions-legales'
          },
+        {
+           id: 2,
+           name: ` © ${y.getFullYear()} - Messieurs Croquent - Tous droits réservés`,
+           path: '/copyright'
+        },
     ],
     socialnetworks: socialnetworks,
     };
