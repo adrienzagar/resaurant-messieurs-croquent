@@ -24,7 +24,7 @@
 ![OrderPage3] (/pictures/OrderPage3.png)
 
 ### FindUs
-![FindUs] (/pictures/)
+![FindUs] (/pictures/FindUs.png)
 
 
 
