@@ -8,23 +8,24 @@
 
  ## WebsSite pages : 
 
- ### Home Page : 
+ ## Home Page : 
 
-![homepage] (/pictures/Homepage.png)
+![homepage](Homepage.png)
 
-![homepage] (/pictures/homepage.png)
+![homepage2](homepage2.png)
 
- ### Menu : 
-![PageMenu] (/pictures/PageMenu.png)
-![PageMenu2] (/pictures/PageMenu2.png)
+ ## Menu : 
 
-### OrderPage
-![OrderPage] (/pictures/OrderPage.png) 
-![OrderPage2] (/pictures/OrderPage2.png)
-![OrderPage3] (/pictures/OrderPage3.png)
+![PageMenu](PageMenu.png)
+![PageMenu2](PageMenu2.png)
 
-### FindUs
-![FindUs] (/pictures/FindUs.png)
+## OrderPage :
+![OrderPage](OrderPage.png) 
+![OrderPage2](OrderPage2.png)
+![OrderPage3](OrderPage3.png)
+
+## FindUs :
+![FindUs](FindUs.png)
 
 
 
