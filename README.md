@@ -9,7 +9,7 @@
  
 ## Technos : 
  * Frontend : React/Redux
- * Backend : Symfony
+ * Backend : API with Symfony
 
  ## WebsSite pages : 
 
