@@ -105,7 +105,7 @@ INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`, `categor
 (8,	'Salade',	NULL,	'https://images.pexels.com/photos/9350/salad-restaurant-tomatoes-kitchen.jpg?cs=srgb&dl=pexels-skitterphoto-9350.jpg&fm=jpg',	3,	2),
 (9,	'Légumes',	NULL,	'https://images.pexels.com/photos/3985872/pexels-photo-3985872.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',	3,	2),
 (10,	'Coleslaw',	NULL,	'https://st.depositphotos.com/2938133/4171/i/950/depositphotos_41712745-stock-photo-coleslaw-in-a-bowl-on.jpg',	3,	2),
-(11,	'Madame Tarte',	'Tarte du jour',	'https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/23559869_1858601737784719_2189068685493830084_n.jpg?_nc_cat=103&_nc_sid=9267fe&_nc_ohc=E3NKdUcebJMAX-dvWIW&_nc_ht=scontent-cdt1-1.xx&oh=792f808950b8970d10351ff48f493075&oe=5F5B3628',	4,	3),
+(11,	'Madame Tarte',	'Tarte du jour',	'https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',	4,	3),
 (12,	'Fromage Blanc',	'Coulis: fraise, poire, miel,\r\ncrème de marrons',	'https://images.pexels.com/photos/4006362/pexels-photo-4006362.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',	4,	3),
 (13,	'Coca Cola',	'33 cl.',	'https://images.pexels.com/photos/39720/pexels-photo-39720.jpeg?cs=srgb&dl=pexels-donald-tong-39720.jpg&fm=jpg',	2,	4),
 (14,	'Coca Cola light',	'33 cl.',	'https://images.pexels.com/photos/39720/pexels-photo-39720.jpeg?cs=srgb&dl=pexels-donald-tong-39720.jpg&fm=jpg',	2,	4),
