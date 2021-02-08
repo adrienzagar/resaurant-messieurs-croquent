@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 import './styles.scss';
 
 //! == Composant ==
-const Presentation = ({ text, image}) => {
+const Presentation = ({ text, image }) => {
     AOS.init();
     return (
         <div className="presentation">
