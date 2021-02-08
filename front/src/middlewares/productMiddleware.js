@@ -4,11 +4,13 @@ import axios from 'axios';
 //! == Import : local (actions)
 import { GET_PRODUCT, saveProduct } from '../actions/product';
 
+
+
 //! == Utils Axios for recupered JSON via API
 const productMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_PRODUCT: // Save products coming from API to the state
-      axios.get('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/products')
+      axios.get(`${process.env.REACT_APP_BASE_URL}/products`)
         .then((response) => {
           store.dispatch(saveProduct(response.data));
         })

@@ -32,7 +32,7 @@ const sendOrderMiddleware = (store) => (next) => (action) => {
             // Convert totalPrice to integer
             const price = parseInt(totalPrice);
 
-            axios.post('http://ec2-54-160-78-162.compute-1.amazonaws.com/api/api/order', {
+            axios.post(`${process.env.REACT_APP_BASE_URL}/order`, {
                 comment,
                 price,
                 orderLines,
