@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/backoffice/static/css/main.73180694.chunk.css",
-    "main.js": "/backoffice/static/js/main.9e49326e.chunk.js",
-    "main.js.map": "/backoffice/static/js/main.9e49326e.chunk.js.map",
+    "main.js": "/backoffice/static/js/main.047bb08a.chunk.js",
+    "main.js.map": "/backoffice/static/js/main.047bb08a.chunk.js.map",
     "runtime-main.js": "/backoffice/static/js/runtime-main.b12a0089.js",
     "runtime-main.js.map": "/backoffice/static/js/runtime-main.b12a0089.js.map",
     "static/css/2.1e622c3f.chunk.css": "/backoffice/static/css/2.1e622c3f.chunk.css",
     "static/js/2.aad99c39.chunk.js": "/backoffice/static/js/2.aad99c39.chunk.js",
     "static/js/2.aad99c39.chunk.js.map": "/backoffice/static/js/2.aad99c39.chunk.js.map",
     "index.html": "/backoffice/index.html",
-    "precache-manifest.9b22349b1c992260d084f98bad46159c.js": "/backoffice/precache-manifest.9b22349b1c992260d084f98bad46159c.js",
+    "precache-manifest.12aedf58709f08720f0e61357b4bbc0b.js": "/backoffice/precache-manifest.12aedf58709f08720f0e61357b4bbc0b.js",
     "service-worker.js": "/backoffice/service-worker.js",
     "static/css/2.1e622c3f.chunk.css.map": "/backoffice/static/css/2.1e622c3f.chunk.css.map",
     "static/css/main.73180694.chunk.css.map": "/backoffice/static/css/main.73180694.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.1e622c3f.chunk.css",
     "static/js/2.aad99c39.chunk.js",
     "static/css/main.73180694.chunk.css",
-    "static/js/main.9e49326e.chunk.js"
+    "static/js/main.047bb08a.chunk.js"
   ]
 }
