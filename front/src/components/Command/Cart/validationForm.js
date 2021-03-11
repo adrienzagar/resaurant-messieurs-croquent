@@ -1,13 +1,15 @@
 //! == Import : npm ==
 import React from 'react';
 import { reduxForm, Field } from 'redux-form'
+import { useHistory } from "react-router-dom";
+
 import Input from './input'
 
 //! == Import : local ==
 import './styles.scss';
 
 //! == Condition Required Form ==
-const renderInput = ({ input, meta, placeholder, type }) => ( //Display <Input /> component that have props7c
+const renderInput = ({ input, meta, placeholder, type }) => ( //Display <Input /> component that have props
     <Input {...input}  placeholder={placeholder} type={type} errorMessage={meta.touched && meta.error} />
 )
 const onSubmit = values => { 
@@ -34,7 +36,7 @@ const requiredLastname = value => {
     return undefined;
 }
 const requiredPhoneNumber = value => {
-    const phoneNumberRegex = /^[0][0-9]{9}$/ // Regex thath accept only ten number format and first character must be equal to 0
+    const phoneNumberRegex = /^[0][0-9]{9}$/ // Regex that accept only ten number format and first character must be equal to 0
     if (!value || value === '') { //Field should not be empty, otherwise send message error
         return 'Ce champ est requis';
     }
@@ -56,75 +58,85 @@ const requiredEmail = value => {
 }
 
 //! == Composant ==
-const ValidationForm = ({ handleSumbit, valid }) => (
-    <form className="form" onSubmit={handleSumbit} action="">
-        <div className="form__container">
-            <i class="fas fa-user"></i>
-            <span className="form__required">*</span>
-            <div className="form__column">
-                <Field
-                name="lastname"
-                placeholder="Nom"
-                type="text"
-                component={renderInput}
-                validate={requiredLastname}
-                />
+const ValidationForm = ({ valid, sendOrder }) => {
+  const history = useHistory();
+
+    console.log(sendOrder, 'ORDERED')
+    const handleSubmiting = (event) => {
+    event.preventDefault();
+      history.push("/validation")
+      sendOrder();
+    }
+    return (
+        <form className="form" onSubmit={handleSubmiting} action="">
+            <div className="form__container">
+                <i class="fas fa-user"></i>
+                <span className="form__required">*</span>
+                <div className="form__column">
+                    <Field
+                        name="lastname"
+                        placeholder="Nom"
+                        type="text"
+                        component={renderInput}
+                        validate={requiredLastname}
+                    />
+                </div>
             </div>
-        </div>
-        <div className="form__container">
-            <i class="fas fa-user"></i>
-            <span className="form__required">*</span>
-            <div className="form__column">
-                <Field
-                    placeholder="Prénom"
-                    name="firstname"
-                    type="text"
-                    component={renderInput}
-                    validate={requiredFirstName}
-                />
+            <div className="form__container">
+                <i class="fas fa-user"></i>
+                <span className="form__required">*</span>
+                <div className="form__column">
+                    <Field
+                        placeholder="Prénom"
+                        name="firstname"
+                        type="text"
+                        component={renderInput}
+                        validate={requiredFirstName}
+                    />
+                </div>
             </div>
-        </div>
-        <div className="form__container">
-            <i className="fa fa-envelope" aria-hidden="true"></i>
-            <span className="form__required">*</span>
-            <div className="form__column">
-                <Field
-                    placeholder="Adresse email"
-                    name="email"
-                    type="email"
-                    component={renderInput}
-                    validate={requiredEmail}
-                />
+            <div className="form__container">
+                <i className="fa fa-envelope" aria-hidden="true"></i>
+                <span className="form__required">*</span>
+                <div className="form__column">
+                    <Field
+                        placeholder="Adresse email"
+                        name="email"
+                        type="email"
+                        component={renderInput}
+                        validate={requiredEmail}
+                    />
+                </div>
             </div>
-        </div>
-        <div className="form__container">
-            <i className="fas fa-phone-alt"></i>
-            <span className="form__required">*</span>
-            <div className="form__column">
-                <Field
-                    placeholder="Téléphone"
-                    name="phone_number"
-                    type="tel"
-                    component={renderInput}
-                    validate={requiredPhoneNumber}
-                />
+            <div className="form__container">
+                <i className="fas fa-phone-alt"></i>
+                <span className="form__required">*</span>
+                <div className="form__column">
+                    <Field
+                        placeholder="Téléphone"
+                        name="phone_number"
+                        type="tel"
+                        component={renderInput}
+                        validate={requiredPhoneNumber}
+                    />
+                </div>
             </div>
-        </div>
-        <div className="form__container">
-            <i class="fas fa-comment"></i>
-            <div className="form__column">
-                <Field
-                    placeholder="Commentaire"
-                    name="comment"
-                    type="text"
-                    component={renderInput}
-                />
+            <div className="form__container">
+                <i class="fas fa-comment"></i>
+                <div className="form__column">
+                    <Field
+                        placeholder="Commentaire"
+                        name="comment"
+                        type="text"
+                        component={renderInput}
+                    />
+                </div>
             </div>
-        </div>
-        <p className="form__text">* Les champs sont obligatoires</p>
-        <button disabled={!valid} className="form__submit"  type="submit">Valider votre commande</button>
-    </form>
-);
+            <p className="form__text">* Les champs sont obligatoires</p>
+            <button disabled={!valid} className="form__submit" type="submit">Valider votre commande</button>
+        </form>
+    );
+}
 
 //! == Export ==
 export default reduxForm({ form: 'ValidationForm', onSubmit })(ValidationForm);
