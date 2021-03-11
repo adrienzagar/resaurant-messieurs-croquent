@@ -61,11 +61,10 @@ const requiredEmail = value => {
 const ValidationForm = ({ valid, sendOrder }) => {
   const history = useHistory();
 
-    console.log(sendOrder, 'ORDERED')
     const handleSubmiting = (event) => {
-    event.preventDefault();
-      history.push("/validation")
-      sendOrder();
+        event.preventDefault();
+        history.push("/validation")
+        sendOrder();
     }
     return (
         <form className="form" onSubmit={handleSubmiting} action="">

@@ -8,7 +8,7 @@ import { GET_CATEGORIES, saveCategories } from '../actions/categories';
 const categoriesMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case GET_CATEGORIES:
-      axios.get(`http://ec2-3-92-227-99.compute-1.amazonaws.com/api/api/categories`)
+      axios.get(`${process.env.REACT_APP_BASE_URL}/api/api/categories`)
         .then((response) => {
           // console.log(response.data);
           store.dispatch(saveCategories(response.data));
